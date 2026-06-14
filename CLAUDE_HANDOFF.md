@@ -12,7 +12,7 @@
 - Static homepage draft is ready and pushed to GitHub.
 - No build step is required.
 - Main branch: `main`
-- Latest pushed commit at handoff update: `63efaef Validate social metadata on pages`
+- Latest pushed commit at handoff update: `8833d12 Validate local page targets`
 - Local static validation passes with `node scripts/check-static-site.mjs`.
 - Ongoing development status is tracked in `DEVELOPMENT_STATUS.md`.
 
@@ -56,6 +56,7 @@ scripts/check-deployed-site.mjs
 - Contact form includes a hidden honeypot field, `aria-describedby` wiring, and `page_url` / `submitted_at` metadata.
 - Cloudflare `_headers` includes cache policies for CSS, favicon, social card, manifest, robots, and sitemap files.
 - `privacy.html` is intentionally `noindex` and excluded from `sitemap.xml`.
+- `scripts/check-static-site.mjs` verifies required files, metadata, JSON-LD, docs markers, and local `href` / `src` targets.
 - `scripts/check-deployed-site.mjs` verifies pages, response headers, missing-route 404 handling, sitemap noindex cleanup, and prints a pass summary.
 
 ## Next Steps

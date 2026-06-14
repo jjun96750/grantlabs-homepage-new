@@ -58,6 +58,7 @@ Last updated: 2026-06-15
 - Static validation now checks canonical and social sharing metadata on indexable pages.
 - Claude handoff memo refreshed with latest commit, smoke-test scope, sitemap note, and contact metadata.
 - Static validation now checks local `href` and `src` targets across HTML pages.
+- Claude handoff memo refreshed again with the latest pushed commit and local target validation scope.
 - No build step is required.
 
 ## Current Files
@@ -148,7 +149,7 @@ CHANGELOG.md
 - Indexable-page canonical/social metadata validation
 - Refreshed Claude handoff memo
 - Local link and asset target validation
-- Latest local static checks passed after Claude handoff refresh on 2026-06-15.
+- Latest local static checks passed after local target validation on 2026-06-15.
 
 ## Technical Notes
 
@@ -216,6 +217,7 @@ CHANGELOG.md
 - Added static validation for canonical, Open Graph, and Twitter metadata on indexable pages.
 - Refreshed `CLAUDE_HANDOFF.md` with current commit and deployment validation scope.
 - Added static validation for local `href` and `src` targets across HTML pages.
+- Refreshed `CLAUDE_HANDOFF.md` with the latest pushed commit and local target validation scope.
 
 ### 2026-06-14
 
