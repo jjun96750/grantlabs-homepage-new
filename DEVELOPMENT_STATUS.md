@@ -1,6 +1,6 @@
 # Development Status
 
-Last updated: 2026-06-14
+Last updated: 2026-06-15
 
 ## Project
 
@@ -33,6 +33,7 @@ Last updated: 2026-06-14
 - Service-fit table added to map visitor situations to recommended services.
 - Preconnect hints added for image and CDN resources.
 - Consultation promise section added before the contact form.
+- Local social sharing card added and connected to Open Graph/Twitter metadata.
 - No build step is required.
 
 ## Current Files
@@ -48,6 +49,7 @@ DEVELOPMENT_STATUS.md
 .gitignore
 .nojekyll
 favicon.svg
+social-card.svg
 site.webmanifest
 robots.txt
 sitemap.xml
@@ -96,7 +98,8 @@ CHANGELOG.md
 - Rollback plan
 - Changelog
 - Page-level canonical, Open Graph, Twitter card, and manifest links for subpages
-- Latest local static checks passed after page-meta updates on 2026-06-14.
+- Local Open Graph/Twitter social sharing image
+- Latest local static checks passed after social-card metadata updates on 2026-06-15.
 
 ## Technical Notes
 
@@ -106,6 +109,7 @@ CHANGELOG.md
   - Pretendard font CDN
   - Lucide icons CDN
   - Unsplash hero image
+  - Local `social-card.svg` for link previews
 - `favicon.svg` is an inline SVG asset committed to the repository.
 - Cloudflare Pages settings:
   - Framework preset: `None`
@@ -132,6 +136,12 @@ CHANGELOG.md
 9. Continue edits only in this repository.
 
 ## Change Log
+
+### 2026-06-15
+
+- Added `social-card.svg` as a repository-owned social sharing image.
+- Connected homepage, privacy page, and checklist page Open Graph/Twitter metadata to the local social card.
+- Extended the static validation script to require the social card and subpage image metadata.
 
 ### 2026-06-14
 

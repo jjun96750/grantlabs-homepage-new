@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Grant Labs social sharing card</title>
+  <desc id="desc">Grant Labs brand card for Open Graph and Twitter sharing.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f7faf8"/>
+      <stop offset="58%" stop-color="#e8f1ec"/>
+      <stop offset="100%" stop-color="#d8e7df"/>
+    </linearGradient>
+    <linearGradient id="mark" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#0f5b48"/>
+      <stop offset="100%" stop-color="#1f7a5e"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#143c33" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="70" y="70" width="1060" height="490" rx="36" fill="#ffffff" filter="url(#softShadow)"/>
+  <path d="M870 70h260v490H774c58-52 91-121 96-207 6-101-28-194 0-283Z" fill="#edf5f1"/>
+  <circle cx="970" cy="218" r="108" fill="#dfeee7"/>
+  <circle cx="1038" cy="366" r="142" fill="#cfe2d8"/>
+  <g transform="translate(112 108)">
+    <rect width="96" height="96" rx="28" fill="url(#mark)"/>
+    <text x="48" y="62" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="800" fill="#ffffff">GL</text>
+  </g>
+  <text x="232" y="150" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="800" fill="#173b33">Grant Labs</text>
+  <text x="232" y="188" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" letter-spacing="3" fill="#52736a">GROWTH FUNDING PARTNER</text>
+  <text x="112" y="286" font-family="Arial, Helvetica, sans-serif" font-size="56" font-weight="850" fill="#132f2a">Policy funding to</text>
+  <text x="112" y="352" font-family="Arial, Helvetica, sans-serif" font-size="56" font-weight="850" fill="#132f2a">execution roadmap</text>
+  <text x="112" y="422" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="600" fill="#526a64">Funding, certification, R&amp;D center, IP, incorporation, and support programs.</text>
+  <g transform="translate(112 484)">
+    <rect width="186" height="42" rx="21" fill="#edf5f1"/>
+    <text x="93" y="28" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#1f5d4b">grantlabs.co.kr</text>
+  </g>
+</svg>

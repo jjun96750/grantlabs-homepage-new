@@ -2,6 +2,12 @@
 
 All notable changes to the Grant Labs new homepage are documented here.
 
+## 2026-06-15
+
+- Added repository-owned `social-card.svg` for Open Graph and Twitter link previews.
+- Connected homepage, privacy, and checklist metadata to the local social sharing card.
+- Extended the static validation script to check social-card coverage.
+
 ## 2026-06-14
 
 - Created isolated `grantlabs-homepage-new` repository.
