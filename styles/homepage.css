@@ -1412,14 +1412,34 @@ button:disabled,
 }
 
 @media print {
+  @page {
+    size: A4;
+    margin: 14mm;
+  }
+
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
   .legal-header,
   .skip-link,
   .checklist-actions {
     display: none !important;
   }
 
+  a[href]::after {
+    content: "";
+  }
+
   .checklist-progress {
     border-color: #bbb;
+    background: #fff;
+  }
+
+  .checklist-progress span {
+    color: #000;
+    border: 1px solid #888;
     background: #fff;
   }
 
@@ -1435,11 +1455,17 @@ button:disabled,
 
   .legal-document section {
     break-inside: avoid;
+    page-break-inside: avoid;
+    padding: 18px 0;
   }
 
   .checklist li {
     border-color: #bbb;
     box-shadow: none;
+  }
+
+  .checklist input {
+    border: 1px solid #555;
   }
 }
 

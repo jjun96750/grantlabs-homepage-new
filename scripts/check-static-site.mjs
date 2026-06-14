@@ -89,6 +89,8 @@ if (existsSync("styles/homepage.css")) {
   const open = (css.match(/\{/g) || []).length;
   const close = (css.match(/\}/g) || []).length;
   if (open !== close) failures.push(`CSS brace mismatch: ${open} opening, ${close} closing.`);
+  if (!css.includes("@media print")) failures.push("CSS is missing print styles.");
+  if (!css.includes("@page")) failures.push("CSS is missing print page setup.");
 }
 
 if (existsSync("site.webmanifest")) {

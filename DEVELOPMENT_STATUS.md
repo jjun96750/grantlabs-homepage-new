@@ -34,6 +34,7 @@ Last updated: 2026-06-15
 - Preconnect hints added for image and CDN resources.
 - Consultation promise section added before the contact form.
 - Local social sharing card added and connected to Open Graph/Twitter metadata.
+- Checklist print styles tightened for A4 output and QA coverage.
 - No build step is required.
 
 ## Current Files
@@ -99,7 +100,8 @@ CHANGELOG.md
 - Changelog
 - Page-level canonical, Open Graph, Twitter card, and manifest links for subpages
 - Local Open Graph/Twitter social sharing image
-- Latest local static checks passed after social-card metadata updates on 2026-06-15.
+- A4-friendly print styling for the consultation checklist
+- Latest local static checks passed after checklist print-style updates on 2026-06-15.
 
 ## Technical Notes
 
@@ -142,6 +144,7 @@ CHANGELOG.md
 - Added `social-card.svg` as a repository-owned social sharing image.
 - Connected homepage, privacy page, and checklist page Open Graph/Twitter metadata to the local social card.
 - Extended the static validation script to require the social card and subpage image metadata.
+- Tightened checklist print styles and added print QA items.
 
 ### 2026-06-14
 
