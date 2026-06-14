@@ -70,6 +70,11 @@ for (const page of ["404.html", "privacy.html", "checklist.html"]) {
   if (!html.includes('id="main-content"')) failures.push(`${page} is missing the main-content target.`);
 }
 
+if (existsSync("checklist.html")) {
+  const html = read("checklist.html");
+  if (!html.includes("checklist-count")) failures.push("checklist.html is missing progress count UI.");
+}
+
 if (existsSync("styles/homepage.css")) {
   const css = read("styles/homepage.css");
   const open = (css.match(/\{/g) || []).length;

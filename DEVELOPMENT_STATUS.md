@@ -29,6 +29,7 @@ Last updated: 2026-06-14
 - Mobile quick-contact bar added for phone and consultation actions.
 - Printable consultation checklist page added and linked from homepage/footer.
 - Interactive 30-second readiness self-check added to the homepage.
+- Checklist page progress counter added.
 - No build step is required.
 
 ## Current Files
@@ -72,6 +73,7 @@ scripts/check-static-site.mjs
 - Privacy consent checkbox for consultation inquiries
 - Privacy notice page
 - Printable consultation checklist page
+- Checklist progress counter
 - Accessibility skip links and focus styles
 - SEO meta tags and structured data
 - FAQPage JSON-LD structured data
@@ -82,7 +84,7 @@ scripts/check-static-site.mjs
 - Cloudflare Pages setup checklist
 - Deployment QA checklist
 - Local static-site validation script
-- Latest static validation: `node scripts/check-static-site.mjs` passed after self-check updates on 2026-06-14.
+- Latest static validation: `node scripts/check-static-site.mjs` passed after checklist-progress updates on 2026-06-14.
 
 ## Technical Notes
 
@@ -143,3 +145,4 @@ scripts/check-static-site.mjs
 - Added mobile quick-contact bar.
 - Added printable consultation checklist page.
 - Added interactive readiness self-check section.
+- Added checklist page progress counter.

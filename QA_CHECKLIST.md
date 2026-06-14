@@ -38,6 +38,7 @@ Run this checklist after each Cloudflare Pages preview deployment.
 - `/404.html` displays a styled not-found page.
 - `/privacy.html` displays the privacy notice page.
 - `/checklist.html` displays the printable consultation checklist page.
+- Checklist page updates the checked-item count when boxes are selected.
 
 ## Notes
 
