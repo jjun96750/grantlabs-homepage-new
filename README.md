@@ -42,6 +42,12 @@ Cloudflare Pages 연결은 `CLOUDFLARE_PAGES_SETUP.md`, 배포 후 화면 검수
 C:\Users\ongee\OneDrive\문서\홈페이지 만들기\grantlabs-homepage-new\index.html
 ```
 
+정적 구조 검사는 Node.js로 실행합니다.
+
+```bash
+node scripts/check-static-site.mjs
+```
+
 ## Cloudflare Pages 설정
 
 - Framework preset: `None`

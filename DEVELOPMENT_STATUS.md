@@ -43,6 +43,7 @@ _headers
 .gitattributes
 CLOUDFLARE_PAGES_SETUP.md
 QA_CHECKLIST.md
+scripts/check-static-site.mjs
 ```
 
 ## Implemented Homepage Sections
@@ -64,6 +65,8 @@ QA_CHECKLIST.md
 - Simple static 404 page
 - Cloudflare Pages setup checklist
 - Deployment QA checklist
+- Local static-site validation script
+- Latest static validation: `node scripts/check-static-site.mjs` passed on 2026-06-14.
 
 ## Technical Notes
 
@@ -91,10 +94,11 @@ QA_CHECKLIST.md
 1. Connect `jjun96750/grantlabs-homepage-new` to a new Cloudflare Pages project.
 2. Confirm the deployed preview URL.
 3. Run desktop and mobile visual QA using `QA_CHECKLIST.md`.
-4. Decide whether to keep email-draft submission or connect the form to EmailJS, Cloudflare Workers, Google Sheets, or the existing CRM.
-5. Replace or approve the hero image.
-6. Review FAQ wording with actual sales/support language.
-7. Continue edits only in this repository.
+4. Run `node scripts/check-static-site.mjs` before future commits when Node.js is available.
+5. Decide whether to keep email-draft submission or connect the form to EmailJS, Cloudflare Workers, Google Sheets, or the existing CRM.
+6. Replace or approve the hero image.
+7. Review FAQ wording with actual sales/support language.
+8. Continue edits only in this repository.
 
 ## Change Log
 
@@ -114,3 +118,4 @@ QA_CHECKLIST.md
 - Added consultation readiness-check section.
 - Added `.gitattributes` for consistent text file handling.
 - Added `CLOUDFLARE_PAGES_SETUP.md` and `QA_CHECKLIST.md`.
+- Added `scripts/check-static-site.mjs` for repeatable static validation.
