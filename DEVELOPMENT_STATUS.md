@@ -32,6 +32,7 @@ Last updated: 2026-06-14
 - Checklist page progress counter added.
 - Service-fit table added to map visitor situations to recommended services.
 - Preconnect hints added for image and CDN resources.
+- Consultation promise section added before the contact form.
 - No build step is required.
 
 ## Current Files
@@ -73,6 +74,7 @@ DEPLOYMENT_ENVIRONMENTS.md
 - Deliverables section
 - Focus-area section
 - FAQ section
+- Consultation promise section
 - Contact section with phone, email, address, EmailJS submission, and email-draft fallback
 - Privacy consent checkbox for consultation inquiries
 - Privacy notice page
@@ -89,7 +91,7 @@ DEPLOYMENT_ENVIRONMENTS.md
 - Deployment QA checklist
 - Local static-site validation script
 - Deployment environment tracking document
-- Latest static validation: `node scripts/check-static-site.mjs` passed after preconnect updates on 2026-06-14.
+- Latest local static checks passed after consultation-promise updates on 2026-06-14.
 
 ## Technical Notes
 
@@ -154,4 +156,5 @@ DEPLOYMENT_ENVIRONMENTS.md
 - Added checklist page progress counter.
 - Added service-fit table.
 - Added preconnect hints for external assets.
+- Added consultation promise section.
 - Added `DEPLOYMENT_ENVIRONMENTS.md` for deployment URL and domain tracking.

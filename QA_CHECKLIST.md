@@ -24,6 +24,7 @@ Run this checklist after each Cloudflare Pages preview deployment.
 - Consultation checklist link opens `checklist.html`.
 - Self-check checkboxes update the displayed readiness result.
 - Service-fit table is readable on desktop and stacks on mobile.
+- Consultation promise cards are readable and do not overflow.
 - CTA button remains tappable.
 - Service cards stack into one column.
 - Readiness-check items stack into one column.
