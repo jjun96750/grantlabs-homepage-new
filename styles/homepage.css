@@ -457,6 +457,93 @@ h1 {
   flex: 0 0 auto;
 }
 
+.self-check-section {
+  padding: 92px 0;
+  background: #eef3f6;
+  border-bottom: 1px solid var(--line);
+}
+
+.self-check-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  gap: 58px;
+  align-items: start;
+}
+
+.self-check-grid h2 {
+  margin-top: 10px;
+  font-size: clamp(32px, 4vw, 50px);
+}
+
+.self-check-grid p {
+  max-width: 520px;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.self-check-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(260px, 0.92fr);
+  gap: 14px;
+}
+
+.self-check-items {
+  display: grid;
+  gap: 10px;
+}
+
+.self-check-items label {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 10px;
+  align-items: start;
+  padding: 15px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+  font-weight: 750;
+  line-height: 1.55;
+}
+
+.self-check-items input {
+  width: 18px;
+  height: 18px;
+  margin: 2px 0 0;
+  padding: 0;
+  accent-color: var(--green);
+}
+
+.self-check-result {
+  min-height: 100%;
+  padding: 26px;
+  border-radius: 8px;
+  color: #fff;
+  background: #10211c;
+  box-shadow: var(--shadow);
+}
+
+.self-check-result span {
+  display: inline-flex;
+  margin-bottom: 28px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  color: #98f0c8;
+  background: rgba(255, 255, 255, 0.08);
+  font-weight: 850;
+}
+
+.self-check-result strong {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.self-check-result p {
+  margin-bottom: 22px;
+  color: rgba(255, 255, 255, 0.72);
+}
+
 .section {
   padding: 104px 0;
 }
@@ -1139,6 +1226,8 @@ button:disabled,
   .hero-inner,
   .intro-grid,
   .readiness-grid,
+  .self-check-grid,
+  .self-check-panel,
   .method-grid,
   .faq-grid,
   .contact-grid {

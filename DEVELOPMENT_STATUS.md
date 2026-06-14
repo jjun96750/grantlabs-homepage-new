@@ -28,6 +28,7 @@ Last updated: 2026-06-14
 - Deliverables section added to clarify what visitors receive after consultation.
 - Mobile quick-contact bar added for phone and consultation actions.
 - Printable consultation checklist page added and linked from homepage/footer.
+- Interactive 30-second readiness self-check added to the homepage.
 - No build step is required.
 
 ## Current Files
@@ -61,6 +62,7 @@ scripts/check-static-site.mjs
 - Mobile quick-contact bar
 - Hero section with real business meeting image
 - Readiness-check section
+- Interactive readiness self-check
 - Service overview
 - Process/method section
 - Deliverables section
@@ -80,7 +82,7 @@ scripts/check-static-site.mjs
 - Cloudflare Pages setup checklist
 - Deployment QA checklist
 - Local static-site validation script
-- Latest static validation: `node scripts/check-static-site.mjs` passed after EmailJS form updates on 2026-06-14.
+- Latest static validation: `node scripts/check-static-site.mjs` passed after self-check updates on 2026-06-14.
 
 ## Technical Notes
 
@@ -140,3 +142,4 @@ scripts/check-static-site.mjs
 - Added consultation deliverables section.
 - Added mobile quick-contact bar.
 - Added printable consultation checklist page.
+- Added interactive readiness self-check section.

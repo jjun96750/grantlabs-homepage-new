@@ -177,6 +177,31 @@
       </div>
     </section>
 
+    <section class="self-check-section">
+      <div class="container self-check-grid">
+        <div>
+          <p class="eyebrow">Self Check</p>
+          <h2>30초 자가진단으로 지금 준비도를 확인해보세요.</h2>
+          <p>체크 결과는 저장되지 않으며, 상담 전에 현재 상태를 빠르게 가늠하기 위한 참고용입니다.</p>
+        </div>
+        <div class="self-check-panel" aria-live="polite">
+          <div class="self-check-items">
+            <label><input type="checkbox" data-score-item /> 최근 매출과 재무자료를 확인할 수 있습니다.</label>
+            <label><input type="checkbox" data-score-item /> 자금 사용 목적과 필요 금액이 정리되어 있습니다.</label>
+            <label><input type="checkbox" data-score-item /> 고용 인원과 4대보험 현황을 알고 있습니다.</label>
+            <label><input type="checkbox" data-score-item /> 보유 인증, 특허, 연구 인력 현황이 있습니다.</label>
+            <label><input type="checkbox" data-score-item /> 신청 희망 시점과 긴급도가 정해져 있습니다.</label>
+          </div>
+          <div class="self-check-result">
+            <span id="self-check-score">0 / 5</span>
+            <strong id="self-check-title">기초 진단 전</strong>
+            <p id="self-check-message">해당되는 항목을 체크하면 준비도와 다음 액션이 표시됩니다.</p>
+            <a class="button primary" href="#contact">상담으로 이어가기</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="services" class="section">
       <div class="container">
         <div class="section-head">
@@ -388,6 +413,10 @@
       var submitButton = form ? form.querySelector('button[type="submit"]') : null;
       var menuButton = document.querySelector(".menu-toggle");
       var mobileMenu = document.getElementById("mobile-menu");
+      var scoreItems = Array.prototype.slice.call(document.querySelectorAll("[data-score-item]"));
+      var scoreValue = document.getElementById("self-check-score");
+      var scoreTitle = document.getElementById("self-check-title");
+      var scoreMessage = document.getElementById("self-check-message");
       var emailConfig = {
         publicKey: "UUfoZdh404On9fZbm",
         serviceId: "service_tcj8otx",
@@ -412,6 +441,31 @@
             menuButton.setAttribute("aria-label", "메뉴 열기");
             mobileMenu.hidden = true;
           });
+        });
+      }
+
+      if (scoreItems.length && scoreValue && scoreTitle && scoreMessage) {
+        var updateScore = function () {
+          var checked = scoreItems.filter(function (item) { return item.checked; }).length;
+          scoreValue.textContent = checked + " / " + scoreItems.length;
+
+          if (checked >= 4) {
+            scoreTitle.textContent = "상담 실행 준비도 높음";
+            scoreMessage.textContent = "자료 기반 상담이 바로 가능합니다. 신청 가능한 과제와 일정표를 구체화할 수 있습니다.";
+          } else if (checked >= 2) {
+            scoreTitle.textContent = "우선순위 정리 필요";
+            scoreMessage.textContent = "가능성은 충분히 검토할 수 있습니다. 부족한 자료를 먼저 정리하면 진단 속도가 빨라집니다.";
+          } else if (checked >= 1) {
+            scoreTitle.textContent = "기초 자료부터 점검";
+            scoreMessage.textContent = "사업 현황과 자금 목적을 먼저 정리하면 정책자금·인증 가능성을 더 명확히 볼 수 있습니다.";
+          } else {
+            scoreTitle.textContent = "기초 진단 전";
+            scoreMessage.textContent = "해당되는 항목을 체크하면 준비도와 다음 액션이 표시됩니다.";
+          }
+        };
+
+        scoreItems.forEach(function (item) {
+          item.addEventListener("change", updateScore);
         });
       }
 
