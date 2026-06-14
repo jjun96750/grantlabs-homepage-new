@@ -52,6 +52,16 @@ if (existsSync("index.html")) {
   });
 
   if (html.includes("�")) failures.push("index.html contains replacement characters.");
+
+  if (!html.includes('class="skip-link"')) failures.push("index.html is missing a skip link.");
+  if (!html.includes('id="main-content"')) failures.push("index.html is missing the main-content target.");
+}
+
+for (const page of ["404.html", "privacy.html"]) {
+  if (!existsSync(page)) continue;
+  const html = read(page);
+  if (!html.includes('class="skip-link"')) failures.push(`${page} is missing a skip link.`);
+  if (!html.includes('id="main-content"')) failures.push(`${page} is missing the main-content target.`);
 }
 
 if (existsSync("styles/homepage.css")) {

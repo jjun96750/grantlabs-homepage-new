@@ -23,6 +23,7 @@ Last updated: 2026-06-14
 - FAQ section and FAQPage structured data added.
 - Readiness-check section added to help visitors prepare for consultation.
 - Privacy notice page added and linked from the consultation form and footer.
+- Accessibility improvements added: skip links, main-content focus target, visible focus styles, and reduced-motion handling.
 - No build step is required.
 
 ## Current Files
@@ -60,6 +61,7 @@ scripts/check-static-site.mjs
 - Contact section with phone, email, address, and pre-filled email draft form
 - Privacy consent checkbox for consultation inquiries
 - Privacy notice page
+- Accessibility skip links and focus styles
 - SEO meta tags and structured data
 - FAQPage JSON-LD structured data
 - Favicon and web manifest
@@ -69,7 +71,7 @@ scripts/check-static-site.mjs
 - Cloudflare Pages setup checklist
 - Deployment QA checklist
 - Local static-site validation script
-- Latest static validation: `node scripts/check-static-site.mjs` passed after privacy-page updates on 2026-06-14.
+- Latest static validation: `node scripts/check-static-site.mjs` passed after accessibility updates on 2026-06-14.
 
 ## Technical Notes
 
@@ -123,3 +125,4 @@ scripts/check-static-site.mjs
 - Added `CLOUDFLARE_PAGES_SETUP.md` and `QA_CHECKLIST.md`.
 - Added `scripts/check-static-site.mjs` for repeatable static validation.
 - Added `privacy.html` and linked it from the form consent text and footer.
+- Added accessibility improvements for keyboard navigation and reduced-motion users.
