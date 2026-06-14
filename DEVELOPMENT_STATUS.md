@@ -236,6 +236,7 @@ CHANGELOG.md
 - Added `_redirects` so unknown Cloudflare Pages routes serve `404.html` with a 404 status.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest `_redirects` commit.
 - Added static validation for external `target="_blank"` links to require `rel="noopener"`.
+- Refreshed `CLAUDE_HANDOFF.md` with the latest external-link validation commit.
 
 ### 2026-06-14
 

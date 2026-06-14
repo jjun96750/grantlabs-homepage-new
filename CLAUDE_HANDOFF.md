@@ -12,7 +12,7 @@
 - Static homepage draft is ready and pushed to GitHub.
 - No build step is required.
 - Main branch: `main`
-- Latest pushed commit at handoff update: `0498a7d Add Cloudflare 404 redirects`
+- Latest pushed commit at handoff update: `a8c17ff Validate external new-window links`
 - Local static validation passes with `node scripts/check-static-site.mjs`.
 - Ongoing development status is tracked in `DEVELOPMENT_STATUS.md`.
 
