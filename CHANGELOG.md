@@ -37,6 +37,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Refreshed Claude handoff notes with the latest workflow commit.
 - Added Cloudflare Pages `_redirects` fallback for unknown routes.
 - Refreshed Claude handoff notes with the latest `_redirects` commit.
+- Added static validation for external `target="_blank"` link safety.
 
 ## 2026-06-14
 

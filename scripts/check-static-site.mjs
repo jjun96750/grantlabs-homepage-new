@@ -72,6 +72,17 @@ for (const page of htmlPages) {
       failures.push(`${page} links to missing local target: ${target}`);
     }
   }
+
+  const externalNewWindowLinks = [
+    ...html.matchAll(/<a\b(?=[^>]*target=["']_blank["'])(?=[^>]*href=["']https?:\/\/)[^>]*>/g),
+  ];
+
+  for (const match of externalNewWindowLinks) {
+    const tag = match[0];
+    if (!/\srel=["'][^"']*\bnoopener\b[^"']*["']/.test(tag)) {
+      failures.push(`${page} has an external target="_blank" link without rel="noopener": ${tag}`);
+    }
+  }
 }
 
 for (const page of ["index.html", "checklist.html"]) {

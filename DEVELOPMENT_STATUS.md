@@ -63,6 +63,7 @@ Last updated: 2026-06-15
 - Static validation now checks that deployed smoke tests include `Content-Type` coverage.
 - GitHub Actions now runs the static validation script on pushes to `main` and pull requests.
 - Cloudflare Pages `_redirects` now routes unknown paths to `404.html` with a 404 status.
+- Static validation now checks external `target="_blank"` links for `rel="noopener"`.
 - No build step is required.
 
 ## Current Files
@@ -159,6 +160,7 @@ CHANGELOG.md
 - Deployed smoke-test `Content-Type` validation
 - GitHub Actions static validation workflow
 - Cloudflare Pages `_redirects` 404 fallback
+- External new-window link safety validation
 - Latest local static checks passed after GitHub Actions workflow setup on 2026-06-15.
 
 ## Technical Notes
@@ -233,6 +235,7 @@ CHANGELOG.md
 - Refreshed `CLAUDE_HANDOFF.md` with the latest workflow commit.
 - Added `_redirects` so unknown Cloudflare Pages routes serve `404.html` with a 404 status.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest `_redirects` commit.
+- Added static validation for external `target="_blank"` links to require `rel="noopener"`.
 
 ### 2026-06-14
 
