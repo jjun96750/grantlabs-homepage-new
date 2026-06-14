@@ -58,6 +58,7 @@ CLOUDFLARE_PAGES_SETUP.md
 QA_CHECKLIST.md
 scripts/check-static-site.mjs
 DEPLOYMENT_ENVIRONMENTS.md
+ROLLBACK_PLAN.md
 CHANGELOG.md
 ```
 
@@ -92,6 +93,7 @@ CHANGELOG.md
 - Deployment QA checklist
 - Local static-site validation script
 - Deployment environment tracking document
+- Rollback plan
 - Changelog
 - Page-level canonical, Open Graph, Twitter card, and manifest links for subpages
 - Latest local static checks passed after page-meta updates on 2026-06-14.
@@ -163,3 +165,4 @@ CHANGELOG.md
 - Added `DEPLOYMENT_ENVIRONMENTS.md` for deployment URL and domain tracking.
 - Added `CHANGELOG.md`.
 - Added canonical, Open Graph, Twitter card, and manifest links to subpages.
+- Added `ROLLBACK_PLAN.md`.
