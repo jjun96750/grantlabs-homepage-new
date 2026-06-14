@@ -14,6 +14,7 @@
 - Main branch: `main`
 - Initial local commit: `860129d Initial Grant Labs homepage`
 - GitHub repository has been created and should receive this local `main` branch.
+- Ongoing development status is tracked in `DEVELOPMENT_STATUS.md`.
 
 ## Files
 
@@ -21,6 +22,8 @@
 index.html
 styles/homepage.css
 README.md
+CLAUDE_HANDOFF.md
+DEVELOPMENT_STATUS.md
 .gitignore
 .nojekyll
 ```
@@ -36,6 +39,7 @@ README.md
 1. Push the local `main` branch to `https://github.com/jjun96750/grantlabs-homepage-new`.
 2. Create a new Cloudflare Pages project connected to the new repository.
 3. Continue edits only in this repository.
+4. Keep `DEVELOPMENT_STATUS.md` updated whenever the project state changes.
 
 ## Suggested Prompt For Claude
 
@@ -50,5 +54,6 @@ English fallback:
 ```text
 Work only in https://github.com/jjun96750/grantlabs-homepage-new.
 Do not touch the existing grantlabs-website repository or production site.
+Read CLAUDE_HANDOFF.md and DEVELOPMENT_STATUS.md first.
 This is a static homepage draft for a separate Cloudflare Pages project. Use index.html and styles/homepage.css as the main files.
 ```

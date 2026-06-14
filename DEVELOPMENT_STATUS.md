@@ -1,0 +1,83 @@
+# Development Status
+
+Last updated: 2026-06-14
+
+## Project
+
+- Repository: `https://github.com/jjun96750/grantlabs-homepage-new`
+- Purpose: Grant Labs 신규 홈페이지 독립 개발
+- Production safety rule: 기존 `grantlabs-website` 저장소와 기존 운영 사이트는 수정하지 않음
+- Deployment target: 새 Cloudflare Pages 프로젝트
+- Main branch: `main`
+
+## Current Status
+
+- GitHub repository created.
+- Local repository initialized.
+- Static homepage draft completed.
+- Repository pushed to GitHub.
+- Claude handoff memo created.
+- No build step is required.
+
+## Current Files
+
+```text
+index.html
+styles/homepage.css
+README.md
+CLAUDE_HANDOFF.md
+DEVELOPMENT_STATUS.md
+.gitignore
+.nojekyll
+```
+
+## Implemented Homepage Sections
+
+- Fixed header navigation
+- Hero section with real business meeting image
+- Service overview
+- Process/method section
+- Focus-area section
+- Contact section with phone, email, address, and mailto form
+- SEO meta tags and structured data
+
+## Technical Notes
+
+- This is a static site.
+- Primary files are `index.html` and `styles/homepage.css`.
+- External assets/CDNs currently used:
+  - Pretendard font CDN
+  - Lucide icons CDN
+  - Unsplash hero image
+- Cloudflare Pages settings:
+  - Framework preset: `None`
+  - Build command: empty
+  - Build output directory: `/`
+  - Branch: `main`
+
+## Known Limitations
+
+- Browser visual QA has not been completed inside Codex because the in-app browser failed with a Windows sandbox permission issue.
+- Contact form currently uses `mailto:`. It does not submit to a backend or CRM yet.
+- Hero image is loaded from Unsplash; it should be replaced with a controlled asset later if brand consistency or loading reliability matters.
+
+## Next Actions
+
+1. Connect `jjun96750/grantlabs-homepage-new` to a new Cloudflare Pages project.
+2. Confirm the deployed preview URL.
+3. Run desktop and mobile visual QA.
+4. Decide whether to keep `mailto:` or connect the form to EmailJS, Cloudflare Workers, Google Sheets, or the existing CRM.
+5. Replace or approve the hero image.
+6. Continue edits only in this repository.
+
+## Change Log
+
+### 2026-06-14
+
+- Created a new isolated project folder: `grantlabs-homepage-new`.
+- Built the first static homepage draft.
+- Added README with deployment instructions.
+- Added `CLAUDE_HANDOFF.md` for Claude handoff.
+- Created GitHub repository: `https://github.com/jjun96750/grantlabs-homepage-new`.
+- Added `origin` remote and pushed `main`.
+- Added this development status document so future collaborators can resume quickly.
