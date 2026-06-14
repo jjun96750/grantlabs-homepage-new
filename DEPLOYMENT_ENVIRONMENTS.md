@@ -21,6 +21,31 @@ Build command: none
 Output directory: /
 ```
 
+## Preview Verification
+
+Record each preview deployment before any production-domain decision.
+
+```text
+Preview URL:
+Commit SHA:
+Checked by:
+Checked at:
+Static check: pending
+Deployed smoke check: pending
+Desktop visual QA: pending
+Mobile visual QA: pending
+EmailJS test: pending
+Email fallback test: pending
+DNS unchanged: yes
+```
+
+Required commands:
+
+```bash
+node scripts/check-static-site.mjs
+node scripts/check-deployed-site.mjs <preview-url>
+```
+
 ## DNS / Domain Notes
 
 - Existing production site must not be changed until a separate cutover is approved.
@@ -28,6 +53,11 @@ Output directory: /
 - If `grantlabs.co.kr` is moved later, record the exact date, DNS records, and rollback plan here.
 
 ## Deployment Log
+
+### 2026-06-15
+
+- Repository remains connected only to GitHub; Cloudflare Pages preview URL is still TBD.
+- Added preview verification template for smoke tests, visual QA, EmailJS testing, and DNS safety tracking.
 
 ### 2026-06-14
 

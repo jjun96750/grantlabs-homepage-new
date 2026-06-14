@@ -43,6 +43,7 @@ Last updated: 2026-06-15
 - No-JavaScript contact fallback added inside the consultation form.
 - Deployed-site smoke test now checks security and cache response headers.
 - README and Cloudflare setup guide updated for current validation scripts and header checks.
+- Deployment environment tracker now includes a preview verification template.
 - No build step is required.
 
 ## Current Files
@@ -118,7 +119,8 @@ CHANGELOG.md
 - No-JavaScript contact fallback
 - Deployed smoke-test response header assertions
 - README/Cloudflare setup validation guidance refresh
-- Latest local static checks passed after README and Cloudflare setup guidance updates on 2026-06-15.
+- Deployment environment preview verification template
+- Latest local static checks passed after deployment environment tracking updates on 2026-06-15.
 
 ## Technical Notes
 
@@ -171,6 +173,7 @@ CHANGELOG.md
 - Added a `noscript` contact fallback and static validation coverage.
 - Extended deployed smoke tests to assert security and cache response headers.
 - Updated README and Cloudflare setup guidance for current validation flow.
+- Expanded `DEPLOYMENT_ENVIRONMENTS.md` with preview verification fields and static validation coverage.
 
 ### 2026-06-14
 
