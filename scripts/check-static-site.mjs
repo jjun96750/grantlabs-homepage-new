@@ -83,6 +83,11 @@ for (const page of ["404.html", "privacy.html", "checklist.html"]) {
   if (page !== "404.html" && !html.includes("social-card.svg")) failures.push(`${page} is missing the local social sharing image.`);
 }
 
+if (existsSync("privacy.html")) {
+  const html = read("privacy.html");
+  if (!html.includes("상담 폼 보호 장치")) failures.push("privacy.html is missing contact form protection notice.");
+}
+
 if (existsSync("checklist.html")) {
   const html = read("checklist.html");
   if (!html.includes("checklist-count")) failures.push("checklist.html is missing progress count UI.");

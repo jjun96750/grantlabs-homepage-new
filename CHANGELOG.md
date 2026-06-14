@@ -18,6 +18,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Updated README and Cloudflare setup guidance for current validation scripts.
 - Expanded deployment environment tracking with preview verification fields.
 - Added a follow-up consultation CTA to the checklist page.
+- Updated privacy notice with contact-form protection and no-JavaScript fallback details.
 
 ## 2026-06-14
 

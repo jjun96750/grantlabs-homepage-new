@@ -45,6 +45,7 @@ Last updated: 2026-06-15
 - README and Cloudflare setup guide updated for current validation scripts and header checks.
 - Deployment environment tracker now includes a preview verification template.
 - Checklist page follow-up consultation CTA added for users who finish preparing materials.
+- Privacy notice updated to explain contact-form spam protection and no-JavaScript fallback.
 - No build step is required.
 
 ## Current Files
@@ -122,7 +123,8 @@ CHANGELOG.md
 - README/Cloudflare setup validation guidance refresh
 - Deployment environment preview verification template
 - Checklist follow-up consultation CTA
-- Latest local static checks passed after checklist follow-up CTA updates on 2026-06-15.
+- Privacy notice contact-form protection explanation
+- Latest local static checks passed after privacy notice protection updates on 2026-06-15.
 
 ## Technical Notes
 
@@ -177,6 +179,7 @@ CHANGELOG.md
 - Updated README and Cloudflare setup guidance for current validation flow.
 - Expanded `DEPLOYMENT_ENVIRONMENTS.md` with preview verification fields and static validation coverage.
 - Added a follow-up consultation CTA to the checklist page.
+- Updated the privacy notice with contact-form protection and no-JavaScript fallback details.
 
 ### 2026-06-14
 
