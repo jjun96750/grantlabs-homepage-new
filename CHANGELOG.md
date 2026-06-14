@@ -9,6 +9,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Extended the static validation script to check social-card coverage.
 - Improved checklist print styles and added print QA coverage.
 - Added a deployed-site smoke test script for Cloudflare Pages preview URLs.
+- Added a contact-form honeypot to reduce automated spam submissions.
 
 ## 2026-06-14
 

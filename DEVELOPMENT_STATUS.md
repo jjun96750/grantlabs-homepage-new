@@ -36,6 +36,7 @@ Last updated: 2026-06-15
 - Local social sharing card added and connected to Open Graph/Twitter metadata.
 - Checklist print styles tightened for A4 output and QA coverage.
 - Deployed-site smoke test script added for Cloudflare Pages previews.
+- Contact form honeypot added to reduce automated spam submissions.
 - No build step is required.
 
 ## Current Files
@@ -104,7 +105,8 @@ CHANGELOG.md
 - Local Open Graph/Twitter social sharing image
 - A4-friendly print styling for the consultation checklist
 - Cloudflare Pages preview smoke-test script
-- Latest local static checks passed after deployed smoke-test script updates on 2026-06-15.
+- Contact form honeypot spam guard
+- Latest local static checks passed after contact-form honeypot updates on 2026-06-15.
 
 ## Technical Notes
 
@@ -150,6 +152,7 @@ CHANGELOG.md
 - Extended the static validation script to require the social card and subpage image metadata.
 - Tightened checklist print styles and added print QA items.
 - Added `scripts/check-deployed-site.mjs` for Cloudflare Pages preview smoke testing.
+- Added a hidden contact-form honeypot field and static validation coverage.
 
 ### 2026-06-14
 

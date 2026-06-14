@@ -63,6 +63,7 @@ if (existsSync("index.html")) {
   if (!html.includes('id="mobile-menu"')) failures.push("index.html is missing the mobile menu.");
   if (!html.includes('class="quick-contact"')) failures.push("index.html is missing the quick-contact bar.");
   if (!html.includes("emailjs.send")) failures.push("index.html is missing EmailJS submission handling.");
+  if (!html.includes('name="website"') || !html.includes('class="honeypot"')) failures.push("index.html is missing the contact form honeypot.");
   if (!html.includes("data-score-item")) failures.push("index.html is missing the self-check interaction.");
   if (!html.includes('class="fit-table"')) failures.push("index.html is missing the service-fit table.");
   if (!html.includes('rel="preconnect"')) failures.push("index.html is missing preconnect hints.");
@@ -92,6 +93,7 @@ if (existsSync("styles/homepage.css")) {
   if (open !== close) failures.push(`CSS brace mismatch: ${open} opening, ${close} closing.`);
   if (!css.includes("@media print")) failures.push("CSS is missing print styles.");
   if (!css.includes("@page")) failures.push("CSS is missing print page setup.");
+  if (!css.includes(".honeypot")) failures.push("CSS is missing honeypot hiding styles.");
 }
 
 if (existsSync("site.webmanifest")) {

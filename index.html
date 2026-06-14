@@ -417,6 +417,7 @@
           </div>
         </div>
         <form id="lead-form" class="contact-form">
+          <label class="honeypot" aria-hidden="true">Website<input name="website" autocomplete="off" tabindex="-1" /></label>
           <label>회사명<input name="company" autocomplete="organization" placeholder="회사명을 입력해주세요" /></label>
           <label>성함<input name="name" autocomplete="name" required placeholder="담당자 성함" /></label>
           <label>연락처<input name="phone" autocomplete="tel" required placeholder="010-0000-0000" /></label>
@@ -542,6 +543,10 @@
           if (!form.reportValidity()) return;
 
           var data = new FormData(form);
+          if (data.get("website")) {
+            if (note) note.textContent = "상담 요청을 확인하는 중입니다.";
+            return;
+          }
           var payload = {
             company: data.get("company") || "",
             name: data.get("name") || "",
