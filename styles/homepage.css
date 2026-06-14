@@ -424,6 +424,14 @@ h1 {
   font-size: clamp(28px, 3.2vw, 42px);
 }
 
+.inline-link {
+  display: inline-flex;
+  margin-top: 18px;
+  color: var(--green);
+  font-weight: 850;
+  text-underline-offset: 4px;
+}
+
 .readiness-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1057,6 +1065,48 @@ button.button {
   font-size: 13px;
 }
 
+.checklist {
+  list-style: none;
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+}
+
+.checklist li {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  gap: 10px;
+  align-items: start;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fbfcfb;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.checklist input {
+  width: 18px;
+  height: 18px;
+  margin: 2px 0 0;
+  padding: 0;
+  accent-color: var(--green);
+}
+
+.checklist-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 34px;
+}
+
+.button.dark-text {
+  color: var(--ink);
+  border-color: var(--line);
+  background: #fff;
+}
+
 @media (max-width: 980px) {
   .site-header {
     height: 66px;
@@ -1122,6 +1172,33 @@ button.button {
 
   .faq-grid .section-head {
     position: static;
+  }
+}
+
+@media print {
+  .legal-header,
+  .skip-link,
+  .checklist-actions {
+    display: none !important;
+  }
+
+  body,
+  .legal-page {
+    background: #fff;
+  }
+
+  .legal-document {
+    width: 100%;
+    padding: 0;
+  }
+
+  .legal-document section {
+    break-inside: avoid;
+  }
+
+  .checklist li {
+    border-color: #bbb;
+    box-shadow: none;
   }
 }
 

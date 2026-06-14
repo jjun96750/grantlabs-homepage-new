@@ -27,6 +27,7 @@ Last updated: 2026-06-14
 - Mobile navigation menu added for small-screen visitors.
 - Deliverables section added to clarify what visitors receive after consultation.
 - Mobile quick-contact bar added for phone and consultation actions.
+- Printable consultation checklist page added and linked from homepage/footer.
 - No build step is required.
 
 ## Current Files
@@ -34,6 +35,7 @@ Last updated: 2026-06-14
 ```text
 index.html
 privacy.html
+checklist.html
 styles/homepage.css
 README.md
 CLAUDE_HANDOFF.md
@@ -67,6 +69,7 @@ scripts/check-static-site.mjs
 - Contact section with phone, email, address, and pre-filled email draft form
 - Privacy consent checkbox for consultation inquiries
 - Privacy notice page
+- Printable consultation checklist page
 - Accessibility skip links and focus styles
 - SEO meta tags and structured data
 - FAQPage JSON-LD structured data
@@ -77,7 +80,7 @@ scripts/check-static-site.mjs
 - Cloudflare Pages setup checklist
 - Deployment QA checklist
 - Local static-site validation script
-- Latest static validation: `node scripts/check-static-site.mjs` passed after quick-contact updates on 2026-06-14.
+- Latest static validation: `node scripts/check-static-site.mjs` passed after checklist-page updates on 2026-06-14.
 
 ## Technical Notes
 
@@ -135,3 +138,4 @@ scripts/check-static-site.mjs
 - Added mobile navigation toggle and mobile menu.
 - Added consultation deliverables section.
 - Added mobile quick-contact bar.
+- Added printable consultation checklist page.

@@ -21,6 +21,7 @@
 ```text
 index.html
 privacy.html
+checklist.html
 styles/homepage.css
 README.md
 CLAUDE_HANDOFF.md
@@ -43,6 +44,7 @@ CLOUDFLARE_PAGES_SETUP.md
 - The page is intentionally static for simple Cloudflare Pages deployment.
 - Static deployment support files are present: `_headers`, `robots.txt`, `sitemap.xml`, `favicon.svg`, and `site.webmanifest`.
 - Privacy notice page is available at `privacy.html` and is linked from the form and footer.
+- Consultation checklist page is available at `checklist.html` and linked from the homepage/footer.
 
 ## Next Steps
 

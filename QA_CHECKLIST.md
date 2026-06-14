@@ -21,6 +21,7 @@ Run this checklist after each Cloudflare Pages preview deployment.
 - Mobile menu button opens and closes the navigation.
 - Mobile menu links close the menu after tapping.
 - Bottom quick-contact bar shows phone and consultation actions.
+- Consultation checklist link opens `checklist.html`.
 - CTA button remains tappable.
 - Service cards stack into one column.
 - Readiness-check items stack into one column.
@@ -35,6 +36,7 @@ Run this checklist after each Cloudflare Pages preview deployment.
 - `/sitemap.xml` loads.
 - `/404.html` displays a styled not-found page.
 - `/privacy.html` displays the privacy notice page.
+- `/checklist.html` displays the printable consultation checklist page.
 
 ## Notes
 

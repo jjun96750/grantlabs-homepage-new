@@ -4,6 +4,7 @@ const requiredFiles = [
   "index.html",
   "404.html",
   "privacy.html",
+  "checklist.html",
   "styles/homepage.css",
   "favicon.svg",
   "site.webmanifest",
@@ -60,7 +61,7 @@ if (existsSync("index.html")) {
   if (!html.includes('class="quick-contact"')) failures.push("index.html is missing the quick-contact bar.");
 }
 
-for (const page of ["404.html", "privacy.html"]) {
+for (const page of ["404.html", "privacy.html", "checklist.html"]) {
   if (!existsSync(page)) continue;
   const html = read(page);
   if (!html.includes('class="skip-link"')) failures.push(`${page} is missing a skip link.`);
