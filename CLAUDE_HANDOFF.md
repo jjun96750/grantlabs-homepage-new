@@ -12,7 +12,7 @@
 - Static homepage draft is ready and pushed to GitHub.
 - No build step is required.
 - Main branch: `main`
-- Latest pushed commit at handoff update: `194b23a Improve contact form accessibility`
+- Latest pushed commit at handoff update: `63efaef Validate social metadata on pages`
 - Local static validation passes with `node scripts/check-static-site.mjs`.
 - Ongoing development status is tracked in `DEVELOPMENT_STATUS.md`.
 
@@ -53,8 +53,10 @@ scripts/check-deployed-site.mjs
 - Privacy notice page is available at `privacy.html` and is linked from the form and footer.
 - Consultation checklist page is available at `checklist.html` and linked from the homepage/footer.
 - Contact form uses EmailJS first, then falls back to a pre-filled email draft.
-- Contact form includes a hidden honeypot field and `aria-describedby` wiring for status/help text.
+- Contact form includes a hidden honeypot field, `aria-describedby` wiring, and `page_url` / `submitted_at` metadata.
 - Cloudflare `_headers` includes cache policies for CSS, favicon, social card, manifest, robots, and sitemap files.
+- `privacy.html` is intentionally `noindex` and excluded from `sitemap.xml`.
+- `scripts/check-deployed-site.mjs` verifies pages, response headers, missing-route 404 handling, sitemap noindex cleanup, and prints a pass summary.
 
 ## Next Steps
 
@@ -64,7 +66,7 @@ scripts/check-deployed-site.mjs
 4. Run `node scripts/check-static-site.mjs` before additional commits.
 5. Run `node scripts/check-deployed-site.mjs <preview-url>` after the preview is live.
 6. Run `QA_CHECKLIST.md` after the preview is live.
-7. Verify EmailJS delivery in the deployed preview and confirm the email-draft fallback.
+7. Verify EmailJS delivery, `page_url` / `submitted_at`, and the email-draft fallback in the deployed preview.
 8. Continue edits only in this repository.
 9. Keep `DEVELOPMENT_STATUS.md` updated whenever the project state changes.
 

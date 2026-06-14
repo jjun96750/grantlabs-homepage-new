@@ -56,6 +56,7 @@ Last updated: 2026-06-15
 - Deployed smoke test now verifies sitemap excludes the noindex privacy URL.
 - Static validation now checks language, title, description, and replacement characters across all HTML pages.
 - Static validation now checks canonical and social sharing metadata on indexable pages.
+- Claude handoff memo refreshed with latest commit, smoke-test scope, sitemap note, and contact metadata.
 - No build step is required.
 
 ## Current Files
@@ -144,7 +145,8 @@ CHANGELOG.md
 - Deployed sitemap noindex validation
 - Cross-page HTML metadata validation
 - Indexable-page canonical/social metadata validation
-- Latest local static checks passed after indexable-page social metadata validation updates on 2026-06-15.
+- Refreshed Claude handoff memo
+- Latest local static checks passed after Claude handoff refresh on 2026-06-15.
 
 ## Technical Notes
 
@@ -210,6 +212,7 @@ CHANGELOG.md
 - Extended deployed smoke tests to verify sitemap excludes `privacy.html`.
 - Extended static validation to check core metadata on every HTML page.
 - Added static validation for canonical, Open Graph, and Twitter metadata on indexable pages.
+- Refreshed `CLAUDE_HANDOFF.md` with current commit and deployment validation scope.
 
 ### 2026-06-14
 

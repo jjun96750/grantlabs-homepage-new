@@ -29,6 +29,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Extended deployed smoke tests to verify sitemap excludes `privacy.html`.
 - Extended static validation to check core metadata on every HTML page.
 - Added static validation for canonical, Open Graph, and Twitter metadata on indexable pages.
+- Refreshed Claude handoff notes with current commit and deployment validation scope.
 
 ## 2026-06-14
 
