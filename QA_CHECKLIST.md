@@ -45,6 +45,7 @@ Run this checklist after each Cloudflare Pages preview deployment.
 - `/sitemap.xml` loads.
 - `/site.webmanifest`, `/robots.txt`, `/sitemap.xml`, and `/social-card.svg` receive Cloudflare cache headers from `_headers`.
 - `/404.html` displays a styled not-found page.
+- Unknown routes return the styled 404 page.
 - `/privacy.html` displays the privacy notice page.
 - `/checklist.html` displays the printable consultation checklist page.
 - Checklist page updates the checked-item count when boxes are selected.

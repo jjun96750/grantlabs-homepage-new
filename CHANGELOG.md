@@ -20,6 +20,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Added a follow-up consultation CTA to the checklist page.
 - Updated privacy notice with contact-form protection and no-JavaScript fallback details.
 - Added accessible checkbox labels to the checklist page.
+- Extended deployed smoke tests with missing-route 404 validation.
 
 ## 2026-06-14
 

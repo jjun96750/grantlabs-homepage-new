@@ -47,6 +47,7 @@ Last updated: 2026-06-15
 - Checklist page follow-up consultation CTA added for users who finish preparing materials.
 - Privacy notice updated to explain contact-form spam protection and no-JavaScript fallback.
 - Checklist checkboxes now receive accessible labels from their item text.
+- Deployed smoke test now validates a real missing route returns the styled 404 response.
 - No build step is required.
 
 ## Current Files
@@ -126,7 +127,8 @@ CHANGELOG.md
 - Checklist follow-up consultation CTA
 - Privacy notice contact-form protection explanation
 - Checklist checkbox accessibility labels
-- Latest local static checks passed after checklist checkbox accessibility updates on 2026-06-15.
+- Missing-route 404 smoke test
+- Latest local static checks passed after missing-route 404 smoke-test updates on 2026-06-15.
 
 ## Technical Notes
 
@@ -183,6 +185,7 @@ CHANGELOG.md
 - Added a follow-up consultation CTA to the checklist page.
 - Updated the privacy notice with contact-form protection and no-JavaScript fallback details.
 - Added accessible checkbox labels to the checklist page.
+- Extended deployed smoke tests with a real missing-route 404 validation.
 
 ### 2026-06-14
 

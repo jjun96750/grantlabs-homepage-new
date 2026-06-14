@@ -25,6 +25,13 @@ const checks = [
   { path: "/social-card.svg", marker: "Grant Labs social sharing card", headers: ["cache-control"] },
 ];
 
+const notFoundCheck = {
+  path: "/__missing-smoke-test__",
+  marker: "404",
+  expectedStatus: 404,
+  headers: ["x-content-type-options", "referrer-policy", "permissions-policy"],
+};
+
 const failures = [];
 
 for (const check of checks) {
@@ -53,6 +60,30 @@ for (const check of checks) {
   } catch (error) {
     failures.push(`${check.path} request failed: ${error.message}`);
   }
+}
+
+try {
+  const url = new URL(notFoundCheck.path, origin);
+  const response = await fetch(url, {
+    headers: { "User-Agent": "GrantLabsDeploySmokeTest/1.0" },
+  });
+  const text = await response.text();
+
+  if (response.status !== notFoundCheck.expectedStatus) {
+    failures.push(`${notFoundCheck.path} returned HTTP ${response.status}, expected ${notFoundCheck.expectedStatus}`);
+  }
+
+  if (!text.includes(notFoundCheck.marker)) {
+    failures.push(`${notFoundCheck.path} did not include marker: ${notFoundCheck.marker}`);
+  }
+
+  for (const header of notFoundCheck.headers) {
+    if (!response.headers.get(header)) {
+      failures.push(`${notFoundCheck.path} is missing response header: ${header}`);
+    }
+  }
+} catch (error) {
+  failures.push(`${notFoundCheck.path} request failed: ${error.message}`);
 }
 
 if (failures.length) {
