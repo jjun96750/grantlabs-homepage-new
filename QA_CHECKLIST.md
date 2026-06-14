@@ -15,6 +15,7 @@ Run this checklist after each Cloudflare Pages preview deployment.
 - Privacy notice link opens `privacy.html`.
 - Privacy notice explains contact-form protection and no-JS contact fallback.
 - Contact form submits through EmailJS or falls back to an email draft.
+- Submitted inquiry includes page URL and submission timestamp.
 - With JavaScript disabled, the contact section shows phone/email fallback guidance.
 - Footer appears at the bottom with readable contrast.
 

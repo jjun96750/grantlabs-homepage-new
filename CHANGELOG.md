@@ -24,6 +24,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Added pass summary output to deployed smoke tests for deployment records.
 - Added README and Cloudflare setup guide marker checks to static validation.
 - Added EmailJS and fallback contact configuration to deployment tracking.
+- Added page URL and submission timestamp metadata to contact form submissions.
 
 ## 2026-06-14
 

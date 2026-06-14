@@ -51,6 +51,7 @@ Last updated: 2026-06-15
 - Deployed smoke test now prints a pass summary for deployment records.
 - Static validation now checks README and Cloudflare setup guidance markers.
 - Deployment environment tracker now records EmailJS and fallback contact configuration.
+- Contact form submission payload now includes page URL and ISO submission timestamp.
 - No build step is required.
 
 ## Current Files
@@ -134,7 +135,8 @@ CHANGELOG.md
 - Deployed smoke-test pass summary output
 - README and Cloudflare guide drift checks
 - EmailJS deployment configuration tracking
-- Latest local static checks passed after EmailJS deployment configuration tracking updates on 2026-06-15.
+- Lead source metadata in contact payload
+- Latest local static checks passed after contact payload metadata updates on 2026-06-15.
 
 ## Technical Notes
 
@@ -195,6 +197,7 @@ CHANGELOG.md
 - Added pass summary output to the deployed smoke test for deployment records.
 - Added README and Cloudflare setup guide marker checks to static validation.
 - Added EmailJS and fallback contact configuration to deployment tracking.
+- Added page URL and submission timestamp metadata to contact form submissions.
 
 ### 2026-06-14
 

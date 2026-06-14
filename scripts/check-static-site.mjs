@@ -63,6 +63,7 @@ if (existsSync("index.html")) {
   if (!html.includes('id="mobile-menu"')) failures.push("index.html is missing the mobile menu.");
   if (!html.includes('class="quick-contact"')) failures.push("index.html is missing the quick-contact bar.");
   if (!html.includes("emailjs.send")) failures.push("index.html is missing EmailJS submission handling.");
+  if (!html.includes("page_url") || !html.includes("submitted_at")) failures.push("index.html is missing lead source metadata.");
   if (!html.includes('name="website"') || !html.includes('class="honeypot"')) failures.push("index.html is missing the contact form honeypot.");
   if (!html.includes('id="lead-form"') || !html.includes('aria-describedby="form-note"')) failures.push("index.html is missing contact form accessibility description wiring.");
   if (!html.includes("<noscript") || !html.includes("noscript-contact")) failures.push("index.html is missing the no-JS contact fallback.");

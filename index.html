@@ -555,7 +555,9 @@
             name: data.get("name") || "",
             phone: data.get("phone") || "",
             interest: data.get("interest") || "",
-            message: data.get("message") || ""
+            message: data.get("message") || "",
+            page_url: window.location.href,
+            submitted_at: new Date().toISOString()
           };
           var subject = "[Grant Labs 상담 문의] " + (data.get("company") || "신규 문의");
           var body = [
