@@ -55,6 +55,8 @@ if (existsSync("index.html")) {
 
   if (!html.includes('class="skip-link"')) failures.push("index.html is missing a skip link.");
   if (!html.includes('id="main-content"')) failures.push("index.html is missing the main-content target.");
+  if (!html.includes('class="menu-toggle"')) failures.push("index.html is missing the mobile menu toggle.");
+  if (!html.includes('id="mobile-menu"')) failures.push("index.html is missing the mobile menu.");
 }
 
 for (const page of ["404.html", "privacy.html"]) {

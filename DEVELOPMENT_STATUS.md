@@ -24,6 +24,7 @@ Last updated: 2026-06-14
 - Readiness-check section added to help visitors prepare for consultation.
 - Privacy notice page added and linked from the consultation form and footer.
 - Accessibility improvements added: skip links, main-content focus target, visible focus styles, and reduced-motion handling.
+- Mobile navigation menu added for small-screen visitors.
 - No build step is required.
 
 ## Current Files
@@ -52,6 +53,7 @@ scripts/check-static-site.mjs
 ## Implemented Homepage Sections
 
 - Fixed header navigation
+- Mobile navigation menu
 - Hero section with real business meeting image
 - Readiness-check section
 - Service overview
@@ -71,7 +73,7 @@ scripts/check-static-site.mjs
 - Cloudflare Pages setup checklist
 - Deployment QA checklist
 - Local static-site validation script
-- Latest static validation: `node scripts/check-static-site.mjs` passed after accessibility updates on 2026-06-14.
+- Latest static validation: `node scripts/check-static-site.mjs` passed after mobile-menu updates on 2026-06-14.
 
 ## Technical Notes
 
@@ -126,3 +128,4 @@ scripts/check-static-site.mjs
 - Added `scripts/check-static-site.mjs` for repeatable static validation.
 - Added `privacy.html` and linked it from the form consent text and footer.
 - Added accessibility improvements for keyboard navigation and reduced-motion users.
+- Added mobile navigation toggle and mobile menu.

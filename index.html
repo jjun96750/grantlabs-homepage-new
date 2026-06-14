@@ -101,6 +101,16 @@
       <span>상담 신청</span>
       <i data-lucide="arrow-right"></i>
     </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="메뉴 열기">
+      <i data-lucide="menu"></i>
+    </button>
+    <nav id="mobile-menu" class="mobile-menu" aria-label="모바일 메뉴" hidden>
+      <a href="#services">서비스</a>
+      <a href="#method">진행방식</a>
+      <a href="#cases">지원영역</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">상담</a>
+    </nav>
   </header>
 
   <main id="main-content" tabindex="-1">
@@ -335,6 +345,25 @@
 
       var form = document.getElementById("lead-form");
       var note = document.getElementById("form-note");
+      var menuButton = document.querySelector(".menu-toggle");
+      var mobileMenu = document.getElementById("mobile-menu");
+
+      if (menuButton && mobileMenu) {
+        menuButton.addEventListener("click", function () {
+          var isOpen = menuButton.getAttribute("aria-expanded") === "true";
+          menuButton.setAttribute("aria-expanded", String(!isOpen));
+          menuButton.setAttribute("aria-label", isOpen ? "메뉴 열기" : "메뉴 닫기");
+          mobileMenu.hidden = isOpen;
+        });
+
+        mobileMenu.querySelectorAll("a").forEach(function (link) {
+          link.addEventListener("click", function () {
+            menuButton.setAttribute("aria-expanded", "false");
+            menuButton.setAttribute("aria-label", "메뉴 열기");
+            mobileMenu.hidden = true;
+          });
+        });
+      }
 
       if (form) {
         form.addEventListener("submit", function (event) {
