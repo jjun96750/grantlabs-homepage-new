@@ -86,6 +86,7 @@ for (const page of ["404.html", "privacy.html", "checklist.html"]) {
 if (existsSync("checklist.html")) {
   const html = read("checklist.html");
   if (!html.includes("checklist-count")) failures.push("checklist.html is missing progress count UI.");
+  if (!html.includes("checklist-next")) failures.push("checklist.html is missing the follow-up consultation CTA.");
 }
 
 if (existsSync("styles/homepage.css")) {
@@ -97,6 +98,7 @@ if (existsSync("styles/homepage.css")) {
   if (!css.includes("@page")) failures.push("CSS is missing print page setup.");
   if (!css.includes(".honeypot")) failures.push("CSS is missing honeypot hiding styles.");
   if (!css.includes(".noscript-contact")) failures.push("CSS is missing no-JS contact fallback styles.");
+  if (!css.includes(".checklist-next")) failures.push("CSS is missing checklist follow-up CTA styles.");
 }
 
 if (existsSync("site.webmanifest")) {

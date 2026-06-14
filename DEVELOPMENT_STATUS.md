@@ -44,6 +44,7 @@ Last updated: 2026-06-15
 - Deployed-site smoke test now checks security and cache response headers.
 - README and Cloudflare setup guide updated for current validation scripts and header checks.
 - Deployment environment tracker now includes a preview verification template.
+- Checklist page follow-up consultation CTA added for users who finish preparing materials.
 - No build step is required.
 
 ## Current Files
@@ -120,7 +121,8 @@ CHANGELOG.md
 - Deployed smoke-test response header assertions
 - README/Cloudflare setup validation guidance refresh
 - Deployment environment preview verification template
-- Latest local static checks passed after deployment environment tracking updates on 2026-06-15.
+- Checklist follow-up consultation CTA
+- Latest local static checks passed after checklist follow-up CTA updates on 2026-06-15.
 
 ## Technical Notes
 
@@ -174,6 +176,7 @@ CHANGELOG.md
 - Extended deployed smoke tests to assert security and cache response headers.
 - Updated README and Cloudflare setup guidance for current validation flow.
 - Expanded `DEPLOYMENT_ENVIRONMENTS.md` with preview verification fields and static validation coverage.
+- Added a follow-up consultation CTA to the checklist page.
 
 ### 2026-06-14
 

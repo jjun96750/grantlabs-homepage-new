@@ -17,6 +17,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Extended deployed smoke tests to verify security and cache response headers.
 - Updated README and Cloudflare setup guidance for current validation scripts.
 - Expanded deployment environment tracking with preview verification fields.
+- Added a follow-up consultation CTA to the checklist page.
 
 ## 2026-06-14
 
