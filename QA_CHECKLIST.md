@@ -14,6 +14,7 @@ Run this checklist after each Cloudflare Pages preview deployment.
 - Contact form status/help text is announced through `form-note`.
 - Privacy notice link opens `privacy.html`.
 - Contact form submits through EmailJS or falls back to an email draft.
+- With JavaScript disabled, the contact section shows phone/email fallback guidance.
 - Footer appears at the bottom with readable contrast.
 
 ## Mobile

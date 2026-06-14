@@ -13,6 +13,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Expanded Cloudflare `_headers` cache policies and refreshed sitemap lastmod values.
 - Added contact-form accessibility description wiring for status/help text.
 - Updated Claude handoff notes with current pushed state and deployment validation flow.
+- Added a no-JavaScript contact fallback in the consultation form.
 
 ## 2026-06-14
 

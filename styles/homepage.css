@@ -1016,6 +1016,22 @@ h2 {
   text-align: center;
 }
 
+.noscript-contact {
+  padding: 14px;
+  border: 1px solid rgba(178, 107, 34, 0.28);
+  border-radius: 8px;
+  color: #5f3c16;
+  background: #fff6ea;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.65;
+}
+
+.noscript-contact a {
+  color: var(--green-dark);
+  font-weight: 850;
+}
+
 input,
 select,
 textarea {

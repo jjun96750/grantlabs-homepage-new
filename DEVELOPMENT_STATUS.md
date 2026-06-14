@@ -40,6 +40,7 @@ Last updated: 2026-06-15
 - Static asset cache policies expanded for social card, manifest, robots, and sitemap files.
 - Contact form accessibility description wiring added for required fields and status text.
 - Claude handoff memo updated with latest pushed state, validation commands, and deployment next steps.
+- No-JavaScript contact fallback added inside the consultation form.
 - No build step is required.
 
 ## Current Files
@@ -112,7 +113,8 @@ CHANGELOG.md
 - Expanded Cloudflare `_headers` cache policies for deployment support files
 - Contact form `aria-describedby` status wiring
 - Updated Claude handoff memo
-- Latest local static checks passed after contact-form accessibility updates on 2026-06-15.
+- No-JavaScript contact fallback
+- Latest local static checks passed after no-JavaScript contact fallback updates on 2026-06-15.
 
 ## Technical Notes
 
@@ -162,6 +164,7 @@ CHANGELOG.md
 - Expanded Cloudflare `_headers` cache policies and updated sitemap lastmod values to 2026-06-15.
 - Added contact form `aria-describedby` wiring and QA coverage.
 - Updated `CLAUDE_HANDOFF.md` with the current pushed state and deployment validation flow.
+- Added a `noscript` contact fallback and static validation coverage.
 
 ### 2026-06-14
 
