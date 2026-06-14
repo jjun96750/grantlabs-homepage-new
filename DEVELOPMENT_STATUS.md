@@ -38,6 +38,7 @@ Last updated: 2026-06-15
 - Deployed-site smoke test script added for Cloudflare Pages previews.
 - Contact form honeypot added to reduce automated spam submissions.
 - Static asset cache policies expanded for social card, manifest, robots, and sitemap files.
+- Contact form accessibility description wiring added for required fields and status text.
 - No build step is required.
 
 ## Current Files
@@ -108,7 +109,8 @@ CHANGELOG.md
 - Cloudflare Pages preview smoke-test script
 - Contact form honeypot spam guard
 - Expanded Cloudflare `_headers` cache policies for deployment support files
-- Latest local static checks passed after cache-header and sitemap updates on 2026-06-15.
+- Contact form `aria-describedby` status wiring
+- Latest local static checks passed after contact-form accessibility updates on 2026-06-15.
 
 ## Technical Notes
 
@@ -156,6 +158,7 @@ CHANGELOG.md
 - Added `scripts/check-deployed-site.mjs` for Cloudflare Pages preview smoke testing.
 - Added a hidden contact-form honeypot field and static validation coverage.
 - Expanded Cloudflare `_headers` cache policies and updated sitemap lastmod values to 2026-06-15.
+- Added contact form `aria-describedby` wiring and QA coverage.
 
 ### 2026-06-14
 

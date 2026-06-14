@@ -64,6 +64,7 @@ if (existsSync("index.html")) {
   if (!html.includes('class="quick-contact"')) failures.push("index.html is missing the quick-contact bar.");
   if (!html.includes("emailjs.send")) failures.push("index.html is missing EmailJS submission handling.");
   if (!html.includes('name="website"') || !html.includes('class="honeypot"')) failures.push("index.html is missing the contact form honeypot.");
+  if (!html.includes('id="lead-form"') || !html.includes('aria-describedby="form-note"')) failures.push("index.html is missing contact form accessibility description wiring.");
   if (!html.includes("data-score-item")) failures.push("index.html is missing the self-check interaction.");
   if (!html.includes('class="fit-table"')) failures.push("index.html is missing the service-fit table.");
   if (!html.includes('rel="preconnect"')) failures.push("index.html is missing preconnect hints.");
