@@ -26,6 +26,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Added EmailJS and fallback contact configuration to deployment tracking.
 - Added page URL and submission timestamp metadata to contact form submissions.
 - Removed the noindex privacy page from the sitemap.
+- Extended deployed smoke tests to verify sitemap excludes `privacy.html`.
 
 ## 2026-06-14
 

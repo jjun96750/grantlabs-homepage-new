@@ -45,6 +45,7 @@ Run this checklist after each Cloudflare Pages preview deployment.
 - `/robots.txt` loads.
 - `/sitemap.xml` loads.
 - Sitemap excludes `privacy.html` because the privacy page is `noindex`.
+- Deployed smoke test confirms sitemap excludes `privacy.html`.
 - `/site.webmanifest`, `/robots.txt`, `/sitemap.xml`, and `/social-card.svg` receive Cloudflare cache headers from `_headers`.
 - `/404.html` displays a styled not-found page.
 - Unknown routes return the styled 404 page.

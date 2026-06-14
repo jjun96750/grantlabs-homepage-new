@@ -25,6 +25,11 @@ const checks = [
   { path: "/social-card.svg", marker: "Grant Labs social sharing card", headers: ["cache-control"] },
 ];
 
+const sitemapContentCheck = {
+  path: "/sitemap.xml",
+  forbidden: "privacy.html",
+};
+
 const notFoundCheck = {
   path: "/__missing-smoke-test__",
   marker: "404",
@@ -63,6 +68,24 @@ for (const check of checks) {
   } catch (error) {
     failures.push(`${check.path} request failed: ${error.message}`);
   }
+}
+
+try {
+  const url = new URL(sitemapContentCheck.path, origin);
+  const response = await fetch(url, {
+    headers: { "User-Agent": "GrantLabsDeploySmokeTest/1.0" },
+  });
+  const text = await response.text();
+
+  if (!response.ok) {
+    failures.push(`${sitemapContentCheck.path} returned HTTP ${response.status} during sitemap content check`);
+  } else if (text.includes(sitemapContentCheck.forbidden)) {
+    failures.push(`${sitemapContentCheck.path} includes noindex URL: ${sitemapContentCheck.forbidden}`);
+  } else {
+    passes.push(`${sitemapContentCheck.path} excludes ${sitemapContentCheck.forbidden}`);
+  }
+} catch (error) {
+  failures.push(`${sitemapContentCheck.path} content check failed: ${error.message}`);
 }
 
 try {

@@ -145,6 +145,9 @@ if (existsSync("scripts/check-deployed-site.mjs")) {
   if (!smokeCheck.includes("/__missing-smoke-test__") || !smokeCheck.includes("expectedStatus: 404")) {
     failures.push("Deployed smoke check is missing not-found route validation.");
   }
+  if (!smokeCheck.includes("sitemapContentCheck") || !smokeCheck.includes("forbidden: \"privacy.html\"")) {
+    failures.push("Deployed smoke check is missing sitemap noindex validation.");
+  }
   if (!smokeCheck.includes("const passes = []") || !smokeCheck.includes("for (const pass of passes)")) {
     failures.push("Deployed smoke check is missing pass summary output.");
   }

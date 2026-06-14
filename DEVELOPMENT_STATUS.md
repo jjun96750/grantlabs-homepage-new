@@ -53,6 +53,7 @@ Last updated: 2026-06-15
 - Deployment environment tracker now records EmailJS and fallback contact configuration.
 - Contact form submission payload now includes page URL and ISO submission timestamp.
 - Sitemap now excludes the noindex privacy page for cleaner SEO signals.
+- Deployed smoke test now verifies sitemap excludes the noindex privacy URL.
 - No build step is required.
 
 ## Current Files
@@ -138,7 +139,8 @@ CHANGELOG.md
 - EmailJS deployment configuration tracking
 - Lead source metadata in contact payload
 - Sitemap noindex/privacy cleanup
-- Latest local static checks passed after sitemap noindex cleanup on 2026-06-15.
+- Deployed sitemap noindex validation
+- Latest local static checks passed after deployed sitemap noindex validation updates on 2026-06-15.
 
 ## Technical Notes
 
@@ -201,6 +203,7 @@ CHANGELOG.md
 - Added EmailJS and fallback contact configuration to deployment tracking.
 - Added page URL and submission timestamp metadata to contact form submissions.
 - Removed `privacy.html` from sitemap because it is marked `noindex`.
+- Extended deployed smoke tests to verify sitemap excludes `privacy.html`.
 
 ### 2026-06-14
 
