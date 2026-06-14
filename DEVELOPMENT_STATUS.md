@@ -26,6 +26,7 @@ Last updated: 2026-06-14
 - Accessibility improvements added: skip links, main-content focus target, visible focus styles, and reduced-motion handling.
 - Mobile navigation menu added for small-screen visitors.
 - Deliverables section added to clarify what visitors receive after consultation.
+- Mobile quick-contact bar added for phone and consultation actions.
 - No build step is required.
 
 ## Current Files
@@ -55,6 +56,7 @@ scripts/check-static-site.mjs
 
 - Fixed header navigation
 - Mobile navigation menu
+- Mobile quick-contact bar
 - Hero section with real business meeting image
 - Readiness-check section
 - Service overview
@@ -75,7 +77,7 @@ scripts/check-static-site.mjs
 - Cloudflare Pages setup checklist
 - Deployment QA checklist
 - Local static-site validation script
-- Latest static validation: `node scripts/check-static-site.mjs` passed after deliverables-section updates on 2026-06-14.
+- Latest static validation: `node scripts/check-static-site.mjs` passed after quick-contact updates on 2026-06-14.
 
 ## Technical Notes
 
@@ -132,3 +134,4 @@ scripts/check-static-site.mjs
 - Added accessibility improvements for keyboard navigation and reduced-motion users.
 - Added mobile navigation toggle and mobile menu.
 - Added consultation deliverables section.
+- Added mobile quick-contact bar.

@@ -57,6 +57,7 @@ if (existsSync("index.html")) {
   if (!html.includes('id="main-content"')) failures.push("index.html is missing the main-content target.");
   if (!html.includes('class="menu-toggle"')) failures.push("index.html is missing the mobile menu toggle.");
   if (!html.includes('id="mobile-menu"')) failures.push("index.html is missing the mobile menu.");
+  if (!html.includes('class="quick-contact"')) failures.push("index.html is missing the quick-contact bar.");
 }
 
 for (const page of ["404.html", "privacy.html"]) {

@@ -20,6 +20,7 @@ Run this checklist after each Cloudflare Pages preview deployment.
 - Header does not overlap hero text.
 - Mobile menu button opens and closes the navigation.
 - Mobile menu links close the menu after tapping.
+- Bottom quick-contact bar shows phone and consultation actions.
 - CTA button remains tappable.
 - Service cards stack into one column.
 - Readiness-check items stack into one column.

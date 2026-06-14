@@ -892,6 +892,46 @@ button.button {
   line-height: 1.6;
 }
 
+.quick-contact {
+  position: fixed;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+  z-index: 30;
+  display: none;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  background: rgba(15, 23, 21, 0.92);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+}
+
+.quick-contact a {
+  min-height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 8px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  font-weight: 850;
+  text-decoration: none;
+}
+
+.quick-contact a:last-child {
+  color: #fff;
+  background: var(--green);
+}
+
+.quick-contact svg {
+  width: 17px;
+  height: 17px;
+}
+
 .not-found-page {
   min-height: 100vh;
   display: grid;
@@ -1177,6 +1217,14 @@ button.button {
 
   .footer-links {
     justify-content: flex-start;
+  }
+
+  .home-page {
+    padding-bottom: 78px;
+  }
+
+  .quick-contact {
+    display: grid;
   }
 
   .legal-header {
