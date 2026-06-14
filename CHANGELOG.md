@@ -30,6 +30,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Extended static validation to check core metadata on every HTML page.
 - Added static validation for canonical, Open Graph, and Twitter metadata on indexable pages.
 - Refreshed Claude handoff notes with current commit and deployment validation scope.
+- Added static validation for local `href` and `src` targets across HTML pages.
 
 ## 2026-06-14
 

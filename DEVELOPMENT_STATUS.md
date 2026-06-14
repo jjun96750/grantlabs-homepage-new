@@ -57,6 +57,7 @@ Last updated: 2026-06-15
 - Static validation now checks language, title, description, and replacement characters across all HTML pages.
 - Static validation now checks canonical and social sharing metadata on indexable pages.
 - Claude handoff memo refreshed with latest commit, smoke-test scope, sitemap note, and contact metadata.
+- Static validation now checks local `href` and `src` targets across HTML pages.
 - No build step is required.
 
 ## Current Files
@@ -146,6 +147,7 @@ CHANGELOG.md
 - Cross-page HTML metadata validation
 - Indexable-page canonical/social metadata validation
 - Refreshed Claude handoff memo
+- Local link and asset target validation
 - Latest local static checks passed after Claude handoff refresh on 2026-06-15.
 
 ## Technical Notes
@@ -213,6 +215,7 @@ CHANGELOG.md
 - Extended static validation to check core metadata on every HTML page.
 - Added static validation for canonical, Open Graph, and Twitter metadata on indexable pages.
 - Refreshed `CLAUDE_HANDOFF.md` with current commit and deployment validation scope.
+- Added static validation for local `href` and `src` targets across HTML pages.
 
 ### 2026-06-14
 

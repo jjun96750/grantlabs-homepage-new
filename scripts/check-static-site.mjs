@@ -26,17 +26,50 @@ const requiredFiles = [
 const failures = [];
 const read = (file) => readFileSync(file, "utf8");
 
+const htmlPages = ["index.html", "404.html", "privacy.html", "checklist.html"];
+
+const localTargetToFile = (target) => {
+  const withoutHash = target.split("#")[0];
+  const withoutQuery = withoutHash.split("?")[0];
+
+  if (!withoutQuery || withoutQuery === "/") return "index.html";
+  if (withoutQuery.startsWith("/")) return withoutQuery.slice(1);
+  return withoutQuery;
+};
+
+const shouldCheckLocalTarget = (target) => {
+  if (!target || target.startsWith("#")) return false;
+  if (/^(https?:|mailto:|tel:|javascript:)/i.test(target)) return false;
+  return true;
+};
+
 for (const file of requiredFiles) {
   if (!existsSync(file)) failures.push(`Missing required file: ${file}`);
 }
 
-for (const page of ["index.html", "404.html", "privacy.html", "checklist.html"]) {
+for (const page of htmlPages) {
   if (!existsSync(page)) continue;
   const html = read(page);
   if (!html.includes('<html lang="ko"')) failures.push(`${page} is missing Korean language metadata.`);
   if (!html.includes("<title>")) failures.push(`${page} is missing a title.`);
   if (!html.includes('name="description"')) failures.push(`${page} is missing a meta description.`);
   if (html.includes("\uFFFD")) failures.push(`${page} contains replacement characters.`);
+}
+
+for (const page of htmlPages) {
+  if (!existsSync(page)) continue;
+  const html = read(page);
+  const targets = [
+    ...html.matchAll(/\s(?:href|src)=["']([^"']+)["']/g),
+  ].map((match) => match[1]);
+
+  for (const target of targets) {
+    if (!shouldCheckLocalTarget(target)) continue;
+    const targetFile = localTargetToFile(target);
+    if (!existsSync(targetFile)) {
+      failures.push(`${page} links to missing local target: ${target}`);
+    }
+  }
 }
 
 for (const page of ["index.html", "checklist.html"]) {
