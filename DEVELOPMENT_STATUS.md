@@ -49,6 +49,7 @@ Last updated: 2026-06-15
 - Checklist checkboxes now receive accessible labels from their item text.
 - Deployed smoke test now validates a real missing route returns the styled 404 response.
 - Deployed smoke test now prints a pass summary for deployment records.
+- Static validation now checks README and Cloudflare setup guidance markers.
 - No build step is required.
 
 ## Current Files
@@ -130,7 +131,8 @@ CHANGELOG.md
 - Checklist checkbox accessibility labels
 - Missing-route 404 smoke test
 - Deployed smoke-test pass summary output
-- Latest local static checks passed after deployed smoke-test pass summary updates on 2026-06-15.
+- README and Cloudflare guide drift checks
+- Latest local static checks passed after README/Cloudflare guide drift-check updates on 2026-06-15.
 
 ## Technical Notes
 
@@ -189,6 +191,7 @@ CHANGELOG.md
 - Added accessible checkbox labels to the checklist page.
 - Extended deployed smoke tests with a real missing-route 404 validation.
 - Added pass summary output to the deployed smoke test for deployment records.
+- Added README and Cloudflare setup guide marker checks to static validation.
 
 ### 2026-06-14
 

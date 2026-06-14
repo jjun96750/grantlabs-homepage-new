@@ -156,6 +156,20 @@ if (existsSync("DEPLOYMENT_ENVIRONMENTS.md")) {
   }
 }
 
+if (existsSync("README.md")) {
+  const readme = read("README.md");
+  for (const marker of ["scripts/check-static-site.mjs", "scripts/check-deployed-site.mjs", "social-card.svg"]) {
+    if (!readme.includes(marker)) failures.push(`README.md is missing marker: ${marker}`);
+  }
+}
+
+if (existsSync("CLOUDFLARE_PAGES_SETUP.md")) {
+  const setup = read("CLOUDFLARE_PAGES_SETUP.md");
+  for (const marker of ["Framework preset: None", "Production branch: main", "scripts/check-deployed-site.mjs"]) {
+    if (!setup.includes(marker)) failures.push(`CLOUDFLARE_PAGES_SETUP.md is missing marker: ${marker}`);
+  }
+}
+
 if (failures.length) {
   console.error("Static site check failed:");
   for (const failure of failures) console.error(`- ${failure}`);
