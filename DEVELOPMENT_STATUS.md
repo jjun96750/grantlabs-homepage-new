@@ -35,6 +35,7 @@ Last updated: 2026-06-15
 - Consultation promise section added before the contact form.
 - Local social sharing card added and connected to Open Graph/Twitter metadata.
 - Checklist print styles tightened for A4 output and QA coverage.
+- Deployed-site smoke test script added for Cloudflare Pages previews.
 - No build step is required.
 
 ## Current Files
@@ -60,6 +61,7 @@ _headers
 CLOUDFLARE_PAGES_SETUP.md
 QA_CHECKLIST.md
 scripts/check-static-site.mjs
+scripts/check-deployed-site.mjs
 DEPLOYMENT_ENVIRONMENTS.md
 ROLLBACK_PLAN.md
 CHANGELOG.md
@@ -101,7 +103,8 @@ CHANGELOG.md
 - Page-level canonical, Open Graph, Twitter card, and manifest links for subpages
 - Local Open Graph/Twitter social sharing image
 - A4-friendly print styling for the consultation checklist
-- Latest local static checks passed after checklist print-style updates on 2026-06-15.
+- Cloudflare Pages preview smoke-test script
+- Latest local static checks passed after deployed smoke-test script updates on 2026-06-15.
 
 ## Technical Notes
 
@@ -132,10 +135,11 @@ CHANGELOG.md
 3. Record deployment URLs in `DEPLOYMENT_ENVIRONMENTS.md`.
 4. Run desktop and mobile visual QA using `QA_CHECKLIST.md`.
 5. Run `node scripts/check-static-site.mjs` before future commits when Node.js is available.
-6. Verify EmailJS delivery in production preview and decide whether to later connect Cloudflare Workers, Google Sheets, or the existing CRM.
-7. Replace or approve the hero image.
-8. Review FAQ wording with actual sales/support language.
-9. Continue edits only in this repository.
+6. Run `node scripts/check-deployed-site.mjs <preview-url>` after Cloudflare Pages deployment.
+7. Verify EmailJS delivery in production preview and decide whether to later connect Cloudflare Workers, Google Sheets, or the existing CRM.
+8. Replace or approve the hero image.
+9. Review FAQ wording with actual sales/support language.
+10. Continue edits only in this repository.
 
 ## Change Log
 
@@ -145,6 +149,7 @@ CHANGELOG.md
 - Connected homepage, privacy page, and checklist page Open Graph/Twitter metadata to the local social card.
 - Extended the static validation script to require the social card and subpage image metadata.
 - Tightened checklist print styles and added print QA items.
+- Added `scripts/check-deployed-site.mjs` for Cloudflare Pages preview smoke testing.
 
 ### 2026-06-14
 

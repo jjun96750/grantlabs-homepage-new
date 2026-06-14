@@ -34,6 +34,7 @@ Run this checklist after each Cloudflare Pages preview deployment.
 
 ## Static Files
 
+- `node scripts/check-deployed-site.mjs <preview-url>` passes after deployment.
 - `/favicon.svg` loads.
 - `/social-card.svg` loads.
 - `/robots.txt` loads.

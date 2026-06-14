@@ -20,6 +20,7 @@ const requiredFiles = [
   "DEPLOYMENT_ENVIRONMENTS.md",
   "ROLLBACK_PLAN.md",
   "CHANGELOG.md",
+  "scripts/check-deployed-site.mjs",
 ];
 
 const failures = [];
@@ -103,6 +104,13 @@ if (existsSync("site.webmanifest")) {
 
 if (existsSync("sitemap.xml") && !read("sitemap.xml").includes("<urlset")) {
   failures.push("sitemap.xml does not contain a urlset.");
+}
+
+if (existsSync("scripts/check-deployed-site.mjs")) {
+  const smokeCheck = read("scripts/check-deployed-site.mjs");
+  for (const path of ["/", "/privacy.html", "/checklist.html", "/robots.txt", "/sitemap.xml", "/social-card.svg"]) {
+    if (!smokeCheck.includes(path)) failures.push(`Deployed smoke check is missing path: ${path}`);
+  }
 }
 
 if (failures.length) {

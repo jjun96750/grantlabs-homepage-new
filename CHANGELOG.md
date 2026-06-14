@@ -8,6 +8,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Connected homepage, privacy, and checklist metadata to the local social sharing card.
 - Extended the static validation script to check social-card coverage.
 - Improved checklist print styles and added print QA coverage.
+- Added a deployed-site smoke test script for Cloudflare Pages preview URLs.
 
 ## 2026-06-14
 
