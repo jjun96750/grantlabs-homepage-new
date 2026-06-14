@@ -3,6 +3,7 @@
 ## Scope
 
 - Work only in this new repository/folder: `grantlabs-homepage-new`
+- GitHub repository: `https://github.com/jjun96750/grantlabs-homepage-new`
 - Do not modify the existing `grantlabs-website` repository or current production site.
 - Cloudflare Pages should be connected to this new repository as a separate project.
 
@@ -12,6 +13,7 @@
 - No build step is required.
 - Main branch: `main`
 - Initial local commit: `860129d Initial Grant Labs homepage`
+- GitHub repository has been created and should receive this local `main` branch.
 
 ## Files
 
@@ -31,11 +33,9 @@ README.md
 
 ## Next Steps
 
-1. Create a new GitHub repository for this project.
-2. Add that repository as `origin`.
-3. Push the local `main` branch.
-4. Create a new Cloudflare Pages project connected to the new repository.
-5. Continue edits only in this repository.
+1. Push the local `main` branch to `https://github.com/jjun96750/grantlabs-homepage-new`.
+2. Create a new Cloudflare Pages project connected to the new repository.
+3. Continue edits only in this repository.
 
 ## Suggested Prompt For Claude
 
@@ -43,4 +43,12 @@ README.md
 기존 grantlabs-website는 건드리지 말고, 이 새 레포에서만 Grant Labs 신규 홈페이지를 작업해줘.
 Cloudflare Pages도 이 레포에 연결해서 기존 운영 사이트와 독립적으로 개발할 예정이야.
 현재는 정적 홈페이지 초안이 있고, 빌드 과정 없이 index.html과 styles/homepage.css 중심으로 관리하면 돼.
+```
+
+English fallback:
+
+```text
+Work only in https://github.com/jjun96750/grantlabs-homepage-new.
+Do not touch the existing grantlabs-website repository or production site.
+This is a static homepage draft for a separate Cloudflare Pages project. Use index.html and styles/homepage.css as the main files.
 ```
