@@ -25,6 +25,7 @@ Last updated: 2026-06-14
 - Privacy notice page added and linked from the consultation form and footer.
 - Accessibility improvements added: skip links, main-content focus target, visible focus styles, and reduced-motion handling.
 - Mobile navigation menu added for small-screen visitors.
+- Deliverables section added to clarify what visitors receive after consultation.
 - No build step is required.
 
 ## Current Files
@@ -58,6 +59,7 @@ scripts/check-static-site.mjs
 - Readiness-check section
 - Service overview
 - Process/method section
+- Deliverables section
 - Focus-area section
 - FAQ section
 - Contact section with phone, email, address, and pre-filled email draft form
@@ -73,7 +75,7 @@ scripts/check-static-site.mjs
 - Cloudflare Pages setup checklist
 - Deployment QA checklist
 - Local static-site validation script
-- Latest static validation: `node scripts/check-static-site.mjs` passed after mobile-menu updates on 2026-06-14.
+- Latest static validation: `node scripts/check-static-site.mjs` passed after deliverables-section updates on 2026-06-14.
 
 ## Technical Notes
 
@@ -129,3 +131,4 @@ scripts/check-static-site.mjs
 - Added `privacy.html` and linked it from the form consent text and footer.
 - Added accessibility improvements for keyboard navigation and reduced-motion users.
 - Added mobile navigation toggle and mobile menu.
+- Added consultation deliverables section.
