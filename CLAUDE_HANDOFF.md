@@ -36,6 +36,7 @@ site.webmanifest
 QA_CHECKLIST.md
 CLOUDFLARE_PAGES_SETUP.md
 DEPLOYMENT_ENVIRONMENTS.md
+CHANGELOG.md
 ```
 
 ## Design Direction

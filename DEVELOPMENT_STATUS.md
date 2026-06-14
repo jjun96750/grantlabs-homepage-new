@@ -58,6 +58,7 @@ CLOUDFLARE_PAGES_SETUP.md
 QA_CHECKLIST.md
 scripts/check-static-site.mjs
 DEPLOYMENT_ENVIRONMENTS.md
+CHANGELOG.md
 ```
 
 ## Implemented Homepage Sections
@@ -91,6 +92,7 @@ DEPLOYMENT_ENVIRONMENTS.md
 - Deployment QA checklist
 - Local static-site validation script
 - Deployment environment tracking document
+- Changelog
 - Latest local static checks passed after consultation-promise updates on 2026-06-14.
 
 ## Technical Notes
@@ -158,3 +160,4 @@ DEPLOYMENT_ENVIRONMENTS.md
 - Added preconnect hints for external assets.
 - Added consultation promise section.
 - Added `DEPLOYMENT_ENVIRONMENTS.md` for deployment URL and domain tracking.
+- Added `CHANGELOG.md`.

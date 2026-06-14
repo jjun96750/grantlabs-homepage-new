@@ -17,6 +17,7 @@ const requiredFiles = [
   "CLOUDFLARE_PAGES_SETUP.md",
   "QA_CHECKLIST.md",
   "DEPLOYMENT_ENVIRONMENTS.md",
+  "CHANGELOG.md",
 ];
 
 const failures = [];
