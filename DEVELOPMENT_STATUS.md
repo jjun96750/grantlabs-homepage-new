@@ -39,6 +39,7 @@ Last updated: 2026-06-15
 - Contact form honeypot added to reduce automated spam submissions.
 - Static asset cache policies expanded for social card, manifest, robots, and sitemap files.
 - Contact form accessibility description wiring added for required fields and status text.
+- Claude handoff memo updated with latest pushed state, validation commands, and deployment next steps.
 - No build step is required.
 
 ## Current Files
@@ -110,6 +111,7 @@ CHANGELOG.md
 - Contact form honeypot spam guard
 - Expanded Cloudflare `_headers` cache policies for deployment support files
 - Contact form `aria-describedby` status wiring
+- Updated Claude handoff memo
 - Latest local static checks passed after contact-form accessibility updates on 2026-06-15.
 
 ## Technical Notes
@@ -159,6 +161,7 @@ CHANGELOG.md
 - Added a hidden contact-form honeypot field and static validation coverage.
 - Expanded Cloudflare `_headers` cache policies and updated sitemap lastmod values to 2026-06-15.
 - Added contact form `aria-describedby` wiring and QA coverage.
+- Updated `CLAUDE_HANDOFF.md` with the current pushed state and deployment validation flow.
 
 ### 2026-06-14
 

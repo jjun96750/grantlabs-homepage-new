@@ -9,11 +9,11 @@
 
 ## Current State
 
-- Static homepage draft is ready.
+- Static homepage draft is ready and pushed to GitHub.
 - No build step is required.
 - Main branch: `main`
-- Initial local commit: `860129d Initial Grant Labs homepage`
-- GitHub repository has been created and should receive this local `main` branch.
+- Latest pushed commit at handoff update: `194b23a Improve contact form accessibility`
+- Local static validation passes with `node scripts/check-static-site.mjs`.
 - Ongoing development status is tracked in `DEVELOPMENT_STATUS.md`.
 
 ## Files
@@ -30,6 +30,7 @@ DEVELOPMENT_STATUS.md
 .nojekyll
 _headers
 favicon.svg
+social-card.svg
 robots.txt
 sitemap.xml
 site.webmanifest
@@ -38,6 +39,8 @@ CLOUDFLARE_PAGES_SETUP.md
 DEPLOYMENT_ENVIRONMENTS.md
 ROLLBACK_PLAN.md
 CHANGELOG.md
+scripts/check-static-site.mjs
+scripts/check-deployed-site.mjs
 ```
 
 ## Design Direction
@@ -46,18 +49,24 @@ CHANGELOG.md
 - First screen uses a real business meeting photo from Unsplash.
 - The page is intentionally static for simple Cloudflare Pages deployment.
 - Static deployment support files are present: `_headers`, `robots.txt`, `sitemap.xml`, `favicon.svg`, and `site.webmanifest`.
+- Social sharing image is committed as `social-card.svg` and connected to Open Graph/Twitter metadata.
 - Privacy notice page is available at `privacy.html` and is linked from the form and footer.
 - Consultation checklist page is available at `checklist.html` and linked from the homepage/footer.
+- Contact form uses EmailJS first, then falls back to a pre-filled email draft.
+- Contact form includes a hidden honeypot field and `aria-describedby` wiring for status/help text.
+- Cloudflare `_headers` includes cache policies for CSS, favicon, social card, manifest, robots, and sitemap files.
 
 ## Next Steps
 
-1. Push the local `main` branch to `https://github.com/jjun96750/grantlabs-homepage-new`.
-2. Create a new Cloudflare Pages project connected to the new repository.
-3. Follow `CLOUDFLARE_PAGES_SETUP.md` for deployment settings.
-4. Record preview/production URLs in `DEPLOYMENT_ENVIRONMENTS.md`.
-5. Run `QA_CHECKLIST.md` after the preview is live.
-6. Continue edits only in this repository.
-7. Keep `DEVELOPMENT_STATUS.md` updated whenever the project state changes.
+1. Create a new Cloudflare Pages project connected to `jjun96750/grantlabs-homepage-new`.
+2. Follow `CLOUDFLARE_PAGES_SETUP.md` for deployment settings.
+3. Record preview/production URLs in `DEPLOYMENT_ENVIRONMENTS.md`.
+4. Run `node scripts/check-static-site.mjs` before additional commits.
+5. Run `node scripts/check-deployed-site.mjs <preview-url>` after the preview is live.
+6. Run `QA_CHECKLIST.md` after the preview is live.
+7. Verify EmailJS delivery in the deployed preview and confirm the email-draft fallback.
+8. Continue edits only in this repository.
+9. Keep `DEVELOPMENT_STATUS.md` updated whenever the project state changes.
 
 ## Suggested Prompt For Claude
 

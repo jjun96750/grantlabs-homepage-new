@@ -12,6 +12,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Added a contact-form honeypot to reduce automated spam submissions.
 - Expanded Cloudflare `_headers` cache policies and refreshed sitemap lastmod values.
 - Added contact-form accessibility description wiring for status/help text.
+- Updated Claude handoff notes with current pushed state and deployment validation flow.
 
 ## 2026-06-14
 
