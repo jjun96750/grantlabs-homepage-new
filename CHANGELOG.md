@@ -36,6 +36,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Added a GitHub Actions workflow to run static validation on pushes and pull requests.
 - Refreshed Claude handoff notes with the latest workflow commit.
 - Added Cloudflare Pages `_redirects` fallback for unknown routes.
+- Refreshed Claude handoff notes with the latest `_redirects` commit.
 
 ## 2026-06-14
 

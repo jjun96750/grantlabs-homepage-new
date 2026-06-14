@@ -232,6 +232,7 @@ CHANGELOG.md
 - Added `.github/workflows/static-site-check.yml` for automated static validation on GitHub.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest workflow commit.
 - Added `_redirects` so unknown Cloudflare Pages routes serve `404.html` with a 404 status.
+- Refreshed `CLAUDE_HANDOFF.md` with the latest `_redirects` commit.
 
 ### 2026-06-14
 
