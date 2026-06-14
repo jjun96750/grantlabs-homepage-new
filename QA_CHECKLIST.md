@@ -48,6 +48,7 @@ Run this checklist after each Cloudflare Pages preview deployment.
 - `/privacy.html` displays the privacy notice page.
 - `/checklist.html` displays the printable consultation checklist page.
 - Checklist page updates the checked-item count when boxes are selected.
+- Checklist checkboxes expose readable labels to assistive technology.
 - Checklist page includes a follow-up consultation CTA near the bottom.
 
 ## Print

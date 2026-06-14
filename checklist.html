@@ -116,6 +116,9 @@
       };
 
       items.forEach(function (item) {
+        if (!item.getAttribute("aria-label")) {
+          item.setAttribute("aria-label", item.parentElement.textContent.trim());
+        }
         item.addEventListener("change", update);
       });
     });

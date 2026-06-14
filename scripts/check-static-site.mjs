@@ -92,6 +92,7 @@ if (existsSync("checklist.html")) {
   const html = read("checklist.html");
   if (!html.includes("checklist-count")) failures.push("checklist.html is missing progress count UI.");
   if (!html.includes("checklist-next")) failures.push("checklist.html is missing the follow-up consultation CTA.");
+  if (!html.includes('setAttribute("aria-label"')) failures.push("checklist.html is missing checkbox accessibility labels.");
 }
 
 if (existsSync("styles/homepage.css")) {

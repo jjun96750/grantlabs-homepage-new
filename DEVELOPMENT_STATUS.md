@@ -46,6 +46,7 @@ Last updated: 2026-06-15
 - Deployment environment tracker now includes a preview verification template.
 - Checklist page follow-up consultation CTA added for users who finish preparing materials.
 - Privacy notice updated to explain contact-form spam protection and no-JavaScript fallback.
+- Checklist checkboxes now receive accessible labels from their item text.
 - No build step is required.
 
 ## Current Files
@@ -124,7 +125,8 @@ CHANGELOG.md
 - Deployment environment preview verification template
 - Checklist follow-up consultation CTA
 - Privacy notice contact-form protection explanation
-- Latest local static checks passed after privacy notice protection updates on 2026-06-15.
+- Checklist checkbox accessibility labels
+- Latest local static checks passed after checklist checkbox accessibility updates on 2026-06-15.
 
 ## Technical Notes
 
@@ -180,6 +182,7 @@ CHANGELOG.md
 - Expanded `DEPLOYMENT_ENVIRONMENTS.md` with preview verification fields and static validation coverage.
 - Added a follow-up consultation CTA to the checklist page.
 - Updated the privacy notice with contact-form protection and no-JavaScript fallback details.
+- Added accessible checkbox labels to the checklist page.
 
 ### 2026-06-14
 
