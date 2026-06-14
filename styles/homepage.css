@@ -621,6 +621,52 @@ h2 {
   color: var(--blue);
 }
 
+.fit-section {
+  padding: 92px 0;
+  background: #fff;
+  border-top: 1px solid var(--line);
+}
+
+.fit-table {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.fit-row {
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr 1fr;
+  border-top: 1px solid var(--line);
+}
+
+.fit-row:first-child {
+  border-top: 0;
+}
+
+.fit-row > div {
+  padding: 20px;
+  border-left: 1px solid var(--line);
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.fit-row > div:first-child {
+  border-left: 0;
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.fit-head {
+  background: #edf7f2;
+}
+
+.fit-head > div {
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 850;
+}
+
 .method-section {
   background: #10211c;
   color: #fff;
@@ -1268,6 +1314,19 @@ button:disabled,
   .deliverables-grid,
   .case-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .fit-row {
+    grid-template-columns: 1fr;
+  }
+
+  .fit-row > div {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .fit-row > div:first-child {
+    border-top: 0;
   }
 
   .service-card:nth-child(3n) {
