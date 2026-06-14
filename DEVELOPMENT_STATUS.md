@@ -31,6 +31,7 @@ Last updated: 2026-06-14
 - Interactive 30-second readiness self-check added to the homepage.
 - Checklist page progress counter added.
 - Service-fit table added to map visitor situations to recommended services.
+- Preconnect hints added for image and CDN resources.
 - No build step is required.
 
 ## Current Files
@@ -88,7 +89,7 @@ DEPLOYMENT_ENVIRONMENTS.md
 - Deployment QA checklist
 - Local static-site validation script
 - Deployment environment tracking document
-- Latest static validation: `node scripts/check-static-site.mjs` passed after service-fit updates on 2026-06-14.
+- Latest static validation: `node scripts/check-static-site.mjs` passed after preconnect updates on 2026-06-14.
 
 ## Technical Notes
 
@@ -152,4 +153,5 @@ DEPLOYMENT_ENVIRONMENTS.md
 - Added interactive readiness self-check section.
 - Added checklist page progress counter.
 - Added service-fit table.
+- Added preconnect hints for external assets.
 - Added `DEPLOYMENT_ENVIRONMENTS.md` for deployment URL and domain tracking.

@@ -63,6 +63,7 @@ if (existsSync("index.html")) {
   if (!html.includes("emailjs.send")) failures.push("index.html is missing EmailJS submission handling.");
   if (!html.includes("data-score-item")) failures.push("index.html is missing the self-check interaction.");
   if (!html.includes('class="fit-table"')) failures.push("index.html is missing the service-fit table.");
+  if (!html.includes('rel="preconnect"')) failures.push("index.html is missing preconnect hints.");
 }
 
 for (const page of ["404.html", "privacy.html", "checklist.html"]) {
