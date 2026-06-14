@@ -12,7 +12,7 @@
 - Static homepage draft is ready and pushed to GitHub.
 - No build step is required.
 - Main branch: `main`
-- Latest pushed commit at handoff update: `8833d12 Validate local page targets`
+- Latest pushed commit at handoff update: `2a28784 Add static validation workflow`
 - Local static validation passes with `node scripts/check-static-site.mjs`.
 - Ongoing development status is tracked in `DEVELOPMENT_STATUS.md`.
 

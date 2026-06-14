@@ -155,7 +155,7 @@ CHANGELOG.md
 - Local link and asset target validation
 - Deployed smoke-test `Content-Type` validation
 - GitHub Actions static validation workflow
-- Latest local static checks passed after local target validation on 2026-06-15.
+- Latest local static checks passed after GitHub Actions workflow setup on 2026-06-15.
 
 ## Technical Notes
 
@@ -226,6 +226,7 @@ CHANGELOG.md
 - Refreshed `CLAUDE_HANDOFF.md` with the latest pushed commit and local target validation scope.
 - Added deployed smoke-test `Content-Type` checks and local validation coverage.
 - Added `.github/workflows/static-site-check.yml` for automated static validation on GitHub.
+- Refreshed `CLAUDE_HANDOFF.md` with the latest workflow commit.
 
 ### 2026-06-14
 
