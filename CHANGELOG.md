@@ -15,6 +15,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Updated Claude handoff notes with current pushed state and deployment validation flow.
 - Added a no-JavaScript contact fallback in the consultation form.
 - Extended deployed smoke tests to verify security and cache response headers.
+- Updated README and Cloudflare setup guidance for current validation scripts.
 
 ## 2026-06-14
 
