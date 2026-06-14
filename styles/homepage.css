@@ -329,6 +329,50 @@ h1 {
   font-size: clamp(18px, 2vw, 25px);
 }
 
+.readiness-section {
+  padding: 64px 0;
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+}
+
+.readiness-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+  gap: 54px;
+  align-items: center;
+}
+
+.readiness-grid h2 {
+  max-width: 560px;
+  margin-top: 10px;
+  font-size: clamp(28px, 3.2vw, 42px);
+}
+
+.readiness-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.readiness-list div {
+  min-height: 68px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fbfcfb;
+  font-weight: 750;
+}
+
+.readiness-list svg {
+  width: 20px;
+  height: 20px;
+  color: var(--green);
+  flex: 0 0 auto;
+}
+
 .section {
   padding: 104px 0;
 }
@@ -763,6 +807,7 @@ button.button {
 
   .hero-inner,
   .intro-grid,
+  .readiness-grid,
   .method-grid,
   .faq-grid,
   .contact-grid {
@@ -841,6 +886,10 @@ button.button {
 
   .intro-grid {
     gap: 16px;
+  }
+
+  .readiness-list {
+    grid-template-columns: 1fr;
   }
 
   .section {

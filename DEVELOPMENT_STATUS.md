@@ -21,6 +21,7 @@ Last updated: 2026-06-14
 - Static deployment support files added.
 - Contact form now opens a pre-filled email draft instead of relying on raw `mailto:` form submission.
 - FAQ section and FAQPage structured data added.
+- Readiness-check section added to help visitors prepare for consultation.
 - No build step is required.
 
 ## Current Files
@@ -45,6 +46,7 @@ _headers
 
 - Fixed header navigation
 - Hero section with real business meeting image
+- Readiness-check section
 - Service overview
 - Process/method section
 - Focus-area section
@@ -104,3 +106,4 @@ _headers
 - Improved consultation form with privacy consent and pre-filled email draft behavior.
 - Added a static 404 page for Cloudflare Pages fallback handling.
 - Added FAQ section and FAQPage structured data.
+- Added consultation readiness-check section.
