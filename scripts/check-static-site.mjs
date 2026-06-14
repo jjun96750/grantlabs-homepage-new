@@ -39,6 +39,16 @@ for (const page of ["index.html", "404.html", "privacy.html", "checklist.html"])
   if (html.includes("\uFFFD")) failures.push(`${page} contains replacement characters.`);
 }
 
+for (const page of ["index.html", "checklist.html"]) {
+  if (!existsSync(page)) continue;
+  const html = read(page);
+  if (!html.includes('rel="canonical"')) failures.push(`${page} is missing a canonical link.`);
+  if (!html.includes('property="og:title"')) failures.push(`${page} is missing Open Graph title metadata.`);
+  if (!html.includes('property="og:image"')) failures.push(`${page} is missing Open Graph image metadata.`);
+  if (!html.includes('name="twitter:card"')) failures.push(`${page} is missing Twitter card metadata.`);
+  if (!html.includes('name="twitter:image"')) failures.push(`${page} is missing Twitter image metadata.`);
+}
+
 if (existsSync("index.html")) {
   const html = read("index.html");
   const ids = new Set([...html.matchAll(/\sid="([^"]+)"/g)].map((match) => match[1]));

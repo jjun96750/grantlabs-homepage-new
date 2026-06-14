@@ -55,6 +55,7 @@ Last updated: 2026-06-15
 - Sitemap now excludes the noindex privacy page for cleaner SEO signals.
 - Deployed smoke test now verifies sitemap excludes the noindex privacy URL.
 - Static validation now checks language, title, description, and replacement characters across all HTML pages.
+- Static validation now checks canonical and social sharing metadata on indexable pages.
 - No build step is required.
 
 ## Current Files
@@ -142,7 +143,8 @@ CHANGELOG.md
 - Sitemap noindex/privacy cleanup
 - Deployed sitemap noindex validation
 - Cross-page HTML metadata validation
-- Latest local static checks passed after cross-page HTML metadata validation updates on 2026-06-15.
+- Indexable-page canonical/social metadata validation
+- Latest local static checks passed after indexable-page social metadata validation updates on 2026-06-15.
 
 ## Technical Notes
 
@@ -207,6 +209,7 @@ CHANGELOG.md
 - Removed `privacy.html` from sitemap because it is marked `noindex`.
 - Extended deployed smoke tests to verify sitemap excludes `privacy.html`.
 - Extended static validation to check core metadata on every HTML page.
+- Added static validation for canonical, Open Graph, and Twitter metadata on indexable pages.
 
 ### 2026-06-14
 
