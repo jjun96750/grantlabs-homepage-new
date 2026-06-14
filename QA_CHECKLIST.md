@@ -37,6 +37,7 @@ Run this checklist after each Cloudflare Pages preview deployment.
 ## Static Files
 
 - `node scripts/check-deployed-site.mjs <preview-url>` passes after deployment.
+- Deployed smoke test confirms security and cache response headers.
 - `/favicon.svg` loads.
 - `/social-card.svg` loads.
 - `/robots.txt` loads.

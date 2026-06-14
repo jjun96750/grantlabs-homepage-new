@@ -130,6 +130,9 @@ if (existsSync("scripts/check-deployed-site.mjs")) {
   for (const path of ["/", "/privacy.html", "/checklist.html", "/robots.txt", "/sitemap.xml", "/social-card.svg"]) {
     if (!smokeCheck.includes(path)) failures.push(`Deployed smoke check is missing path: ${path}`);
   }
+  for (const header of ["x-content-type-options", "referrer-policy", "permissions-policy", "cache-control"]) {
+    if (!smokeCheck.includes(header)) failures.push(`Deployed smoke check is missing header assertion: ${header}`);
+  }
 }
 
 if (failures.length) {

@@ -14,15 +14,15 @@ try {
 }
 
 const checks = [
-  { path: "/", marker: "Grant Labs" },
-  { path: "/privacy.html", marker: "Grant Labs" },
-  { path: "/checklist.html", marker: "checklist-count" },
-  { path: "/404.html", marker: "Grant Labs" },
-  { path: "/robots.txt", marker: "Sitemap:" },
-  { path: "/sitemap.xml", marker: "<urlset" },
-  { path: "/site.webmanifest", marker: "Grant Labs" },
-  { path: "/favicon.svg", marker: "<svg" },
-  { path: "/social-card.svg", marker: "Grant Labs social sharing card" },
+  { path: "/", marker: "Grant Labs", headers: ["x-content-type-options", "referrer-policy", "permissions-policy"] },
+  { path: "/privacy.html", marker: "Grant Labs", headers: ["x-content-type-options", "referrer-policy", "permissions-policy"] },
+  { path: "/checklist.html", marker: "checklist-count", headers: ["x-content-type-options", "referrer-policy", "permissions-policy"] },
+  { path: "/404.html", marker: "Grant Labs", headers: ["x-content-type-options", "referrer-policy", "permissions-policy"] },
+  { path: "/robots.txt", marker: "Sitemap:", headers: ["cache-control"] },
+  { path: "/sitemap.xml", marker: "<urlset", headers: ["cache-control"] },
+  { path: "/site.webmanifest", marker: "Grant Labs", headers: ["cache-control"] },
+  { path: "/favicon.svg", marker: "<svg", headers: ["cache-control"] },
+  { path: "/social-card.svg", marker: "Grant Labs social sharing card", headers: ["cache-control"] },
 ];
 
 const failures = [];
@@ -43,6 +43,12 @@ for (const check of checks) {
 
     if (!text.includes(check.marker)) {
       failures.push(`${check.path} did not include marker: ${check.marker}`);
+    }
+
+    for (const header of check.headers || []) {
+      if (!response.headers.get(header)) {
+        failures.push(`${check.path} is missing response header: ${header}`);
+      }
     }
   } catch (error) {
     failures.push(`${check.path} request failed: ${error.message}`);

@@ -41,6 +41,7 @@ Last updated: 2026-06-15
 - Contact form accessibility description wiring added for required fields and status text.
 - Claude handoff memo updated with latest pushed state, validation commands, and deployment next steps.
 - No-JavaScript contact fallback added inside the consultation form.
+- Deployed-site smoke test now checks security and cache response headers.
 - No build step is required.
 
 ## Current Files
@@ -114,7 +115,8 @@ CHANGELOG.md
 - Contact form `aria-describedby` status wiring
 - Updated Claude handoff memo
 - No-JavaScript contact fallback
-- Latest local static checks passed after no-JavaScript contact fallback updates on 2026-06-15.
+- Deployed smoke-test response header assertions
+- Latest local static checks passed after deployed smoke-test header assertions on 2026-06-15.
 
 ## Technical Notes
 
@@ -165,6 +167,7 @@ CHANGELOG.md
 - Added contact form `aria-describedby` wiring and QA coverage.
 - Updated `CLAUDE_HANDOFF.md` with the current pushed state and deployment validation flow.
 - Added a `noscript` contact fallback and static validation coverage.
+- Extended deployed smoke tests to assert security and cache response headers.
 
 ### 2026-06-14
 

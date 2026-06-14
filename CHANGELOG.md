@@ -14,6 +14,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Added contact-form accessibility description wiring for status/help text.
 - Updated Claude handoff notes with current pushed state and deployment validation flow.
 - Added a no-JavaScript contact fallback in the consultation form.
+- Extended deployed smoke tests to verify security and cache response headers.
 
 ## 2026-06-14
 
