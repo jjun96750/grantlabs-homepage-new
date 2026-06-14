@@ -33,6 +33,7 @@ Production branch: main
 7. Deploy.
 8. Copy the preview URL into `DEVELOPMENT_STATUS.md`.
 9. Run `QA_CHECKLIST.md`.
+10. Submit a test inquiry and confirm EmailJS delivery. If EmailJS fails, confirm the email-draft fallback opens.
 
 ## After Preview Approval
 

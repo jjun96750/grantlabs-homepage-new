@@ -12,7 +12,7 @@ Run this checklist after each Cloudflare Pages preview deployment.
 - FAQ items open and close correctly.
 - Contact form requires name, phone, and privacy consent.
 - Privacy notice link opens `privacy.html`.
-- Contact form opens an email draft with company, name, phone, interest, and message.
+- Contact form submits through EmailJS or falls back to an email draft.
 - Footer appears at the bottom with readable contrast.
 
 ## Mobile

@@ -59,6 +59,7 @@ if (existsSync("index.html")) {
   if (!html.includes('class="menu-toggle"')) failures.push("index.html is missing the mobile menu toggle.");
   if (!html.includes('id="mobile-menu"')) failures.push("index.html is missing the mobile menu.");
   if (!html.includes('class="quick-contact"')) failures.push("index.html is missing the quick-contact bar.");
+  if (!html.includes("emailjs.send")) failures.push("index.html is missing EmailJS submission handling.");
 }
 
 for (const page of ["404.html", "privacy.html", "checklist.html"]) {

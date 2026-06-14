@@ -856,6 +856,12 @@ button.button {
   border: 0;
 }
 
+button:disabled,
+.button[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.62;
+}
+
 .footer {
   padding: 34px 0;
   background: #0f1715;

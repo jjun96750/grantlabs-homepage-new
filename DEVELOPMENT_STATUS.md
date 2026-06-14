@@ -19,7 +19,7 @@ Last updated: 2026-06-14
 - Claude handoff memo created.
 - Development status document created and actively maintained.
 - Static deployment support files added.
-- Contact form now opens a pre-filled email draft instead of relying on raw `mailto:` form submission.
+- Contact form now attempts EmailJS submission and falls back to a pre-filled email draft.
 - FAQ section and FAQPage structured data added.
 - Readiness-check section added to help visitors prepare for consultation.
 - Privacy notice page added and linked from the consultation form and footer.
@@ -66,7 +66,7 @@ scripts/check-static-site.mjs
 - Deliverables section
 - Focus-area section
 - FAQ section
-- Contact section with phone, email, address, and pre-filled email draft form
+- Contact section with phone, email, address, EmailJS submission, and email-draft fallback
 - Privacy consent checkbox for consultation inquiries
 - Privacy notice page
 - Printable consultation checklist page
@@ -80,7 +80,7 @@ scripts/check-static-site.mjs
 - Cloudflare Pages setup checklist
 - Deployment QA checklist
 - Local static-site validation script
-- Latest static validation: `node scripts/check-static-site.mjs` passed after checklist-page updates on 2026-06-14.
+- Latest static validation: `node scripts/check-static-site.mjs` passed after EmailJS form updates on 2026-06-14.
 
 ## Technical Notes
 
@@ -100,7 +100,7 @@ scripts/check-static-site.mjs
 ## Known Limitations
 
 - Browser visual QA has not been completed inside Codex because the in-app browser failed with a Windows sandbox permission issue.
-- Contact form opens a pre-filled email draft. It does not submit to a backend or CRM yet.
+- Contact form attempts EmailJS submission and falls back to a pre-filled email draft. It does not submit to the CRM yet.
 - Hero image is loaded from Unsplash; it should be replaced with a controlled asset later if brand consistency or loading reliability matters.
 
 ## Next Actions
@@ -109,7 +109,7 @@ scripts/check-static-site.mjs
 2. Confirm the deployed preview URL.
 3. Run desktop and mobile visual QA using `QA_CHECKLIST.md`.
 4. Run `node scripts/check-static-site.mjs` before future commits when Node.js is available.
-5. Decide whether to keep email-draft submission or connect the form to EmailJS, Cloudflare Workers, Google Sheets, or the existing CRM.
+5. Verify EmailJS delivery in production preview and decide whether to later connect Cloudflare Workers, Google Sheets, or the existing CRM.
 6. Replace or approve the hero image.
 7. Review FAQ wording with actual sales/support language.
 8. Continue edits only in this repository.
@@ -127,6 +127,7 @@ scripts/check-static-site.mjs
 - Added this development status document so future collaborators can resume quickly.
 - Added favicon, manifest, robots, sitemap, and Cloudflare `_headers`.
 - Improved consultation form with privacy consent and pre-filled email draft behavior.
+- Upgraded consultation form to try EmailJS first and fall back to email draft.
 - Added a static 404 page for Cloudflare Pages fallback handling.
 - Added FAQ section and FAQPage structured data.
 - Added consultation readiness-check section.

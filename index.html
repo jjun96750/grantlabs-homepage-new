@@ -27,6 +27,7 @@
   <link rel="manifest" href="site.webmanifest" />
   <link rel="stylesheet" href="styles/homepage.css" />
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -347,7 +348,7 @@
             <span>상담 내용 보내기</span>
             <i data-lucide="send"></i>
           </button>
-          <p id="form-note" class="form-note wide" aria-live="polite">버튼을 누르면 작성한 내용이 이메일 앱에 자동 입력됩니다.</p>
+          <p id="form-note" class="form-note wide" aria-live="polite">버튼을 누르면 상담 요청을 전송합니다. 전송이 어려운 경우 이메일 앱으로 이어집니다.</p>
         </form>
       </div>
     </section>
@@ -384,8 +385,18 @@
 
       var form = document.getElementById("lead-form");
       var note = document.getElementById("form-note");
+      var submitButton = form ? form.querySelector('button[type="submit"]') : null;
       var menuButton = document.querySelector(".menu-toggle");
       var mobileMenu = document.getElementById("mobile-menu");
+      var emailConfig = {
+        publicKey: "UUfoZdh404On9fZbm",
+        serviceId: "service_tcj8otx",
+        templateId: "template_8ne6kj3"
+      };
+
+      if (window.emailjs && emailConfig.publicKey) {
+        window.emailjs.init({ publicKey: emailConfig.publicKey });
+      }
 
       if (menuButton && mobileMenu) {
         menuButton.addEventListener("click", function () {
@@ -405,28 +416,51 @@
       }
 
       if (form) {
-        form.addEventListener("submit", function (event) {
+        form.addEventListener("submit", async function (event) {
           event.preventDefault();
 
           if (!form.reportValidity()) return;
 
           var data = new FormData(form);
+          var payload = {
+            company: data.get("company") || "",
+            name: data.get("name") || "",
+            phone: data.get("phone") || "",
+            interest: data.get("interest") || "",
+            message: data.get("message") || ""
+          };
           var subject = "[Grant Labs 상담 문의] " + (data.get("company") || "신규 문의");
           var body = [
-            "회사명: " + (data.get("company") || ""),
-            "성함: " + (data.get("name") || ""),
-            "연락처: " + (data.get("phone") || ""),
-            "관심 분야: " + (data.get("interest") || ""),
+            "회사명: " + payload.company,
+            "성함: " + payload.name,
+            "연락처: " + payload.phone,
+            "관심 분야: " + payload.interest,
             "",
             "문의 내용:",
-            data.get("message") || ""
+            payload.message
           ].join("\n");
+
+          if (submitButton) submitButton.disabled = true;
+          if (note) note.textContent = "상담 요청을 전송하는 중입니다.";
+
+          if (window.emailjs) {
+            try {
+              await window.emailjs.send(emailConfig.serviceId, emailConfig.templateId, payload);
+              form.reset();
+              if (note) note.textContent = "상담 요청이 접수되었습니다. 확인 후 연락드리겠습니다.";
+              if (submitButton) submitButton.disabled = false;
+              return;
+            } catch (error) {
+              console.warn("EmailJS send failed, falling back to mailto.", error);
+            }
+          }
 
           window.location.href = "mailto:jjun96750@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
 
           if (note) {
             note.textContent = "이메일 앱이 열리지 않으면 010-5963-7624 또는 jjun96750@gmail.com 으로 문의해주세요.";
           }
+          if (submitButton) submitButton.disabled = false;
         });
       }
     });
