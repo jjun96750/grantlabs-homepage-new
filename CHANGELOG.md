@@ -10,6 +10,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Improved checklist print styles and added print QA coverage.
 - Added a deployed-site smoke test script for Cloudflare Pages preview URLs.
 - Added a contact-form honeypot to reduce automated spam submissions.
+- Expanded Cloudflare `_headers` cache policies and refreshed sitemap lastmod values.
 
 ## 2026-06-14
 

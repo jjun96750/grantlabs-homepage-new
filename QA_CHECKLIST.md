@@ -39,6 +39,7 @@ Run this checklist after each Cloudflare Pages preview deployment.
 - `/social-card.svg` loads.
 - `/robots.txt` loads.
 - `/sitemap.xml` loads.
+- `/site.webmanifest`, `/robots.txt`, `/sitemap.xml`, and `/social-card.svg` receive Cloudflare cache headers from `_headers`.
 - `/404.html` displays a styled not-found page.
 - `/privacy.html` displays the privacy notice page.
 - `/checklist.html` displays the printable consultation checklist page.

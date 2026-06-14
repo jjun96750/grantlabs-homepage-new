@@ -108,6 +108,20 @@ if (existsSync("sitemap.xml") && !read("sitemap.xml").includes("<urlset")) {
   failures.push("sitemap.xml does not contain a urlset.");
 }
 
+if (existsSync("sitemap.xml")) {
+  const sitemap = read("sitemap.xml");
+  if (!sitemap.includes("<lastmod>2026-06-15</lastmod>")) {
+    failures.push("sitemap.xml lastmod values are not current.");
+  }
+}
+
+if (existsSync("_headers")) {
+  const headers = read("_headers");
+  for (const path of ["/social-card.svg", "/site.webmanifest", "/robots.txt", "/sitemap.xml"]) {
+    if (!headers.includes(path)) failures.push(`_headers is missing cache policy for ${path}`);
+  }
+}
+
 if (existsSync("scripts/check-deployed-site.mjs")) {
   const smokeCheck = read("scripts/check-deployed-site.mjs");
   for (const path of ["/", "/privacy.html", "/checklist.html", "/robots.txt", "/sitemap.xml", "/social-card.svg"]) {

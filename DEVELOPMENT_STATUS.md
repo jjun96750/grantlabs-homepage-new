@@ -37,6 +37,7 @@ Last updated: 2026-06-15
 - Checklist print styles tightened for A4 output and QA coverage.
 - Deployed-site smoke test script added for Cloudflare Pages previews.
 - Contact form honeypot added to reduce automated spam submissions.
+- Static asset cache policies expanded for social card, manifest, robots, and sitemap files.
 - No build step is required.
 
 ## Current Files
@@ -106,7 +107,8 @@ CHANGELOG.md
 - A4-friendly print styling for the consultation checklist
 - Cloudflare Pages preview smoke-test script
 - Contact form honeypot spam guard
-- Latest local static checks passed after contact-form honeypot updates on 2026-06-15.
+- Expanded Cloudflare `_headers` cache policies for deployment support files
+- Latest local static checks passed after cache-header and sitemap updates on 2026-06-15.
 
 ## Technical Notes
 
@@ -153,6 +155,7 @@ CHANGELOG.md
 - Tightened checklist print styles and added print QA items.
 - Added `scripts/check-deployed-site.mjs` for Cloudflare Pages preview smoke testing.
 - Added a hidden contact-form honeypot field and static validation coverage.
+- Expanded Cloudflare `_headers` cache policies and updated sitemap lastmod values to 2026-06-15.
 
 ### 2026-06-14
 
