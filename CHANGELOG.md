@@ -27,6 +27,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Added page URL and submission timestamp metadata to contact form submissions.
 - Removed the noindex privacy page from the sitemap.
 - Extended deployed smoke tests to verify sitemap excludes `privacy.html`.
+- Extended static validation to check core metadata on every HTML page.
 
 ## 2026-06-14
 

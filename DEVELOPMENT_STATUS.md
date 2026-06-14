@@ -54,6 +54,7 @@ Last updated: 2026-06-15
 - Contact form submission payload now includes page URL and ISO submission timestamp.
 - Sitemap now excludes the noindex privacy page for cleaner SEO signals.
 - Deployed smoke test now verifies sitemap excludes the noindex privacy URL.
+- Static validation now checks language, title, description, and replacement characters across all HTML pages.
 - No build step is required.
 
 ## Current Files
@@ -140,7 +141,8 @@ CHANGELOG.md
 - Lead source metadata in contact payload
 - Sitemap noindex/privacy cleanup
 - Deployed sitemap noindex validation
-- Latest local static checks passed after deployed sitemap noindex validation updates on 2026-06-15.
+- Cross-page HTML metadata validation
+- Latest local static checks passed after cross-page HTML metadata validation updates on 2026-06-15.
 
 ## Technical Notes
 
@@ -204,6 +206,7 @@ CHANGELOG.md
 - Added page URL and submission timestamp metadata to contact form submissions.
 - Removed `privacy.html` from sitemap because it is marked `noindex`.
 - Extended deployed smoke tests to verify sitemap excludes `privacy.html`.
+- Extended static validation to check core metadata on every HTML page.
 
 ### 2026-06-14
 

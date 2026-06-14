@@ -30,6 +30,15 @@ for (const file of requiredFiles) {
   if (!existsSync(file)) failures.push(`Missing required file: ${file}`);
 }
 
+for (const page of ["index.html", "404.html", "privacy.html", "checklist.html"]) {
+  if (!existsSync(page)) continue;
+  const html = read(page);
+  if (!html.includes('<html lang="ko"')) failures.push(`${page} is missing Korean language metadata.`);
+  if (!html.includes("<title>")) failures.push(`${page} is missing a title.`);
+  if (!html.includes('name="description"')) failures.push(`${page} is missing a meta description.`);
+  if (html.includes("\uFFFD")) failures.push(`${page} contains replacement characters.`);
+}
+
 if (existsSync("index.html")) {
   const html = read("index.html");
   const ids = new Set([...html.matchAll(/\sid="([^"]+)"/g)].map((match) => match[1]));
@@ -56,7 +65,6 @@ if (existsSync("index.html")) {
     }
   });
 
-  if (html.includes("\uFFFD")) failures.push("index.html contains replacement characters.");
   if (!html.includes('class="skip-link"')) failures.push("index.html is missing a skip link.");
   if (!html.includes('id="main-content"')) failures.push("index.html is missing the main-content target.");
   if (!html.includes('class="menu-toggle"')) failures.push("index.html is missing the mobile menu toggle.");
