@@ -20,6 +20,7 @@ Last updated: 2026-06-14
 - Development status document created and actively maintained.
 - Static deployment support files added.
 - Contact form now opens a pre-filled email draft instead of relying on raw `mailto:` form submission.
+- FAQ section and FAQPage structured data added.
 - No build step is required.
 
 ## Current Files
@@ -47,9 +48,11 @@ _headers
 - Service overview
 - Process/method section
 - Focus-area section
+- FAQ section
 - Contact section with phone, email, address, and pre-filled email draft form
 - Privacy consent checkbox for consultation inquiries
 - SEO meta tags and structured data
+- FAQPage JSON-LD structured data
 - Favicon and web manifest
 - Robots and sitemap files
 - Cloudflare Pages `_headers` security/cache hints
@@ -83,7 +86,8 @@ _headers
 3. Run desktop and mobile visual QA.
 4. Decide whether to keep email-draft submission or connect the form to EmailJS, Cloudflare Workers, Google Sheets, or the existing CRM.
 5. Replace or approve the hero image.
-6. Continue edits only in this repository.
+6. Review FAQ wording with actual sales/support language.
+7. Continue edits only in this repository.
 
 ## Change Log
 
@@ -99,3 +103,4 @@ _headers
 - Added favicon, manifest, robots, sitemap, and Cloudflare `_headers`.
 - Improved consultation form with privacy consent and pre-filled email draft behavior.
 - Added a static 404 page for Cloudflare Pages fallback handling.
+- Added FAQ section and FAQPage structured data.
