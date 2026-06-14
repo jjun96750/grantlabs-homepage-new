@@ -54,6 +54,7 @@ _headers
 CLOUDFLARE_PAGES_SETUP.md
 QA_CHECKLIST.md
 scripts/check-static-site.mjs
+DEPLOYMENT_ENVIRONMENTS.md
 ```
 
 ## Implemented Homepage Sections
@@ -84,6 +85,7 @@ scripts/check-static-site.mjs
 - Cloudflare Pages setup checklist
 - Deployment QA checklist
 - Local static-site validation script
+- Deployment environment tracking document
 - Latest static validation: `node scripts/check-static-site.mjs` passed after checklist-progress updates on 2026-06-14.
 
 ## Technical Notes
@@ -111,12 +113,13 @@ scripts/check-static-site.mjs
 
 1. Connect `jjun96750/grantlabs-homepage-new` to a new Cloudflare Pages project.
 2. Confirm the deployed preview URL.
-3. Run desktop and mobile visual QA using `QA_CHECKLIST.md`.
-4. Run `node scripts/check-static-site.mjs` before future commits when Node.js is available.
-5. Verify EmailJS delivery in production preview and decide whether to later connect Cloudflare Workers, Google Sheets, or the existing CRM.
-6. Replace or approve the hero image.
-7. Review FAQ wording with actual sales/support language.
-8. Continue edits only in this repository.
+3. Record deployment URLs in `DEPLOYMENT_ENVIRONMENTS.md`.
+4. Run desktop and mobile visual QA using `QA_CHECKLIST.md`.
+5. Run `node scripts/check-static-site.mjs` before future commits when Node.js is available.
+6. Verify EmailJS delivery in production preview and decide whether to later connect Cloudflare Workers, Google Sheets, or the existing CRM.
+7. Replace or approve the hero image.
+8. Review FAQ wording with actual sales/support language.
+9. Continue edits only in this repository.
 
 ## Change Log
 
@@ -146,3 +149,4 @@ scripts/check-static-site.mjs
 - Added printable consultation checklist page.
 - Added interactive readiness self-check section.
 - Added checklist page progress counter.
+- Added `DEPLOYMENT_ENVIRONMENTS.md` for deployment URL and domain tracking.

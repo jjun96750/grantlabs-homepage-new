@@ -24,6 +24,7 @@ sitemap.xml
 site.webmanifest
 QA_CHECKLIST.md
 CLOUDFLARE_PAGES_SETUP.md
+DEPLOYMENT_ENVIRONMENTS.md
 CLAUDE_HANDOFF.md
 DEVELOPMENT_STATUS.md
 ```
@@ -35,6 +36,8 @@ DEVELOPMENT_STATUS.md
 Claude에게 공유할 때는 `CLAUDE_HANDOFF.md`와 `DEVELOPMENT_STATUS.md`를 먼저 읽게 하면 됩니다.
 
 Cloudflare Pages 연결은 `CLOUDFLARE_PAGES_SETUP.md`, 배포 후 화면 검수는 `QA_CHECKLIST.md`를 기준으로 진행합니다.
+
+배포 URL과 도메인 상태는 `DEPLOYMENT_ENVIRONMENTS.md`에 계속 기록합니다.
 
 ## 로컬 확인
 

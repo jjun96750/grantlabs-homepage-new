@@ -35,6 +35,7 @@ sitemap.xml
 site.webmanifest
 QA_CHECKLIST.md
 CLOUDFLARE_PAGES_SETUP.md
+DEPLOYMENT_ENVIRONMENTS.md
 ```
 
 ## Design Direction
@@ -51,9 +52,10 @@ CLOUDFLARE_PAGES_SETUP.md
 1. Push the local `main` branch to `https://github.com/jjun96750/grantlabs-homepage-new`.
 2. Create a new Cloudflare Pages project connected to the new repository.
 3. Follow `CLOUDFLARE_PAGES_SETUP.md` for deployment settings.
-4. Run `QA_CHECKLIST.md` after the preview is live.
-5. Continue edits only in this repository.
-6. Keep `DEVELOPMENT_STATUS.md` updated whenever the project state changes.
+4. Record preview/production URLs in `DEPLOYMENT_ENVIRONMENTS.md`.
+5. Run `QA_CHECKLIST.md` after the preview is live.
+6. Continue edits only in this repository.
+7. Keep `DEVELOPMENT_STATUS.md` updated whenever the project state changes.
 
 ## Suggested Prompt For Claude
 
