@@ -35,6 +35,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Added deployed smoke-test `Content-Type` checks and local validation coverage.
 - Added a GitHub Actions workflow to run static validation on pushes and pull requests.
 - Refreshed Claude handoff notes with the latest workflow commit.
+- Added Cloudflare Pages `_redirects` fallback for unknown routes.
 
 ## 2026-06-14
 

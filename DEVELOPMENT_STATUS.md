@@ -62,6 +62,7 @@ Last updated: 2026-06-15
 - Deployed smoke test now checks expected `Content-Type` headers for pages and static assets.
 - Static validation now checks that deployed smoke tests include `Content-Type` coverage.
 - GitHub Actions now runs the static validation script on pushes to `main` and pull requests.
+- Cloudflare Pages `_redirects` now routes unknown paths to `404.html` with a 404 status.
 - No build step is required.
 
 ## Current Files
@@ -82,6 +83,7 @@ site.webmanifest
 robots.txt
 sitemap.xml
 _headers
+_redirects
 404.html
 .gitattributes
 CLOUDFLARE_PAGES_SETUP.md
@@ -120,6 +122,7 @@ CHANGELOG.md
 - Favicon and web manifest
 - Robots and sitemap files
 - Cloudflare Pages `_headers` security/cache hints
+- Cloudflare Pages `_redirects` 404 fallback rule
 - Simple static 404 page
 - Cloudflare Pages setup checklist
 - Deployment QA checklist
@@ -155,6 +158,7 @@ CHANGELOG.md
 - Local link and asset target validation
 - Deployed smoke-test `Content-Type` validation
 - GitHub Actions static validation workflow
+- Cloudflare Pages `_redirects` 404 fallback
 - Latest local static checks passed after GitHub Actions workflow setup on 2026-06-15.
 
 ## Technical Notes
@@ -227,6 +231,7 @@ CHANGELOG.md
 - Added deployed smoke-test `Content-Type` checks and local validation coverage.
 - Added `.github/workflows/static-site-check.yml` for automated static validation on GitHub.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest workflow commit.
+- Added `_redirects` so unknown Cloudflare Pages routes serve `404.html` with a 404 status.
 
 ### 2026-06-14
 

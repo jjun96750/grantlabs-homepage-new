@@ -12,7 +12,7 @@
 - Static homepage draft is ready and pushed to GitHub.
 - No build step is required.
 - Main branch: `main`
-- Latest pushed commit at handoff update: `2a28784 Add static validation workflow`
+- Latest pushed commit at handoff update: `32ec0da Refresh handoff after workflow setup`
 - Local static validation passes with `node scripts/check-static-site.mjs`.
 - Ongoing development status is tracked in `DEVELOPMENT_STATUS.md`.
 
@@ -29,6 +29,7 @@ DEVELOPMENT_STATUS.md
 .gitignore
 .nojekyll
 _headers
+_redirects
 favicon.svg
 social-card.svg
 robots.txt
@@ -56,6 +57,7 @@ scripts/check-deployed-site.mjs
 - Contact form uses EmailJS first, then falls back to a pre-filled email draft.
 - Contact form includes a hidden honeypot field, `aria-describedby` wiring, and `page_url` / `submitted_at` metadata.
 - Cloudflare `_headers` includes cache policies for CSS, favicon, social card, manifest, robots, and sitemap files.
+- Cloudflare `_redirects` routes unknown paths to `404.html` with a 404 status.
 - `privacy.html` is intentionally `noindex` and excluded from `sitemap.xml`.
 - `scripts/check-static-site.mjs` verifies required files, metadata, JSON-LD, docs markers, and local `href` / `src` targets.
 - `scripts/check-deployed-site.mjs` verifies pages, response headers, `Content-Type` values, missing-route 404 handling, sitemap noindex cleanup, and prints a pass summary.

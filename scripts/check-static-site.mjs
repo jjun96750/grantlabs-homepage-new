@@ -12,6 +12,7 @@ const requiredFiles = [
   "robots.txt",
   "sitemap.xml",
   "_headers",
+  "_redirects",
   "README.md",
   "CLAUDE_HANDOFF.md",
   "DEVELOPMENT_STATUS.md",
@@ -186,6 +187,13 @@ if (existsSync("_headers")) {
   const headers = read("_headers");
   for (const path of ["/social-card.svg", "/site.webmanifest", "/robots.txt", "/sitemap.xml"]) {
     if (!headers.includes(path)) failures.push(`_headers is missing cache policy for ${path}`);
+  }
+}
+
+if (existsSync("_redirects")) {
+  const redirects = read("_redirects");
+  if (!redirects.includes("/* /404.html 404")) {
+    failures.push("_redirects is missing the Cloudflare Pages 404 fallback rule.");
   }
 }
 
