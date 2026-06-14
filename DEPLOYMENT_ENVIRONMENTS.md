@@ -47,6 +47,25 @@ node scripts/check-static-site.mjs
 node scripts/check-deployed-site.mjs <preview-url>
 ```
 
+## Contact Form Configuration
+
+The homepage currently uses EmailJS first and falls back to a pre-filled email draft.
+
+```text
+EmailJS public key: UUfoZdh404On9fZbm
+EmailJS service ID: service_tcj8otx
+EmailJS template ID: template_8ne6kj3
+Fallback email: jjun96750@gmail.com
+Fallback phone: 010-5963-7624
+```
+
+Before approving a preview, submit one test inquiry and confirm:
+
+- EmailJS delivery arrives at the expected inbox.
+- The form resets and shows the success message after EmailJS delivery.
+- If EmailJS is blocked or fails, the pre-filled email draft opens.
+- With JavaScript disabled, the phone/email fallback guidance is visible.
+
 ## DNS / Domain Notes
 
 - Existing production site must not be changed until a separate cutover is approved.

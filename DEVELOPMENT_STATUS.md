@@ -50,6 +50,7 @@ Last updated: 2026-06-15
 - Deployed smoke test now validates a real missing route returns the styled 404 response.
 - Deployed smoke test now prints a pass summary for deployment records.
 - Static validation now checks README and Cloudflare setup guidance markers.
+- Deployment environment tracker now records EmailJS and fallback contact configuration.
 - No build step is required.
 
 ## Current Files
@@ -132,7 +133,8 @@ CHANGELOG.md
 - Missing-route 404 smoke test
 - Deployed smoke-test pass summary output
 - README and Cloudflare guide drift checks
-- Latest local static checks passed after README/Cloudflare guide drift-check updates on 2026-06-15.
+- EmailJS deployment configuration tracking
+- Latest local static checks passed after EmailJS deployment configuration tracking updates on 2026-06-15.
 
 ## Technical Notes
 
@@ -192,6 +194,7 @@ CHANGELOG.md
 - Extended deployed smoke tests with a real missing-route 404 validation.
 - Added pass summary output to the deployed smoke test for deployment records.
 - Added README and Cloudflare setup guide marker checks to static validation.
+- Added EmailJS and fallback contact configuration to deployment tracking.
 
 ### 2026-06-14
 

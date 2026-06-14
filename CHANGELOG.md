@@ -23,6 +23,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Extended deployed smoke tests with missing-route 404 validation.
 - Added pass summary output to deployed smoke tests for deployment records.
 - Added README and Cloudflare setup guide marker checks to static validation.
+- Added EmailJS and fallback contact configuration to deployment tracking.
 
 ## 2026-06-14
 

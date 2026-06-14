@@ -151,7 +151,7 @@ if (existsSync("scripts/check-deployed-site.mjs")) {
 
 if (existsSync("DEPLOYMENT_ENVIRONMENTS.md")) {
   const deployment = read("DEPLOYMENT_ENVIRONMENTS.md");
-  for (const marker of ["Preview Verification", "Deployed smoke check", "EmailJS test", "DNS unchanged"]) {
+  for (const marker of ["Preview Verification", "Deployed smoke check", "EmailJS test", "DNS unchanged", "Contact Form Configuration", "service_tcj8otx", "template_8ne6kj3"]) {
     if (!deployment.includes(marker)) failures.push(`DEPLOYMENT_ENVIRONMENTS.md is missing marker: ${marker}`);
   }
 }
