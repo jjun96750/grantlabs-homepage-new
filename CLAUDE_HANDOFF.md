@@ -26,6 +26,11 @@ CLAUDE_HANDOFF.md
 DEVELOPMENT_STATUS.md
 .gitignore
 .nojekyll
+_headers
+favicon.svg
+robots.txt
+sitemap.xml
+site.webmanifest
 ```
 
 ## Design Direction
@@ -33,6 +38,7 @@ DEVELOPMENT_STATUS.md
 - Korean Grant Labs homepage for policy funding, certification, R&D center, patent, corporation setup, and business support consulting.
 - First screen uses a real business meeting photo from Unsplash.
 - The page is intentionally static for simple Cloudflare Pages deployment.
+- Static deployment support files are present: `_headers`, `robots.txt`, `sitemap.xml`, `favicon.svg`, and `site.webmanifest`.
 
 ## Next Steps
 

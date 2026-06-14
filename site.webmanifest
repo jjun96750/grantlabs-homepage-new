@@ -1,0 +1,16 @@
+{
+  "name": "Grant Labs",
+  "short_name": "Grant Labs",
+  "description": "정책자금과 기업성장을 실행으로 연결하는 Grant Labs 홈페이지",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7f8f6",
+  "theme_color": "#0f6b55",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "64x64",
+      "type": "image/svg+xml"
+    }
+  ]
+}

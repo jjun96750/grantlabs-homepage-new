@@ -17,6 +17,9 @@ Last updated: 2026-06-14
 - Static homepage draft completed.
 - Repository pushed to GitHub.
 - Claude handoff memo created.
+- Development status document created and actively maintained.
+- Static deployment support files added.
+- Contact form now opens a pre-filled email draft instead of relying on raw `mailto:` form submission.
 - No build step is required.
 
 ## Current Files
@@ -29,6 +32,12 @@ CLAUDE_HANDOFF.md
 DEVELOPMENT_STATUS.md
 .gitignore
 .nojekyll
+favicon.svg
+site.webmanifest
+robots.txt
+sitemap.xml
+_headers
+404.html
 ```
 
 ## Implemented Homepage Sections
@@ -38,8 +47,13 @@ DEVELOPMENT_STATUS.md
 - Service overview
 - Process/method section
 - Focus-area section
-- Contact section with phone, email, address, and mailto form
+- Contact section with phone, email, address, and pre-filled email draft form
+- Privacy consent checkbox for consultation inquiries
 - SEO meta tags and structured data
+- Favicon and web manifest
+- Robots and sitemap files
+- Cloudflare Pages `_headers` security/cache hints
+- Simple static 404 page
 
 ## Technical Notes
 
@@ -49,6 +63,7 @@ DEVELOPMENT_STATUS.md
   - Pretendard font CDN
   - Lucide icons CDN
   - Unsplash hero image
+- `favicon.svg` is an inline SVG asset committed to the repository.
 - Cloudflare Pages settings:
   - Framework preset: `None`
   - Build command: empty
@@ -58,7 +73,7 @@ DEVELOPMENT_STATUS.md
 ## Known Limitations
 
 - Browser visual QA has not been completed inside Codex because the in-app browser failed with a Windows sandbox permission issue.
-- Contact form currently uses `mailto:`. It does not submit to a backend or CRM yet.
+- Contact form opens a pre-filled email draft. It does not submit to a backend or CRM yet.
 - Hero image is loaded from Unsplash; it should be replaced with a controlled asset later if brand consistency or loading reliability matters.
 
 ## Next Actions
@@ -66,7 +81,7 @@ DEVELOPMENT_STATUS.md
 1. Connect `jjun96750/grantlabs-homepage-new` to a new Cloudflare Pages project.
 2. Confirm the deployed preview URL.
 3. Run desktop and mobile visual QA.
-4. Decide whether to keep `mailto:` or connect the form to EmailJS, Cloudflare Workers, Google Sheets, or the existing CRM.
+4. Decide whether to keep email-draft submission or connect the form to EmailJS, Cloudflare Workers, Google Sheets, or the existing CRM.
 5. Replace or approve the hero image.
 6. Continue edits only in this repository.
 
@@ -81,3 +96,6 @@ DEVELOPMENT_STATUS.md
 - Created GitHub repository: `https://github.com/jjun96750/grantlabs-homepage-new`.
 - Added `origin` remote and pushed `main`.
 - Added this development status document so future collaborators can resume quickly.
+- Added favicon, manifest, robots, sitemap, and Cloudflare `_headers`.
+- Improved consultation form with privacy consent and pre-filled email draft behavior.
+- Added a static 404 page for Cloudflare Pages fallback handling.

@@ -15,6 +15,11 @@ index.html
 styles/
   homepage.css
 .nojekyll
+_headers
+favicon.svg
+robots.txt
+sitemap.xml
+site.webmanifest
 CLAUDE_HANDOFF.md
 DEVELOPMENT_STATUS.md
 ```

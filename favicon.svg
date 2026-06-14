@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Grant Labs">
+  <rect width="64" height="64" rx="14" fill="#0f6b55"/>
+  <path d="M19 20h27v6H26v13h14v-5H31v-6h16v17H19V20Z" fill="#fff"/>
+  <path d="M22 49h25v4H22z" fill="#98f0c8"/>
+</svg>
