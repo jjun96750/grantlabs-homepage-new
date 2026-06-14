@@ -33,6 +33,7 @@ const notFoundCheck = {
 };
 
 const failures = [];
+const passes = [];
 
 for (const check of checks) {
   const url = new URL(check.path, origin);
@@ -57,6 +58,8 @@ for (const check of checks) {
         failures.push(`${check.path} is missing response header: ${header}`);
       }
     }
+
+    passes.push(`${check.path} HTTP ${response.status}`);
   } catch (error) {
     failures.push(`${check.path} request failed: ${error.message}`);
   }
@@ -82,6 +85,8 @@ try {
       failures.push(`${notFoundCheck.path} is missing response header: ${header}`);
     }
   }
+
+  passes.push(`${notFoundCheck.path} HTTP ${response.status}`);
 } catch (error) {
   failures.push(`${notFoundCheck.path} request failed: ${error.message}`);
 }
@@ -93,3 +98,4 @@ if (failures.length) {
 }
 
 console.log(`Deployed site smoke check passed: ${origin}`);
+for (const pass of passes) console.log(`- ${pass}`);

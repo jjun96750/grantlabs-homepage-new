@@ -32,6 +32,7 @@ Checked by:
 Checked at:
 Static check: pending
 Deployed smoke check: pending
+Smoke check summary: pending
 Desktop visual QA: pending
 Mobile visual QA: pending
 EmailJS test: pending

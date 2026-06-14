@@ -141,6 +141,9 @@ if (existsSync("scripts/check-deployed-site.mjs")) {
   if (!smokeCheck.includes("/__missing-smoke-test__") || !smokeCheck.includes("expectedStatus: 404")) {
     failures.push("Deployed smoke check is missing not-found route validation.");
   }
+  if (!smokeCheck.includes("const passes = []") || !smokeCheck.includes("for (const pass of passes)")) {
+    failures.push("Deployed smoke check is missing pass summary output.");
+  }
   for (const header of ["x-content-type-options", "referrer-policy", "permissions-policy", "cache-control"]) {
     if (!smokeCheck.includes(header)) failures.push(`Deployed smoke check is missing header assertion: ${header}`);
   }

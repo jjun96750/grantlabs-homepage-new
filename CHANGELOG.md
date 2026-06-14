@@ -21,6 +21,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Updated privacy notice with contact-form protection and no-JavaScript fallback details.
 - Added accessible checkbox labels to the checklist page.
 - Extended deployed smoke tests with missing-route 404 validation.
+- Added pass summary output to deployed smoke tests for deployment records.
 
 ## 2026-06-14
 
