@@ -93,7 +93,8 @@ CHANGELOG.md
 - Local static-site validation script
 - Deployment environment tracking document
 - Changelog
-- Latest local static checks passed after consultation-promise updates on 2026-06-14.
+- Page-level canonical, Open Graph, Twitter card, and manifest links for subpages
+- Latest local static checks passed after page-meta updates on 2026-06-14.
 
 ## Technical Notes
 
@@ -161,3 +162,4 @@ CHANGELOG.md
 - Added consultation promise section.
 - Added `DEPLOYMENT_ENVIRONMENTS.md` for deployment URL and domain tracking.
 - Added `CHANGELOG.md`.
+- Added canonical, Open Graph, Twitter card, and manifest links to subpages.

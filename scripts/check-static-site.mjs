@@ -21,12 +21,11 @@ const requiredFiles = [
 ];
 
 const failures = [];
+const read = (file) => readFileSync(file, "utf8");
 
 for (const file of requiredFiles) {
   if (!existsSync(file)) failures.push(`Missing required file: ${file}`);
 }
-
-const read = (file) => readFileSync(file, "utf8");
 
 if (existsSync("index.html")) {
   const html = read("index.html");
@@ -54,8 +53,7 @@ if (existsSync("index.html")) {
     }
   });
 
-  if (html.includes("�")) failures.push("index.html contains replacement characters.");
-
+  if (html.includes("\uFFFD")) failures.push("index.html contains replacement characters.");
   if (!html.includes('class="skip-link"')) failures.push("index.html is missing a skip link.");
   if (!html.includes('id="main-content"')) failures.push("index.html is missing the main-content target.");
   if (!html.includes('class="menu-toggle"')) failures.push("index.html is missing the mobile menu toggle.");
@@ -73,6 +71,8 @@ for (const page of ["404.html", "privacy.html", "checklist.html"]) {
   const html = read(page);
   if (!html.includes('class="skip-link"')) failures.push(`${page} is missing a skip link.`);
   if (!html.includes('id="main-content"')) failures.push(`${page} is missing the main-content target.`);
+  if (!html.includes('rel="manifest"')) failures.push(`${page} is missing the web manifest link.`);
+  if (page !== "404.html" && !html.includes('rel="canonical"')) failures.push(`${page} is missing a canonical link.`);
 }
 
 if (existsSync("checklist.html")) {
