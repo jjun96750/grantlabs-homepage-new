@@ -32,6 +32,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Refreshed Claude handoff notes with current commit and deployment validation scope.
 - Added static validation for local `href` and `src` targets across HTML pages.
 - Refreshed Claude handoff notes with the latest pushed commit and local target validation scope.
+- Added deployed smoke-test `Content-Type` checks and local validation coverage.
 
 ## 2026-06-14
 

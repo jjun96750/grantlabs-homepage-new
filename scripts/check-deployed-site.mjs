@@ -14,15 +14,15 @@ try {
 }
 
 const checks = [
-  { path: "/", marker: "Grant Labs", headers: ["x-content-type-options", "referrer-policy", "permissions-policy"] },
-  { path: "/privacy.html", marker: "Grant Labs", headers: ["x-content-type-options", "referrer-policy", "permissions-policy"] },
-  { path: "/checklist.html", marker: "checklist-count", headers: ["x-content-type-options", "referrer-policy", "permissions-policy"] },
-  { path: "/404.html", marker: "Grant Labs", headers: ["x-content-type-options", "referrer-policy", "permissions-policy"] },
-  { path: "/robots.txt", marker: "Sitemap:", headers: ["cache-control"] },
-  { path: "/sitemap.xml", marker: "<urlset", headers: ["cache-control"] },
-  { path: "/site.webmanifest", marker: "Grant Labs", headers: ["cache-control"] },
-  { path: "/favicon.svg", marker: "<svg", headers: ["cache-control"] },
-  { path: "/social-card.svg", marker: "Grant Labs social sharing card", headers: ["cache-control"] },
+  { path: "/", marker: "Grant Labs", contentType: "text/html", headers: ["x-content-type-options", "referrer-policy", "permissions-policy"] },
+  { path: "/privacy.html", marker: "Grant Labs", contentType: "text/html", headers: ["x-content-type-options", "referrer-policy", "permissions-policy"] },
+  { path: "/checklist.html", marker: "checklist-count", contentType: "text/html", headers: ["x-content-type-options", "referrer-policy", "permissions-policy"] },
+  { path: "/404.html", marker: "Grant Labs", contentType: "text/html", headers: ["x-content-type-options", "referrer-policy", "permissions-policy"] },
+  { path: "/robots.txt", marker: "Sitemap:", contentType: "text/plain", headers: ["cache-control"] },
+  { path: "/sitemap.xml", marker: "<urlset", contentType: "xml", headers: ["cache-control"] },
+  { path: "/site.webmanifest", marker: "Grant Labs", contentType: "json", headers: ["cache-control"] },
+  { path: "/favicon.svg", marker: "<svg", contentType: "image/svg", headers: ["cache-control"] },
+  { path: "/social-card.svg", marker: "Grant Labs social sharing card", contentType: "image/svg", headers: ["cache-control"] },
 ];
 
 const sitemapContentCheck = {
@@ -34,6 +34,7 @@ const notFoundCheck = {
   path: "/__missing-smoke-test__",
   marker: "404",
   expectedStatus: 404,
+  contentType: "text/html",
   headers: ["x-content-type-options", "referrer-policy", "permissions-policy"],
 };
 
@@ -56,6 +57,13 @@ for (const check of checks) {
 
     if (!text.includes(check.marker)) {
       failures.push(`${check.path} did not include marker: ${check.marker}`);
+    }
+
+    if (check.contentType) {
+      const contentType = response.headers.get("content-type") || "";
+      if (!contentType.toLowerCase().includes(check.contentType)) {
+        failures.push(`${check.path} returned content-type ${contentType || "(missing)"}, expected ${check.contentType}`);
+      }
     }
 
     for (const header of check.headers || []) {
@@ -101,6 +109,13 @@ try {
 
   if (!text.includes(notFoundCheck.marker)) {
     failures.push(`${notFoundCheck.path} did not include marker: ${notFoundCheck.marker}`);
+  }
+
+  if (notFoundCheck.contentType) {
+    const contentType = response.headers.get("content-type") || "";
+    if (!contentType.toLowerCase().includes(notFoundCheck.contentType)) {
+      failures.push(`${notFoundCheck.path} returned content-type ${contentType || "(missing)"}, expected ${notFoundCheck.contentType}`);
+    }
   }
 
   for (const header of notFoundCheck.headers) {

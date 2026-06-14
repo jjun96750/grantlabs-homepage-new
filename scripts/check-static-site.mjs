@@ -205,6 +205,9 @@ if (existsSync("scripts/check-deployed-site.mjs")) {
   for (const header of ["x-content-type-options", "referrer-policy", "permissions-policy", "cache-control"]) {
     if (!smokeCheck.includes(header)) failures.push(`Deployed smoke check is missing header assertion: ${header}`);
   }
+  if (!smokeCheck.includes("contentType") || !smokeCheck.includes("content-type")) {
+    failures.push("Deployed smoke check is missing content-type validation.");
+  }
 }
 
 if (existsSync("DEPLOYMENT_ENVIRONMENTS.md")) {

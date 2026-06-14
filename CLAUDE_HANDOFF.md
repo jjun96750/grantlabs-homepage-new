@@ -57,7 +57,7 @@ scripts/check-deployed-site.mjs
 - Cloudflare `_headers` includes cache policies for CSS, favicon, social card, manifest, robots, and sitemap files.
 - `privacy.html` is intentionally `noindex` and excluded from `sitemap.xml`.
 - `scripts/check-static-site.mjs` verifies required files, metadata, JSON-LD, docs markers, and local `href` / `src` targets.
-- `scripts/check-deployed-site.mjs` verifies pages, response headers, missing-route 404 handling, sitemap noindex cleanup, and prints a pass summary.
+- `scripts/check-deployed-site.mjs` verifies pages, response headers, `Content-Type` values, missing-route 404 handling, sitemap noindex cleanup, and prints a pass summary.
 
 ## Next Steps
 
