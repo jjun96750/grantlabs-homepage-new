@@ -21,6 +21,7 @@ const requiredFiles = [
   "ROLLBACK_PLAN.md",
   "CHANGELOG.md",
   "scripts/check-deployed-site.mjs",
+  ".github/workflows/static-site-check.yml",
 ];
 
 const failures = [];
@@ -228,6 +229,13 @@ if (existsSync("CLOUDFLARE_PAGES_SETUP.md")) {
   const setup = read("CLOUDFLARE_PAGES_SETUP.md");
   for (const marker of ["Framework preset: None", "Production branch: main", "scripts/check-deployed-site.mjs"]) {
     if (!setup.includes(marker)) failures.push(`CLOUDFLARE_PAGES_SETUP.md is missing marker: ${marker}`);
+  }
+}
+
+if (existsSync(".github/workflows/static-site-check.yml")) {
+  const workflow = read(".github/workflows/static-site-check.yml");
+  for (const marker of ["actions/setup-node@v4", "node-version: 20", "node scripts/check-static-site.mjs"]) {
+    if (!workflow.includes(marker)) failures.push(`static-site-check workflow is missing marker: ${marker}`);
   }
 }
 

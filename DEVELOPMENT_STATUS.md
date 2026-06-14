@@ -61,6 +61,7 @@ Last updated: 2026-06-15
 - Claude handoff memo refreshed again with the latest pushed commit and local target validation scope.
 - Deployed smoke test now checks expected `Content-Type` headers for pages and static assets.
 - Static validation now checks that deployed smoke tests include `Content-Type` coverage.
+- GitHub Actions now runs the static validation script on pushes to `main` and pull requests.
 - No build step is required.
 
 ## Current Files
@@ -87,6 +88,7 @@ CLOUDFLARE_PAGES_SETUP.md
 QA_CHECKLIST.md
 scripts/check-static-site.mjs
 scripts/check-deployed-site.mjs
+.github/workflows/static-site-check.yml
 DEPLOYMENT_ENVIRONMENTS.md
 ROLLBACK_PLAN.md
 CHANGELOG.md
@@ -152,6 +154,7 @@ CHANGELOG.md
 - Refreshed Claude handoff memo
 - Local link and asset target validation
 - Deployed smoke-test `Content-Type` validation
+- GitHub Actions static validation workflow
 - Latest local static checks passed after local target validation on 2026-06-15.
 
 ## Technical Notes
@@ -222,6 +225,7 @@ CHANGELOG.md
 - Added static validation for local `href` and `src` targets across HTML pages.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest pushed commit and local target validation scope.
 - Added deployed smoke-test `Content-Type` checks and local validation coverage.
+- Added `.github/workflows/static-site-check.yml` for automated static validation on GitHub.
 
 ### 2026-06-14
 

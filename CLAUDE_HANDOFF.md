@@ -41,6 +41,7 @@ ROLLBACK_PLAN.md
 CHANGELOG.md
 scripts/check-static-site.mjs
 scripts/check-deployed-site.mjs
+.github/workflows/static-site-check.yml
 ```
 
 ## Design Direction
@@ -58,6 +59,7 @@ scripts/check-deployed-site.mjs
 - `privacy.html` is intentionally `noindex` and excluded from `sitemap.xml`.
 - `scripts/check-static-site.mjs` verifies required files, metadata, JSON-LD, docs markers, and local `href` / `src` targets.
 - `scripts/check-deployed-site.mjs` verifies pages, response headers, `Content-Type` values, missing-route 404 handling, sitemap noindex cleanup, and prints a pass summary.
+- GitHub Actions runs `node scripts/check-static-site.mjs` on pushes to `main` and pull requests.
 
 ## Next Steps
 
