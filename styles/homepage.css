@@ -678,6 +678,12 @@ h2 {
   accent-color: var(--green);
 }
 
+.contact-form .consent a {
+  color: var(--green);
+  font-weight: 800;
+  text-underline-offset: 3px;
+}
+
 .form-note {
   margin: -2px 0 0;
   color: var(--muted);
@@ -734,8 +740,33 @@ button.button {
   gap: 24px;
 }
 
+.footer-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
 .footer p {
   margin: 6px 0 0;
+  color: rgba(255, 255, 255, 0.64);
+  line-height: 1.6;
+}
+
+.footer span {
   color: rgba(255, 255, 255, 0.64);
   line-height: 1.6;
 }
@@ -788,6 +819,81 @@ button.button {
 
 .not-found .button {
   margin-top: 14px;
+}
+
+.legal-page {
+  background: #fff;
+}
+
+.legal-header {
+  width: min(var(--container), calc(100% - var(--gutter) * 2));
+  margin: 0 auto;
+  min-height: 84px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.legal-brand {
+  color: var(--ink);
+}
+
+.legal-brand .brand-mark {
+  color: #fff;
+  border-color: transparent;
+  background: var(--green);
+}
+
+.legal-brand small {
+  color: var(--muted);
+}
+
+.legal-document {
+  width: min(840px, calc(100% - var(--gutter) * 2));
+  margin: 0 auto;
+  padding: 72px 0 96px;
+}
+
+.legal-document h1 {
+  margin: 10px 0 18px;
+  color: var(--ink);
+  font-size: clamp(38px, 6vw, 64px);
+}
+
+.legal-lead {
+  margin-bottom: 46px;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+.legal-document section {
+  padding: 26px 0;
+  border-top: 1px solid var(--line);
+}
+
+.legal-document h2 {
+  margin: 0 0 12px;
+  font-size: 22px;
+}
+
+.legal-document p,
+.legal-document li {
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.legal-document a {
+  color: var(--green);
+  font-weight: 800;
+}
+
+.legal-updated {
+  margin-top: 36px;
+  color: var(--muted);
+  font-size: 13px;
 }
 
 @media (max-width: 980px) {
@@ -925,5 +1031,15 @@ button.button {
 
   .footer-inner {
     display: grid;
+  }
+
+  .footer-links {
+    justify-content: flex-start;
+  }
+
+  .legal-header {
+    padding: 16px 0;
+    align-items: flex-start;
+    flex-direction: column;
   }
 }

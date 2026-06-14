@@ -22,12 +22,14 @@ Last updated: 2026-06-14
 - Contact form now opens a pre-filled email draft instead of relying on raw `mailto:` form submission.
 - FAQ section and FAQPage structured data added.
 - Readiness-check section added to help visitors prepare for consultation.
+- Privacy notice page added and linked from the consultation form and footer.
 - No build step is required.
 
 ## Current Files
 
 ```text
 index.html
+privacy.html
 styles/homepage.css
 README.md
 CLAUDE_HANDOFF.md
@@ -57,6 +59,7 @@ scripts/check-static-site.mjs
 - FAQ section
 - Contact section with phone, email, address, and pre-filled email draft form
 - Privacy consent checkbox for consultation inquiries
+- Privacy notice page
 - SEO meta tags and structured data
 - FAQPage JSON-LD structured data
 - Favicon and web manifest
@@ -66,7 +69,7 @@ scripts/check-static-site.mjs
 - Cloudflare Pages setup checklist
 - Deployment QA checklist
 - Local static-site validation script
-- Latest static validation: `node scripts/check-static-site.mjs` passed on 2026-06-14.
+- Latest static validation: `node scripts/check-static-site.mjs` passed after privacy-page updates on 2026-06-14.
 
 ## Technical Notes
 
@@ -119,3 +122,4 @@ scripts/check-static-site.mjs
 - Added `.gitattributes` for consistent text file handling.
 - Added `CLOUDFLARE_PAGES_SETUP.md` and `QA_CHECKLIST.md`.
 - Added `scripts/check-static-site.mjs` for repeatable static validation.
+- Added `privacy.html` and linked it from the form consent text and footer.

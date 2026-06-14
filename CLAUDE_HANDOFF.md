@@ -20,6 +20,7 @@
 
 ```text
 index.html
+privacy.html
 styles/homepage.css
 README.md
 CLAUDE_HANDOFF.md
@@ -41,6 +42,7 @@ CLOUDFLARE_PAGES_SETUP.md
 - First screen uses a real business meeting photo from Unsplash.
 - The page is intentionally static for simple Cloudflare Pages deployment.
 - Static deployment support files are present: `_headers`, `robots.txt`, `sitemap.xml`, `favicon.svg`, and `site.webmanifest`.
+- Privacy notice page is available at `privacy.html` and is linked from the form and footer.
 
 ## Next Steps
 

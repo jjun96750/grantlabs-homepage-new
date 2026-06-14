@@ -3,6 +3,7 @@ import { readFileSync, existsSync } from "node:fs";
 const requiredFiles = [
   "index.html",
   "404.html",
+  "privacy.html",
   "styles/homepage.css",
   "favicon.svg",
   "site.webmanifest",

@@ -12,6 +12,7 @@ Grant Labs 신규 홈페이지 독립 개발용 저장소입니다.
 
 ```text
 index.html
+privacy.html
 styles/
   homepage.css
 .nojekyll
