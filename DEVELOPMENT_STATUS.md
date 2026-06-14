@@ -40,6 +40,9 @@ robots.txt
 sitemap.xml
 _headers
 404.html
+.gitattributes
+CLOUDFLARE_PAGES_SETUP.md
+QA_CHECKLIST.md
 ```
 
 ## Implemented Homepage Sections
@@ -59,6 +62,8 @@ _headers
 - Robots and sitemap files
 - Cloudflare Pages `_headers` security/cache hints
 - Simple static 404 page
+- Cloudflare Pages setup checklist
+- Deployment QA checklist
 
 ## Technical Notes
 
@@ -85,7 +90,7 @@ _headers
 
 1. Connect `jjun96750/grantlabs-homepage-new` to a new Cloudflare Pages project.
 2. Confirm the deployed preview URL.
-3. Run desktop and mobile visual QA.
+3. Run desktop and mobile visual QA using `QA_CHECKLIST.md`.
 4. Decide whether to keep email-draft submission or connect the form to EmailJS, Cloudflare Workers, Google Sheets, or the existing CRM.
 5. Replace or approve the hero image.
 6. Review FAQ wording with actual sales/support language.
@@ -107,3 +112,5 @@ _headers
 - Added a static 404 page for Cloudflare Pages fallback handling.
 - Added FAQ section and FAQPage structured data.
 - Added consultation readiness-check section.
+- Added `.gitattributes` for consistent text file handling.
+- Added `CLOUDFLARE_PAGES_SETUP.md` and `QA_CHECKLIST.md`.

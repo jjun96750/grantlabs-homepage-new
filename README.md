@@ -20,6 +20,8 @@ favicon.svg
 robots.txt
 sitemap.xml
 site.webmanifest
+QA_CHECKLIST.md
+CLOUDFLARE_PAGES_SETUP.md
 CLAUDE_HANDOFF.md
 DEVELOPMENT_STATUS.md
 ```
@@ -29,6 +31,8 @@ DEVELOPMENT_STATUS.md
 중간에 작업자가 바뀌어도 바로 이어받을 수 있도록 `DEVELOPMENT_STATUS.md`에 현재 상태, 완료된 작업, 한계, 다음 액션을 계속 기록합니다.
 
 Claude에게 공유할 때는 `CLAUDE_HANDOFF.md`와 `DEVELOPMENT_STATUS.md`를 먼저 읽게 하면 됩니다.
+
+Cloudflare Pages 연결은 `CLOUDFLARE_PAGES_SETUP.md`, 배포 후 화면 검수는 `QA_CHECKLIST.md`를 기준으로 진행합니다.
 
 ## 로컬 확인
 
