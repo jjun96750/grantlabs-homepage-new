@@ -125,6 +125,9 @@ if (existsSync("sitemap.xml")) {
   if (!sitemap.includes("<lastmod>2026-06-15</lastmod>")) {
     failures.push("sitemap.xml lastmod values are not current.");
   }
+  if (sitemap.includes("privacy.html")) {
+    failures.push("sitemap.xml includes privacy.html even though it is noindex.");
+  }
 }
 
 if (existsSync("_headers")) {

@@ -25,6 +25,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Added README and Cloudflare setup guide marker checks to static validation.
 - Added EmailJS and fallback contact configuration to deployment tracking.
 - Added page URL and submission timestamp metadata to contact form submissions.
+- Removed the noindex privacy page from the sitemap.
 
 ## 2026-06-14
 

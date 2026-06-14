@@ -52,6 +52,7 @@ Last updated: 2026-06-15
 - Static validation now checks README and Cloudflare setup guidance markers.
 - Deployment environment tracker now records EmailJS and fallback contact configuration.
 - Contact form submission payload now includes page URL and ISO submission timestamp.
+- Sitemap now excludes the noindex privacy page for cleaner SEO signals.
 - No build step is required.
 
 ## Current Files
@@ -136,7 +137,8 @@ CHANGELOG.md
 - README and Cloudflare guide drift checks
 - EmailJS deployment configuration tracking
 - Lead source metadata in contact payload
-- Latest local static checks passed after contact payload metadata updates on 2026-06-15.
+- Sitemap noindex/privacy cleanup
+- Latest local static checks passed after sitemap noindex cleanup on 2026-06-15.
 
 ## Technical Notes
 
@@ -198,6 +200,7 @@ CHANGELOG.md
 - Added README and Cloudflare setup guide marker checks to static validation.
 - Added EmailJS and fallback contact configuration to deployment tracking.
 - Added page URL and submission timestamp metadata to contact form submissions.
+- Removed `privacy.html` from sitemap because it is marked `noindex`.
 
 ### 2026-06-14
 
