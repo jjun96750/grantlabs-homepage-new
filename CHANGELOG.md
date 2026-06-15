@@ -85,6 +85,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Refreshed Claude handoff notes with the latest local preview workflow commit.
 - Tightened local preview server handling for HEAD requests.
 - Refreshed Claude handoff notes with the latest preview server response commit.
+- Added HSTS and clickjacking protection headers with deployed smoke-test coverage.
 
 ## 2026-06-14
 

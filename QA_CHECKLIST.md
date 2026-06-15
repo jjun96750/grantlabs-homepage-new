@@ -40,6 +40,7 @@ Run this checklist after each Cloudflare Pages preview deployment.
 
 - `node scripts/check-deployed-site.mjs <preview-url>` passes after deployment.
 - Deployed smoke test confirms security and cache response headers.
+- HTML responses include HSTS, clickjacking protection, content-type protection, referrer policy, and permissions policy headers.
 - Deployed smoke test confirms expected `Content-Type` headers for HTML, XML, JSON, text, and SVG assets.
 - `/favicon.svg` loads.
 - `/social-card.svg` loads.
