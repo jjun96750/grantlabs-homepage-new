@@ -73,6 +73,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Refreshed Claude handoff notes with the latest contact-form validation commit.
 - Added static validation for canonical contact email and phone consistency.
 - Refreshed Claude handoff notes with the latest contact consistency validation commit.
+- Added static validation for EmailJS public key, service ID, and template ID consistency.
 
 ## 2026-06-14
 

@@ -81,6 +81,7 @@ Last updated: 2026-06-15
 - Static validation now checks duplicate HTML `id` values.
 - Static validation now checks required contact form fields, privacy consent, and autocomplete hints.
 - Static validation now checks canonical contact email and phone consistency.
+- Static validation now checks EmailJS public key, service ID, and template ID consistency.
 - No build step is required.
 
 ## Current Files
@@ -207,6 +208,7 @@ CHANGELOG.md
 - Duplicate HTML id validation
 - Contact form required-field validation
 - Contact email/phone consistency validation
+- EmailJS configuration consistency validation
 - Latest local static checks passed after GitHub Actions workflow setup on 2026-06-15.
 
 ## Technical Notes
@@ -317,6 +319,7 @@ CHANGELOG.md
 - Refreshed `CLAUDE_HANDOFF.md` with the latest contact-form validation commit.
 - Added static validation for canonical contact email and phone consistency.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest contact consistency validation commit.
+- Added static validation for EmailJS public key, service ID, and template ID consistency.
 
 ### 2026-06-14
 

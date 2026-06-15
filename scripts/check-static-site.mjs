@@ -45,6 +45,9 @@ const siteOrigin = "https://grantlabs.co.kr";
 const contactEmail = "jjun96750@gmail.com";
 const contactPhoneDisplay = "010-5963-7624";
 const contactPhoneHref = "01059637624";
+const emailJsPublicKey = "UUfoZdh404On9fZbm";
+const emailJsServiceId = "service_tcj8otx";
+const emailJsTemplateId = "template_8ne6kj3";
 
 const localTargetToFile = (target) => {
   const withoutHash = target.split("#")[0];
@@ -173,6 +176,9 @@ if (existsSync("index.html")) {
     failures.push("index.html is missing canonical contact email or phone values.");
   }
   if (!html.includes("emailjs.send")) failures.push("index.html is missing EmailJS submission handling.");
+  for (const marker of [emailJsPublicKey, emailJsServiceId, emailJsTemplateId]) {
+    if (!html.includes(marker)) failures.push(`index.html is missing EmailJS marker: ${marker}`);
+  }
   if (!html.includes("page_url") || !html.includes("submitted_at")) failures.push("index.html is missing lead source metadata.");
   if (!html.includes('name="website"') || !html.includes('class="honeypot"')) failures.push("index.html is missing the contact form honeypot.");
   if (!html.includes('id="lead-form"') || !html.includes('aria-describedby="form-note"')) failures.push("index.html is missing contact form accessibility description wiring.");
@@ -354,6 +360,9 @@ if (existsSync("DEPLOYMENT_ENVIRONMENTS.md")) {
   const deployment = read("DEPLOYMENT_ENVIRONMENTS.md");
   for (const marker of ["Preview Verification", "Deployed smoke check", "EmailJS test", "DNS unchanged", "Contact Form Configuration", "service_tcj8otx", "template_8ne6kj3"]) {
     if (!deployment.includes(marker)) failures.push(`DEPLOYMENT_ENVIRONMENTS.md is missing marker: ${marker}`);
+  }
+  for (const marker of [emailJsPublicKey, emailJsServiceId, emailJsTemplateId]) {
+    if (!deployment.includes(marker)) failures.push(`DEPLOYMENT_ENVIRONMENTS.md is missing EmailJS marker: ${marker}`);
   }
   if (!deployment.includes(`Fallback email: ${contactEmail}`) || !deployment.includes(`Fallback phone: ${contactPhoneDisplay}`)) {
     failures.push("DEPLOYMENT_ENVIRONMENTS.md is missing canonical fallback contact values.");
