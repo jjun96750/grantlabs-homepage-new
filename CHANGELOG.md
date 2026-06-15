@@ -95,6 +95,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Refreshed Claude handoff notes with the latest inline-handler cleanup commit.
 - Added optional email capture to the consultation form and validation coverage.
 - Refreshed Claude handoff notes with the latest optional email field commit.
+- Updated privacy notice for optional email collection and current effective date.
 
 ## 2026-06-14
 

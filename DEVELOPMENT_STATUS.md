@@ -79,6 +79,7 @@ Last updated: 2026-06-15
 - Cloudflare `_headers` now includes a Content Security Policy for required static, image, and EmailJS endpoints.
 - Checklist print action now uses an unobtrusive event listener instead of an inline handler.
 - Consultation form now captures an optional email address in EmailJS and mailto fallback payloads.
+- Privacy notice now discloses optional email collection and uses the current effective date.
 - `.nvmrc` added and covered by static validation for Node version consistency.
 - `.gitignore` expanded for deployment/build artifacts and covered by static validation.
 - `SECURITY.md` added with vulnerability and deployment-issue reporting guidance.
@@ -241,6 +242,7 @@ CHANGELOG.md
 - Handoff memo refreshed after inline-handler cleanup
 - Optional consultation email field and payload coverage
 - Handoff memo refreshed after optional email field update
+- Privacy notice email disclosure and effective-date validation
 - Latest local static checks passed after GitHub Actions workflow setup on 2026-06-15.
 
 ## Technical Notes
@@ -374,6 +376,7 @@ CHANGELOG.md
 - Refreshed `CLAUDE_HANDOFF.md` with the latest inline-handler cleanup commit.
 - Added optional email capture to the consultation form and static validation coverage.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest optional email field commit.
+- Updated `privacy.html` for optional email collection and current effective date.
 
 ### 2026-06-14
 

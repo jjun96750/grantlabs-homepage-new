@@ -222,6 +222,8 @@ for (const page of ["404.html", "privacy.html", "checklist.html"]) {
 if (existsSync("privacy.html")) {
   const html = read("privacy.html");
   if (!html.includes("상담 폼 보호 장치")) failures.push("privacy.html is missing contact form protection notice.");
+  if (!html.includes("이메일, 관심 분야")) failures.push("privacy.html is missing optional email collection disclosure.");
+  if (!html.includes("시행일: 2026년 6월 15일")) failures.push("privacy.html effective date is not current.");
   if (!html.includes(`mailto:${contactEmail}`) || !html.includes(`tel:${contactPhoneHref}`)) {
     failures.push("privacy.html is missing canonical contact email or phone links.");
   }
