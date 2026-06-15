@@ -231,6 +231,7 @@ CHANGELOG.md
 - HSTS and clickjacking header coverage
 - Handoff memo refreshed after deployment security header update
 - Conservative HSTS scope adjustment
+- Handoff memo refreshed after HSTS scope adjustment
 - Latest local static checks passed after GitHub Actions workflow setup on 2026-06-15.
 
 ## Technical Notes
@@ -357,6 +358,7 @@ CHANGELOG.md
 - Added HSTS and `X-Frame-Options` headers plus deployed smoke-test assertions.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest deployment security header commit.
 - Scoped HSTS to the current host by removing subdomain preload directives.
+- Refreshed `CLAUDE_HANDOFF.md` with the latest HSTS scope commit.
 
 ### 2026-06-14
 
