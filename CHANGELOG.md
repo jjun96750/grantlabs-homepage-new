@@ -62,6 +62,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Added `CONTRIBUTING.md` with repository scope, validation, and documentation rules.
 - Refreshed Claude handoff notes with the latest contribution guide commit.
 - Added GitHub issue templates for bugs, content updates, and deployment checks.
+- Refreshed Claude handoff notes with the latest issue-template commit.
 
 ## 2026-06-14
 

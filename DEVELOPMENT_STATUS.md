@@ -294,6 +294,7 @@ CHANGELOG.md
 - Added `CONTRIBUTING.md` with repository scope, validation, and documentation rules.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest contribution guide commit.
 - Added GitHub issue templates for bugs, content updates, and deployment checks.
+- Refreshed `CLAUDE_HANDOFF.md` with the latest issue-template commit.
 
 ### 2026-06-14
 
