@@ -49,6 +49,7 @@ const contactPhoneHref = "01059637624";
 const emailJsPublicKey = "UUfoZdh404On9fZbm";
 const emailJsServiceId = "service_tcj8otx";
 const emailJsTemplateId = "template_8ne6kj3";
+const lucideVersion = "1.18.0";
 
 const localTargetToFile = (target) => {
   const withoutHash = target.split("#")[0];
@@ -173,6 +174,9 @@ if (existsSync("index.html")) {
   if (!html.includes('class="menu-toggle"')) failures.push("index.html is missing the mobile menu toggle.");
   if (!html.includes('id="mobile-menu"')) failures.push("index.html is missing the mobile menu.");
   if (!html.includes('class="quick-contact"')) failures.push("index.html is missing the quick-contact bar.");
+  if (!html.includes(`https://unpkg.com/lucide@${lucideVersion}/dist/umd/lucide.min.js`) || html.includes("lucide@latest")) {
+    failures.push("index.html should pin the Lucide CDN dependency to the approved version.");
+  }
   if (!html.includes("https://images.unsplash.com/photo-1551836022-d5d88e9218df")) {
     failures.push("index.html is missing the approved hero image.");
   }

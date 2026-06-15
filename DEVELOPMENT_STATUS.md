@@ -80,6 +80,7 @@ Last updated: 2026-06-15
 - Checklist print action now uses an unobtrusive event listener instead of an inline handler.
 - Consultation form now captures an optional email address in EmailJS and mailto fallback payloads.
 - Privacy notice now discloses optional email collection and uses the current effective date.
+- Lucide CDN dependency is pinned to version 1.18.0 instead of using `latest`.
 - `.nvmrc` added and covered by static validation for Node version consistency.
 - `.gitignore` expanded for deployment/build artifacts and covered by static validation.
 - `SECURITY.md` added with vulnerability and deployment-issue reporting guidance.
@@ -244,6 +245,7 @@ CHANGELOG.md
 - Handoff memo refreshed after optional email field update
 - Privacy notice email disclosure and effective-date validation
 - Handoff memo refreshed after privacy notice update
+- Lucide CDN version pinning
 - Latest local static checks passed after GitHub Actions workflow setup on 2026-06-15.
 
 ## Technical Notes
@@ -379,6 +381,7 @@ CHANGELOG.md
 - Refreshed `CLAUDE_HANDOFF.md` with the latest optional email field commit.
 - Updated `privacy.html` for optional email collection and current effective date.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest privacy notice commit.
+- Pinned the Lucide CDN dependency to version 1.18.0 and added static validation coverage.
 
 ### 2026-06-14
 
