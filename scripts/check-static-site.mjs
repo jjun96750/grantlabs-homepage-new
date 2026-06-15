@@ -28,6 +28,7 @@ const requiredFiles = [
   "ROLLBACK_PLAN.md",
   "SECURITY.md",
   "CHANGELOG.md",
+  "scripts/serve-static.mjs",
   "scripts/check-deployed-site.mjs",
   ".github/workflows/static-site-check.yml",
   ".github/ISSUE_TEMPLATE/bug_report.md",
@@ -254,10 +255,18 @@ if (existsSync("package.json")) {
     const pkg = JSON.parse(read("package.json"));
     if (pkg.private !== true) failures.push("package.json should be private.");
     if (pkg.scripts?.check !== "node scripts/check-static-site.mjs") failures.push("package.json is missing the standard check script.");
+    if (pkg.scripts?.serve !== "node scripts/serve-static.mjs") failures.push("package.json is missing the local preview server script.");
     if (pkg.scripts?.smoke !== "node scripts/check-deployed-site.mjs") failures.push("package.json is missing the deployed smoke script.");
     if (pkg.engines?.node !== ">=20") failures.push("package.json should require Node >=20.");
   } catch (error) {
     failures.push(`Invalid package.json: ${error.message}`);
+  }
+}
+
+if (existsSync("scripts/serve-static.mjs")) {
+  const server = read("scripts/serve-static.mjs");
+  for (const marker of ["createServer", "127.0.0.1", "4173", "404.html", "no-store", "application/manifest+json"]) {
+    if (!server.includes(marker)) failures.push(`scripts/serve-static.mjs is missing marker: ${marker}`);
   }
 }
 

@@ -71,6 +71,7 @@ Last updated: 2026-06-15
 - `.editorconfig` added and covered by static validation for editor consistency.
 - `package.json` scripts added for local static and deployed smoke validation.
 - `COMMANDS.md` added with standard validation command guidance.
+- Local preview server added for dependency-free `npm run serve` checks.
 - `.nvmrc` added and covered by static validation for Node version consistency.
 - `.gitignore` expanded for deployment/build artifacts and covered by static validation.
 - `SECURITY.md` added with vulnerability and deployment-issue reporting guidance.
@@ -116,6 +117,7 @@ LICENSE
 CLOUDFLARE_PAGES_SETUP.md
 QA_CHECKLIST.md
 scripts/check-static-site.mjs
+scripts/serve-static.mjs
 scripts/check-deployed-site.mjs
 .github/workflows/static-site-check.yml
 .github/ISSUE_TEMPLATE/bug_report.md
@@ -216,6 +218,7 @@ CHANGELOG.md
 - Handoff memo refreshed after hero image rendering improvement
 - Mobile-friendly contact phone input validation
 - Handoff memo refreshed after phone input ergonomics improvement
+- Dependency-free local preview server
 - Latest local static checks passed after GitHub Actions workflow setup on 2026-06-15.
 
 ## Technical Notes
@@ -247,7 +250,8 @@ CHANGELOG.md
 3. Record deployment URLs in `DEPLOYMENT_ENVIRONMENTS.md`.
 4. Run desktop and mobile visual QA using `QA_CHECKLIST.md`.
 5. Run `node scripts/check-static-site.mjs` before future commits when Node.js is available.
-6. Run `node scripts/check-deployed-site.mjs <preview-url>` after Cloudflare Pages deployment.
+6. Run `npm run serve` for local preview checks.
+7. Run `node scripts/check-deployed-site.mjs <preview-url>` after Cloudflare Pages deployment.
 7. Verify EmailJS delivery in production preview and decide whether to later connect Cloudflare Workers, Google Sheets, or the existing CRM.
 8. Replace or approve the hero image.
 9. Review FAQ wording with actual sales/support language.
@@ -332,6 +336,7 @@ CHANGELOG.md
 - Refreshed `CLAUDE_HANDOFF.md` with the latest hero image rendering commit.
 - Added mobile-friendly phone input constraints and static validation coverage.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest phone input ergonomics commit.
+- Added `scripts/serve-static.mjs`, `npm run serve`, command docs, and static validation coverage.
 
 ### 2026-06-14
 

@@ -14,7 +14,7 @@
 - Main branch: `main`
 - Latest pushed commit at handoff update: `61af7be Improve phone input ergonomics`
 - Local static validation passes with `node scripts/check-static-site.mjs`.
-- Standard local validation command is `npm run check`.
+- Standard local validation command is `npm run check`; local preview is `npm run serve`.
 - Standard commands are documented in `COMMANDS.md`.
 - Ongoing development status is tracked in `DEVELOPMENT_STATUS.md`.
 - Repository contents are proprietary and covered by `LICENSE`.
@@ -56,6 +56,7 @@ ROLLBACK_PLAN.md
 SECURITY.md
 CHANGELOG.md
 scripts/check-static-site.mjs
+scripts/serve-static.mjs
 scripts/check-deployed-site.mjs
 .github/workflows/static-site-check.yml
 .github/ISSUE_TEMPLATE/bug_report.md
@@ -80,6 +81,7 @@ scripts/check-deployed-site.mjs
 - Cloudflare `_redirects` routes unknown paths to `404.html` with a 404 status.
 - `privacy.html` is intentionally `noindex` and excluded from `sitemap.xml`.
 - `scripts/check-static-site.mjs` verifies required files, metadata, duplicate HTML ids, hero image performance attributes, contact form required fields, mobile-friendly phone input constraints, canonical contact values, EmailJS config values, JSON-LD, docs markers, editor config, Node version pin, gitignore hygiene, SVG asset metadata, robots/sitemap/canonical consistency, local `href` / `src` targets, cross-page hashes, and external new-window link safety.
+- `scripts/serve-static.mjs` provides a dependency-free local preview server at `http://127.0.0.1:4173/`.
 - `scripts/check-deployed-site.mjs` verifies pages, response headers, `Content-Type` values, missing-route 404 handling, sitemap noindex cleanup, and prints a pass summary.
 - GitHub Actions runs `npm run check` on pushes to `main` and pull requests.
 
@@ -89,7 +91,8 @@ scripts/check-deployed-site.mjs
 2. Follow `CLOUDFLARE_PAGES_SETUP.md` for deployment settings.
 3. Record preview/production URLs in `DEPLOYMENT_ENVIRONMENTS.md`.
 4. Run `npm run check` before additional commits.
-5. Run `npm run smoke -- <preview-url>` after the preview is live.
+5. Run `npm run serve` for local preview checks.
+6. Run `npm run smoke -- <preview-url>` after the preview is live.
 6. Run `QA_CHECKLIST.md` after the preview is live.
 7. Verify EmailJS delivery, `page_url` / `submitted_at`, and the email-draft fallback in the deployed preview.
 8. Continue edits only in this repository.
