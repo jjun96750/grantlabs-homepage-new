@@ -253,6 +253,7 @@ CHANGELOG.md
 - Added static validation for favicon and social-card SVG asset metadata.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest SVG asset validation commit.
 - Added proprietary `LICENSE` file and static validation coverage.
+- Refreshed `CLAUDE_HANDOFF.md` with the latest license commit.
 
 ### 2026-06-14
 
