@@ -172,6 +172,12 @@ if (existsSync("index.html")) {
   if (!html.includes('class="menu-toggle"')) failures.push("index.html is missing the mobile menu toggle.");
   if (!html.includes('id="mobile-menu"')) failures.push("index.html is missing the mobile menu.");
   if (!html.includes('class="quick-contact"')) failures.push("index.html is missing the quick-contact bar.");
+  if (!html.includes("https://images.unsplash.com/photo-1551836022-d5d88e9218df")) {
+    failures.push("index.html is missing the approved hero image.");
+  }
+  if (!html.includes('width="1600"') || !html.includes('height="1067"') || !html.includes('decoding="async"') || !html.includes('fetchpriority="high"')) {
+    failures.push("index.html hero image is missing explicit render performance attributes.");
+  }
   if (!html.includes(`mailto:${contactEmail}`) || !html.includes(`tel:${contactPhoneHref}`) || !html.includes(contactPhoneDisplay)) {
     failures.push("index.html is missing canonical contact email or phone values.");
   }
