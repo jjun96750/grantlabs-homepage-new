@@ -287,6 +287,7 @@ CHANGELOG.md
 - Added `SECURITY.md` with vulnerability and deployment-issue reporting guidance.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest security policy commit.
 - Added `CONTRIBUTING.md` with repository scope, validation, and documentation rules.
+- Refreshed `CLAUDE_HANDOFF.md` with the latest contribution guide commit.
 
 ### 2026-06-14
 
