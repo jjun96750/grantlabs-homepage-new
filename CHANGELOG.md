@@ -99,6 +99,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Refreshed Claude handoff notes with the latest privacy notice commit.
 - Pinned the Lucide CDN dependency to version 1.18.0 and added validation coverage.
 - Refreshed Claude handoff notes with the latest Lucide pinning commit.
+- Pinned the EmailJS browser CDN dependency to version 4.4.1 and added validation coverage.
 
 ## 2026-06-14
 

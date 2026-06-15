@@ -49,6 +49,7 @@ const contactPhoneHref = "01059637624";
 const emailJsPublicKey = "UUfoZdh404On9fZbm";
 const emailJsServiceId = "service_tcj8otx";
 const emailJsTemplateId = "template_8ne6kj3";
+const emailJsBrowserVersion = "4.4.1";
 const lucideVersion = "1.18.0";
 
 const localTargetToFile = (target) => {
@@ -176,6 +177,9 @@ if (existsSync("index.html")) {
   if (!html.includes('class="quick-contact"')) failures.push("index.html is missing the quick-contact bar.");
   if (!html.includes(`https://unpkg.com/lucide@${lucideVersion}/dist/umd/lucide.min.js`) || html.includes("lucide@latest")) {
     failures.push("index.html should pin the Lucide CDN dependency to the approved version.");
+  }
+  if (!html.includes(`https://cdn.jsdelivr.net/npm/@emailjs/browser@${emailJsBrowserVersion}/dist/email.min.js`) || html.includes("@emailjs/browser@4/dist")) {
+    failures.push("index.html should pin the EmailJS browser CDN dependency to the approved version.");
   }
   if (!html.includes("https://images.unsplash.com/photo-1551836022-d5d88e9218df")) {
     failures.push("index.html is missing the approved hero image.");

@@ -77,6 +77,7 @@ scripts/check-deployed-site.mjs
 - Consultation checklist page is available at `checklist.html` and linked from the homepage/footer.
 - Contact form uses EmailJS first, then falls back to a pre-filled email draft.
 - Lucide is pinned to `lucide@1.18.0`; do not switch it back to `latest`.
+- EmailJS browser SDK is pinned to `@emailjs/browser@4.4.1`; do not switch it back to a major-version alias.
 - Contact form includes a hidden honeypot field, `aria-describedby` wiring, and `page_url` / `submitted_at` metadata.
 - Cloudflare `_headers` includes host-scoped HSTS, CSP, clickjacking protection, baseline browser security headers, and cache policies for CSS, favicon, social card, manifest, robots, and sitemap files.
 - Cloudflare `_redirects` routes unknown paths to `404.html` with a 404 status.
