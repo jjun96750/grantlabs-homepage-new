@@ -69,6 +69,7 @@ Last updated: 2026-06-15
 - Static validation now checks favicon and social-card SVG asset metadata.
 - Proprietary `LICENSE` file added and covered by static validation.
 - `.editorconfig` added and covered by static validation for editor consistency.
+- `package.json` scripts added for local static and deployed smoke validation.
 - No build step is required.
 
 ## Current Files
@@ -83,6 +84,7 @@ CLAUDE_HANDOFF.md
 DEVELOPMENT_STATUS.md
 .gitignore
 .editorconfig
+package.json
 .nojekyll
 favicon.svg
 social-card.svg
@@ -173,6 +175,7 @@ CHANGELOG.md
 - Favicon/social-card SVG metadata validation
 - Proprietary license file
 - EditorConfig consistency file
+- Package scripts for validation
 - Latest local static checks passed after GitHub Actions workflow setup on 2026-06-15.
 
 ## Technical Notes
@@ -259,6 +262,7 @@ CHANGELOG.md
 - Refreshed `CLAUDE_HANDOFF.md` with the latest license commit.
 - Added `.editorconfig` and static validation coverage for editor consistency.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest editor config commit.
+- Added `package.json` scripts for local static and deployed smoke validation.
 
 ### 2026-06-14
 

@@ -6,6 +6,7 @@ const requiredFiles = [
   "privacy.html",
   "checklist.html",
   ".editorconfig",
+  "package.json",
   "styles/homepage.css",
   "favicon.svg",
   "social-card.svg",
@@ -204,6 +205,18 @@ if (existsSync("site.webmanifest")) {
   }
 }
 
+if (existsSync("package.json")) {
+  try {
+    const pkg = JSON.parse(read("package.json"));
+    if (pkg.private !== true) failures.push("package.json should be private.");
+    if (pkg.scripts?.check !== "node scripts/check-static-site.mjs") failures.push("package.json is missing the standard check script.");
+    if (pkg.scripts?.smoke !== "node scripts/check-deployed-site.mjs") failures.push("package.json is missing the deployed smoke script.");
+    if (pkg.engines?.node !== ">=20") failures.push("package.json should require Node >=20.");
+  } catch (error) {
+    failures.push(`Invalid package.json: ${error.message}`);
+  }
+}
+
 if (existsSync("favicon.svg")) {
   const favicon = read("favicon.svg");
   if (!favicon.includes("<svg") || !favicon.includes('viewBox="0 0 64 64"')) {
@@ -345,7 +358,7 @@ if (existsSync("CLOUDFLARE_PAGES_SETUP.md")) {
 
 if (existsSync(".github/workflows/static-site-check.yml")) {
   const workflow = read(".github/workflows/static-site-check.yml");
-  for (const marker of ["actions/setup-node@v4", "node-version: 20", "node scripts/check-static-site.mjs"]) {
+  for (const marker of ["actions/setup-node@v4", "node-version: 20", "npm run check"]) {
     if (!workflow.includes(marker)) failures.push(`static-site-check workflow is missing marker: ${marker}`);
   }
 }

@@ -49,6 +49,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Refreshed Claude handoff notes with the latest license commit.
 - Added `.editorconfig` and static validation coverage for editor consistency.
 - Refreshed Claude handoff notes with the latest editor config commit.
+- Added `package.json` scripts for local static and deployed smoke validation.
 
 ## 2026-06-14
 

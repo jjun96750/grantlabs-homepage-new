@@ -14,6 +14,7 @@
 - Main branch: `main`
 - Latest pushed commit at handoff update: `69b2c77 Add editor consistency config`
 - Local static validation passes with `node scripts/check-static-site.mjs`.
+- Standard local validation command is `npm run check`.
 - Ongoing development status is tracked in `DEVELOPMENT_STATUS.md`.
 - Repository contents are proprietary and covered by `LICENSE`.
 
@@ -29,6 +30,7 @@ CLAUDE_HANDOFF.md
 DEVELOPMENT_STATUS.md
 .gitignore
 .editorconfig
+package.json
 .nojekyll
 LICENSE
 _headers
@@ -64,15 +66,15 @@ scripts/check-deployed-site.mjs
 - `privacy.html` is intentionally `noindex` and excluded from `sitemap.xml`.
 - `scripts/check-static-site.mjs` verifies required files, metadata, JSON-LD, docs markers, editor config, SVG asset metadata, robots/sitemap/canonical consistency, local `href` / `src` targets, cross-page hashes, and external new-window link safety.
 - `scripts/check-deployed-site.mjs` verifies pages, response headers, `Content-Type` values, missing-route 404 handling, sitemap noindex cleanup, and prints a pass summary.
-- GitHub Actions runs `node scripts/check-static-site.mjs` on pushes to `main` and pull requests.
+- GitHub Actions runs `npm run check` on pushes to `main` and pull requests.
 
 ## Next Steps
 
 1. Create a new Cloudflare Pages project connected to `jjun96750/grantlabs-homepage-new`.
 2. Follow `CLOUDFLARE_PAGES_SETUP.md` for deployment settings.
 3. Record preview/production URLs in `DEPLOYMENT_ENVIRONMENTS.md`.
-4. Run `node scripts/check-static-site.mjs` before additional commits.
-5. Run `node scripts/check-deployed-site.mjs <preview-url>` after the preview is live.
+4. Run `npm run check` before additional commits.
+5. Run `npm run smoke -- <preview-url>` after the preview is live.
 6. Run `QA_CHECKLIST.md` after the preview is live.
 7. Verify EmailJS delivery, `page_url` / `submitted_at`, and the email-draft fallback in the deployed preview.
 8. Continue edits only in this repository.

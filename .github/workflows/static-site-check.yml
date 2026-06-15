@@ -22,4 +22,4 @@ jobs:
           node-version: 20
 
       - name: Run static validation
-        run: node scripts/check-static-site.mjs
+        run: npm run check

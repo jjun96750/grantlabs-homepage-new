@@ -1,0 +1,13 @@
+{
+  "name": "grantlabs-homepage-new",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Static Grant Labs homepage for an isolated Cloudflare Pages project.",
+  "scripts": {
+    "check": "node scripts/check-static-site.mjs",
+    "smoke": "node scripts/check-deployed-site.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
