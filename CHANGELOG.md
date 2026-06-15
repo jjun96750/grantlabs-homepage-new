@@ -69,6 +69,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Refreshed Claude handoff notes with the latest CODEOWNERS commit.
 - Added static validation for duplicate HTML `id` values.
 - Refreshed Claude handoff notes with the latest duplicate-id validation commit.
+- Added static validation for required contact form fields, privacy consent, and autocomplete hints.
 
 ## 2026-06-14
 

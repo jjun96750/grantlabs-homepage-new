@@ -79,6 +79,7 @@ Last updated: 2026-06-15
 - GitHub pull request template added with validation and deployment-safety checklist.
 - GitHub `CODEOWNERS` added for repository, deployment, and automation files.
 - Static validation now checks duplicate HTML `id` values.
+- Static validation now checks required contact form fields, privacy consent, and autocomplete hints.
 - No build step is required.
 
 ## Current Files
@@ -203,6 +204,7 @@ CHANGELOG.md
 - GitHub pull request template
 - GitHub CODEOWNERS
 - Duplicate HTML id validation
+- Contact form required-field validation
 - Latest local static checks passed after GitHub Actions workflow setup on 2026-06-15.
 
 ## Technical Notes
@@ -309,6 +311,7 @@ CHANGELOG.md
 - Refreshed `CLAUDE_HANDOFF.md` with the latest CODEOWNERS commit.
 - Added static validation for duplicate HTML `id` values.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest duplicate-id validation commit.
+- Added static validation for required contact form fields, privacy consent, and autocomplete hints.
 
 ### 2026-06-14
 

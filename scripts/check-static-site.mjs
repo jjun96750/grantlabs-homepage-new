@@ -170,6 +170,11 @@ if (existsSync("index.html")) {
   if (!html.includes("page_url") || !html.includes("submitted_at")) failures.push("index.html is missing lead source metadata.");
   if (!html.includes('name="website"') || !html.includes('class="honeypot"')) failures.push("index.html is missing the contact form honeypot.");
   if (!html.includes('id="lead-form"') || !html.includes('aria-describedby="form-note"')) failures.push("index.html is missing contact form accessibility description wiring.");
+  for (const field of ['name="name"', 'name="phone"', 'name="privacy"']) {
+    if (!html.includes(field)) failures.push(`index.html is missing required contact form field: ${field}`);
+  }
+  if (!html.includes('name="privacy" type="checkbox" required')) failures.push("index.html is missing required privacy consent checkbox.");
+  if (!html.includes('autocomplete="name"') || !html.includes('autocomplete="tel"')) failures.push("index.html is missing contact form autocomplete hints.");
   if (!html.includes("<noscript") || !html.includes("noscript-contact")) failures.push("index.html is missing the no-JS contact fallback.");
   if (!html.includes("data-score-item")) failures.push("index.html is missing the self-check interaction.");
   if (!html.includes('class="fit-table"')) failures.push("index.html is missing the service-fit table.");
