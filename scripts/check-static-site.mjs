@@ -211,6 +211,7 @@ for (const page of ["404.html", "privacy.html", "checklist.html"]) {
   if (!html.includes('class="skip-link"')) failures.push(`${page} is missing a skip link.`);
   if (!html.includes('id="main-content"')) failures.push(`${page} is missing the main-content target.`);
   if (!html.includes('rel="manifest"')) failures.push(`${page} is missing the web manifest link.`);
+  if (/\son[a-z]+=/i.test(html)) failures.push(`${page} includes an inline event handler.`);
   if (page !== "404.html" && !html.includes('rel="canonical"')) failures.push(`${page} is missing a canonical link.`);
   if (page !== "404.html" && !html.includes("social-card.svg")) failures.push(`${page} is missing the local social sharing image.`);
 }
@@ -228,6 +229,9 @@ if (existsSync("checklist.html")) {
   if (!html.includes("checklist-count")) failures.push("checklist.html is missing progress count UI.");
   if (!html.includes("checklist-next")) failures.push("checklist.html is missing the follow-up consultation CTA.");
   if (!html.includes('setAttribute("aria-label"')) failures.push("checklist.html is missing checkbox accessibility labels.");
+  if (!html.includes('id="print-checklist"') || !html.includes('printButton.addEventListener("click"')) {
+    failures.push("checklist.html is missing unobtrusive print button handling.");
+  }
 }
 
 if (existsSync("styles/homepage.css")) {

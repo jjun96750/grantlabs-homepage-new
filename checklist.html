@@ -89,7 +89,7 @@
     </section>
 
     <div class="checklist-actions">
-      <button class="button primary" type="button" onclick="window.print()">체크리스트 인쇄</button>
+      <button id="print-checklist" class="button primary" type="button">체크리스트 인쇄</button>
       <a class="button secondary dark-text" href="/#contact">상담 신청으로 이동</a>
     </div>
   </main>
@@ -99,6 +99,7 @@
       var items = Array.prototype.slice.call(document.querySelectorAll(".checklist input"));
       var count = document.getElementById("checklist-count");
       var status = document.getElementById("checklist-status");
+      var printButton = document.getElementById("print-checklist");
 
       var update = function () {
         var checked = items.filter(function (item) { return item.checked; }).length;
@@ -121,6 +122,12 @@
         }
         item.addEventListener("change", update);
       });
+
+      if (printButton) {
+        printButton.addEventListener("click", function () {
+          window.print();
+        });
+      }
     });
   </script>
 </body>

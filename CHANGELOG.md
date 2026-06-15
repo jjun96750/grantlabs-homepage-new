@@ -91,6 +91,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Refreshed Claude handoff notes with the latest HSTS scope commit.
 - Added a Content Security Policy header and deployed smoke-test coverage.
 - Refreshed Claude handoff notes with the latest CSP commit.
+- Removed the checklist inline print handler and added static validation for inline event handlers.
 
 ## 2026-06-14
 
