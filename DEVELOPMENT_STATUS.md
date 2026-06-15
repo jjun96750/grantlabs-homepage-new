@@ -261,6 +261,7 @@ CHANGELOG.md
 - Deployed smoke-test CDN integrity validation
 - Handoff memo refreshed after deployed CDN integrity validation
 - Local preview server security headers
+- Handoff memo refreshed after local preview security header update
 - Latest local static checks passed after GitHub Actions workflow setup on 2026-06-15.
 
 ## Technical Notes
@@ -407,6 +408,7 @@ CHANGELOG.md
 - Extended deployed smoke checks to verify CDN script integrity markers.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest deployed CDN integrity validation commit.
 - Added Cloudflare-like security headers to the local preview server and static validation coverage.
+- Refreshed `CLAUDE_HANDOFF.md` with the latest local preview security header commit.
 
 ### 2026-06-14
 
