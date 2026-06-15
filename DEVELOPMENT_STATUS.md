@@ -258,6 +258,7 @@ CHANGELOG.md
 - CDN script SRI integrity attributes
 - Handoff memo refreshed after CDN script integrity update
 - Deployed smoke-test CDN integrity validation
+- Handoff memo refreshed after deployed CDN integrity validation
 - Latest local static checks passed after GitHub Actions workflow setup on 2026-06-15.
 
 ## Technical Notes
@@ -402,6 +403,7 @@ CHANGELOG.md
 - Added SRI integrity attributes for pinned Lucide and EmailJS CDN scripts.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest CDN script integrity commit.
 - Extended deployed smoke checks to verify CDN script integrity markers.
+- Refreshed `CLAUDE_HANDOFF.md` with the latest deployed CDN integrity validation commit.
 
 ### 2026-06-14
 
