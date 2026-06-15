@@ -76,6 +76,7 @@ Last updated: 2026-06-15
 - Local preview server now handles `HEAD` requests without response bodies.
 - Cloudflare `_headers` now includes HSTS and clickjacking protection, with deployed smoke-test coverage.
 - HSTS is scoped to the current host and does not preload or include subdomains.
+- Cloudflare `_headers` now includes a Content Security Policy for required static, image, and EmailJS endpoints.
 - `.nvmrc` added and covered by static validation for Node version consistency.
 - `.gitignore` expanded for deployment/build artifacts and covered by static validation.
 - `SECURITY.md` added with vulnerability and deployment-issue reporting guidance.
@@ -232,6 +233,7 @@ CHANGELOG.md
 - Handoff memo refreshed after deployment security header update
 - Conservative HSTS scope adjustment
 - Handoff memo refreshed after HSTS scope adjustment
+- Content Security Policy header coverage
 - Latest local static checks passed after GitHub Actions workflow setup on 2026-06-15.
 
 ## Technical Notes
@@ -359,6 +361,7 @@ CHANGELOG.md
 - Refreshed `CLAUDE_HANDOFF.md` with the latest deployment security header commit.
 - Scoped HSTS to the current host by removing subdomain preload directives.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest HSTS scope commit.
+- Added a Content Security Policy header and deployed smoke-test assertions.
 
 ### 2026-06-14
 

@@ -340,8 +340,11 @@ if (existsSync("robots.txt")) {
 
 if (existsSync("_headers")) {
   const headers = read("_headers");
-  for (const marker of ["Strict-Transport-Security", "X-Content-Type-Options", "X-Frame-Options", "Referrer-Policy", "Permissions-Policy"]) {
+  for (const marker of ["Strict-Transport-Security", "Content-Security-Policy", "X-Content-Type-Options", "X-Frame-Options", "Referrer-Policy", "Permissions-Policy"]) {
     if (!headers.includes(marker)) failures.push(`_headers is missing security header: ${marker}`);
+  }
+  for (const marker of ["default-src 'self'", "https://unpkg.com", "https://cdn.jsdelivr.net", "https://api.emailjs.com", "https://images.unsplash.com", "object-src 'none'", "frame-ancestors 'none'"]) {
+    if (!headers.includes(marker)) failures.push(`_headers CSP is missing marker: ${marker}`);
   }
   for (const path of ["/social-card.svg", "/site.webmanifest", "/robots.txt", "/sitemap.xml"]) {
     if (!headers.includes(path)) failures.push(`_headers is missing cache policy for ${path}`);
@@ -369,7 +372,7 @@ if (existsSync("scripts/check-deployed-site.mjs")) {
   if (!smokeCheck.includes("const passes = []") || !smokeCheck.includes("for (const pass of passes)")) {
     failures.push("Deployed smoke check is missing pass summary output.");
   }
-  for (const header of ["strict-transport-security", "x-content-type-options", "x-frame-options", "referrer-policy", "permissions-policy", "cache-control"]) {
+  for (const header of ["strict-transport-security", "content-security-policy", "x-content-type-options", "x-frame-options", "referrer-policy", "permissions-policy", "cache-control"]) {
     if (!smokeCheck.includes(header)) failures.push(`Deployed smoke check is missing header assertion: ${header}`);
   }
   if (!smokeCheck.includes("contentType") || !smokeCheck.includes("content-type")) {

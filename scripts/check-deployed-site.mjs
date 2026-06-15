@@ -14,10 +14,10 @@ try {
 }
 
 const checks = [
-  { path: "/", marker: "Grant Labs", contentType: "text/html", headers: ["strict-transport-security", "x-content-type-options", "x-frame-options", "referrer-policy", "permissions-policy"] },
-  { path: "/privacy.html", marker: "Grant Labs", contentType: "text/html", headers: ["strict-transport-security", "x-content-type-options", "x-frame-options", "referrer-policy", "permissions-policy"] },
-  { path: "/checklist.html", marker: "checklist-count", contentType: "text/html", headers: ["strict-transport-security", "x-content-type-options", "x-frame-options", "referrer-policy", "permissions-policy"] },
-  { path: "/404.html", marker: "Grant Labs", contentType: "text/html", headers: ["strict-transport-security", "x-content-type-options", "x-frame-options", "referrer-policy", "permissions-policy"] },
+  { path: "/", marker: "Grant Labs", contentType: "text/html", headers: ["strict-transport-security", "content-security-policy", "x-content-type-options", "x-frame-options", "referrer-policy", "permissions-policy"] },
+  { path: "/privacy.html", marker: "Grant Labs", contentType: "text/html", headers: ["strict-transport-security", "content-security-policy", "x-content-type-options", "x-frame-options", "referrer-policy", "permissions-policy"] },
+  { path: "/checklist.html", marker: "checklist-count", contentType: "text/html", headers: ["strict-transport-security", "content-security-policy", "x-content-type-options", "x-frame-options", "referrer-policy", "permissions-policy"] },
+  { path: "/404.html", marker: "Grant Labs", contentType: "text/html", headers: ["strict-transport-security", "content-security-policy", "x-content-type-options", "x-frame-options", "referrer-policy", "permissions-policy"] },
   { path: "/robots.txt", marker: "Sitemap:", contentType: "text/plain", headers: ["cache-control"] },
   { path: "/sitemap.xml", marker: "<urlset", contentType: "xml", headers: ["cache-control"] },
   { path: "/site.webmanifest", marker: "Grant Labs", contentType: "json", headers: ["cache-control"] },
@@ -35,7 +35,7 @@ const notFoundCheck = {
   marker: "404",
   expectedStatus: 404,
   contentType: "text/html",
-  headers: ["strict-transport-security", "x-content-type-options", "x-frame-options", "referrer-policy", "permissions-policy"],
+  headers: ["strict-transport-security", "content-security-policy", "x-content-type-options", "x-frame-options", "referrer-policy", "permissions-policy"],
 };
 
 const failures = [];

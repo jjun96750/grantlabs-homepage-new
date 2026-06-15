@@ -77,7 +77,7 @@ scripts/check-deployed-site.mjs
 - Consultation checklist page is available at `checklist.html` and linked from the homepage/footer.
 - Contact form uses EmailJS first, then falls back to a pre-filled email draft.
 - Contact form includes a hidden honeypot field, `aria-describedby` wiring, and `page_url` / `submitted_at` metadata.
-- Cloudflare `_headers` includes host-scoped HSTS, clickjacking protection, baseline browser security headers, and cache policies for CSS, favicon, social card, manifest, robots, and sitemap files.
+- Cloudflare `_headers` includes host-scoped HSTS, CSP, clickjacking protection, baseline browser security headers, and cache policies for CSS, favicon, social card, manifest, robots, and sitemap files.
 - Cloudflare `_redirects` routes unknown paths to `404.html` with a 404 status.
 - `privacy.html` is intentionally `noindex` and excluded from `sitemap.xml`.
 - `scripts/check-static-site.mjs` verifies required files, metadata, duplicate HTML ids, hero image performance attributes, contact form required fields, mobile-friendly phone input constraints, canonical contact values, EmailJS config values, JSON-LD, docs markers, command docs, editor config, Node version pin, gitignore hygiene, SVG asset metadata, robots/sitemap/canonical consistency, local `href` / `src` targets, cross-page hashes, and external new-window link safety.

@@ -89,6 +89,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Refreshed Claude handoff notes with the latest deployment security header commit.
 - Scoped HSTS to the current host by removing subdomain preload directives.
 - Refreshed Claude handoff notes with the latest HSTS scope commit.
+- Added a Content Security Policy header and deployed smoke-test coverage.
 
 ## 2026-06-14
 
