@@ -76,6 +76,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Added static validation for EmailJS public key, service ID, and template ID consistency.
 - Refreshed Claude handoff notes with the latest EmailJS configuration validation commit.
 - Added hero image render-performance attributes and static validation coverage.
+- Refreshed Claude handoff notes with the latest hero image rendering commit.
 
 ## 2026-06-14
 

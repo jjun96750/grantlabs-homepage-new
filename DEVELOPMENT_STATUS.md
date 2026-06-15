@@ -212,6 +212,7 @@ CHANGELOG.md
 - EmailJS configuration consistency validation
 - Handoff memo refreshed after EmailJS configuration validation
 - Hero image render-performance validation
+- Handoff memo refreshed after hero image rendering improvement
 - Latest local static checks passed after GitHub Actions workflow setup on 2026-06-15.
 
 ## Technical Notes
@@ -325,6 +326,7 @@ CHANGELOG.md
 - Added static validation for EmailJS public key, service ID, and template ID consistency.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest EmailJS configuration validation commit.
 - Added explicit hero image dimensions, async decoding, fetch priority, and static validation coverage.
+- Refreshed `CLAUDE_HANDOFF.md` with the latest hero image rendering commit.
 
 ### 2026-06-14
 
