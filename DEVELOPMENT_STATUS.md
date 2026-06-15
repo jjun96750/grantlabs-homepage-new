@@ -282,6 +282,7 @@ CHANGELOG.md
 - Expanded `.gitignore` for deployment/build artifacts and added static validation coverage.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest ignored-artifacts commit.
 - Added `SECURITY.md` with vulnerability and deployment-issue reporting guidance.
+- Refreshed `CLAUDE_HANDOFF.md` with the latest security policy commit.
 
 ### 2026-06-14
 

@@ -58,6 +58,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Expanded `.gitignore` for deployment/build artifacts and added static validation coverage.
 - Refreshed Claude handoff notes with the latest ignored-artifacts commit.
 - Added `SECURITY.md` with vulnerability and deployment-issue reporting guidance.
+- Refreshed Claude handoff notes with the latest security policy commit.
 
 ## 2026-06-14
 
