@@ -255,6 +255,7 @@ CHANGELOG.md
 - CSP CDN and EmailJS connect allowlist validation
 - Handoff memo refreshed after CSP allowlist validation
 - CDN script SRI integrity attributes
+- Handoff memo refreshed after CDN script integrity update
 - Latest local static checks passed after GitHub Actions workflow setup on 2026-06-15.
 
 ## Technical Notes
@@ -397,6 +398,7 @@ CHANGELOG.md
 - Added stricter static validation for CSP script and EmailJS connect allowlists.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest CSP allowlist validation commit.
 - Added SRI integrity attributes for pinned Lucide and EmailJS CDN scripts.
+- Refreshed `CLAUDE_HANDOFF.md` with the latest CDN script integrity commit.
 
 ### 2026-06-14
 
