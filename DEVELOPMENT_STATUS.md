@@ -222,6 +222,7 @@ CHANGELOG.md
 - Dependency-free local preview server
 - Handoff memo refreshed after local preview server commit
 - README/contribution local preview documentation
+- Handoff memo refreshed after local preview workflow documentation
 - Latest local static checks passed after GitHub Actions workflow setup on 2026-06-15.
 
 ## Technical Notes
@@ -342,6 +343,7 @@ CHANGELOG.md
 - Added `scripts/serve-static.mjs`, `npm run serve`, command docs, and static validation coverage.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest local preview server commit.
 - Documented `npm run serve` in `README.md` and `CONTRIBUTING.md`.
+- Refreshed `CLAUDE_HANDOFF.md` with the latest local preview workflow commit.
 
 ### 2026-06-14
 
