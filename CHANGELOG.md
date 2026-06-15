@@ -101,6 +101,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Refreshed Claude handoff notes with the latest Lucide pinning commit.
 - Pinned the EmailJS browser CDN dependency to version 4.4.1 and added validation coverage.
 - Refreshed Claude handoff notes with the latest EmailJS CDN pinning commit.
+- Added stricter static validation for CSP script and EmailJS connect allowlists.
 
 ## 2026-06-14
 

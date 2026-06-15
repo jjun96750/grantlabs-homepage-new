@@ -363,6 +363,12 @@ if (existsSync("_headers")) {
   for (const marker of ["default-src 'self'", "https://unpkg.com", "https://cdn.jsdelivr.net", "https://api.emailjs.com", "https://images.unsplash.com", "object-src 'none'", "frame-ancestors 'none'"]) {
     if (!headers.includes(marker)) failures.push(`_headers CSP is missing marker: ${marker}`);
   }
+  if (!headers.includes("script-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net")) {
+    failures.push("_headers CSP script-src does not match the approved CDN allowlist.");
+  }
+  if (!headers.includes("connect-src 'self' https://api.emailjs.com")) {
+    failures.push("_headers CSP connect-src does not allow the approved EmailJS API endpoint.");
+  }
   for (const path of ["/social-card.svg", "/site.webmanifest", "/robots.txt", "/sitemap.xml"]) {
     if (!headers.includes(path)) failures.push(`_headers is missing cache policy for ${path}`);
   }
