@@ -84,6 +84,7 @@ Last updated: 2026-06-15
 - EmailJS browser CDN dependency is pinned to version 4.4.1 instead of using the major-version alias.
 - Static validation now checks the CSP script and EmailJS connect allowlists.
 - Pinned Lucide and EmailJS CDN scripts now include SRI integrity attributes.
+- Deployed smoke checks now verify CDN script integrity markers on the homepage.
 - `.nvmrc` added and covered by static validation for Node version consistency.
 - `.gitignore` expanded for deployment/build artifacts and covered by static validation.
 - `SECURITY.md` added with vulnerability and deployment-issue reporting guidance.
@@ -256,6 +257,7 @@ CHANGELOG.md
 - Handoff memo refreshed after CSP allowlist validation
 - CDN script SRI integrity attributes
 - Handoff memo refreshed after CDN script integrity update
+- Deployed smoke-test CDN integrity validation
 - Latest local static checks passed after GitHub Actions workflow setup on 2026-06-15.
 
 ## Technical Notes
@@ -399,6 +401,7 @@ CHANGELOG.md
 - Refreshed `CLAUDE_HANDOFF.md` with the latest CSP allowlist validation commit.
 - Added SRI integrity attributes for pinned Lucide and EmailJS CDN scripts.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest CDN script integrity commit.
+- Extended deployed smoke checks to verify CDN script integrity markers.
 
 ### 2026-06-14
 

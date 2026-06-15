@@ -400,6 +400,9 @@ if (existsSync("scripts/check-deployed-site.mjs")) {
   if (!smokeCheck.includes("const passes = []") || !smokeCheck.includes("for (const pass of passes)")) {
     failures.push("Deployed smoke check is missing pass summary output.");
   }
+  if (!smokeCheck.includes("htmlIntegrityMarkers") || !smokeCheck.includes(lucideIntegrity) || !smokeCheck.includes(emailJsIntegrity)) {
+    failures.push("Deployed smoke check is missing CDN script integrity validation.");
+  }
   for (const header of ["strict-transport-security", "content-security-policy", "x-content-type-options", "x-frame-options", "referrer-policy", "permissions-policy", "cache-control"]) {
     if (!smokeCheck.includes(header)) failures.push(`Deployed smoke check is missing header assertion: ${header}`);
   }

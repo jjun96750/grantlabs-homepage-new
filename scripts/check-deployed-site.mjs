@@ -38,6 +38,12 @@ const notFoundCheck = {
   headers: ["strict-transport-security", "content-security-policy", "x-content-type-options", "x-frame-options", "referrer-policy", "permissions-policy"],
 };
 
+const htmlIntegrityMarkers = [
+  "sha384-UUwTS+RNYj0wSOgt4wIqWyG4Rc/xvrqgHDg/fEwc2e6WEFUooChoVCwkcddDnMaL",
+  "sha384-SALc35EccAf6RzGw4iNsyj7kTPr33K7RoGzYu+7heZhT8s0GZouafRiCg1qy44AS",
+  "crossorigin=\"anonymous\"",
+];
+
 const failures = [];
 const passes = [];
 
@@ -57,6 +63,12 @@ for (const check of checks) {
 
     if (!text.includes(check.marker)) {
       failures.push(`${check.path} did not include marker: ${check.marker}`);
+    }
+
+    if (check.path === "/") {
+      for (const marker of htmlIntegrityMarkers) {
+        if (!text.includes(marker)) failures.push(`${check.path} is missing script integrity marker: ${marker}`);
+      }
     }
 
     if (check.contentType) {
