@@ -32,10 +32,12 @@ Production branch: main
 6. Use the settings above.
 7. Deploy.
 8. Copy the preview URL into `DEVELOPMENT_STATUS.md`.
-9. Run `QA_CHECKLIST.md`.
-10. Run `node scripts/check-deployed-site.mjs <preview-url>` to confirm pages, static files, security headers, and cache headers.
-11. Submit a test inquiry and confirm EmailJS delivery. If EmailJS fails, confirm the email-draft fallback opens.
-12. Record EmailJS and fallback results in `DEPLOYMENT_ENVIRONMENTS.md`.
+9. Run `npm run check`.
+10. Run `npm run serve` and `npm run preview:check` for local preview validation.
+11. Run `npm run smoke -- <preview-url>` to confirm pages, static files, security headers, CDN integrity, and cache headers.
+12. Run `QA_CHECKLIST.md`.
+13. Submit a test inquiry and confirm EmailJS delivery. If EmailJS fails, confirm the email-draft fallback opens.
+14. Record EmailJS and fallback results in `DEPLOYMENT_ENVIRONMENTS.md`.
 
 ## After Preview Approval
 

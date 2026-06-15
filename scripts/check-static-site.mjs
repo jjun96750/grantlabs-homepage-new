@@ -422,7 +422,7 @@ if (existsSync("scripts/check-deployed-site.mjs")) {
 
 if (existsSync("DEPLOYMENT_ENVIRONMENTS.md")) {
   const deployment = read("DEPLOYMENT_ENVIRONMENTS.md");
-  for (const marker of ["Preview Verification", "Deployed smoke check", "EmailJS test", "DNS unchanged", "Contact Form Configuration", "service_tcj8otx", "template_8ne6kj3"]) {
+  for (const marker of ["Preview Verification", "Local preview check", "Deployed smoke check", "EmailJS test", "DNS unchanged", "Contact Form Configuration", "service_tcj8otx", "template_8ne6kj3", "npm run preview:check", "npm run smoke"]) {
     if (!deployment.includes(marker)) failures.push(`DEPLOYMENT_ENVIRONMENTS.md is missing marker: ${marker}`);
   }
   for (const marker of [emailJsPublicKey, emailJsServiceId, emailJsTemplateId]) {
@@ -490,7 +490,7 @@ if (existsSync(".gitignore")) {
 
 if (existsSync("CLOUDFLARE_PAGES_SETUP.md")) {
   const setup = read("CLOUDFLARE_PAGES_SETUP.md");
-  for (const marker of ["Framework preset: None", "Production branch: main", "scripts/check-deployed-site.mjs"]) {
+  for (const marker of ["Framework preset: None", "Production branch: main", "npm run preview:check", "npm run smoke"]) {
     if (!setup.includes(marker)) failures.push(`CLOUDFLARE_PAGES_SETUP.md is missing marker: ${marker}`);
   }
 }

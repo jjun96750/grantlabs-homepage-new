@@ -31,6 +31,7 @@ Commit SHA:
 Checked by:
 Checked at:
 Static check: pending
+Local preview check: pending
 Deployed smoke check: pending
 Smoke check summary: pending
 Content-Type check: pending
@@ -45,7 +46,10 @@ Required commands:
 
 ```bash
 node scripts/check-static-site.mjs
-node scripts/check-deployed-site.mjs <preview-url>
+npm run check
+npm run serve
+npm run preview:check
+npm run smoke -- <preview-url>
 ```
 
 ## Contact Form Configuration
@@ -80,6 +84,7 @@ Before approving a preview, submit one test inquiry and confirm:
 
 - Repository remains connected only to GitHub; Cloudflare Pages preview URL is still TBD.
 - Added preview verification template for smoke tests, visual QA, EmailJS testing, and DNS safety tracking.
+- Standard commands now include local preview validation before deployed smoke tests.
 
 ### 2026-06-14
 
