@@ -263,6 +263,7 @@ CHANGELOG.md
 - Added `.editorconfig` and static validation coverage for editor consistency.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest editor config commit.
 - Added `package.json` scripts for local static and deployed smoke validation.
+- Refreshed `CLAUDE_HANDOFF.md` with the latest package script commit.
 
 ### 2026-06-14
 
