@@ -312,6 +312,7 @@ CHANGELOG.md
 - Added static validation for duplicate HTML `id` values.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest duplicate-id validation commit.
 - Added static validation for required contact form fields, privacy consent, and autocomplete hints.
+- Refreshed `CLAUDE_HANDOFF.md` with the latest contact-form validation commit.
 
 ### 2026-06-14
 
