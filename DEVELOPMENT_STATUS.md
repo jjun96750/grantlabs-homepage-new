@@ -237,6 +237,7 @@ CHANGELOG.md
 - Content Security Policy header coverage
 - Handoff memo refreshed after CSP header update
 - Inline event handler cleanup for checklist print action
+- Handoff memo refreshed after inline-handler cleanup
 - Latest local static checks passed after GitHub Actions workflow setup on 2026-06-15.
 
 ## Technical Notes
@@ -367,6 +368,7 @@ CHANGELOG.md
 - Added a Content Security Policy header and deployed smoke-test assertions.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest CSP commit.
 - Removed the checklist inline print handler and added static validation coverage for inline event handlers.
+- Refreshed `CLAUDE_HANDOFF.md` with the latest inline-handler cleanup commit.
 
 ### 2026-06-14
 
