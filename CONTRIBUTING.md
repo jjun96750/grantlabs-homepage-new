@@ -21,6 +21,12 @@ Run this before committing:
 npm run check
 ```
 
+For local browser preview, run:
+
+```bash
+npm run serve
+```
+
 After Cloudflare Pages preview deployment, run:
 
 ```bash

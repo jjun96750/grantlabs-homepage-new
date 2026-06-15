@@ -25,6 +25,7 @@ sitemap.xml
 site.webmanifest
 scripts/
   check-static-site.mjs
+  serve-static.mjs
   check-deployed-site.mjs
 QA_CHECKLIST.md
 CLOUDFLARE_PAGES_SETUP.md
@@ -56,13 +57,17 @@ C:\Users\ongee\OneDrive\문서\홈페이지 만들기\grantlabs-homepage-new\ind
 정적 구조 검사는 Node.js로 실행합니다.
 
 ```bash
-node scripts/check-static-site.mjs
+npm run check
+```
+
+```bash
+npm run serve
 ```
 
 Cloudflare Pages 배포 후에는 preview URL을 넣어 주요 페이지, 정적 파일, 보안 헤더, 캐시 헤더 응답을 확인합니다.
 
 ```bash
-node scripts/check-deployed-site.mjs https://your-pages-preview.pages.dev
+npm run smoke -- https://your-pages-preview.pages.dev
 ```
 
 ## Cloudflare Pages 설정

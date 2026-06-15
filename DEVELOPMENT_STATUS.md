@@ -72,6 +72,7 @@ Last updated: 2026-06-15
 - `package.json` scripts added for local static and deployed smoke validation.
 - `COMMANDS.md` added with standard validation command guidance.
 - Local preview server added for dependency-free `npm run serve` checks.
+- README and contribution guidance now document `npm run serve`.
 - `.nvmrc` added and covered by static validation for Node version consistency.
 - `.gitignore` expanded for deployment/build artifacts and covered by static validation.
 - `SECURITY.md` added with vulnerability and deployment-issue reporting guidance.
@@ -220,6 +221,7 @@ CHANGELOG.md
 - Handoff memo refreshed after phone input ergonomics improvement
 - Dependency-free local preview server
 - Handoff memo refreshed after local preview server commit
+- README/contribution local preview documentation
 - Latest local static checks passed after GitHub Actions workflow setup on 2026-06-15.
 
 ## Technical Notes
@@ -339,6 +341,7 @@ CHANGELOG.md
 - Refreshed `CLAUDE_HANDOFF.md` with the latest phone input ergonomics commit.
 - Added `scripts/serve-static.mjs`, `npm run serve`, command docs, and static validation coverage.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest local preview server commit.
+- Documented `npm run serve` in `README.md` and `CONTRIBUTING.md`.
 
 ### 2026-06-14
 
