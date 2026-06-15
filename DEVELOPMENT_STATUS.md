@@ -240,6 +240,7 @@ CHANGELOG.md
 - Inline event handler cleanup for checklist print action
 - Handoff memo refreshed after inline-handler cleanup
 - Optional consultation email field and payload coverage
+- Handoff memo refreshed after optional email field update
 - Latest local static checks passed after GitHub Actions workflow setup on 2026-06-15.
 
 ## Technical Notes
@@ -372,6 +373,7 @@ CHANGELOG.md
 - Removed the checklist inline print handler and added static validation coverage for inline event handlers.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest inline-handler cleanup commit.
 - Added optional email capture to the consultation form and static validation coverage.
+- Refreshed `CLAUDE_HANDOFF.md` with the latest optional email field commit.
 
 ### 2026-06-14
 
