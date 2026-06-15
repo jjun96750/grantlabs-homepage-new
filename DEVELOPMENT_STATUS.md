@@ -249,6 +249,7 @@ CHANGELOG.md
 - Lucide CDN version pinning
 - Handoff memo refreshed after Lucide CDN pinning
 - EmailJS browser CDN version pinning
+- Handoff memo refreshed after EmailJS CDN pinning
 - Latest local static checks passed after GitHub Actions workflow setup on 2026-06-15.
 
 ## Technical Notes
@@ -387,6 +388,7 @@ CHANGELOG.md
 - Pinned the Lucide CDN dependency to version 1.18.0 and added static validation coverage.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest Lucide pinning commit.
 - Pinned the EmailJS browser CDN dependency to version 4.4.1 and added static validation coverage.
+- Refreshed `CLAUDE_HANDOFF.md` with the latest EmailJS CDN pinning commit.
 
 ### 2026-06-14
 
