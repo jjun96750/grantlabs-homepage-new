@@ -29,6 +29,7 @@ const failures = [];
 const read = (file) => readFileSync(file, "utf8");
 
 const htmlPages = ["index.html", "404.html", "privacy.html", "checklist.html"];
+const siteOrigin = "https://grantlabs.co.kr";
 
 const localTargetToFile = (target) => {
   const withoutHash = target.split("#")[0];
@@ -110,6 +111,11 @@ for (const page of ["index.html", "checklist.html"]) {
   if (!html.includes('name="twitter:card"')) failures.push(`${page} is missing Twitter card metadata.`);
   if (!html.includes('name="twitter:image"')) failures.push(`${page} is missing Twitter image metadata.`);
 }
+
+const canonicalFor = (html) => {
+  const match = html.match(/<link\s+rel=["']canonical["']\s+href=["']([^"']+)["']/);
+  return match ? match[1] : "";
+};
 
 if (existsSync("index.html")) {
   const html = read("index.html");
@@ -207,6 +213,37 @@ if (existsSync("sitemap.xml")) {
   }
   if (sitemap.includes("privacy.html")) {
     failures.push("sitemap.xml includes privacy.html even though it is noindex.");
+  }
+
+  const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
+  for (const url of sitemapUrls) {
+    if (!url.startsWith(`${siteOrigin}/`)) {
+      failures.push(`sitemap.xml contains URL outside canonical origin: ${url}`);
+    }
+  }
+
+  const expectedSitemapUrls = ["index.html", "checklist.html"]
+    .filter((page) => existsSync(page))
+    .map((page) => canonicalFor(read(page)))
+    .filter(Boolean);
+
+  for (const url of expectedSitemapUrls) {
+    if (!sitemapUrls.includes(url)) {
+      failures.push(`sitemap.xml is missing canonical URL: ${url}`);
+    }
+  }
+
+  for (const url of sitemapUrls) {
+    if (!expectedSitemapUrls.includes(url)) {
+      failures.push(`sitemap.xml includes unexpected indexable URL: ${url}`);
+    }
+  }
+}
+
+if (existsSync("robots.txt")) {
+  const robots = read("robots.txt");
+  if (!robots.includes(`Sitemap: ${siteOrigin}/sitemap.xml`)) {
+    failures.push("robots.txt is missing the canonical sitemap URL.");
   }
 }
 

@@ -41,6 +41,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Refreshed Claude handoff notes with the latest external-link validation commit.
 - Added static validation for cross-page local hash targets.
 - Refreshed Claude handoff notes with the latest hash-link validation commit.
+- Added static validation for robots, sitemap, and canonical URL consistency.
 
 ## 2026-06-14
 

@@ -65,6 +65,7 @@ Last updated: 2026-06-15
 - Cloudflare Pages `_redirects` now routes unknown paths to `404.html` with a 404 status.
 - Static validation now checks external `target="_blank"` links for `rel="noopener"`.
 - Static validation now checks cross-page local hash targets.
+- Static validation now checks robots, sitemap, and canonical URL consistency.
 - No build step is required.
 
 ## Current Files
@@ -163,6 +164,7 @@ CHANGELOG.md
 - Cloudflare Pages `_redirects` 404 fallback
 - External new-window link safety validation
 - Cross-page hash target validation
+- Robots/sitemap/canonical URL consistency validation
 - Latest local static checks passed after GitHub Actions workflow setup on 2026-06-15.
 
 ## Technical Notes
@@ -241,6 +243,7 @@ CHANGELOG.md
 - Refreshed `CLAUDE_HANDOFF.md` with the latest external-link validation commit.
 - Added static validation for cross-page local hash targets.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest hash-link validation commit.
+- Added static validation for robots, sitemap, and canonical URL consistency.
 
 ### 2026-06-14
 
