@@ -225,6 +225,7 @@ CHANGELOG.md
 - README/contribution local preview documentation
 - Handoff memo refreshed after local preview workflow documentation
 - Local preview HEAD request handling
+- Handoff memo refreshed after preview server response handling
 - Latest local static checks passed after GitHub Actions workflow setup on 2026-06-15.
 
 ## Technical Notes
@@ -347,6 +348,7 @@ CHANGELOG.md
 - Documented `npm run serve` in `README.md` and `CONTRIBUTING.md`.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest local preview workflow commit.
 - Tightened local preview server `HEAD` request handling and static validation coverage.
+- Refreshed `CLAUDE_HANDOFF.md` with the latest preview server response commit.
 
 ### 2026-06-14
 
