@@ -267,6 +267,7 @@ CHANGELOG.md
 - Local preview check script
 - Handoff memo refreshed after local preview checker update
 - GitHub Actions local preview validation
+- Handoff memo refreshed after CI preview validation
 - Latest local static checks passed after GitHub Actions workflow setup on 2026-06-15.
 
 ## Technical Notes
@@ -417,6 +418,7 @@ CHANGELOG.md
 - Added `scripts/check-local-preview.mjs`, `npm run preview:check`, and command documentation.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest local preview checker commit.
 - Extended GitHub Actions to run the local preview validation.
+- Refreshed `CLAUDE_HANDOFF.md` with the latest CI preview validation commit.
 
 ### 2026-06-14
 
