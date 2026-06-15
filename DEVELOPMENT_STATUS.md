@@ -74,6 +74,7 @@ Last updated: 2026-06-15
 - `.nvmrc` added and covered by static validation for Node version consistency.
 - `.gitignore` expanded for deployment/build artifacts and covered by static validation.
 - `SECURITY.md` added with vulnerability and deployment-issue reporting guidance.
+- `CONTRIBUTING.md` added with repository scope, validation, and documentation rules.
 - No build step is required.
 
 ## Current Files
@@ -85,6 +86,7 @@ checklist.html
 styles/homepage.css
 README.md
 COMMANDS.md
+CONTRIBUTING.md
 CLAUDE_HANDOFF.md
 DEVELOPMENT_STATUS.md
 .gitignore
@@ -187,6 +189,7 @@ CHANGELOG.md
 - Node version pin
 - Git ignore deployment/build artifact coverage
 - Security reporting policy
+- Contribution guide
 - Latest local static checks passed after GitHub Actions workflow setup on 2026-06-15.
 
 ## Technical Notes
@@ -283,6 +286,7 @@ CHANGELOG.md
 - Refreshed `CLAUDE_HANDOFF.md` with the latest ignored-artifacts commit.
 - Added `SECURITY.md` with vulnerability and deployment-issue reporting guidance.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest security policy commit.
+- Added `CONTRIBUTING.md` with repository scope, validation, and documentation rules.
 
 ### 2026-06-14
 

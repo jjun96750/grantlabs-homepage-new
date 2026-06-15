@@ -59,6 +59,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Refreshed Claude handoff notes with the latest ignored-artifacts commit.
 - Added `SECURITY.md` with vulnerability and deployment-issue reporting guidance.
 - Refreshed Claude handoff notes with the latest security policy commit.
+- Added `CONTRIBUTING.md` with repository scope, validation, and documentation rules.
 
 ## 2026-06-14
 

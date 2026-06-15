@@ -19,6 +19,7 @@
 - Ongoing development status is tracked in `DEVELOPMENT_STATUS.md`.
 - Repository contents are proprietary and covered by `LICENSE`.
 - Security and deployment issue reporting is documented in `SECURITY.md`.
+- Contribution rules are documented in `CONTRIBUTING.md`.
 
 ## Files
 
@@ -29,6 +30,7 @@ checklist.html
 styles/homepage.css
 README.md
 COMMANDS.md
+CONTRIBUTING.md
 CLAUDE_HANDOFF.md
 DEVELOPMENT_STATUS.md
 .gitignore

@@ -19,6 +19,7 @@ const requiredFiles = [
   "LICENSE",
   "README.md",
   "COMMANDS.md",
+  "CONTRIBUTING.md",
   "CLAUDE_HANDOFF.md",
   "DEVELOPMENT_STATUS.md",
   "CLOUDFLARE_PAGES_SETUP.md",
@@ -342,6 +343,13 @@ if (existsSync("COMMANDS.md")) {
   const commands = read("COMMANDS.md");
   for (const marker of ["npm run check", "npm run smoke", "static-site validation"]) {
     if (!commands.includes(marker)) failures.push(`COMMANDS.md is missing marker: ${marker}`);
+  }
+}
+
+if (existsSync("CONTRIBUTING.md")) {
+  const contributing = read("CONTRIBUTING.md");
+  for (const marker of ["grantlabs-website", "npm run check", "DEVELOPMENT_STATUS.md", "SECURITY.md"]) {
+    if (!contributing.includes(marker)) failures.push(`CONTRIBUTING.md is missing marker: ${marker}`);
   }
 }
 
