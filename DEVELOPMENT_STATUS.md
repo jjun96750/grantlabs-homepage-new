@@ -219,6 +219,7 @@ CHANGELOG.md
 - Mobile-friendly contact phone input validation
 - Handoff memo refreshed after phone input ergonomics improvement
 - Dependency-free local preview server
+- Handoff memo refreshed after local preview server commit
 - Latest local static checks passed after GitHub Actions workflow setup on 2026-06-15.
 
 ## Technical Notes
@@ -337,6 +338,7 @@ CHANGELOG.md
 - Added mobile-friendly phone input constraints and static validation coverage.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest phone input ergonomics commit.
 - Added `scripts/serve-static.mjs`, `npm run serve`, command docs, and static validation coverage.
+- Refreshed `CLAUDE_HANDOFF.md` with the latest local preview server commit.
 
 ### 2026-06-14
 

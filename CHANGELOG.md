@@ -80,6 +80,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Added mobile-friendly phone input constraints and static validation coverage.
 - Refreshed Claude handoff notes with the latest phone input ergonomics commit.
 - Added a dependency-free local preview server and command documentation.
+- Refreshed Claude handoff notes with the latest local preview server commit.
 
 ## 2026-06-14
 
