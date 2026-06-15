@@ -21,6 +21,7 @@
 - Security and deployment issue reporting is documented in `SECURITY.md`.
 - Contribution rules are documented in `CONTRIBUTING.md`.
 - GitHub issue templates are available for bugs, content updates, and deployment checks.
+- GitHub pull request template includes validation and deployment-safety checklist.
 
 ## Files
 
@@ -59,6 +60,7 @@ scripts/check-deployed-site.mjs
 .github/ISSUE_TEMPLATE/bug_report.md
 .github/ISSUE_TEMPLATE/content_update.md
 .github/ISSUE_TEMPLATE/deployment_check.md
+.github/PULL_REQUEST_TEMPLATE.md
 ```
 
 ## Design Direction

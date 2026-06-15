@@ -33,6 +33,7 @@ const requiredFiles = [
   ".github/ISSUE_TEMPLATE/bug_report.md",
   ".github/ISSUE_TEMPLATE/content_update.md",
   ".github/ISSUE_TEMPLATE/deployment_check.md",
+  ".github/PULL_REQUEST_TEMPLATE.md",
 ];
 
 const failures = [];
@@ -412,6 +413,13 @@ for (const template of [
   const body = read(template);
   for (const marker of ["name:", "about:", "labels:"]) {
     if (!body.includes(marker)) failures.push(`${template} is missing marker: ${marker}`);
+  }
+}
+
+if (existsSync(".github/PULL_REQUEST_TEMPLATE.md")) {
+  const prTemplate = read(".github/PULL_REQUEST_TEMPLATE.md");
+  for (const marker of ["npm run check", "grantlabs-website", "DEVELOPMENT_STATUS.md", "CLAUDE_HANDOFF.md"]) {
+    if (!prTemplate.includes(marker)) failures.push(`PULL_REQUEST_TEMPLATE.md is missing marker: ${marker}`);
   }
 }
 
