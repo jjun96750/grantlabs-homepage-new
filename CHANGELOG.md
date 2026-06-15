@@ -40,6 +40,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Added static validation for external `target="_blank"` link safety.
 - Refreshed Claude handoff notes with the latest external-link validation commit.
 - Added static validation for cross-page local hash targets.
+- Refreshed Claude handoff notes with the latest hash-link validation commit.
 
 ## 2026-06-14
 
