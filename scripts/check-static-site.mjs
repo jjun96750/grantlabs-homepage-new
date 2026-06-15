@@ -45,6 +45,12 @@ const shouldCheckLocalTarget = (target) => {
   return true;
 };
 
+const targetHash = (target) => {
+  const hashIndex = target.indexOf("#");
+  if (hashIndex === -1) return "";
+  return target.slice(hashIndex + 1).split("?")[0];
+};
+
 for (const file of requiredFiles) {
   if (!existsSync(file)) failures.push(`Missing required file: ${file}`);
 }
@@ -70,6 +76,16 @@ for (const page of htmlPages) {
     const targetFile = localTargetToFile(target);
     if (!existsSync(targetFile)) {
       failures.push(`${page} links to missing local target: ${target}`);
+      continue;
+    }
+
+    const hash = targetHash(target);
+    if (hash && existsSync(targetFile) && targetFile.endsWith(".html")) {
+      const targetHtml = read(targetFile);
+      const targetIds = new Set([...targetHtml.matchAll(/\sid="([^"]+)"/g)].map((match) => match[1]));
+      if (!targetIds.has(hash)) {
+        failures.push(`${page} links to missing hash target: ${target}`);
+      }
     }
   }
 
