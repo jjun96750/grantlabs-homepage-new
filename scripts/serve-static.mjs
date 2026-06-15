@@ -26,12 +26,16 @@ const safePath = (requestUrl) => {
   return target.startsWith(root) ? target : "";
 };
 
-const sendFile = (response, filePath, statusCode = 200) => {
+const sendFile = (request, response, filePath, statusCode = 200) => {
   const type = contentTypes.get(extname(filePath)) || "application/octet-stream";
   response.writeHead(statusCode, {
     "Content-Type": type,
     "Cache-Control": "no-store",
   });
+  if (request.method === "HEAD") {
+    response.end();
+    return;
+  }
   createReadStream(filePath).pipe(response);
 };
 
@@ -44,13 +48,13 @@ createServer((request, response) => {
 
   const target = safePath(request.url || "/");
   if (target && existsSync(target) && statSync(target).isFile()) {
-    sendFile(response, target);
+    sendFile(request, response, target);
     return;
   }
 
   const fallback = join(root, "404.html");
   if (existsSync(fallback)) {
-    sendFile(response, fallback, 404);
+    sendFile(request, response, fallback, 404);
     return;
   }
 

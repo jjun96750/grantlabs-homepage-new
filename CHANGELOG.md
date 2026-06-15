@@ -83,6 +83,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Refreshed Claude handoff notes with the latest local preview server commit.
 - Documented local preview usage in README and contribution guidance.
 - Refreshed Claude handoff notes with the latest local preview workflow commit.
+- Tightened local preview server handling for HEAD requests.
 
 ## 2026-06-14
 
