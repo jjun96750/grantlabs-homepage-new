@@ -304,6 +304,7 @@ CHANGELOG.md
 - Added GitHub pull request template with validation and deployment-safety checklist.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest pull-request-template commit.
 - Added GitHub `CODEOWNERS` for repository, deployment, and automation files.
+- Refreshed `CLAUDE_HANDOFF.md` with the latest CODEOWNERS commit.
 
 ### 2026-06-14
 

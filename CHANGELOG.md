@@ -66,6 +66,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Added GitHub pull request template with validation and deployment-safety checklist.
 - Refreshed Claude handoff notes with the latest pull-request-template commit.
 - Added GitHub `CODEOWNERS` for repository, deployment, and automation files.
+- Refreshed Claude handoff notes with the latest CODEOWNERS commit.
 
 ## 2026-06-14
 
