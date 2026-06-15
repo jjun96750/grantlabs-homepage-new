@@ -6,6 +6,7 @@
   "scripts": {
     "check": "node scripts/check-static-site.mjs",
     "serve": "node scripts/serve-static.mjs",
+    "preview:check": "node scripts/check-local-preview.mjs",
     "smoke": "node scripts/check-deployed-site.mjs"
   },
   "engines": {

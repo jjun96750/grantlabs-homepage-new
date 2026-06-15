@@ -109,6 +109,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Refreshed Claude handoff notes with the latest deployed CDN integrity validation commit.
 - Added Cloudflare-like security headers to the local preview server.
 - Refreshed Claude handoff notes with the latest local preview security header commit.
+- Added a repeatable local preview check script and command documentation.
 
 ## 2026-06-14
 

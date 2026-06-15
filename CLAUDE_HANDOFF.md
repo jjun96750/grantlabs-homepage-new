@@ -57,6 +57,7 @@ SECURITY.md
 CHANGELOG.md
 scripts/check-static-site.mjs
 scripts/serve-static.mjs
+scripts/check-local-preview.mjs
 scripts/check-deployed-site.mjs
 .github/workflows/static-site-check.yml
 .github/ISSUE_TEMPLATE/bug_report.md
@@ -86,6 +87,7 @@ scripts/check-deployed-site.mjs
 - `privacy.html` discloses the optional email field used by the consultation form.
 - `scripts/check-static-site.mjs` verifies required files, metadata, duplicate HTML ids, hero image performance attributes, contact form fields, optional email payload handling, mobile-friendly phone input constraints, canonical contact values, EmailJS config values, CDN version pins, CSP allowlists, JSON-LD, docs markers, command docs, editor config, Node version pin, gitignore hygiene, SVG asset metadata, robots/sitemap/canonical consistency, local `href` / `src` targets, cross-page hashes, inline event handler cleanup, and external new-window link safety.
 - `scripts/serve-static.mjs` provides a dependency-free local preview server at `http://127.0.0.1:4173/` with explicit 404, HEAD request handling, and Cloudflare-like security headers.
+- `scripts/check-local-preview.mjs` verifies local preview status codes, content types, missing-route handling, and security headers.
 - `scripts/check-deployed-site.mjs` verifies pages, response headers, `Content-Type` values, homepage CDN script integrity markers, missing-route 404 handling, sitemap noindex cleanup, and prints a pass summary.
 - GitHub Actions runs `npm run check` on pushes to `main` and pull requests.
 
@@ -96,11 +98,12 @@ scripts/check-deployed-site.mjs
 3. Record preview/production URLs in `DEPLOYMENT_ENVIRONMENTS.md`.
 4. Run `npm run check` before additional commits.
 5. Run `npm run serve` for local preview checks.
-6. Run `npm run smoke -- <preview-url>` after the preview is live.
-6. Run `QA_CHECKLIST.md` after the preview is live.
-7. Verify EmailJS delivery, `page_url` / `submitted_at`, and the email-draft fallback in the deployed preview.
-8. Continue edits only in this repository.
-9. Keep `DEVELOPMENT_STATUS.md` updated whenever the project state changes.
+6. Run `npm run preview:check` against the running local preview.
+7. Run `npm run smoke -- <preview-url>` after the preview is live.
+8. Run `QA_CHECKLIST.md` after the preview is live.
+9. Verify EmailJS delivery, `page_url` / `submitted_at`, and the email-draft fallback in the deployed preview.
+10. Continue edits only in this repository.
+11. Keep `DEVELOPMENT_STATUS.md` updated whenever the project state changes.
 
 ## Suggested Prompt For Claude
 
