@@ -56,6 +56,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Added `.nvmrc` and static validation coverage for Node version consistency.
 - Refreshed Claude handoff notes with the latest Node version pin commit.
 - Expanded `.gitignore` for deployment/build artifacts and added static validation coverage.
+- Refreshed Claude handoff notes with the latest ignored-artifacts commit.
 
 ## 2026-06-14
 

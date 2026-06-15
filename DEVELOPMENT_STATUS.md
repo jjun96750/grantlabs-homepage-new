@@ -277,6 +277,7 @@ CHANGELOG.md
 - Added `.nvmrc` and static validation coverage for Node version consistency.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest Node version pin commit.
 - Expanded `.gitignore` for deployment/build artifacts and added static validation coverage.
+- Refreshed `CLAUDE_HANDOFF.md` with the latest ignored-artifacts commit.
 
 ### 2026-06-14
 
