@@ -252,6 +252,7 @@ CHANGELOG.md
 - EmailJS browser CDN version pinning
 - Handoff memo refreshed after EmailJS CDN pinning
 - CSP CDN and EmailJS connect allowlist validation
+- Handoff memo refreshed after CSP allowlist validation
 - Latest local static checks passed after GitHub Actions workflow setup on 2026-06-15.
 
 ## Technical Notes
@@ -392,6 +393,7 @@ CHANGELOG.md
 - Pinned the EmailJS browser CDN dependency to version 4.4.1 and added static validation coverage.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest EmailJS CDN pinning commit.
 - Added stricter static validation for CSP script and EmailJS connect allowlists.
+- Refreshed `CLAUDE_HANDOFF.md` with the latest CSP allowlist validation commit.
 
 ### 2026-06-14
 
