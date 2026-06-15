@@ -30,6 +30,9 @@ const requiredFiles = [
   "CHANGELOG.md",
   "scripts/check-deployed-site.mjs",
   ".github/workflows/static-site-check.yml",
+  ".github/ISSUE_TEMPLATE/bug_report.md",
+  ".github/ISSUE_TEMPLATE/content_update.md",
+  ".github/ISSUE_TEMPLATE/deployment_check.md",
 ];
 
 const failures = [];
@@ -397,6 +400,18 @@ if (existsSync(".github/workflows/static-site-check.yml")) {
   const workflow = read(".github/workflows/static-site-check.yml");
   for (const marker of ["actions/setup-node@v4", "node-version: 20", "npm run check"]) {
     if (!workflow.includes(marker)) failures.push(`static-site-check workflow is missing marker: ${marker}`);
+  }
+}
+
+for (const template of [
+  ".github/ISSUE_TEMPLATE/bug_report.md",
+  ".github/ISSUE_TEMPLATE/content_update.md",
+  ".github/ISSUE_TEMPLATE/deployment_check.md",
+]) {
+  if (!existsSync(template)) continue;
+  const body = read(template);
+  for (const marker of ["name:", "about:", "labels:"]) {
+    if (!body.includes(marker)) failures.push(`${template} is missing marker: ${marker}`);
   }
 }
 

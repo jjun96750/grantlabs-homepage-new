@@ -20,6 +20,7 @@
 - Repository contents are proprietary and covered by `LICENSE`.
 - Security and deployment issue reporting is documented in `SECURITY.md`.
 - Contribution rules are documented in `CONTRIBUTING.md`.
+- GitHub issue templates are available for bugs, content updates, and deployment checks.
 
 ## Files
 
@@ -55,6 +56,9 @@ CHANGELOG.md
 scripts/check-static-site.mjs
 scripts/check-deployed-site.mjs
 .github/workflows/static-site-check.yml
+.github/ISSUE_TEMPLATE/bug_report.md
+.github/ISSUE_TEMPLATE/content_update.md
+.github/ISSUE_TEMPLATE/deployment_check.md
 ```
 
 ## Design Direction

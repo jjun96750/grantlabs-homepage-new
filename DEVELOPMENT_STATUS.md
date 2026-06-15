@@ -75,6 +75,7 @@ Last updated: 2026-06-15
 - `.gitignore` expanded for deployment/build artifacts and covered by static validation.
 - `SECURITY.md` added with vulnerability and deployment-issue reporting guidance.
 - `CONTRIBUTING.md` added with repository scope, validation, and documentation rules.
+- GitHub issue templates added for bugs, content updates, and deployment checks.
 - No build step is required.
 
 ## Current Files
@@ -109,6 +110,9 @@ QA_CHECKLIST.md
 scripts/check-static-site.mjs
 scripts/check-deployed-site.mjs
 .github/workflows/static-site-check.yml
+.github/ISSUE_TEMPLATE/bug_report.md
+.github/ISSUE_TEMPLATE/content_update.md
+.github/ISSUE_TEMPLATE/deployment_check.md
 DEPLOYMENT_ENVIRONMENTS.md
 ROLLBACK_PLAN.md
 SECURITY.md
@@ -190,6 +194,7 @@ CHANGELOG.md
 - Git ignore deployment/build artifact coverage
 - Security reporting policy
 - Contribution guide
+- GitHub issue templates
 - Latest local static checks passed after GitHub Actions workflow setup on 2026-06-15.
 
 ## Technical Notes
@@ -288,6 +293,7 @@ CHANGELOG.md
 - Refreshed `CLAUDE_HANDOFF.md` with the latest security policy commit.
 - Added `CONTRIBUTING.md` with repository scope, validation, and documentation rules.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest contribution guide commit.
+- Added GitHub issue templates for bugs, content updates, and deployment checks.
 
 ### 2026-06-14
 
