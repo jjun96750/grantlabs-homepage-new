@@ -103,6 +103,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Refreshed Claude handoff notes with the latest EmailJS CDN pinning commit.
 - Added stricter static validation for CSP script and EmailJS connect allowlists.
 - Refreshed Claude handoff notes with the latest CSP allowlist validation commit.
+- Added SRI integrity attributes for pinned Lucide and EmailJS CDN scripts.
 
 ## 2026-06-14
 

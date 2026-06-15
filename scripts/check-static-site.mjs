@@ -51,6 +51,8 @@ const emailJsServiceId = "service_tcj8otx";
 const emailJsTemplateId = "template_8ne6kj3";
 const emailJsBrowserVersion = "4.4.1";
 const lucideVersion = "1.18.0";
+const lucideIntegrity = "sha384-UUwTS+RNYj0wSOgt4wIqWyG4Rc/xvrqgHDg/fEwc2e6WEFUooChoVCwkcddDnMaL";
+const emailJsIntegrity = "sha384-SALc35EccAf6RzGw4iNsyj7kTPr33K7RoGzYu+7heZhT8s0GZouafRiCg1qy44AS";
 
 const localTargetToFile = (target) => {
   const withoutHash = target.split("#")[0];
@@ -180,6 +182,9 @@ if (existsSync("index.html")) {
   }
   if (!html.includes(`https://cdn.jsdelivr.net/npm/@emailjs/browser@${emailJsBrowserVersion}/dist/email.min.js`) || html.includes("@emailjs/browser@4/dist")) {
     failures.push("index.html should pin the EmailJS browser CDN dependency to the approved version.");
+  }
+  for (const marker of [lucideIntegrity, emailJsIntegrity, 'crossorigin="anonymous"']) {
+    if (!html.includes(marker)) failures.push(`index.html is missing CDN integrity marker: ${marker}`);
   }
   if (!html.includes("https://images.unsplash.com/photo-1551836022-d5d88e9218df")) {
     failures.push("index.html is missing the approved hero image.");
