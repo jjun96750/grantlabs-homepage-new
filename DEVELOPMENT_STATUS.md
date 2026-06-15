@@ -75,6 +75,7 @@ Last updated: 2026-06-15
 - README and contribution guidance now document `npm run serve`.
 - Local preview server now handles `HEAD` requests without response bodies.
 - Cloudflare `_headers` now includes HSTS and clickjacking protection, with deployed smoke-test coverage.
+- HSTS is scoped to the current host and does not preload or include subdomains.
 - `.nvmrc` added and covered by static validation for Node version consistency.
 - `.gitignore` expanded for deployment/build artifacts and covered by static validation.
 - `SECURITY.md` added with vulnerability and deployment-issue reporting guidance.
@@ -229,6 +230,7 @@ CHANGELOG.md
 - Handoff memo refreshed after preview server response handling
 - HSTS and clickjacking header coverage
 - Handoff memo refreshed after deployment security header update
+- Conservative HSTS scope adjustment
 - Latest local static checks passed after GitHub Actions workflow setup on 2026-06-15.
 
 ## Technical Notes
@@ -354,6 +356,7 @@ CHANGELOG.md
 - Refreshed `CLAUDE_HANDOFF.md` with the latest preview server response commit.
 - Added HSTS and `X-Frame-Options` headers plus deployed smoke-test assertions.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest deployment security header commit.
+- Scoped HSTS to the current host by removing subdomain preload directives.
 
 ### 2026-06-14
 
