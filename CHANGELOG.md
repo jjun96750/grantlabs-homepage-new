@@ -64,6 +64,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Added GitHub issue templates for bugs, content updates, and deployment checks.
 - Refreshed Claude handoff notes with the latest issue-template commit.
 - Added GitHub pull request template with validation and deployment-safety checklist.
+- Refreshed Claude handoff notes with the latest pull-request-template commit.
 
 ## 2026-06-14
 

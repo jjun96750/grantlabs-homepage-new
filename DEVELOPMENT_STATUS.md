@@ -299,6 +299,7 @@ CHANGELOG.md
 - Added GitHub issue templates for bugs, content updates, and deployment checks.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest issue-template commit.
 - Added GitHub pull request template with validation and deployment-safety checklist.
+- Refreshed `CLAUDE_HANDOFF.md` with the latest pull-request-template commit.
 
 ### 2026-06-14
 
