@@ -12,7 +12,7 @@
 - Static homepage draft is ready and pushed to GitHub.
 - No build step is required.
 - Main branch: `main`
-- Latest pushed commit at handoff update: `7c93ffc Mirror security headers in local preview`
+- Latest pushed commit at handoff update: `db6f5ed Add local preview checker`
 - Local static validation passes with `node scripts/check-static-site.mjs`.
 - Standard local validation command is `npm run check`; local preview is `npm run serve`.
 - Standard commands are documented in `COMMANDS.md`.

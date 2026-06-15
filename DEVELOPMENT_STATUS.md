@@ -264,6 +264,7 @@ CHANGELOG.md
 - Local preview server security headers
 - Handoff memo refreshed after local preview security header update
 - Local preview check script
+- Handoff memo refreshed after local preview checker update
 - Latest local static checks passed after GitHub Actions workflow setup on 2026-06-15.
 
 ## Technical Notes
@@ -412,6 +413,7 @@ CHANGELOG.md
 - Added Cloudflare-like security headers to the local preview server and static validation coverage.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest local preview security header commit.
 - Added `scripts/check-local-preview.mjs`, `npm run preview:check`, and command documentation.
+- Refreshed `CLAUDE_HANDOFF.md` with the latest local preview checker commit.
 
 ### 2026-06-14
 
