@@ -87,6 +87,7 @@ Last updated: 2026-06-15
 - Deployed smoke checks now verify CDN script integrity markers on the homepage.
 - Local preview server now returns the same baseline security headers as Cloudflare Pages.
 - Local preview can now be checked with `npm run preview:check`.
+- GitHub Actions now runs both static validation and local preview validation.
 - `.nvmrc` added and covered by static validation for Node version consistency.
 - `.gitignore` expanded for deployment/build artifacts and covered by static validation.
 - `SECURITY.md` added with vulnerability and deployment-issue reporting guidance.
@@ -265,6 +266,7 @@ CHANGELOG.md
 - Handoff memo refreshed after local preview security header update
 - Local preview check script
 - Handoff memo refreshed after local preview checker update
+- GitHub Actions local preview validation
 - Latest local static checks passed after GitHub Actions workflow setup on 2026-06-15.
 
 ## Technical Notes
@@ -414,6 +416,7 @@ CHANGELOG.md
 - Refreshed `CLAUDE_HANDOFF.md` with the latest local preview security header commit.
 - Added `scripts/check-local-preview.mjs`, `npm run preview:check`, and command documentation.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest local preview checker commit.
+- Extended GitHub Actions to run the local preview validation.
 
 ### 2026-06-14
 

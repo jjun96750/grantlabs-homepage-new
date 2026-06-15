@@ -111,6 +111,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Refreshed Claude handoff notes with the latest local preview security header commit.
 - Added a repeatable local preview check script and command documentation.
 - Refreshed Claude handoff notes with the latest local preview checker commit.
+- Extended GitHub Actions to run the local preview validation.
 
 ## 2026-06-14
 

@@ -89,7 +89,7 @@ scripts/check-deployed-site.mjs
 - `scripts/serve-static.mjs` provides a dependency-free local preview server at `http://127.0.0.1:4173/` with explicit 404, HEAD request handling, and Cloudflare-like security headers.
 - `scripts/check-local-preview.mjs` verifies local preview status codes, content types, missing-route handling, and security headers.
 - `scripts/check-deployed-site.mjs` verifies pages, response headers, `Content-Type` values, homepage CDN script integrity markers, missing-route 404 handling, sitemap noindex cleanup, and prints a pass summary.
-- GitHub Actions runs `npm run check` on pushes to `main` and pull requests.
+- GitHub Actions runs `npm run check`, starts the local preview server, and runs `npm run preview:check` on pushes to `main` and pull requests.
 
 ## Next Steps
 

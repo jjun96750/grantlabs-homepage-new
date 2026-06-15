@@ -497,7 +497,7 @@ if (existsSync("CLOUDFLARE_PAGES_SETUP.md")) {
 
 if (existsSync(".github/workflows/static-site-check.yml")) {
   const workflow = read(".github/workflows/static-site-check.yml");
-  for (const marker of ["actions/setup-node@v4", "node-version: 20", "npm run check"]) {
+  for (const marker of ["actions/setup-node@v4", "node-version: 20", "npm run check", "npm run serve", "npm run preview:check", "127.0.0.1:4173"]) {
     if (!workflow.includes(marker)) failures.push(`static-site-check workflow is missing marker: ${marker}`);
   }
 }
