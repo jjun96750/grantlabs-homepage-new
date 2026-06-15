@@ -93,6 +93,7 @@ Last updated: 2026-06-16
 - Deployment and QA docs now use the standard npm validation commands.
 - Handoff memo refreshed after deployment command standardization.
 - README and contribution guidance now include `npm run preview:check`.
+- Handoff memo refreshed after local preview command documentation.
 - `.nvmrc` added and covered by static validation for Node version consistency.
 - `.gitignore` expanded for deployment/build artifacts and covered by static validation.
 - `SECURITY.md` added with vulnerability and deployment-issue reporting guidance.
@@ -321,6 +322,7 @@ CHANGELOG.md
 - Updated deployment and QA docs to use `npm run check`, `npm run preview:check`, and `npm run smoke`.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest deployment command standardization commit.
 - Updated README and contribution guidance with the local preview check command.
+- Refreshed `CLAUDE_HANDOFF.md` with the latest local preview command documentation commit.
 
 ### 2026-06-15
 
