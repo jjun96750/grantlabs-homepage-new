@@ -12,7 +12,7 @@
 - Static homepage draft is ready and pushed to GitHub.
 - No build step is required.
 - Main branch: `main`
-- Latest pushed commit at handoff update: `afeff02 Add code owners`
+- Latest pushed commit at handoff update: `c0c6b06 Validate duplicate html ids`
 - Local static validation passes with `node scripts/check-static-site.mjs`.
 - Standard local validation command is `npm run check`.
 - Standard commands are documented in `COMMANDS.md`.

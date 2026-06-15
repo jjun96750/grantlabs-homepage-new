@@ -68,6 +68,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Added GitHub `CODEOWNERS` for repository, deployment, and automation files.
 - Refreshed Claude handoff notes with the latest CODEOWNERS commit.
 - Added static validation for duplicate HTML `id` values.
+- Refreshed Claude handoff notes with the latest duplicate-id validation commit.
 
 ## 2026-06-14
 

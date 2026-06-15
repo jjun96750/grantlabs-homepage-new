@@ -308,6 +308,7 @@ CHANGELOG.md
 - Added GitHub `CODEOWNERS` for repository, deployment, and automation files.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest CODEOWNERS commit.
 - Added static validation for duplicate HTML `id` values.
+- Refreshed `CLAUDE_HANDOFF.md` with the latest duplicate-id validation commit.
 
 ### 2026-06-14
 
