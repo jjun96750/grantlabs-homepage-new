@@ -246,6 +246,7 @@ CHANGELOG.md
 - Privacy notice email disclosure and effective-date validation
 - Handoff memo refreshed after privacy notice update
 - Lucide CDN version pinning
+- Handoff memo refreshed after Lucide CDN pinning
 - Latest local static checks passed after GitHub Actions workflow setup on 2026-06-15.
 
 ## Technical Notes
@@ -382,6 +383,7 @@ CHANGELOG.md
 - Updated `privacy.html` for optional email collection and current effective date.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest privacy notice commit.
 - Pinned the Lucide CDN dependency to version 1.18.0 and added static validation coverage.
+- Refreshed `CLAUDE_HANDOFF.md` with the latest Lucide pinning commit.
 
 ### 2026-06-14
 
