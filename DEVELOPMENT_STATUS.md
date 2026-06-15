@@ -78,6 +78,7 @@ Last updated: 2026-06-15
 - GitHub issue templates added for bugs, content updates, and deployment checks.
 - GitHub pull request template added with validation and deployment-safety checklist.
 - GitHub `CODEOWNERS` added for repository, deployment, and automation files.
+- Static validation now checks duplicate HTML `id` values.
 - No build step is required.
 
 ## Current Files
@@ -201,6 +202,7 @@ CHANGELOG.md
 - GitHub issue templates
 - GitHub pull request template
 - GitHub CODEOWNERS
+- Duplicate HTML id validation
 - Latest local static checks passed after GitHub Actions workflow setup on 2026-06-15.
 
 ## Technical Notes
@@ -305,6 +307,7 @@ CHANGELOG.md
 - Refreshed `CLAUDE_HANDOFF.md` with the latest pull-request-template commit.
 - Added GitHub `CODEOWNERS` for repository, deployment, and automation files.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest CODEOWNERS commit.
+- Added static validation for duplicate HTML `id` values.
 
 ### 2026-06-14
 

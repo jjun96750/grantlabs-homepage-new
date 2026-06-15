@@ -75,6 +75,12 @@ for (const page of htmlPages) {
   if (!html.includes("<title>")) failures.push(`${page} is missing a title.`);
   if (!html.includes('name="description"')) failures.push(`${page} is missing a meta description.`);
   if (html.includes("\uFFFD")) failures.push(`${page} contains replacement characters.`);
+
+  const ids = [...html.matchAll(/\sid="([^"]+)"/g)].map((match) => match[1]);
+  const duplicateIds = ids.filter((id, index) => ids.indexOf(id) !== index);
+  if (duplicateIds.length) {
+    failures.push(`${page} contains duplicate id values: ${[...new Set(duplicateIds)].join(", ")}`);
+  }
 }
 
 for (const page of htmlPages) {
