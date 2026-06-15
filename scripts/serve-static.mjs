@@ -17,6 +17,15 @@ const contentTypes = new Map([
   [".xml", "application/xml; charset=utf-8"],
 ]);
 
+const securityHeaders = {
+  "Strict-Transport-Security": "max-age=31536000",
+  "Content-Security-Policy": "default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net; connect-src 'self' https://api.emailjs.com; img-src 'self' data: https://images.unsplash.com; style-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self' mailto:",
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY",
+  "Referrer-Policy": "strict-origin-when-cross-origin",
+  "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
+};
+
 const safePath = (requestUrl) => {
   const url = new URL(requestUrl, `http://${host}:${port}`);
   const pathname = decodeURIComponent(url.pathname);
@@ -29,6 +38,7 @@ const safePath = (requestUrl) => {
 const sendFile = (request, response, filePath, statusCode = 200) => {
   const type = contentTypes.get(extname(filePath)) || "application/octet-stream";
   response.writeHead(statusCode, {
+    ...securityHeaders,
     "Content-Type": type,
     "Cache-Control": "no-store",
   });
@@ -58,7 +68,7 @@ createServer((request, response) => {
     return;
   }
 
-  response.writeHead(404, { "Content-Type": "text/plain; charset=utf-8" });
+  response.writeHead(404, { ...securityHeaders, "Content-Type": "text/plain; charset=utf-8" });
   response.end("Not found");
 }).listen(port, host, () => {
   console.log(`Grant Labs static preview: http://${host}:${port}/`);

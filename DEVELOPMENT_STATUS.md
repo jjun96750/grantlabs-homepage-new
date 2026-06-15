@@ -85,6 +85,7 @@ Last updated: 2026-06-15
 - Static validation now checks the CSP script and EmailJS connect allowlists.
 - Pinned Lucide and EmailJS CDN scripts now include SRI integrity attributes.
 - Deployed smoke checks now verify CDN script integrity markers on the homepage.
+- Local preview server now returns the same baseline security headers as Cloudflare Pages.
 - `.nvmrc` added and covered by static validation for Node version consistency.
 - `.gitignore` expanded for deployment/build artifacts and covered by static validation.
 - `SECURITY.md` added with vulnerability and deployment-issue reporting guidance.
@@ -259,6 +260,7 @@ CHANGELOG.md
 - Handoff memo refreshed after CDN script integrity update
 - Deployed smoke-test CDN integrity validation
 - Handoff memo refreshed after deployed CDN integrity validation
+- Local preview server security headers
 - Latest local static checks passed after GitHub Actions workflow setup on 2026-06-15.
 
 ## Technical Notes
@@ -404,6 +406,7 @@ CHANGELOG.md
 - Refreshed `CLAUDE_HANDOFF.md` with the latest CDN script integrity commit.
 - Extended deployed smoke checks to verify CDN script integrity markers.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest deployed CDN integrity validation commit.
+- Added Cloudflare-like security headers to the local preview server and static validation coverage.
 
 ### 2026-06-14
 

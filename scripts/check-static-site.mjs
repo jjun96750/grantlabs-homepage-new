@@ -287,7 +287,7 @@ if (existsSync("package.json")) {
 
 if (existsSync("scripts/serve-static.mjs")) {
   const server = read("scripts/serve-static.mjs");
-  for (const marker of ["createServer", "127.0.0.1", "4173", "404.html", "no-store", "application/manifest+json", "HEAD"]) {
+  for (const marker of ["createServer", "127.0.0.1", "4173", "404.html", "no-store", "application/manifest+json", "HEAD", "securityHeaders", "Content-Security-Policy", "X-Frame-Options", "Permissions-Policy"]) {
     if (!server.includes(marker)) failures.push(`scripts/serve-static.mjs is missing marker: ${marker}`);
   }
 }
