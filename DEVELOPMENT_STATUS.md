@@ -1,6 +1,6 @@
 # Development Status
 
-Last updated: 2026-06-15
+Last updated: 2026-06-16
 
 ## Project
 
@@ -88,6 +88,7 @@ Last updated: 2026-06-15
 - Local preview server now returns the same baseline security headers as Cloudflare Pages.
 - Local preview can now be checked with `npm run preview:check`.
 - GitHub Actions now runs both static validation and local preview validation.
+- Sitemap lastmod values and static validation were refreshed for 2026-06-16.
 - `.nvmrc` added and covered by static validation for Node version consistency.
 - `.gitignore` expanded for deployment/build artifacts and covered by static validation.
 - `SECURITY.md` added with vulnerability and deployment-issue reporting guidance.
@@ -301,12 +302,17 @@ CHANGELOG.md
 5. Run `node scripts/check-static-site.mjs` before future commits when Node.js is available.
 6. Run `npm run serve` for local preview checks.
 7. Run `node scripts/check-deployed-site.mjs <preview-url>` after Cloudflare Pages deployment.
-7. Verify EmailJS delivery in production preview and decide whether to later connect Cloudflare Workers, Google Sheets, or the existing CRM.
-8. Replace or approve the hero image.
-9. Review FAQ wording with actual sales/support language.
-10. Continue edits only in this repository.
+8. Verify EmailJS delivery in production preview and decide whether to later connect Cloudflare Workers, Google Sheets, or the existing CRM.
+9. Replace or approve the hero image.
+10. Review FAQ wording with actual sales/support language.
+11. Continue edits only in this repository.
 
 ## Change Log
+
+### 2026-06-16
+
+- Refreshed sitemap lastmod values and static validation for the new development day.
+- Fixed duplicated numbering in the development next-steps list.
 
 ### 2026-06-15
 

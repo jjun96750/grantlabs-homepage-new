@@ -330,7 +330,7 @@ if (existsSync("sitemap.xml") && !read("sitemap.xml").includes("<urlset")) {
 
 if (existsSync("sitemap.xml")) {
   const sitemap = read("sitemap.xml");
-  if (!sitemap.includes("<lastmod>2026-06-15</lastmod>")) {
+  if (!sitemap.includes("<lastmod>2026-06-16</lastmod>")) {
     failures.push("sitemap.xml lastmod values are not current.");
   }
   if (sitemap.includes("privacy.html")) {

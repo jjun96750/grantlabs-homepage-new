@@ -2,6 +2,10 @@
 
 All notable changes to the Grant Labs new homepage are documented here.
 
+## 2026-06-16
+
+- Refreshed sitemap lastmod values and static validation for the new development day.
+
 ## 2026-06-15
 
 - Added repository-owned `social-card.svg` for Open Graph and Twitter link previews.
