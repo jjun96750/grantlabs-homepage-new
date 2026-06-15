@@ -17,6 +17,7 @@ const requiredFiles = [
   "_redirects",
   "LICENSE",
   "README.md",
+  "COMMANDS.md",
   "CLAUDE_HANDOFF.md",
   "DEVELOPMENT_STATUS.md",
   "CLOUDFLARE_PAGES_SETUP.md",
@@ -332,6 +333,13 @@ if (existsSync("README.md")) {
   const readme = read("README.md");
   for (const marker of ["scripts/check-static-site.mjs", "scripts/check-deployed-site.mjs", "social-card.svg"]) {
     if (!readme.includes(marker)) failures.push(`README.md is missing marker: ${marker}`);
+  }
+}
+
+if (existsSync("COMMANDS.md")) {
+  const commands = read("COMMANDS.md");
+  for (const marker of ["npm run check", "npm run smoke", "static-site validation"]) {
+    if (!commands.includes(marker)) failures.push(`COMMANDS.md is missing marker: ${marker}`);
   }
 }
 

@@ -15,6 +15,7 @@
 - Latest pushed commit at handoff update: `713d341 Add package validation scripts`
 - Local static validation passes with `node scripts/check-static-site.mjs`.
 - Standard local validation command is `npm run check`.
+- Standard commands are documented in `COMMANDS.md`.
 - Ongoing development status is tracked in `DEVELOPMENT_STATUS.md`.
 - Repository contents are proprietary and covered by `LICENSE`.
 
@@ -26,6 +27,7 @@ privacy.html
 checklist.html
 styles/homepage.css
 README.md
+COMMANDS.md
 CLAUDE_HANDOFF.md
 DEVELOPMENT_STATUS.md
 .gitignore
