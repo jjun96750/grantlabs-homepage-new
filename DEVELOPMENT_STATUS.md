@@ -244,6 +244,7 @@ CHANGELOG.md
 - Added static validation for cross-page local hash targets.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest hash-link validation commit.
 - Added static validation for robots, sitemap, and canonical URL consistency.
+- Refreshed `CLAUDE_HANDOFF.md` with the latest SEO URL validation commit.
 
 ### 2026-06-14
 
