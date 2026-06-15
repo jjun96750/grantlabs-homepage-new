@@ -234,6 +234,7 @@ CHANGELOG.md
 - Conservative HSTS scope adjustment
 - Handoff memo refreshed after HSTS scope adjustment
 - Content Security Policy header coverage
+- Handoff memo refreshed after CSP header update
 - Latest local static checks passed after GitHub Actions workflow setup on 2026-06-15.
 
 ## Technical Notes
@@ -362,6 +363,7 @@ CHANGELOG.md
 - Scoped HSTS to the current host by removing subdomain preload directives.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest HSTS scope commit.
 - Added a Content Security Policy header and deployed smoke-test assertions.
+- Refreshed `CLAUDE_HANDOFF.md` with the latest CSP commit.
 
 ### 2026-06-14
 
