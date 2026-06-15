@@ -89,6 +89,7 @@ Last updated: 2026-06-16
 - Local preview can now be checked with `npm run preview:check`.
 - GitHub Actions now runs both static validation and local preview validation.
 - Sitemap lastmod values and static validation were refreshed for 2026-06-16.
+- Handoff memo refreshed after the June 16 sitemap date update.
 - `.nvmrc` added and covered by static validation for Node version consistency.
 - `.gitignore` expanded for deployment/build artifacts and covered by static validation.
 - `SECURITY.md` added with vulnerability and deployment-issue reporting guidance.
@@ -313,6 +314,7 @@ CHANGELOG.md
 
 - Refreshed sitemap lastmod values and static validation for the new development day.
 - Fixed duplicated numbering in the development next-steps list.
+- Refreshed `CLAUDE_HANDOFF.md` with the latest June 16 sitemap date commit.
 
 ### 2026-06-15
 

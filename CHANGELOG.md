@@ -5,6 +5,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 ## 2026-06-16
 
 - Refreshed sitemap lastmod values and static validation for the new development day.
+- Refreshed Claude handoff notes with the latest June 16 sitemap date commit.
 
 ## 2026-06-15
 
