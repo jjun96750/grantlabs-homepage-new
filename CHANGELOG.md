@@ -71,6 +71,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Refreshed Claude handoff notes with the latest duplicate-id validation commit.
 - Added static validation for required contact form fields, privacy consent, and autocomplete hints.
 - Refreshed Claude handoff notes with the latest contact-form validation commit.
+- Added static validation for canonical contact email and phone consistency.
 
 ## 2026-06-14
 

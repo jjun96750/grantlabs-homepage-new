@@ -42,6 +42,9 @@ const read = (file) => readFileSync(file, "utf8");
 
 const htmlPages = ["index.html", "404.html", "privacy.html", "checklist.html"];
 const siteOrigin = "https://grantlabs.co.kr";
+const contactEmail = "jjun96750@gmail.com";
+const contactPhoneDisplay = "010-5963-7624";
+const contactPhoneHref = "01059637624";
 
 const localTargetToFile = (target) => {
   const withoutHash = target.split("#")[0];
@@ -166,6 +169,9 @@ if (existsSync("index.html")) {
   if (!html.includes('class="menu-toggle"')) failures.push("index.html is missing the mobile menu toggle.");
   if (!html.includes('id="mobile-menu"')) failures.push("index.html is missing the mobile menu.");
   if (!html.includes('class="quick-contact"')) failures.push("index.html is missing the quick-contact bar.");
+  if (!html.includes(`mailto:${contactEmail}`) || !html.includes(`tel:${contactPhoneHref}`) || !html.includes(contactPhoneDisplay)) {
+    failures.push("index.html is missing canonical contact email or phone values.");
+  }
   if (!html.includes("emailjs.send")) failures.push("index.html is missing EmailJS submission handling.");
   if (!html.includes("page_url") || !html.includes("submitted_at")) failures.push("index.html is missing lead source metadata.");
   if (!html.includes('name="website"') || !html.includes('class="honeypot"')) failures.push("index.html is missing the contact form honeypot.");
@@ -196,6 +202,9 @@ for (const page of ["404.html", "privacy.html", "checklist.html"]) {
 if (existsSync("privacy.html")) {
   const html = read("privacy.html");
   if (!html.includes("상담 폼 보호 장치")) failures.push("privacy.html is missing contact form protection notice.");
+  if (!html.includes(`mailto:${contactEmail}`) || !html.includes(`tel:${contactPhoneHref}`)) {
+    failures.push("privacy.html is missing canonical contact email or phone links.");
+  }
 }
 
 if (existsSync("checklist.html")) {
@@ -346,6 +355,9 @@ if (existsSync("DEPLOYMENT_ENVIRONMENTS.md")) {
   for (const marker of ["Preview Verification", "Deployed smoke check", "EmailJS test", "DNS unchanged", "Contact Form Configuration", "service_tcj8otx", "template_8ne6kj3"]) {
     if (!deployment.includes(marker)) failures.push(`DEPLOYMENT_ENVIRONMENTS.md is missing marker: ${marker}`);
   }
+  if (!deployment.includes(`Fallback email: ${contactEmail}`) || !deployment.includes(`Fallback phone: ${contactPhoneDisplay}`)) {
+    failures.push("DEPLOYMENT_ENVIRONMENTS.md is missing canonical fallback contact values.");
+  }
 }
 
 if (existsSync("README.md")) {
@@ -381,6 +393,7 @@ if (existsSync("SECURITY.md")) {
   for (const marker of ["Security Policy", "jjun96750@gmail.com", "Cloudflare Pages", "contact-form abuse"]) {
     if (!security.includes(marker)) failures.push(`SECURITY.md is missing marker: ${marker}`);
   }
+  if (!security.includes(contactEmail)) failures.push("SECURITY.md is missing canonical security contact email.");
 }
 
 if (existsSync(".editorconfig")) {
