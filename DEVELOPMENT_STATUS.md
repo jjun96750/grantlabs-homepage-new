@@ -316,6 +316,7 @@ CHANGELOG.md
 - Added static validation for required contact form fields, privacy consent, and autocomplete hints.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest contact-form validation commit.
 - Added static validation for canonical contact email and phone consistency.
+- Refreshed `CLAUDE_HANDOFF.md` with the latest contact consistency validation commit.
 
 ### 2026-06-14
 

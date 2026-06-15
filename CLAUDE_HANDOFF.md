@@ -12,7 +12,7 @@
 - Static homepage draft is ready and pushed to GitHub.
 - No build step is required.
 - Main branch: `main`
-- Latest pushed commit at handoff update: `98de7b5 Validate contact form fields`
+- Latest pushed commit at handoff update: `7bda7ff Validate contact consistency`
 - Local static validation passes with `node scripts/check-static-site.mjs`.
 - Standard local validation command is `npm run check`.
 - Standard commands are documented in `COMMANDS.md`.
