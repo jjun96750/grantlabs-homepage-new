@@ -18,6 +18,7 @@
 - Standard commands are documented in `COMMANDS.md`.
 - Ongoing development status is tracked in `DEVELOPMENT_STATUS.md`.
 - Repository contents are proprietary and covered by `LICENSE`.
+- Security and deployment issue reporting is documented in `SECURITY.md`.
 
 ## Files
 
@@ -47,6 +48,7 @@ QA_CHECKLIST.md
 CLOUDFLARE_PAGES_SETUP.md
 DEPLOYMENT_ENVIRONMENTS.md
 ROLLBACK_PLAN.md
+SECURITY.md
 CHANGELOG.md
 scripts/check-static-site.mjs
 scripts/check-deployed-site.mjs

@@ -25,6 +25,7 @@ const requiredFiles = [
   "QA_CHECKLIST.md",
   "DEPLOYMENT_ENVIRONMENTS.md",
   "ROLLBACK_PLAN.md",
+  "SECURITY.md",
   "CHANGELOG.md",
   "scripts/check-deployed-site.mjs",
   ".github/workflows/static-site-check.yml",
@@ -348,6 +349,13 @@ if (existsSync("LICENSE")) {
   const license = read("LICENSE");
   for (const marker of ["Grant Labs", "All rights reserved"]) {
     if (!license.includes(marker)) failures.push(`LICENSE is missing marker: ${marker}`);
+  }
+}
+
+if (existsSync("SECURITY.md")) {
+  const security = read("SECURITY.md");
+  for (const marker of ["Security Policy", "jjun96750@gmail.com", "Cloudflare Pages", "contact-form abuse"]) {
+    if (!security.includes(marker)) failures.push(`SECURITY.md is missing marker: ${marker}`);
   }
 }
 

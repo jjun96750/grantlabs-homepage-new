@@ -57,6 +57,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Refreshed Claude handoff notes with the latest Node version pin commit.
 - Expanded `.gitignore` for deployment/build artifacts and added static validation coverage.
 - Refreshed Claude handoff notes with the latest ignored-artifacts commit.
+- Added `SECURITY.md` with vulnerability and deployment-issue reporting guidance.
 
 ## 2026-06-14
 

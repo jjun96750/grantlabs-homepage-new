@@ -73,6 +73,7 @@ Last updated: 2026-06-15
 - `COMMANDS.md` added with standard validation command guidance.
 - `.nvmrc` added and covered by static validation for Node version consistency.
 - `.gitignore` expanded for deployment/build artifacts and covered by static validation.
+- `SECURITY.md` added with vulnerability and deployment-issue reporting guidance.
 - No build step is required.
 
 ## Current Files
@@ -108,6 +109,7 @@ scripts/check-deployed-site.mjs
 .github/workflows/static-site-check.yml
 DEPLOYMENT_ENVIRONMENTS.md
 ROLLBACK_PLAN.md
+SECURITY.md
 CHANGELOG.md
 ```
 
@@ -184,6 +186,7 @@ CHANGELOG.md
 - Standard command guide
 - Node version pin
 - Git ignore deployment/build artifact coverage
+- Security reporting policy
 - Latest local static checks passed after GitHub Actions workflow setup on 2026-06-15.
 
 ## Technical Notes
@@ -278,6 +281,7 @@ CHANGELOG.md
 - Refreshed `CLAUDE_HANDOFF.md` with the latest Node version pin commit.
 - Expanded `.gitignore` for deployment/build artifacts and added static validation coverage.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest ignored-artifacts commit.
+- Added `SECURITY.md` with vulnerability and deployment-issue reporting guidance.
 
 ### 2026-06-14
 
