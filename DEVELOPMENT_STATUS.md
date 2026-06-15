@@ -67,6 +67,7 @@ Last updated: 2026-06-15
 - Static validation now checks cross-page local hash targets.
 - Static validation now checks robots, sitemap, and canonical URL consistency.
 - Static validation now checks favicon and social-card SVG asset metadata.
+- Proprietary `LICENSE` file added and covered by static validation.
 - No build step is required.
 
 ## Current Files
@@ -90,6 +91,7 @@ _headers
 _redirects
 404.html
 .gitattributes
+LICENSE
 CLOUDFLARE_PAGES_SETUP.md
 QA_CHECKLIST.md
 scripts/check-static-site.mjs
@@ -167,6 +169,7 @@ CHANGELOG.md
 - Cross-page hash target validation
 - Robots/sitemap/canonical URL consistency validation
 - Favicon/social-card SVG metadata validation
+- Proprietary license file
 - Latest local static checks passed after GitHub Actions workflow setup on 2026-06-15.
 
 ## Technical Notes
@@ -249,6 +252,7 @@ CHANGELOG.md
 - Refreshed `CLAUDE_HANDOFF.md` with the latest SEO URL validation commit.
 - Added static validation for favicon and social-card SVG asset metadata.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest SVG asset validation commit.
+- Added proprietary `LICENSE` file and static validation coverage.
 
 ### 2026-06-14
 

@@ -13,6 +13,7 @@ const requiredFiles = [
   "sitemap.xml",
   "_headers",
   "_redirects",
+  "LICENSE",
   "README.md",
   "CLAUDE_HANDOFF.md",
   "DEVELOPMENT_STATUS.md",
@@ -317,6 +318,13 @@ if (existsSync("README.md")) {
   const readme = read("README.md");
   for (const marker of ["scripts/check-static-site.mjs", "scripts/check-deployed-site.mjs", "social-card.svg"]) {
     if (!readme.includes(marker)) failures.push(`README.md is missing marker: ${marker}`);
+  }
+}
+
+if (existsSync("LICENSE")) {
+  const license = read("LICENSE");
+  for (const marker of ["Grant Labs", "All rights reserved"]) {
+    if (!license.includes(marker)) failures.push(`LICENSE is missing marker: ${marker}`);
   }
 }
 

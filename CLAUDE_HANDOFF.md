@@ -15,6 +15,7 @@
 - Latest pushed commit at handoff update: `a4372d8 Validate SVG asset metadata`
 - Local static validation passes with `node scripts/check-static-site.mjs`.
 - Ongoing development status is tracked in `DEVELOPMENT_STATUS.md`.
+- Repository contents are proprietary and covered by `LICENSE`.
 
 ## Files
 
@@ -28,6 +29,7 @@ CLAUDE_HANDOFF.md
 DEVELOPMENT_STATUS.md
 .gitignore
 .nojekyll
+LICENSE
 _headers
 _redirects
 favicon.svg
