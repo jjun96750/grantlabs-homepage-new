@@ -243,6 +243,7 @@ CHANGELOG.md
 - Optional consultation email field and payload coverage
 - Handoff memo refreshed after optional email field update
 - Privacy notice email disclosure and effective-date validation
+- Handoff memo refreshed after privacy notice update
 - Latest local static checks passed after GitHub Actions workflow setup on 2026-06-15.
 
 ## Technical Notes
@@ -377,6 +378,7 @@ CHANGELOG.md
 - Added optional email capture to the consultation form and static validation coverage.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest optional email field commit.
 - Updated `privacy.html` for optional email collection and current effective date.
+- Refreshed `CLAUDE_HANDOFF.md` with the latest privacy notice commit.
 
 ### 2026-06-14
 
