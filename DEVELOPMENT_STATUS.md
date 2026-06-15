@@ -228,6 +228,7 @@ CHANGELOG.md
 - Local preview HEAD request handling
 - Handoff memo refreshed after preview server response handling
 - HSTS and clickjacking header coverage
+- Handoff memo refreshed after deployment security header update
 - Latest local static checks passed after GitHub Actions workflow setup on 2026-06-15.
 
 ## Technical Notes
@@ -352,6 +353,7 @@ CHANGELOG.md
 - Tightened local preview server `HEAD` request handling and static validation coverage.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest preview server response commit.
 - Added HSTS and `X-Frame-Options` headers plus deployed smoke-test assertions.
+- Refreshed `CLAUDE_HANDOFF.md` with the latest deployment security header commit.
 
 ### 2026-06-14
 
