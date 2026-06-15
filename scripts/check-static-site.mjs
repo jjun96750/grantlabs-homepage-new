@@ -363,6 +363,13 @@ if (existsSync(".nvmrc")) {
   if (nodeVersion !== "20") failures.push(".nvmrc should pin Node major version 20.");
 }
 
+if (existsSync(".gitignore")) {
+  const gitignore = read(".gitignore");
+  for (const marker of ["node_modules/", ".env", "dist/", "build/", ".wrangler/", ".pages/", "*.log"]) {
+    if (!gitignore.includes(marker)) failures.push(`.gitignore is missing marker: ${marker}`);
+  }
+}
+
 if (existsSync("CLOUDFLARE_PAGES_SETUP.md")) {
   const setup = read("CLOUDFLARE_PAGES_SETUP.md");
   for (const marker of ["Framework preset: None", "Production branch: main", "scripts/check-deployed-site.mjs"]) {
