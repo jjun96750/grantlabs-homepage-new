@@ -424,6 +424,7 @@
           <label>회사명<input name="company" autocomplete="organization" placeholder="회사명을 입력해주세요" /></label>
           <label>성함<input name="name" autocomplete="name" required aria-describedby="form-note" placeholder="담당자 성함" /></label>
           <label>연락처<input name="phone" autocomplete="tel" inputmode="tel" pattern="^[0-9+\-()\s]{8,20}$" required aria-describedby="form-note" placeholder="010-0000-0000" /></label>
+          <label>이메일<input name="email" type="email" autocomplete="email" aria-describedby="form-note" placeholder="name@example.com" /></label>
           <label>관심 분야
             <select name="interest">
               <option>정책자금</option>
@@ -554,6 +555,7 @@
             company: data.get("company") || "",
             name: data.get("name") || "",
             phone: data.get("phone") || "",
+            email: data.get("email") || "",
             interest: data.get("interest") || "",
             message: data.get("message") || "",
             page_url: window.location.href,
@@ -564,6 +566,7 @@
             "회사명: " + payload.company,
             "성함: " + payload.name,
             "연락처: " + payload.phone,
+            "이메일: " + payload.email,
             "관심 분야: " + payload.interest,
             "",
             "문의 내용:",

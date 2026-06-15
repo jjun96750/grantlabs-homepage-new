@@ -78,6 +78,7 @@ Last updated: 2026-06-15
 - HSTS is scoped to the current host and does not preload or include subdomains.
 - Cloudflare `_headers` now includes a Content Security Policy for required static, image, and EmailJS endpoints.
 - Checklist print action now uses an unobtrusive event listener instead of an inline handler.
+- Consultation form now captures an optional email address in EmailJS and mailto fallback payloads.
 - `.nvmrc` added and covered by static validation for Node version consistency.
 - `.gitignore` expanded for deployment/build artifacts and covered by static validation.
 - `SECURITY.md` added with vulnerability and deployment-issue reporting guidance.
@@ -238,6 +239,7 @@ CHANGELOG.md
 - Handoff memo refreshed after CSP header update
 - Inline event handler cleanup for checklist print action
 - Handoff memo refreshed after inline-handler cleanup
+- Optional consultation email field and payload coverage
 - Latest local static checks passed after GitHub Actions workflow setup on 2026-06-15.
 
 ## Technical Notes
@@ -369,6 +371,7 @@ CHANGELOG.md
 - Refreshed `CLAUDE_HANDOFF.md` with the latest CSP commit.
 - Removed the checklist inline print handler and added static validation coverage for inline event handlers.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest inline-handler cleanup commit.
+- Added optional email capture to the consultation form and static validation coverage.
 
 ### 2026-06-14
 

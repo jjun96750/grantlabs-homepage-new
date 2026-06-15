@@ -189,11 +189,14 @@ if (existsSync("index.html")) {
   if (!html.includes("page_url") || !html.includes("submitted_at")) failures.push("index.html is missing lead source metadata.");
   if (!html.includes('name="website"') || !html.includes('class="honeypot"')) failures.push("index.html is missing the contact form honeypot.");
   if (!html.includes('id="lead-form"') || !html.includes('aria-describedby="form-note"')) failures.push("index.html is missing contact form accessibility description wiring.");
-  for (const field of ['name="name"', 'name="phone"', 'name="privacy"']) {
+  for (const field of ['name="name"', 'name="phone"', 'name="email"', 'name="privacy"']) {
     if (!html.includes(field)) failures.push(`index.html is missing required contact form field: ${field}`);
   }
   if (!html.includes('name="privacy" type="checkbox" required')) failures.push("index.html is missing required privacy consent checkbox.");
-  if (!html.includes('autocomplete="name"') || !html.includes('autocomplete="tel"')) failures.push("index.html is missing contact form autocomplete hints.");
+  if (!html.includes('autocomplete="name"') || !html.includes('autocomplete="tel"') || !html.includes('autocomplete="email"')) failures.push("index.html is missing contact form autocomplete hints.");
+  if (!html.includes('name="email" type="email"') || !html.includes("email: data.get(\"email\")")) {
+    failures.push("index.html is missing optional email field handling.");
+  }
   if (!html.includes('inputmode="tel"') || !html.includes('pattern="^[0-9+\\-()\\s]{8,20}$"')) {
     failures.push("index.html is missing mobile-friendly phone input constraints.");
   }

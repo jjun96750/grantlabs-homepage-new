@@ -93,6 +93,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Refreshed Claude handoff notes with the latest CSP commit.
 - Removed the checklist inline print handler and added static validation for inline event handlers.
 - Refreshed Claude handoff notes with the latest inline-handler cleanup commit.
+- Added optional email capture to the consultation form and validation coverage.
 
 ## 2026-06-14
 
