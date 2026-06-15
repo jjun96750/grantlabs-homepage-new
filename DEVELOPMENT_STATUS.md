@@ -258,6 +258,7 @@ CHANGELOG.md
 - Added proprietary `LICENSE` file and static validation coverage.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest license commit.
 - Added `.editorconfig` and static validation coverage for editor consistency.
+- Refreshed `CLAUDE_HANDOFF.md` with the latest editor config commit.
 
 ### 2026-06-14
 

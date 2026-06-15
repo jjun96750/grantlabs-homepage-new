@@ -12,7 +12,7 @@
 - Static homepage draft is ready and pushed to GitHub.
 - No build step is required.
 - Main branch: `main`
-- Latest pushed commit at handoff update: `6cb63d2 Add proprietary license`
+- Latest pushed commit at handoff update: `69b2c77 Add editor consistency config`
 - Local static validation passes with `node scripts/check-static-site.mjs`.
 - Ongoing development status is tracked in `DEVELOPMENT_STATUS.md`.
 - Repository contents are proprietary and covered by `LICENSE`.

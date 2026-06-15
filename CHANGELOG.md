@@ -48,6 +48,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Added a proprietary `LICENSE` file and static validation coverage.
 - Refreshed Claude handoff notes with the latest license commit.
 - Added `.editorconfig` and static validation coverage for editor consistency.
+- Refreshed Claude handoff notes with the latest editor config commit.
 
 ## 2026-06-14
 
