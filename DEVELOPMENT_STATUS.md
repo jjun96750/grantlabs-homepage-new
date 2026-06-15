@@ -83,6 +83,7 @@ Last updated: 2026-06-15
 - Static validation now checks canonical contact email and phone consistency.
 - Static validation now checks EmailJS public key, service ID, and template ID consistency.
 - Hero image now has explicit dimensions, async decoding, fetch priority, and static validation coverage.
+- Contact phone field now uses telephone input mode, a lightweight pattern, and static validation coverage.
 - No build step is required.
 
 ## Current Files
@@ -213,6 +214,7 @@ CHANGELOG.md
 - Handoff memo refreshed after EmailJS configuration validation
 - Hero image render-performance validation
 - Handoff memo refreshed after hero image rendering improvement
+- Mobile-friendly contact phone input validation
 - Latest local static checks passed after GitHub Actions workflow setup on 2026-06-15.
 
 ## Technical Notes
@@ -327,6 +329,7 @@ CHANGELOG.md
 - Refreshed `CLAUDE_HANDOFF.md` with the latest EmailJS configuration validation commit.
 - Added explicit hero image dimensions, async decoding, fetch priority, and static validation coverage.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest hero image rendering commit.
+- Added mobile-friendly phone input constraints and static validation coverage.
 
 ### 2026-06-14
 

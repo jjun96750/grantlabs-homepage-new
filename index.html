@@ -423,7 +423,7 @@
           <label class="honeypot" aria-hidden="true">Website<input name="website" autocomplete="off" tabindex="-1" /></label>
           <label>회사명<input name="company" autocomplete="organization" placeholder="회사명을 입력해주세요" /></label>
           <label>성함<input name="name" autocomplete="name" required aria-describedby="form-note" placeholder="담당자 성함" /></label>
-          <label>연락처<input name="phone" autocomplete="tel" required aria-describedby="form-note" placeholder="010-0000-0000" /></label>
+          <label>연락처<input name="phone" autocomplete="tel" inputmode="tel" pattern="^[0-9+\-()\s]{8,20}$" required aria-describedby="form-note" placeholder="010-0000-0000" /></label>
           <label>관심 분야
             <select name="interest">
               <option>정책자금</option>

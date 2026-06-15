@@ -193,6 +193,9 @@ if (existsSync("index.html")) {
   }
   if (!html.includes('name="privacy" type="checkbox" required')) failures.push("index.html is missing required privacy consent checkbox.");
   if (!html.includes('autocomplete="name"') || !html.includes('autocomplete="tel"')) failures.push("index.html is missing contact form autocomplete hints.");
+  if (!html.includes('inputmode="tel"') || !html.includes('pattern="^[0-9+\\-()\\s]{8,20}$"')) {
+    failures.push("index.html is missing mobile-friendly phone input constraints.");
+  }
   if (!html.includes("<noscript") || !html.includes("noscript-contact")) failures.push("index.html is missing the no-JS contact fallback.");
   if (!html.includes("data-score-item")) failures.push("index.html is missing the self-check interaction.");
   if (!html.includes('class="fit-table"')) failures.push("index.html is missing the service-fit table.");

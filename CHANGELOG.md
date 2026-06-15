@@ -77,6 +77,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Refreshed Claude handoff notes with the latest EmailJS configuration validation commit.
 - Added hero image render-performance attributes and static validation coverage.
 - Refreshed Claude handoff notes with the latest hero image rendering commit.
+- Added mobile-friendly phone input constraints and static validation coverage.
 
 ## 2026-06-14
 
