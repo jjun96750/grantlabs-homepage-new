@@ -5,6 +5,7 @@ const requiredFiles = [
   "404.html",
   "privacy.html",
   "checklist.html",
+  ".editorconfig",
   "styles/homepage.css",
   "favicon.svg",
   "social-card.svg",
@@ -325,6 +326,13 @@ if (existsSync("LICENSE")) {
   const license = read("LICENSE");
   for (const marker of ["Grant Labs", "All rights reserved"]) {
     if (!license.includes(marker)) failures.push(`LICENSE is missing marker: ${marker}`);
+  }
+}
+
+if (existsSync(".editorconfig")) {
+  const editorconfig = read(".editorconfig");
+  for (const marker of ["root = true", "charset = utf-8", "end_of_line = lf", "indent_size = 2"]) {
+    if (!editorconfig.includes(marker)) failures.push(`.editorconfig is missing marker: ${marker}`);
   }
 }
 

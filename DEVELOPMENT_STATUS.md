@@ -68,6 +68,7 @@ Last updated: 2026-06-15
 - Static validation now checks robots, sitemap, and canonical URL consistency.
 - Static validation now checks favicon and social-card SVG asset metadata.
 - Proprietary `LICENSE` file added and covered by static validation.
+- `.editorconfig` added and covered by static validation for editor consistency.
 - No build step is required.
 
 ## Current Files
@@ -81,6 +82,7 @@ README.md
 CLAUDE_HANDOFF.md
 DEVELOPMENT_STATUS.md
 .gitignore
+.editorconfig
 .nojekyll
 favicon.svg
 social-card.svg
@@ -170,6 +172,7 @@ CHANGELOG.md
 - Robots/sitemap/canonical URL consistency validation
 - Favicon/social-card SVG metadata validation
 - Proprietary license file
+- EditorConfig consistency file
 - Latest local static checks passed after GitHub Actions workflow setup on 2026-06-15.
 
 ## Technical Notes
@@ -254,6 +257,7 @@ CHANGELOG.md
 - Refreshed `CLAUDE_HANDOFF.md` with the latest SVG asset validation commit.
 - Added proprietary `LICENSE` file and static validation coverage.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest license commit.
+- Added `.editorconfig` and static validation coverage for editor consistency.
 
 ### 2026-06-14
 
