@@ -202,6 +202,29 @@ if (existsSync("site.webmanifest")) {
   }
 }
 
+if (existsSync("favicon.svg")) {
+  const favicon = read("favicon.svg");
+  if (!favicon.includes("<svg") || !favicon.includes('viewBox="0 0 64 64"')) {
+    failures.push("favicon.svg is missing the expected SVG root or 64x64 viewBox.");
+  }
+  if (!favicon.includes('role="img"') || !favicon.includes('aria-label="Grant Labs"')) {
+    failures.push("favicon.svg is missing accessible image labeling.");
+  }
+}
+
+if (existsSync("social-card.svg")) {
+  const socialCard = read("social-card.svg");
+  if (!socialCard.includes('width="1200"') || !socialCard.includes('height="630"')) {
+    failures.push("social-card.svg is missing the expected 1200x630 dimensions.");
+  }
+  if (!socialCard.includes("<title") || !socialCard.includes("<desc") || !socialCard.includes('aria-labelledby="title desc"')) {
+    failures.push("social-card.svg is missing accessible title/description metadata.");
+  }
+  if (!socialCard.includes("grantlabs.co.kr")) {
+    failures.push("social-card.svg is missing the public domain label.");
+  }
+}
+
 if (existsSync("sitemap.xml") && !read("sitemap.xml").includes("<urlset")) {
   failures.push("sitemap.xml does not contain a urlset.");
 }

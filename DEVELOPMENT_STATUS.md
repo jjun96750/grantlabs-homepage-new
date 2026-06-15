@@ -66,6 +66,7 @@ Last updated: 2026-06-15
 - Static validation now checks external `target="_blank"` links for `rel="noopener"`.
 - Static validation now checks cross-page local hash targets.
 - Static validation now checks robots, sitemap, and canonical URL consistency.
+- Static validation now checks favicon and social-card SVG asset metadata.
 - No build step is required.
 
 ## Current Files
@@ -165,6 +166,7 @@ CHANGELOG.md
 - External new-window link safety validation
 - Cross-page hash target validation
 - Robots/sitemap/canonical URL consistency validation
+- Favicon/social-card SVG metadata validation
 - Latest local static checks passed after GitHub Actions workflow setup on 2026-06-15.
 
 ## Technical Notes
@@ -245,6 +247,7 @@ CHANGELOG.md
 - Refreshed `CLAUDE_HANDOFF.md` with the latest hash-link validation commit.
 - Added static validation for robots, sitemap, and canonical URL consistency.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest SEO URL validation commit.
+- Added static validation for favicon and social-card SVG asset metadata.
 
 ### 2026-06-14
 
