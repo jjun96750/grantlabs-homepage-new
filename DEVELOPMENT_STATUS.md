@@ -71,6 +71,7 @@ Last updated: 2026-06-15
 - `.editorconfig` added and covered by static validation for editor consistency.
 - `package.json` scripts added for local static and deployed smoke validation.
 - `COMMANDS.md` added with standard validation command guidance.
+- `.nvmrc` added and covered by static validation for Node version consistency.
 - No build step is required.
 
 ## Current Files
@@ -86,6 +87,7 @@ CLAUDE_HANDOFF.md
 DEVELOPMENT_STATUS.md
 .gitignore
 .editorconfig
+.nvmrc
 package.json
 .nojekyll
 favicon.svg
@@ -179,6 +181,7 @@ CHANGELOG.md
 - EditorConfig consistency file
 - Package scripts for validation
 - Standard command guide
+- Node version pin
 - Latest local static checks passed after GitHub Actions workflow setup on 2026-06-15.
 
 ## Technical Notes
@@ -269,6 +272,7 @@ CHANGELOG.md
 - Refreshed `CLAUDE_HANDOFF.md` with the latest package script commit.
 - Added `COMMANDS.md` with standard validation commands.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest command guide commit.
+- Added `.nvmrc` and static validation coverage for Node version consistency.
 
 ### 2026-06-14
 

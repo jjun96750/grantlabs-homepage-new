@@ -6,6 +6,7 @@ const requiredFiles = [
   "privacy.html",
   "checklist.html",
   ".editorconfig",
+  ".nvmrc",
   "package.json",
   "styles/homepage.css",
   "favicon.svg",
@@ -355,6 +356,11 @@ if (existsSync(".editorconfig")) {
   for (const marker of ["root = true", "charset = utf-8", "end_of_line = lf", "indent_size = 2"]) {
     if (!editorconfig.includes(marker)) failures.push(`.editorconfig is missing marker: ${marker}`);
   }
+}
+
+if (existsSync(".nvmrc")) {
+  const nodeVersion = read(".nvmrc").trim();
+  if (nodeVersion !== "20") failures.push(".nvmrc should pin Node major version 20.");
 }
 
 if (existsSync("CLOUDFLARE_PAGES_SETUP.md")) {

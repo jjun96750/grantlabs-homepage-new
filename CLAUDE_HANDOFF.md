@@ -32,6 +32,7 @@ CLAUDE_HANDOFF.md
 DEVELOPMENT_STATUS.md
 .gitignore
 .editorconfig
+.nvmrc
 package.json
 .nojekyll
 LICENSE
@@ -66,7 +67,7 @@ scripts/check-deployed-site.mjs
 - Cloudflare `_headers` includes cache policies for CSS, favicon, social card, manifest, robots, and sitemap files.
 - Cloudflare `_redirects` routes unknown paths to `404.html` with a 404 status.
 - `privacy.html` is intentionally `noindex` and excluded from `sitemap.xml`.
-- `scripts/check-static-site.mjs` verifies required files, metadata, JSON-LD, docs markers, editor config, SVG asset metadata, robots/sitemap/canonical consistency, local `href` / `src` targets, cross-page hashes, and external new-window link safety.
+- `scripts/check-static-site.mjs` verifies required files, metadata, JSON-LD, docs markers, editor config, Node version pin, SVG asset metadata, robots/sitemap/canonical consistency, local `href` / `src` targets, cross-page hashes, and external new-window link safety.
 - `scripts/check-deployed-site.mjs` verifies pages, response headers, `Content-Type` values, missing-route 404 handling, sitemap noindex cleanup, and prints a pass summary.
 - GitHub Actions runs `npm run check` on pushes to `main` and pull requests.
 

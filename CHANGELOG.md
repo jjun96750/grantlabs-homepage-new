@@ -53,6 +53,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Refreshed Claude handoff notes with the latest package script commit.
 - Added `COMMANDS.md` with standard validation commands.
 - Refreshed Claude handoff notes with the latest command guide commit.
+- Added `.nvmrc` and static validation coverage for Node version consistency.
 
 ## 2026-06-14
 
