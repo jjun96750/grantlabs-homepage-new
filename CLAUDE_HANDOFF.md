@@ -12,7 +12,7 @@
 - Static homepage draft is ready and pushed to GitHub.
 - No build step is required.
 - Main branch: `main`
-- Latest pushed commit at handoff update: `713d341 Add package validation scripts`
+- Latest pushed commit at handoff update: `83f6a7e Document standard validation commands`
 - Local static validation passes with `node scripts/check-static-site.mjs`.
 - Standard local validation command is `npm run check`.
 - Standard commands are documented in `COMMANDS.md`.

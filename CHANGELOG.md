@@ -52,6 +52,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Added `package.json` scripts for local static and deployed smoke validation.
 - Refreshed Claude handoff notes with the latest package script commit.
 - Added `COMMANDS.md` with standard validation commands.
+- Refreshed Claude handoff notes with the latest command guide commit.
 
 ## 2026-06-14
 

@@ -268,6 +268,7 @@ CHANGELOG.md
 - Added `package.json` scripts for local static and deployed smoke validation.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest package script commit.
 - Added `COMMANDS.md` with standard validation commands.
+- Refreshed `CLAUDE_HANDOFF.md` with the latest command guide commit.
 
 ### 2026-06-14
 
