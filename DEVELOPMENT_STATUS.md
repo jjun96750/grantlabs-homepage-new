@@ -248,6 +248,7 @@ CHANGELOG.md
 - Added static validation for robots, sitemap, and canonical URL consistency.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest SEO URL validation commit.
 - Added static validation for favicon and social-card SVG asset metadata.
+- Refreshed `CLAUDE_HANDOFF.md` with the latest SVG asset validation commit.
 
 ### 2026-06-14
 
