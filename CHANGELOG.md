@@ -8,6 +8,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Refreshed Claude handoff notes with the latest June 16 sitemap date commit.
 - Updated deployment and QA docs to use the standard npm validation commands.
 - Refreshed Claude handoff notes with the latest deployment command standardization commit.
+- Updated README and contribution guidance with the local preview check command.
 
 ## 2026-06-15
 

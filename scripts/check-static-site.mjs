@@ -435,21 +435,21 @@ if (existsSync("DEPLOYMENT_ENVIRONMENTS.md")) {
 
 if (existsSync("README.md")) {
   const readme = read("README.md");
-  for (const marker of ["scripts/", "check-static-site.mjs", "serve-static.mjs", "check-deployed-site.mjs", "social-card.svg", "npm run serve"]) {
+  for (const marker of ["scripts/", "check-static-site.mjs", "serve-static.mjs", "check-local-preview.mjs", "check-deployed-site.mjs", "social-card.svg", "npm run serve", "npm run preview:check"]) {
     if (!readme.includes(marker)) failures.push(`README.md is missing marker: ${marker}`);
   }
 }
 
 if (existsSync("COMMANDS.md")) {
   const commands = read("COMMANDS.md");
-  for (const marker of ["npm run check", "npm run serve", "npm run smoke", "static-site validation"]) {
+  for (const marker of ["npm run check", "npm run serve", "npm run preview:check", "npm run smoke", "static-site validation"]) {
     if (!commands.includes(marker)) failures.push(`COMMANDS.md is missing marker: ${marker}`);
   }
 }
 
 if (existsSync("CONTRIBUTING.md")) {
   const contributing = read("CONTRIBUTING.md");
-  for (const marker of ["grantlabs-website", "npm run check", "npm run serve", "DEVELOPMENT_STATUS.md", "SECURITY.md"]) {
+  for (const marker of ["grantlabs-website", "npm run check", "npm run serve", "npm run preview:check", "DEVELOPMENT_STATUS.md", "SECURITY.md"]) {
     if (!contributing.includes(marker)) failures.push(`CONTRIBUTING.md is missing marker: ${marker}`);
   }
 }

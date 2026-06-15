@@ -25,6 +25,7 @@ For local browser preview, run:
 
 ```bash
 npm run serve
+npm run preview:check
 ```
 
 After Cloudflare Pages preview deployment, run:

@@ -26,6 +26,7 @@ site.webmanifest
 scripts/
   check-static-site.mjs
   serve-static.mjs
+  check-local-preview.mjs
   check-deployed-site.mjs
 QA_CHECKLIST.md
 CLOUDFLARE_PAGES_SETUP.md
@@ -62,6 +63,10 @@ npm run check
 
 ```bash
 npm run serve
+```
+
+```bash
+npm run preview:check
 ```
 
 Cloudflare Pages 배포 후에는 preview URL을 넣어 주요 페이지, 정적 파일, 보안 헤더, 캐시 헤더 응답을 확인합니다.
