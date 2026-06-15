@@ -209,6 +209,7 @@ CHANGELOG.md
 - Contact form required-field validation
 - Contact email/phone consistency validation
 - EmailJS configuration consistency validation
+- Handoff memo refreshed after EmailJS configuration validation
 - Latest local static checks passed after GitHub Actions workflow setup on 2026-06-15.
 
 ## Technical Notes
@@ -320,6 +321,7 @@ CHANGELOG.md
 - Added static validation for canonical contact email and phone consistency.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest contact consistency validation commit.
 - Added static validation for EmailJS public key, service ID, and template ID consistency.
+- Refreshed `CLAUDE_HANDOFF.md` with the latest EmailJS configuration validation commit.
 
 ### 2026-06-14
 
