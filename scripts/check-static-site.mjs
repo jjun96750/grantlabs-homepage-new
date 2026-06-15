@@ -34,6 +34,7 @@ const requiredFiles = [
   ".github/ISSUE_TEMPLATE/content_update.md",
   ".github/ISSUE_TEMPLATE/deployment_check.md",
   ".github/PULL_REQUEST_TEMPLATE.md",
+  ".github/CODEOWNERS",
 ];
 
 const failures = [];
@@ -420,6 +421,13 @@ if (existsSync(".github/PULL_REQUEST_TEMPLATE.md")) {
   const prTemplate = read(".github/PULL_REQUEST_TEMPLATE.md");
   for (const marker of ["npm run check", "grantlabs-website", "DEVELOPMENT_STATUS.md", "CLAUDE_HANDOFF.md"]) {
     if (!prTemplate.includes(marker)) failures.push(`PULL_REQUEST_TEMPLATE.md is missing marker: ${marker}`);
+  }
+}
+
+if (existsSync(".github/CODEOWNERS")) {
+  const codeowners = read(".github/CODEOWNERS");
+  for (const marker of ["* @jjun96750", "/.github/ @jjun96750", "/scripts/ @jjun96750"]) {
+    if (!codeowners.includes(marker)) failures.push(`CODEOWNERS is missing marker: ${marker}`);
   }
 }
 

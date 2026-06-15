@@ -1,0 +1,8 @@
+# Default owner for the Grant Labs homepage repository.
+* @jjun96750
+
+# Deployment and repository automation should always be reviewed by the owner.
+/.github/ @jjun96750
+/_headers @jjun96750
+/_redirects @jjun96750
+/scripts/ @jjun96750

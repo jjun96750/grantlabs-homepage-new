@@ -77,6 +77,7 @@ Last updated: 2026-06-15
 - `CONTRIBUTING.md` added with repository scope, validation, and documentation rules.
 - GitHub issue templates added for bugs, content updates, and deployment checks.
 - GitHub pull request template added with validation and deployment-safety checklist.
+- GitHub `CODEOWNERS` added for repository, deployment, and automation files.
 - No build step is required.
 
 ## Current Files
@@ -115,6 +116,7 @@ scripts/check-deployed-site.mjs
 .github/ISSUE_TEMPLATE/content_update.md
 .github/ISSUE_TEMPLATE/deployment_check.md
 .github/PULL_REQUEST_TEMPLATE.md
+.github/CODEOWNERS
 DEPLOYMENT_ENVIRONMENTS.md
 ROLLBACK_PLAN.md
 SECURITY.md
@@ -198,6 +200,7 @@ CHANGELOG.md
 - Contribution guide
 - GitHub issue templates
 - GitHub pull request template
+- GitHub CODEOWNERS
 - Latest local static checks passed after GitHub Actions workflow setup on 2026-06-15.
 
 ## Technical Notes
@@ -300,6 +303,7 @@ CHANGELOG.md
 - Refreshed `CLAUDE_HANDOFF.md` with the latest issue-template commit.
 - Added GitHub pull request template with validation and deployment-safety checklist.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest pull-request-template commit.
+- Added GitHub `CODEOWNERS` for repository, deployment, and automation files.
 
 ### 2026-06-14
 

@@ -22,6 +22,7 @@
 - Contribution rules are documented in `CONTRIBUTING.md`.
 - GitHub issue templates are available for bugs, content updates, and deployment checks.
 - GitHub pull request template includes validation and deployment-safety checklist.
+- GitHub `CODEOWNERS` assigns repository and deployment-sensitive files to `@jjun96750`.
 
 ## Files
 
@@ -61,6 +62,7 @@ scripts/check-deployed-site.mjs
 .github/ISSUE_TEMPLATE/content_update.md
 .github/ISSUE_TEMPLATE/deployment_check.md
 .github/PULL_REQUEST_TEMPLATE.md
+.github/CODEOWNERS
 ```
 
 ## Design Direction
