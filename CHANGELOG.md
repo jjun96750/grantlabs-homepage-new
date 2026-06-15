@@ -7,6 +7,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Refreshed sitemap lastmod values and static validation for the new development day.
 - Refreshed Claude handoff notes with the latest June 16 sitemap date commit.
 - Updated deployment and QA docs to use the standard npm validation commands.
+- Refreshed Claude handoff notes with the latest deployment command standardization commit.
 
 ## 2026-06-15
 
