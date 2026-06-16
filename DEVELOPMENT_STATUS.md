@@ -106,6 +106,8 @@ Last updated: 2026-06-17
 - Handoff memo refreshed after local HEAD response validation.
 - Local preview checks now verify `Cache-Control: no-store` on GET and HEAD responses.
 - Handoff memo refreshed after local cache-header validation.
+- Local preview 405 responses now include security and cache headers.
+- Local preview checks now verify unsupported-method handling.
 - `.nvmrc` added and covered by static validation for Node version consistency.
 - `.gitignore` expanded for deployment/build artifacts and covered by static validation.
 - `SECURITY.md` added with vulnerability and deployment-issue reporting guidance.

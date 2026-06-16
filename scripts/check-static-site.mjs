@@ -289,14 +289,14 @@ if (existsSync("package.json")) {
 
 if (existsSync("scripts/check-local-preview.mjs")) {
   const previewCheck = read("scripts/check-local-preview.mjs");
-  for (const marker of ["http://127.0.0.1:4173", "/styles/homepage.css", "/__missing-local-preview__", "strict-transport-security", "content-security-policy", "x-frame-options", "cache-control", "no-store", "htmlIntegrityMarkers", "method: \"HEAD\"", lucideIntegrity, emailJsIntegrity, "Local preview check passed"]) {
+  for (const marker of ["http://127.0.0.1:4173", "/styles/homepage.css", "/__missing-local-preview__", "strict-transport-security", "content-security-policy", "x-frame-options", "cache-control", "no-store", "htmlIntegrityMarkers", "method: \"HEAD\"", "method: \"POST\"", "GET, HEAD", lucideIntegrity, emailJsIntegrity, "Local preview check passed"]) {
     if (!previewCheck.includes(marker)) failures.push(`scripts/check-local-preview.mjs is missing marker: ${marker}`);
   }
 }
 
 if (existsSync("scripts/serve-static.mjs")) {
   const server = read("scripts/serve-static.mjs");
-  for (const marker of ["createServer", "127.0.0.1", "4173", "404.html", "no-store", "application/manifest+json", "HEAD", "securityHeaders", "Content-Security-Policy", "X-Frame-Options", "Permissions-Policy"]) {
+  for (const marker of ["createServer", "127.0.0.1", "4173", "404.html", "no-store", "application/manifest+json", "HEAD", "Allow: \"GET, HEAD\"", "securityHeaders", "Content-Security-Policy", "X-Frame-Options", "Permissions-Policy"]) {
     if (!server.includes(marker)) failures.push(`scripts/serve-static.mjs is missing marker: ${marker}`);
   }
 }

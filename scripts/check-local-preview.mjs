@@ -24,6 +24,10 @@ const headChecks = [
   { path: "/styles/homepage.css", status: 200, contentType: "text/css" },
 ];
 
+const methodChecks = [
+  { method: "POST", path: "/", status: 405, allow: "GET, HEAD", contentType: "text/plain" },
+];
+
 const htmlIntegrityMarkers = [
   "sha384-UUwTS+RNYj0wSOgt4wIqWyG4Rc/xvrqgHDg/fEwc2e6WEFUooChoVCwkcddDnMaL",
   "sha384-SALc35EccAf6RzGw4iNsyj7kTPr33K7RoGzYu+7heZhT8s0GZouafRiCg1qy44AS",
@@ -114,6 +118,45 @@ for (const check of headChecks) {
     passes.push(`HEAD ${check.path} HTTP ${response.status}`);
   } catch (error) {
     failures.push(`HEAD ${check.path} request failed: ${error.message}`);
+  }
+}
+
+for (const check of methodChecks) {
+  const url = `${origin}${check.path}`;
+
+  try {
+    const response = await fetch(url, { method: check.method });
+
+    if (response.status !== check.status) {
+      failures.push(`${check.method} ${check.path} returned HTTP ${response.status}, expected ${check.status}`);
+    }
+
+    const allow = response.headers.get("allow") || "";
+    if (allow !== check.allow) {
+      failures.push(`${check.method} ${check.path} returned Allow ${allow || "(missing)"}, expected ${check.allow}`);
+    }
+
+    const contentType = response.headers.get("content-type") || "";
+    if (!contentType.toLowerCase().includes(check.contentType)) {
+      failures.push(`${check.method} ${check.path} returned content-type ${contentType || "(missing)"}, expected ${check.contentType}`);
+    }
+
+    for (const header of requiredHeaders) {
+      if (!response.headers.get(header)) {
+        failures.push(`${check.method} ${check.path} is missing local preview response header: ${header}`);
+      }
+    }
+
+    for (const [header, expectedValue] of requiredHeaderValues) {
+      const actualValue = response.headers.get(header) || "";
+      if (!actualValue.toLowerCase().includes(expectedValue)) {
+        failures.push(`${check.method} ${check.path} returned ${header} ${actualValue || "(missing)"}, expected ${expectedValue}`);
+      }
+    }
+
+    passes.push(`${check.method} ${check.path} HTTP ${response.status}`);
+  } catch (error) {
+    failures.push(`${check.method} ${check.path} request failed: ${error.message}`);
   }
 }
 

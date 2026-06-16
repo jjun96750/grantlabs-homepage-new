@@ -51,7 +51,12 @@ const sendFile = (request, response, filePath, statusCode = 200) => {
 
 createServer((request, response) => {
   if (!["GET", "HEAD"].includes(request.method || "")) {
-    response.writeHead(405, { Allow: "GET, HEAD" });
+    response.writeHead(405, {
+      ...securityHeaders,
+      Allow: "GET, HEAD",
+      "Content-Type": "text/plain; charset=utf-8",
+      "Cache-Control": "no-store",
+    });
     response.end();
     return;
   }
