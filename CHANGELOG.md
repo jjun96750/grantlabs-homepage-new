@@ -11,6 +11,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Updated README and contribution guidance with the local preview check command.
 - Refreshed Claude handoff notes with the latest local preview command documentation commit.
 - Extended local preview checks to verify CDN script integrity markers.
+- Refreshed Claude handoff notes with the latest local CDN integrity validation commit.
 
 ## 2026-06-15
 
