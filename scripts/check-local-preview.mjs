@@ -15,6 +15,11 @@ const checks = [
   { path: "/__missing-local-preview__", status: 404, marker: "404", contentType: "text/html" },
 ];
 
+const headChecks = [
+  { path: "/", status: 200, contentType: "text/html" },
+  { path: "/styles/homepage.css", status: 200, contentType: "text/css" },
+];
+
 const htmlIntegrityMarkers = [
   "sha384-UUwTS+RNYj0wSOgt4wIqWyG4Rc/xvrqgHDg/fEwc2e6WEFUooChoVCwkcddDnMaL",
   "sha384-SALc35EccAf6RzGw4iNsyj7kTPr33K7RoGzYu+7heZhT8s0GZouafRiCg1qy44AS",
@@ -59,6 +64,38 @@ for (const check of checks) {
     passes.push(`${check.path} HTTP ${response.status}`);
   } catch (error) {
     failures.push(`${check.path} request failed: ${error.message}`);
+  }
+}
+
+for (const check of headChecks) {
+  const url = `${origin}${check.path}`;
+
+  try {
+    const response = await fetch(url, { method: "HEAD" });
+    const text = await response.text();
+
+    if (response.status !== check.status) {
+      failures.push(`HEAD ${check.path} returned HTTP ${response.status}, expected ${check.status}`);
+    }
+
+    if (text) {
+      failures.push(`HEAD ${check.path} returned a response body.`);
+    }
+
+    const contentType = response.headers.get("content-type") || "";
+    if (!contentType.toLowerCase().includes(check.contentType)) {
+      failures.push(`HEAD ${check.path} returned content-type ${contentType || "(missing)"}, expected ${check.contentType}`);
+    }
+
+    for (const header of requiredHeaders) {
+      if (!response.headers.get(header)) {
+        failures.push(`HEAD ${check.path} is missing local preview response header: ${header}`);
+      }
+    }
+
+    passes.push(`HEAD ${check.path} HTTP ${response.status}`);
+  } catch (error) {
+    failures.push(`HEAD ${check.path} request failed: ${error.message}`);
   }
 }
 

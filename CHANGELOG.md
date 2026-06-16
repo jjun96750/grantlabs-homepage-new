@@ -8,6 +8,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Extended static validation to keep local preview security-header checks aligned with deployment smoke tests.
 - Refreshed Claude handoff notes with the latest local HSTS preview validation commit.
 - Clarified the Claude handoff commit pointer so future handoff updates do not create stale latest-commit wording.
+- Extended local preview checks to verify HEAD responses for the homepage and stylesheet.
 
 ## 2026-06-16
 
