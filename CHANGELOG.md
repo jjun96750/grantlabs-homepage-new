@@ -6,6 +6,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 
 - Extended local preview checks to verify the HSTS response header.
 - Extended static validation to keep local preview security-header checks aligned with deployment smoke tests.
+- Refreshed Claude handoff notes with the latest local HSTS preview validation commit.
 
 ## 2026-06-16
 
