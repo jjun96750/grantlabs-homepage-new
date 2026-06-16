@@ -13,6 +13,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Extended local preview checks to verify CDN script integrity markers.
 - Refreshed Claude handoff notes with the latest local CDN integrity validation commit.
 - Removed legacy `node scripts/...` commands from deployment tracking and next-action guidance.
+- Refreshed Claude handoff notes with the latest legacy command cleanup commit.
 
 ## 2026-06-15
 

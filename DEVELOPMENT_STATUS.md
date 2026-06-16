@@ -97,6 +97,7 @@ Last updated: 2026-06-16
 - Local preview checks now verify CDN script integrity markers.
 - Handoff memo refreshed after local CDN integrity validation.
 - Deployment tracking and next-action guidance now avoid legacy `node scripts/...` commands.
+- Handoff memo refreshed after legacy validation command cleanup.
 - `.nvmrc` added and covered by static validation for Node version consistency.
 - `.gitignore` expanded for deployment/build artifacts and covered by static validation.
 - `SECURITY.md` added with vulnerability and deployment-issue reporting guidance.
@@ -329,6 +330,7 @@ CHANGELOG.md
 - Extended local preview checks to verify CDN script integrity markers.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest local CDN integrity validation commit.
 - Removed legacy `node scripts/...` commands from deployment tracking and next-action guidance.
+- Refreshed `CLAUDE_HANDOFF.md` with the latest legacy command cleanup commit.
 
 ### 2026-06-15
 
