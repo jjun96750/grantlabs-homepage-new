@@ -18,6 +18,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Allowed the approved Pretendard CDN in CSP `style-src` and `font-src`.
 - Extended local preview, deployed smoke, and static validation to assert the Pretendard CSP allowlist.
 - Refreshed Claude handoff notes with the latest Pretendard CSP commit.
+- Added static validation to keep Cloudflare `_headers` CSP and local preview CSP in sync.
 
 ## 2026-06-16
 

@@ -301,6 +301,19 @@ if (existsSync("scripts/serve-static.mjs")) {
   }
 }
 
+if (existsSync("_headers") && existsSync("scripts/serve-static.mjs")) {
+  const headers = read("_headers");
+  const server = read("scripts/serve-static.mjs");
+  const headersCsp = headers.match(/Content-Security-Policy:\s*(.+)/)?.[1]?.trim();
+  const serverCsp = server.match(/"Content-Security-Policy":\s*"([^"]+)"/)?.[1]?.trim();
+
+  if (!headersCsp) failures.push("_headers is missing a parseable Content-Security-Policy value.");
+  if (!serverCsp) failures.push("scripts/serve-static.mjs is missing a parseable Content-Security-Policy value.");
+  if (headersCsp && serverCsp && headersCsp !== serverCsp) {
+    failures.push("_headers CSP and local preview CSP must stay in sync.");
+  }
+}
+
 if (existsSync("favicon.svg")) {
   const favicon = read("favicon.svg");
   if (!favicon.includes("<svg") || !favicon.includes('viewBox="0 0 64 64"')) {
