@@ -94,6 +94,7 @@ Last updated: 2026-06-16
 - Handoff memo refreshed after deployment command standardization.
 - README and contribution guidance now include `npm run preview:check`.
 - Handoff memo refreshed after local preview command documentation.
+- Local preview checks now verify CDN script integrity markers.
 - `.nvmrc` added and covered by static validation for Node version consistency.
 - `.gitignore` expanded for deployment/build artifacts and covered by static validation.
 - `SECURITY.md` added with vulnerability and deployment-issue reporting guidance.
@@ -323,6 +324,7 @@ CHANGELOG.md
 - Refreshed `CLAUDE_HANDOFF.md` with the latest deployment command standardization commit.
 - Updated README and contribution guidance with the local preview check command.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest local preview command documentation commit.
+- Extended local preview checks to verify CDN script integrity markers.
 
 ### 2026-06-15
 
