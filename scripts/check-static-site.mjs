@@ -425,11 +425,21 @@ if (existsSync("DEPLOYMENT_ENVIRONMENTS.md")) {
   for (const marker of ["Preview Verification", "Local preview check", "Deployed smoke check", "EmailJS test", "DNS unchanged", "Contact Form Configuration", "service_tcj8otx", "template_8ne6kj3", "npm run preview:check", "npm run smoke"]) {
     if (!deployment.includes(marker)) failures.push(`DEPLOYMENT_ENVIRONMENTS.md is missing marker: ${marker}`);
   }
+  for (const legacyCommand of ["node scripts/check-static-site.mjs", "node scripts/check-deployed-site.mjs <preview-url>"]) {
+    if (deployment.includes(legacyCommand)) failures.push(`DEPLOYMENT_ENVIRONMENTS.md still includes legacy command: ${legacyCommand}`);
+  }
   for (const marker of [emailJsPublicKey, emailJsServiceId, emailJsTemplateId]) {
     if (!deployment.includes(marker)) failures.push(`DEPLOYMENT_ENVIRONMENTS.md is missing EmailJS marker: ${marker}`);
   }
   if (!deployment.includes(`Fallback email: ${contactEmail}`) || !deployment.includes(`Fallback phone: ${contactPhoneDisplay}`)) {
     failures.push("DEPLOYMENT_ENVIRONMENTS.md is missing canonical fallback contact values.");
+  }
+}
+
+if (existsSync("DEVELOPMENT_STATUS.md")) {
+  const status = read("DEVELOPMENT_STATUS.md");
+  for (const legacyCommand of ["node scripts/check-static-site.mjs", "node scripts/check-deployed-site.mjs <preview-url>"]) {
+    if (status.includes(legacyCommand)) failures.push(`DEVELOPMENT_STATUS.md still includes legacy command: ${legacyCommand}`);
   }
 }
 

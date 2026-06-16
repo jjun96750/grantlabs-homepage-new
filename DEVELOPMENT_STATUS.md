@@ -96,6 +96,7 @@ Last updated: 2026-06-16
 - Handoff memo refreshed after local preview command documentation.
 - Local preview checks now verify CDN script integrity markers.
 - Handoff memo refreshed after local CDN integrity validation.
+- Deployment tracking and next-action guidance now avoid legacy `node scripts/...` commands.
 - `.nvmrc` added and covered by static validation for Node version consistency.
 - `.gitignore` expanded for deployment/build artifacts and covered by static validation.
 - `SECURITY.md` added with vulnerability and deployment-issue reporting guidance.
@@ -306,9 +307,9 @@ CHANGELOG.md
 2. Confirm the deployed preview URL.
 3. Record deployment URLs in `DEPLOYMENT_ENVIRONMENTS.md`.
 4. Run desktop and mobile visual QA using `QA_CHECKLIST.md`.
-5. Run `node scripts/check-static-site.mjs` before future commits when Node.js is available.
-6. Run `npm run serve` for local preview checks.
-7. Run `node scripts/check-deployed-site.mjs <preview-url>` after Cloudflare Pages deployment.
+5. Run `npm run check` before future commits.
+6. Run `npm run serve` and `npm run preview:check` for local preview checks.
+7. Run `npm run smoke -- <preview-url>` after Cloudflare Pages deployment.
 8. Verify EmailJS delivery in production preview and decide whether to later connect Cloudflare Workers, Google Sheets, or the existing CRM.
 9. Replace or approve the hero image.
 10. Review FAQ wording with actual sales/support language.
@@ -327,6 +328,7 @@ CHANGELOG.md
 - Refreshed `CLAUDE_HANDOFF.md` with the latest local preview command documentation commit.
 - Extended local preview checks to verify CDN script integrity markers.
 - Refreshed `CLAUDE_HANDOFF.md` with the latest local CDN integrity validation commit.
+- Removed legacy `node scripts/...` commands from deployment tracking and next-action guidance.
 
 ### 2026-06-15
 

@@ -45,7 +45,6 @@ DNS unchanged: yes
 Required commands:
 
 ```bash
-node scripts/check-static-site.mjs
 npm run check
 npm run serve
 npm run preview:check
