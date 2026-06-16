@@ -11,6 +11,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Extended local preview checks to verify HEAD responses for the homepage and stylesheet.
 - Refreshed Claude handoff notes with the latest local HEAD validation commit.
 - Extended local preview checks to verify `Cache-Control: no-store` on GET and HEAD responses.
+- Refreshed Claude handoff notes with the latest local cache-header validation commit.
 
 ## 2026-06-16
 

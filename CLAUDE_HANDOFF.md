@@ -12,7 +12,7 @@
 - Static homepage draft is ready and pushed to GitHub.
 - No build step is required.
 - Main branch: `main`
-- Latest implementation commit captured in this handoff: `9e21c9f Check HEAD responses in local preview`
+- Latest implementation commit captured in this handoff: `96829d5 Check local preview cache headers`
 - Local static validation passes with `npm run check`.
 - Standard local validation command is `npm run check`; local preview is `npm run serve`.
 - Standard commands are documented in `COMMANDS.md`.
@@ -87,7 +87,7 @@ scripts/check-deployed-site.mjs
 - `privacy.html` discloses the optional email field used by the consultation form.
 - `scripts/check-static-site.mjs` verifies required files, metadata, duplicate HTML ids, hero image performance attributes, contact form fields, optional email payload handling, mobile-friendly phone input constraints, canonical contact values, EmailJS config values, CDN version pins, CSP allowlists, JSON-LD, docs markers, command docs, editor config, Node version pin, gitignore hygiene, SVG asset metadata, robots/sitemap/canonical consistency, local `href` / `src` targets, cross-page hashes, inline event handler cleanup, and external new-window link safety.
 - `scripts/serve-static.mjs` provides a dependency-free local preview server at `http://127.0.0.1:4173/` with explicit 404, HEAD request handling, and Cloudflare-like security headers.
-- `scripts/check-local-preview.mjs` verifies local preview GET and HEAD status codes, content types, homepage CDN script integrity markers, missing-route handling, and security headers including HSTS.
+- `scripts/check-local-preview.mjs` verifies local preview GET and HEAD status codes, content types, `Cache-Control: no-store`, homepage CDN script integrity markers, missing-route handling, and security headers including HSTS.
 - `scripts/check-deployed-site.mjs` verifies pages, response headers, `Content-Type` values, homepage CDN script integrity markers, missing-route 404 handling, sitemap noindex cleanup, and prints a pass summary.
 - GitHub Actions runs `npm run check`, starts the local preview server, and runs `npm run preview:check` on pushes to `main` and pull requests.
 
