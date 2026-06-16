@@ -2,6 +2,11 @@
 
 All notable changes to the Grant Labs new homepage are documented here.
 
+## 2026-06-17
+
+- Extended local preview checks to verify the HSTS response header.
+- Extended static validation to keep local preview security-header checks aligned with deployment smoke tests.
+
 ## 2026-06-16
 
 - Refreshed sitemap lastmod values and static validation for the new development day.

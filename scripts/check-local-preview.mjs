@@ -1,6 +1,7 @@
 const origin = (process.argv[2] || "http://127.0.0.1:4173").replace(/\/$/, "");
 
 const requiredHeaders = [
+  "strict-transport-security",
   "content-security-policy",
   "x-content-type-options",
   "x-frame-options",

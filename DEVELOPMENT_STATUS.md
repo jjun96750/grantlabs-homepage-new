@@ -1,6 +1,6 @@
 # Development Status
 
-Last updated: 2026-06-16
+Last updated: 2026-06-17
 
 ## Project
 
@@ -98,6 +98,8 @@ Last updated: 2026-06-16
 - Handoff memo refreshed after local CDN integrity validation.
 - Deployment tracking and next-action guidance now avoid legacy `node scripts/...` commands.
 - Handoff memo refreshed after legacy validation command cleanup.
+- Local preview checks now verify the HSTS response header.
+- Static validation now keeps local preview security-header checks aligned with deployment smoke tests.
 - `.nvmrc` added and covered by static validation for Node version consistency.
 - `.gitignore` expanded for deployment/build artifacts and covered by static validation.
 - `SECURITY.md` added with vulnerability and deployment-issue reporting guidance.
