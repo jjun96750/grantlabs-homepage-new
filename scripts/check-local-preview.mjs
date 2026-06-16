@@ -9,6 +9,10 @@ const requiredHeaders = [
   "permissions-policy",
 ];
 
+const requiredHeaderValues = new Map([
+  ["cache-control", "no-store"],
+]);
+
 const checks = [
   { path: "/", status: 200, marker: "Grant Labs", contentType: "text/html" },
   { path: "/styles/homepage.css", status: 200, marker: ".hero", contentType: "text/css" },
@@ -61,6 +65,13 @@ for (const check of checks) {
       }
     }
 
+    for (const [header, expectedValue] of requiredHeaderValues) {
+      const actualValue = response.headers.get(header) || "";
+      if (!actualValue.toLowerCase().includes(expectedValue)) {
+        failures.push(`${check.path} returned ${header} ${actualValue || "(missing)"}, expected ${expectedValue}`);
+      }
+    }
+
     passes.push(`${check.path} HTTP ${response.status}`);
   } catch (error) {
     failures.push(`${check.path} request failed: ${error.message}`);
@@ -90,6 +101,13 @@ for (const check of headChecks) {
     for (const header of requiredHeaders) {
       if (!response.headers.get(header)) {
         failures.push(`HEAD ${check.path} is missing local preview response header: ${header}`);
+      }
+    }
+
+    for (const [header, expectedValue] of requiredHeaderValues) {
+      const actualValue = response.headers.get(header) || "";
+      if (!actualValue.toLowerCase().includes(expectedValue)) {
+        failures.push(`HEAD ${check.path} returned ${header} ${actualValue || "(missing)"}, expected ${expectedValue}`);
       }
     }
 

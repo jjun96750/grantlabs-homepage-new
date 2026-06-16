@@ -104,6 +104,7 @@ Last updated: 2026-06-17
 - Claude handoff commit wording now points to the captured implementation commit instead of a self-updating latest-push marker.
 - Local preview checks now verify HEAD responses for the homepage and stylesheet.
 - Handoff memo refreshed after local HEAD response validation.
+- Local preview checks now verify `Cache-Control: no-store` on GET and HEAD responses.
 - `.nvmrc` added and covered by static validation for Node version consistency.
 - `.gitignore` expanded for deployment/build artifacts and covered by static validation.
 - `SECURITY.md` added with vulnerability and deployment-issue reporting guidance.

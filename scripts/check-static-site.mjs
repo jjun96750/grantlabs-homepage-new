@@ -289,7 +289,7 @@ if (existsSync("package.json")) {
 
 if (existsSync("scripts/check-local-preview.mjs")) {
   const previewCheck = read("scripts/check-local-preview.mjs");
-  for (const marker of ["http://127.0.0.1:4173", "/styles/homepage.css", "/__missing-local-preview__", "strict-transport-security", "content-security-policy", "x-frame-options", "htmlIntegrityMarkers", "method: \"HEAD\"", lucideIntegrity, emailJsIntegrity, "Local preview check passed"]) {
+  for (const marker of ["http://127.0.0.1:4173", "/styles/homepage.css", "/__missing-local-preview__", "strict-transport-security", "content-security-policy", "x-frame-options", "cache-control", "no-store", "htmlIntegrityMarkers", "method: \"HEAD\"", lucideIntegrity, emailJsIntegrity, "Local preview check passed"]) {
     if (!previewCheck.includes(marker)) failures.push(`scripts/check-local-preview.mjs is missing marker: ${marker}`);
   }
 }
