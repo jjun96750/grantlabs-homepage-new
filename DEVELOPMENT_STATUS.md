@@ -109,6 +109,8 @@ Last updated: 2026-06-17
 - Local preview 405 responses now include security and cache headers.
 - Local preview checks now verify unsupported-method handling.
 - Handoff memo refreshed after secured local method-error handling.
+- CSP now allows the approved Pretendard CDN in `style-src` and `font-src`.
+- Local preview, deployed smoke, and static validation now assert the Pretendard CSP allowlist.
 - `.nvmrc` added and covered by static validation for Node version consistency.
 - `.gitignore` expanded for deployment/build artifacts and covered by static validation.
 - `SECURITY.md` added with vulnerability and deployment-issue reporting guidance.

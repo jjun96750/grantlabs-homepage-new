@@ -44,6 +44,11 @@ const htmlIntegrityMarkers = [
   "crossorigin=\"anonymous\"",
 ];
 
+const cspMarkers = [
+  "style-src 'self' https://cdn.jsdelivr.net",
+  "font-src 'self' https://cdn.jsdelivr.net data:",
+];
+
 const failures = [];
 const passes = [];
 
@@ -81,6 +86,13 @@ for (const check of checks) {
     for (const header of check.headers || []) {
       if (!response.headers.get(header)) {
         failures.push(`${check.path} is missing response header: ${header}`);
+      }
+    }
+
+    if ((check.headers || []).includes("content-security-policy")) {
+      const csp = response.headers.get("content-security-policy") || "";
+      for (const marker of cspMarkers) {
+        if (!csp.includes(marker)) failures.push(`${check.path} CSP is missing marker: ${marker}`);
       }
     }
 
@@ -134,6 +146,11 @@ try {
     if (!response.headers.get(header)) {
       failures.push(`${notFoundCheck.path} is missing response header: ${header}`);
     }
+  }
+
+  const csp = response.headers.get("content-security-policy") || "";
+  for (const marker of cspMarkers) {
+    if (!csp.includes(marker)) failures.push(`${notFoundCheck.path} CSP is missing marker: ${marker}`);
   }
 
   passes.push(`${notFoundCheck.path} HTTP ${response.status}`);

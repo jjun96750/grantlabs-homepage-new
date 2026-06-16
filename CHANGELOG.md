@@ -15,6 +15,8 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Added security and cache headers to local preview 405 responses.
 - Extended local preview checks to verify unsupported-method handling.
 - Refreshed Claude handoff notes with the latest secured local method-error commit.
+- Allowed the approved Pretendard CDN in CSP `style-src` and `font-src`.
+- Extended local preview, deployed smoke, and static validation to assert the Pretendard CSP allowlist.
 
 ## 2026-06-16
 

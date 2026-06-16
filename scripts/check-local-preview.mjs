@@ -13,6 +13,11 @@ const requiredHeaderValues = new Map([
   ["cache-control", "no-store"],
 ]);
 
+const cspMarkers = [
+  "style-src 'self' https://cdn.jsdelivr.net",
+  "font-src 'self' https://cdn.jsdelivr.net data:",
+];
+
 const checks = [
   { path: "/", status: 200, marker: "Grant Labs", contentType: "text/html" },
   { path: "/styles/homepage.css", status: 200, marker: ".hero", contentType: "text/css" },
@@ -76,6 +81,13 @@ for (const check of checks) {
       }
     }
 
+    const csp = response.headers.get("content-security-policy") || "";
+    for (const marker of cspMarkers) {
+      if (!csp.includes(marker)) {
+        failures.push(`${check.path} CSP is missing marker: ${marker}`);
+      }
+    }
+
     passes.push(`${check.path} HTTP ${response.status}`);
   } catch (error) {
     failures.push(`${check.path} request failed: ${error.message}`);
@@ -115,6 +127,13 @@ for (const check of headChecks) {
       }
     }
 
+    const csp = response.headers.get("content-security-policy") || "";
+    for (const marker of cspMarkers) {
+      if (!csp.includes(marker)) {
+        failures.push(`HEAD ${check.path} CSP is missing marker: ${marker}`);
+      }
+    }
+
     passes.push(`HEAD ${check.path} HTTP ${response.status}`);
   } catch (error) {
     failures.push(`HEAD ${check.path} request failed: ${error.message}`);
@@ -151,6 +170,13 @@ for (const check of methodChecks) {
       const actualValue = response.headers.get(header) || "";
       if (!actualValue.toLowerCase().includes(expectedValue)) {
         failures.push(`${check.method} ${check.path} returned ${header} ${actualValue || "(missing)"}, expected ${expectedValue}`);
+      }
+    }
+
+    const csp = response.headers.get("content-security-policy") || "";
+    for (const marker of cspMarkers) {
+      if (!csp.includes(marker)) {
+        failures.push(`${check.method} ${check.path} CSP is missing marker: ${marker}`);
       }
     }
 
