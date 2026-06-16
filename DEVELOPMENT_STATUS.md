@@ -115,6 +115,7 @@ Last updated: 2026-06-17
 - Static validation now keeps Cloudflare `_headers` CSP and local preview CSP in sync.
 - Handoff memo refreshed after CSP synchronization validation.
 - Static validation now keeps all mirrored security headers in sync between Cloudflare `_headers` and the local preview server.
+- Handoff memo refreshed after mirrored security-header synchronization.
 - `.nvmrc` added and covered by static validation for Node version consistency.
 - `.gitignore` expanded for deployment/build artifacts and covered by static validation.
 - `SECURITY.md` added with vulnerability and deployment-issue reporting guidance.
