@@ -304,13 +304,25 @@ if (existsSync("scripts/serve-static.mjs")) {
 if (existsSync("_headers") && existsSync("scripts/serve-static.mjs")) {
   const headers = read("_headers");
   const server = read("scripts/serve-static.mjs");
-  const headersCsp = headers.match(/Content-Security-Policy:\s*(.+)/)?.[1]?.trim();
-  const serverCsp = server.match(/"Content-Security-Policy":\s*"([^"]+)"/)?.[1]?.trim();
+  const syncedHeaders = [
+    "Strict-Transport-Security",
+    "Content-Security-Policy",
+    "X-Content-Type-Options",
+    "X-Frame-Options",
+    "Referrer-Policy",
+    "Permissions-Policy",
+  ];
 
-  if (!headersCsp) failures.push("_headers is missing a parseable Content-Security-Policy value.");
-  if (!serverCsp) failures.push("scripts/serve-static.mjs is missing a parseable Content-Security-Policy value.");
-  if (headersCsp && serverCsp && headersCsp !== serverCsp) {
-    failures.push("_headers CSP and local preview CSP must stay in sync.");
+  for (const header of syncedHeaders) {
+    const escapedHeader = header.replace(/-/g, "\\-");
+    const headersValue = headers.match(new RegExp(`${escapedHeader}:\\s*(.+)`))?.[1]?.trim();
+    const serverValue = server.match(new RegExp(`"${escapedHeader}":\\s*"([^"]+)"`))?.[1]?.trim();
+
+    if (!headersValue) failures.push(`_headers is missing a parseable ${header} value.`);
+    if (!serverValue) failures.push(`scripts/serve-static.mjs is missing a parseable ${header} value.`);
+    if (headersValue && serverValue && headersValue !== serverValue) {
+      failures.push(`_headers ${header} and local preview ${header} must stay in sync.`);
+    }
   }
 }
 

@@ -20,6 +20,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Refreshed Claude handoff notes with the latest Pretendard CSP commit.
 - Added static validation to keep Cloudflare `_headers` CSP and local preview CSP in sync.
 - Refreshed Claude handoff notes with the latest CSP synchronization validation commit.
+- Expanded static validation to keep all mirrored security headers in sync between Cloudflare `_headers` and the local preview server.
 
 ## 2026-06-16
 
