@@ -12,8 +12,8 @@
 - Static homepage draft is ready and pushed to GitHub.
 - No build step is required.
 - Main branch: `main`
-- Latest pushed commit at handoff update: `0686b73 Check HSTS in local preview`
-- Local static validation passes with `node scripts/check-static-site.mjs`.
+- Latest implementation commit captured in this handoff: `0686b73 Check HSTS in local preview`
+- Local static validation passes with `npm run check`.
 - Standard local validation command is `npm run check`; local preview is `npm run serve`.
 - Standard commands are documented in `COMMANDS.md`.
 - Ongoing development status is tracked in `DEVELOPMENT_STATUS.md`.

@@ -101,6 +101,7 @@ Last updated: 2026-06-17
 - Local preview checks now verify the HSTS response header.
 - Static validation now keeps local preview security-header checks aligned with deployment smoke tests.
 - Handoff memo refreshed after local HSTS preview validation.
+- Claude handoff commit wording now points to the captured implementation commit instead of a self-updating latest-push marker.
 - `.nvmrc` added and covered by static validation for Node version consistency.
 - `.gitignore` expanded for deployment/build artifacts and covered by static validation.
 - `SECURITY.md` added with vulnerability and deployment-issue reporting guidance.
