@@ -25,6 +25,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Added `.nojekyll` to required static validation files.
 - Refreshed Claude handoff notes with the latest `.nojekyll` validation commit.
 - Added GitHub Actions timeout and concurrency controls for static-site validation.
+- Refreshed Claude handoff notes with the latest workflow hardening commit.
 
 ## 2026-06-16
 
