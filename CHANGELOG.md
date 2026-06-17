@@ -10,6 +10,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Extended static validation to cover the content automation files and generator.
 - Generated the first platform-specific content plan for the 2026-06-18 Grant Labs readiness campaign.
 - Added Korean platform-specific post starters to the content automation generator.
+- Refreshed Claude handoff notes with the latest platform content automation commit.
 
 ## 2026-06-17
 
