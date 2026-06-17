@@ -8,6 +8,7 @@ const requiredFiles = [
   ".editorconfig",
   ".nvmrc",
   "package.json",
+  ".nojekyll",
   "styles/homepage.css",
   "favicon.svg",
   "social-card.svg",
