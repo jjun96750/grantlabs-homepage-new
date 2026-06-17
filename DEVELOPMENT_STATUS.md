@@ -118,6 +118,7 @@ Last updated: 2026-06-17
 - Handoff memo refreshed after mirrored security-header synchronization.
 - Static validation now requires `.nojekyll` as part of the static deployment file set.
 - Handoff memo refreshed after `.nojekyll` validation.
+- GitHub Actions static-site validation now has timeout and concurrency controls.
 - `.nvmrc` added and covered by static validation for Node version consistency.
 - `.gitignore` expanded for deployment/build artifacts and covered by static validation.
 - `SECURITY.md` added with vulnerability and deployment-issue reporting guidance.
