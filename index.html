@@ -524,6 +524,16 @@
             menuButton.focus();
           }
         });
+
+        document.addEventListener("click", function (event) {
+          if (
+            menuButton.getAttribute("aria-expanded") === "true" &&
+            !menuButton.contains(event.target) &&
+            !mobileMenu.contains(event.target)
+          ) {
+            closeMobileMenu();
+          }
+        });
       }
 
       if (scoreItems.length && scoreValue && scoreTitle && scoreMessage) {

@@ -30,6 +30,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Refreshed Claude handoff notes with the latest contact form busy-state commit.
 - Added Escape-key dismissal for the mobile navigation menu.
 - Refreshed Claude handoff notes with the latest mobile menu keyboard handling commit.
+- Added outside-click dismissal for the mobile navigation menu.
 
 ## 2026-06-16
 
