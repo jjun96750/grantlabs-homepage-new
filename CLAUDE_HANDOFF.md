@@ -12,7 +12,7 @@
 - Static homepage draft is ready and pushed to GitHub.
 - No build step is required.
 - Main branch: `main`
-- Latest implementation commit captured in this handoff: `5388ba6 Add contact form busy state`
+- Latest implementation commit captured in this handoff: `5d96769 Add Escape handling for mobile menu`
 - Local static validation passes with `npm run check`.
 - Standard local validation command is `npm run check`; local preview is `npm run serve`.
 - Standard commands are documented in `COMMANDS.md`.
@@ -77,6 +77,7 @@ scripts/check-deployed-site.mjs
 - Privacy notice page is available at `privacy.html` and is linked from the form and footer.
 - Consultation checklist page is available at `checklist.html` and linked from the homepage/footer.
 - Contact form uses EmailJS first, then falls back to a pre-filled email draft.
+- Mobile navigation can be dismissed with the Escape key and returns focus to the menu toggle.
 - Lucide is pinned to `lucide@1.18.0`; do not switch it back to `latest`.
 - EmailJS browser SDK is pinned to `@emailjs/browser@4.4.1`; do not switch it back to a major-version alias.
 - Pinned CDN scripts include SRI `integrity` attributes and `crossorigin="anonymous"`.
