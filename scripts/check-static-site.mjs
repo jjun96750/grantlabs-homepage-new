@@ -30,8 +30,12 @@ const requiredFiles = [
   "SECURITY.md",
   "CHANGELOG.md",
   "scripts/serve-static.mjs",
+  "scripts/generate-content-plan.mjs",
   "scripts/check-local-preview.mjs",
   "scripts/check-deployed-site.mjs",
+  "content-automation/platform-rules.json",
+  "content-automation/campaigns/grantlabs-growth-check.json",
+  "content-automation/output/2026-06-18-grantlabs-growth-check.md",
   ".github/workflows/static-site-check.yml",
   ".github/ISSUE_TEMPLATE/bug_report.md",
   ".github/ISSUE_TEMPLATE/content_update.md",
@@ -288,12 +292,67 @@ if (existsSync("package.json")) {
     const pkg = JSON.parse(read("package.json"));
     if (pkg.private !== true) failures.push("package.json should be private.");
     if (pkg.scripts?.check !== "node scripts/check-static-site.mjs") failures.push("package.json is missing the standard check script.");
+    if (pkg.scripts?.["content:plan"] !== "node scripts/generate-content-plan.mjs") failures.push("package.json is missing the content automation plan script.");
     if (pkg.scripts?.serve !== "node scripts/serve-static.mjs") failures.push("package.json is missing the local preview server script.");
     if (pkg.scripts?.["preview:check"] !== "node scripts/check-local-preview.mjs") failures.push("package.json is missing the local preview check script.");
     if (pkg.scripts?.smoke !== "node scripts/check-deployed-site.mjs") failures.push("package.json is missing the deployed smoke script.");
     if (pkg.engines?.node !== ">=20") failures.push("package.json should require Node >=20.");
   } catch (error) {
     failures.push(`Invalid package.json: ${error.message}`);
+  }
+}
+
+if (existsSync("content-automation/platform-rules.json")) {
+  try {
+    const platformRules = JSON.parse(read("content-automation/platform-rules.json"));
+    const requiredPlatforms = ["naver_blog", "instagram_carousel", "instagram_reels", "youtube_shorts", "youtube_long", "tiktok", "facebook_page", "linkedin_page"];
+    const platformIds = new Set((platformRules.platforms || []).map((platform) => platform.id));
+
+    for (const platformId of requiredPlatforms) {
+      if (!platformIds.has(platformId)) failures.push(`content automation is missing platform rule: ${platformId}`);
+    }
+
+    for (const platform of platformRules.platforms || []) {
+      for (const field of ["name", "role", "bestFor", "format", "hook", "asset", "cta", "tone", "avoid", "repurposeRule"]) {
+        if (!platform[field]) failures.push(`content automation platform ${platform.id || "(missing id)"} is missing field: ${field}`);
+      }
+    }
+  } catch (error) {
+    failures.push(`Invalid content-automation/platform-rules.json: ${error.message}`);
+  }
+}
+
+if (existsSync("content-automation/campaigns/grantlabs-growth-check.json")) {
+  try {
+    const campaign = JSON.parse(read("content-automation/campaigns/grantlabs-growth-check.json"));
+    for (const field of ["slug", "date", "brand", "topic", "topicKo", "primaryAudience", "corePromise", "corePromiseKo", "primaryCta", "primaryCtaKo", "landingPage"]) {
+      if (!campaign[field]) failures.push(`content automation campaign is missing field: ${field}`);
+    }
+    if (!Array.isArray(campaign.pillarPoints) || campaign.pillarPoints.length < 4) {
+      failures.push("content automation campaign should include at least four pillar points.");
+    }
+    if (!Array.isArray(campaign.pillarPointsKo) || campaign.pillarPointsKo.length < 4) {
+      failures.push("content automation campaign should include at least four Korean pillar points.");
+    }
+    if (!Array.isArray(campaign.complianceNotes) || campaign.complianceNotes.length < 3) {
+      failures.push("content automation campaign should include compliance guardrails.");
+    }
+  } catch (error) {
+    failures.push(`Invalid content-automation/campaigns/grantlabs-growth-check.json: ${error.message}`);
+  }
+}
+
+if (existsSync("scripts/generate-content-plan.mjs")) {
+  const planner = read("scripts/generate-content-plan.mjs");
+  for (const marker of ["content-automation/platform-rules.json", "content-automation", "output", "koreanStarter", "Korean post starter", "complianceNotes", "repurposeRule", "Generated content plan"]) {
+    if (!planner.includes(marker)) failures.push(`scripts/generate-content-plan.mjs is missing marker: ${marker}`);
+  }
+}
+
+if (existsSync("content-automation/output/2026-06-18-grantlabs-growth-check.md")) {
+  const generatedPlan = read("content-automation/output/2026-06-18-grantlabs-growth-check.md");
+  for (const marker of ["Naver Blog", "Instagram Carousel", "Instagram Reels", "YouTube Shorts", "YouTube Long-form", "TikTok", "Facebook Page", "LinkedIn Page", "Korean post starter", "정책자금", "Compliance guardrails", "https://grantlabs.co.kr/checklist.html"]) {
+    if (!generatedPlan.includes(marker)) failures.push(`generated content plan is missing marker: ${marker}`);
   }
 }
 
@@ -486,14 +545,14 @@ if (existsSync("DEVELOPMENT_STATUS.md")) {
 
 if (existsSync("README.md")) {
   const readme = read("README.md");
-  for (const marker of ["scripts/", "check-static-site.mjs", "serve-static.mjs", "check-local-preview.mjs", "check-deployed-site.mjs", "social-card.svg", "npm run serve", "npm run preview:check"]) {
+  for (const marker of ["scripts/", "check-static-site.mjs", "generate-content-plan.mjs", "serve-static.mjs", "check-local-preview.mjs", "check-deployed-site.mjs", "content-automation/", "social-card.svg", "npm run content:plan", "npm run serve", "npm run preview:check"]) {
     if (!readme.includes(marker)) failures.push(`README.md is missing marker: ${marker}`);
   }
 }
 
 if (existsSync("COMMANDS.md")) {
   const commands = read("COMMANDS.md");
-  for (const marker of ["npm run check", "npm run serve", "npm run preview:check", "npm run smoke", "static-site validation"]) {
+  for (const marker of ["npm run check", "npm run content:plan", "npm run serve", "npm run preview:check", "npm run smoke", "static-site validation", "platform-specific posting guidance"]) {
     if (!commands.includes(marker)) failures.push(`COMMANDS.md is missing marker: ${marker}`);
   }
 }

@@ -1,6 +1,6 @@
 # Development Status
 
-Last updated: 2026-06-17
+Last updated: 2026-06-18
 
 ## Project
 
@@ -126,6 +126,11 @@ Last updated: 2026-06-17
 - Handoff memo refreshed after mobile menu keyboard handling.
 - Mobile navigation now closes when visitors click outside the open menu.
 - Handoff memo refreshed after mobile menu outside-click handling.
+- Content automation rules now cover Naver Blog, Instagram Carousel/Reels, YouTube Shorts/Long-form, TikTok, Facebook Page, and LinkedIn Page.
+- `npm run content:plan` now generates platform-specific posting guidance from a Grant Labs campaign input.
+- Static validation now covers content automation rules, campaign fields, compliance guardrails, and generator markers.
+- Generated `content-automation/output/2026-06-18-grantlabs-growth-check.md` as the first platform-specific posting plan.
+- Content automation now generates Korean post starters for each platform.
 - `.nvmrc` added and covered by static validation for Node version consistency.
 - `.gitignore` expanded for deployment/build artifacts and covered by static validation.
 - `SECURITY.md` added with vulnerability and deployment-issue reporting guidance.

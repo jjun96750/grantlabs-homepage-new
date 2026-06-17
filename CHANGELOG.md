@@ -2,6 +2,15 @@
 
 All notable changes to the Grant Labs new homepage are documented here.
 
+## 2026-06-18
+
+- Added a platform-specific content automation rule set for blog, short-form video, and social channels.
+- Added a Grant Labs campaign input for policy-funding readiness content.
+- Added `npm run content:plan` to generate per-platform posting guidance from the campaign and platform rules.
+- Extended static validation to cover the content automation files and generator.
+- Generated the first platform-specific content plan for the 2026-06-18 Grant Labs readiness campaign.
+- Added Korean platform-specific post starters to the content automation generator.
+
 ## 2026-06-17
 
 - Extended local preview checks to verify the HSTS response header.

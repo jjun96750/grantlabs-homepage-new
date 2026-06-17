@@ -12,10 +12,11 @@
 - Static homepage draft is ready and pushed to GitHub.
 - No build step is required.
 - Main branch: `main`
-- Latest implementation commit captured in this handoff: `aae0327 Close mobile menu on outside click`
+- Latest implementation commit captured in this handoff: `pending content automation commit`
 - Local static validation passes with `npm run check`.
 - Standard local validation command is `npm run check`; local preview is `npm run serve`.
 - Standard commands are documented in `COMMANDS.md`.
+- Content automation can be generated with `npm run content:plan`.
 - Ongoing development status is tracked in `DEVELOPMENT_STATUS.md`.
 - Repository contents are proprietary and covered by `LICENSE`.
 - Security and deployment issue reporting is documented in `SECURITY.md`.
@@ -56,9 +57,13 @@ ROLLBACK_PLAN.md
 SECURITY.md
 CHANGELOG.md
 scripts/check-static-site.mjs
+scripts/generate-content-plan.mjs
 scripts/serve-static.mjs
 scripts/check-local-preview.mjs
 scripts/check-deployed-site.mjs
+content-automation/platform-rules.json
+content-automation/campaigns/grantlabs-growth-check.json
+content-automation/output/2026-06-18-grantlabs-growth-check.md
 .github/workflows/static-site-check.yml
 .github/ISSUE_TEMPLATE/bug_report.md
 .github/ISSUE_TEMPLATE/content_update.md
@@ -91,6 +96,8 @@ scripts/check-deployed-site.mjs
 - `scripts/check-local-preview.mjs` verifies local preview GET, HEAD, and unsupported-method status codes, content types, `Cache-Control: no-store`, homepage CDN script integrity markers, missing-route handling, and security/CSP headers including HSTS and Pretendard style/font loading.
 - `scripts/check-deployed-site.mjs` verifies pages, response headers, CSP markers, `Content-Type` values, homepage CDN script integrity markers, missing-route 404 handling, sitemap noindex cleanup, and prints a pass summary.
 - GitHub Actions runs `npm run check`, starts the local preview server, and runs `npm run preview:check` on pushes to `main` and pull requests, with timeout and concurrency controls.
+- `content-automation/platform-rules.json` defines per-platform posting strategy for Naver Blog, Instagram, YouTube, TikTok, Facebook, and LinkedIn.
+- `scripts/generate-content-plan.mjs` creates platform-specific posting guidance from the current Grant Labs campaign input.
 
 ## Next Steps
 

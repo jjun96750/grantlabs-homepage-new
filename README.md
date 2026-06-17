@@ -25,9 +25,16 @@ sitemap.xml
 site.webmanifest
 scripts/
   check-static-site.mjs
+  generate-content-plan.mjs
   serve-static.mjs
   check-local-preview.mjs
   check-deployed-site.mjs
+content-automation/
+  platform-rules.json
+  campaigns/
+    grantlabs-growth-check.json
+  output/
+    2026-06-18-grantlabs-growth-check.md
 QA_CHECKLIST.md
 CLOUDFLARE_PAGES_SETUP.md
 DEPLOYMENT_ENVIRONMENTS.md
@@ -59,6 +66,10 @@ C:\Users\ongee\OneDrive\문서\홈페이지 만들기\grantlabs-homepage-new\ind
 
 ```bash
 npm run check
+```
+
+```bash
+npm run content:plan
 ```
 
 ```bash

@@ -4,12 +4,14 @@ Use these commands for local and deployed validation.
 
 ```bash
 npm run check
+npm run content:plan
 npm run serve
 npm run preview:check
 npm run smoke -- https://your-pages-preview.pages.dev
 ```
 
 - `npm run check` runs the local static-site validation.
+- `npm run content:plan` generates platform-specific posting guidance from the current campaign.
 - `npm run serve` starts a dependency-free local preview server at `http://127.0.0.1:4173/`.
 - `npm run preview:check` verifies the running local preview server.
 - `npm run smoke -- <preview-url>` runs deployed Cloudflare Pages smoke checks.

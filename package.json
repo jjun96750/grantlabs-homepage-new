@@ -5,6 +5,7 @@
   "description": "Static Grant Labs homepage for an isolated Cloudflare Pages project.",
   "scripts": {
     "check": "node scripts/check-static-site.mjs",
+    "content:plan": "node scripts/generate-content-plan.mjs",
     "serve": "node scripts/serve-static.mjs",
     "preview:check": "node scripts/check-local-preview.mjs",
     "smoke": "node scripts/check-deployed-site.mjs"
