@@ -27,6 +27,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Added GitHub Actions timeout and concurrency controls for static-site validation.
 - Refreshed Claude handoff notes with the latest workflow hardening commit.
 - Added contact form `aria-busy` state updates during submission and fallback handling.
+- Refreshed Claude handoff notes with the latest contact form busy-state commit.
 
 ## 2026-06-16
 

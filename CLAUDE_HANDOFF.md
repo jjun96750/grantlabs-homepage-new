@@ -12,7 +12,7 @@
 - Static homepage draft is ready and pushed to GitHub.
 - No build step is required.
 - Main branch: `main`
-- Latest implementation commit captured in this handoff: `6f26b99 Harden static site workflow`
+- Latest implementation commit captured in this handoff: `5388ba6 Add contact form busy state`
 - Local static validation passes with `npm run check`.
 - Standard local validation command is `npm run check`; local preview is `npm run serve`.
 - Standard commands are documented in `COMMANDS.md`.
@@ -80,7 +80,7 @@ scripts/check-deployed-site.mjs
 - Lucide is pinned to `lucide@1.18.0`; do not switch it back to `latest`.
 - EmailJS browser SDK is pinned to `@emailjs/browser@4.4.1`; do not switch it back to a major-version alias.
 - Pinned CDN scripts include SRI `integrity` attributes and `crossorigin="anonymous"`.
-- Contact form includes a hidden honeypot field, `aria-describedby` wiring, and `page_url` / `submitted_at` metadata.
+- Contact form includes a hidden honeypot field, `aria-describedby` wiring, `aria-busy` submission state updates, and `page_url` / `submitted_at` metadata.
 - Cloudflare `_headers` includes host-scoped HSTS, CSP, the approved Pretendard style/font CDN allowlist, clickjacking protection, baseline browser security headers, and cache policies for CSS, favicon, social card, manifest, robots, and sitemap files.
 - Cloudflare `_redirects` routes unknown paths to `404.html` with a 404 status.
 - `privacy.html` is intentionally `noindex` and excluded from `sitemap.xml`.
