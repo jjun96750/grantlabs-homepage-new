@@ -122,6 +122,7 @@ Last updated: 2026-06-17
 - Handoff memo refreshed after GitHub Actions workflow hardening.
 - Contact form now updates `aria-busy` during submission and fallback handling.
 - Handoff memo refreshed after contact form busy-state handling.
+- Mobile navigation can now be dismissed with the Escape key.
 - `.nvmrc` added and covered by static validation for Node version consistency.
 - `.gitignore` expanded for deployment/build artifacts and covered by static validation.
 - `SECURITY.md` added with vulnerability and deployment-issue reporting guidance.

@@ -178,6 +178,9 @@ if (existsSync("index.html")) {
   if (!html.includes('id="main-content"')) failures.push("index.html is missing the main-content target.");
   if (!html.includes('class="menu-toggle"')) failures.push("index.html is missing the mobile menu toggle.");
   if (!html.includes('id="mobile-menu"')) failures.push("index.html is missing the mobile menu.");
+  if (!html.includes("closeMobileMenu") || !html.includes('event.key === "Escape"')) {
+    failures.push("index.html is missing keyboard dismissal for the mobile menu.");
+  }
   if (!html.includes('class="quick-contact"')) failures.push("index.html is missing the quick-contact bar.");
   if (!html.includes(`https://unpkg.com/lucide@${lucideVersion}/dist/umd/lucide.min.js`) || html.includes("lucide@latest")) {
     failures.push("index.html should pin the Lucide CDN dependency to the approved version.");

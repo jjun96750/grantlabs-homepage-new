@@ -28,6 +28,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Refreshed Claude handoff notes with the latest workflow hardening commit.
 - Added contact form `aria-busy` state updates during submission and fallback handling.
 - Refreshed Claude handoff notes with the latest contact form busy-state commit.
+- Added Escape-key dismissal for the mobile navigation menu.
 
 ## 2026-06-16
 

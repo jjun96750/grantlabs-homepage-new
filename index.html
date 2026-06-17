@@ -499,6 +499,12 @@
       }
 
       if (menuButton && mobileMenu) {
+        var closeMobileMenu = function () {
+          menuButton.setAttribute("aria-expanded", "false");
+          menuButton.setAttribute("aria-label", "메뉴 열기");
+          mobileMenu.hidden = true;
+        };
+
         menuButton.addEventListener("click", function () {
           var isOpen = menuButton.getAttribute("aria-expanded") === "true";
           menuButton.setAttribute("aria-expanded", String(!isOpen));
@@ -508,10 +514,15 @@
 
         mobileMenu.querySelectorAll("a").forEach(function (link) {
           link.addEventListener("click", function () {
-            menuButton.setAttribute("aria-expanded", "false");
-            menuButton.setAttribute("aria-label", "메뉴 열기");
-            mobileMenu.hidden = true;
+            closeMobileMenu();
           });
+        });
+
+        document.addEventListener("keydown", function (event) {
+          if (event.key === "Escape" && menuButton.getAttribute("aria-expanded") === "true") {
+            closeMobileMenu();
+            menuButton.focus();
+          }
         });
       }
 
