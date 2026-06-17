@@ -23,6 +23,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Expanded static validation to keep all mirrored security headers in sync between Cloudflare `_headers` and the local preview server.
 - Refreshed Claude handoff notes with the latest mirrored security-header sync commit.
 - Added `.nojekyll` to required static validation files.
+- Refreshed Claude handoff notes with the latest `.nojekyll` validation commit.
 
 ## 2026-06-16
 
