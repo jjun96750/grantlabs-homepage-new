@@ -204,6 +204,9 @@ if (existsSync("index.html")) {
   if (!html.includes("page_url") || !html.includes("submitted_at")) failures.push("index.html is missing lead source metadata.");
   if (!html.includes('name="website"') || !html.includes('class="honeypot"')) failures.push("index.html is missing the contact form honeypot.");
   if (!html.includes('id="lead-form"') || !html.includes('aria-describedby="form-note"')) failures.push("index.html is missing contact form accessibility description wiring.");
+  if (!html.includes('form.setAttribute("aria-busy", "true")') || !html.includes('form.setAttribute("aria-busy", "false")')) {
+    failures.push("index.html is missing contact form busy-state accessibility handling.");
+  }
   for (const field of ['name="name"', 'name="phone"', 'name="email"', 'name="privacy"']) {
     if (!html.includes(field)) failures.push(`index.html is missing required contact form field: ${field}`);
   }

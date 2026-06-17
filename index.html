@@ -573,6 +573,7 @@
             payload.message
           ].join("\n");
 
+          form.setAttribute("aria-busy", "true");
           if (submitButton) submitButton.disabled = true;
           if (note) note.textContent = "상담 요청을 전송하는 중입니다.";
 
@@ -580,6 +581,7 @@
             try {
               await window.emailjs.send(emailConfig.serviceId, emailConfig.templateId, payload);
               form.reset();
+              form.setAttribute("aria-busy", "false");
               if (note) note.textContent = "상담 요청이 접수되었습니다. 확인 후 연락드리겠습니다.";
               if (submitButton) submitButton.disabled = false;
               return;
@@ -593,6 +595,7 @@
           if (note) {
             note.textContent = "이메일 앱이 열리지 않으면 010-5963-7624 또는 jjun96750@gmail.com 으로 문의해주세요.";
           }
+          form.setAttribute("aria-busy", "false");
           if (submitButton) submitButton.disabled = false;
         });
       }

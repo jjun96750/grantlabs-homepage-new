@@ -26,6 +26,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Refreshed Claude handoff notes with the latest `.nojekyll` validation commit.
 - Added GitHub Actions timeout and concurrency controls for static-site validation.
 - Refreshed Claude handoff notes with the latest workflow hardening commit.
+- Added contact form `aria-busy` state updates during submission and fallback handling.
 
 ## 2026-06-16
 
