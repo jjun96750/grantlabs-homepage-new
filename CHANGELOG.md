@@ -2,6 +2,13 @@
 
 All notable changes to the Grant Labs new homepage are documented here.
 
+## 2026-06-19
+
+- Added a new R&D-center and policy-funding readiness campaign input.
+- Generated the 2026-06-19 content plan, asset briefs, caption pack, and publishing queue outputs.
+- Extended content automation quality checks to scan every campaign and generated output instead of one fixed sample.
+- Extended static validation required-file coverage for the June 19 campaign output set.
+
 ## 2026-06-18
 
 - Added a platform-specific content automation rule set for blog, short-form video, and social channels.

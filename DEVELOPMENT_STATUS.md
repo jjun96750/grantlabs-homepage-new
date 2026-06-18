@@ -1,6 +1,6 @@
 # Development Status
 
-Last updated: 2026-06-18
+Last updated: 2026-06-19
 
 ## Project
 
@@ -149,6 +149,10 @@ Last updated: 2026-06-18
 - `npm run check:content` now validates content automation outputs for platform coverage, Korean markers, landing page links, and forbidden claims.
 - Content automation quality check passes for the current campaign outputs.
 - Handoff memo refreshed after content automation quality check implementation.
+- Added the 2026-06-19 R&D-center and policy-funding readiness campaign.
+- Generated the 2026-06-19 content plan, asset briefs, caption pack, and publishing queue outputs.
+- `npm run check:content` now scans every campaign and generated output set instead of one fixed sample.
+- Static validation now requires the June 19 campaign input and generated output files.
 - `.nvmrc` added and covered by static validation for Node version consistency.
 - `.gitignore` expanded for deployment/build artifacts and covered by static validation.
 - `SECURITY.md` added with vulnerability and deployment-issue reporting guidance.
@@ -196,6 +200,26 @@ QA_CHECKLIST.md
 scripts/check-static-site.mjs
 scripts/serve-static.mjs
 scripts/check-deployed-site.mjs
+scripts/check-content-automation.mjs
+scripts/generate-asset-briefs.mjs
+scripts/generate-caption-pack.mjs
+scripts/generate-content-plan.mjs
+scripts/generate-publishing-queue.mjs
+scripts/run-content-automation.mjs
+content-automation/platform-rules.json
+content-automation/publishing-defaults.json
+content-automation/campaigns/grantlabs-growth-check.json
+content-automation/campaigns/rnd-center-funding-bridge.json
+content-automation/output/2026-06-18-grantlabs-growth-check.md
+content-automation/output/2026-06-18-grantlabs-growth-check-asset-briefs.md
+content-automation/output/2026-06-18-grantlabs-growth-check-caption-pack.md
+content-automation/output/2026-06-18-grantlabs-growth-check-publishing-queue.csv
+content-automation/output/2026-06-18-grantlabs-growth-check-publishing-queue.md
+content-automation/output/2026-06-19-rnd-center-funding-bridge.md
+content-automation/output/2026-06-19-rnd-center-funding-bridge-asset-briefs.md
+content-automation/output/2026-06-19-rnd-center-funding-bridge-caption-pack.md
+content-automation/output/2026-06-19-rnd-center-funding-bridge-publishing-queue.csv
+content-automation/output/2026-06-19-rnd-center-funding-bridge-publishing-queue.md
 .github/workflows/static-site-check.yml
 .github/ISSUE_TEMPLATE/bug_report.md
 .github/ISSUE_TEMPLATE/content_update.md
@@ -368,6 +392,13 @@ CHANGELOG.md
 11. Continue edits only in this repository.
 
 ## Change Log
+
+### 2026-06-19
+
+- Added `content-automation/campaigns/rnd-center-funding-bridge.json`.
+- Generated the June 19 content plan, asset briefs, caption pack, and publishing queue outputs.
+- Updated `scripts/check-content-automation.mjs` to validate all campaign inputs and all generated outputs dynamically.
+- Updated static required-file coverage for the June 19 campaign output set.
 
 ### 2026-06-16
 

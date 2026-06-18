@@ -1,12 +1,8 @@
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
+import { join } from "node:path";
 
-const files = [
-  "content-automation/output/2026-06-18-grantlabs-growth-check.md",
-  "content-automation/output/2026-06-18-grantlabs-growth-check-asset-briefs.md",
-  "content-automation/output/2026-06-18-grantlabs-growth-check-caption-pack.md",
-  "content-automation/output/2026-06-18-grantlabs-growth-check-publishing-queue.md",
-  "content-automation/output/2026-06-18-grantlabs-growth-check-publishing-queue.csv"
-];
+const campaignsDir = "content-automation/campaigns";
+const outputDir = "content-automation/output";
 
 const requiredPlatformMarkers = [
   "Naver Blog",
@@ -21,16 +17,61 @@ const requiredPlatformMarkers = [
 
 const requiredKoreanMarkers = ["정책자금", "기업인증", "체크리스트"];
 const forbiddenClaims = ["100% 승인", "무조건 승인", "정부 공식 대행", "보장합니다", "확정"];
-const failures = [];
+const requiredOutputSuffixes = [
+  ".md",
+  "-asset-briefs.md",
+  "-caption-pack.md",
+  "-publishing-queue.md",
+  "-publishing-queue.csv"
+];
 
+const failures = [];
 const read = (file) => readFileSync(file, "utf8");
 
-for (const file of files) {
-  if (!existsSync(file)) {
-    failures.push(`Missing content automation output: ${file}`);
-    continue;
-  }
+const listFiles = (dir, predicate) => {
+  if (!existsSync(dir)) return [];
+  return readdirSync(dir)
+    .map((name) => join(dir, name))
+    .filter((file) => statSync(file).isFile())
+    .filter(predicate);
+};
 
+const campaignFiles = listFiles(campaignsDir, (file) => file.endsWith(".json"));
+const outputFiles = listFiles(outputDir, (file) => file.endsWith(".md") || file.endsWith(".csv"));
+
+if (!campaignFiles.length) failures.push("No content automation campaigns found.");
+if (!outputFiles.length) failures.push("No content automation outputs found.");
+
+for (const campaignFile of campaignFiles) {
+  try {
+    const campaign = JSON.parse(read(campaignFile));
+    for (const field of ["slug", "date", "brand", "topic", "topicKo", "corePromise", "primaryCta", "landingPage"]) {
+      if (!campaign[field]) failures.push(`${campaignFile} is missing field: ${field}`);
+    }
+
+    if (!Array.isArray(campaign.pillarPoints) || campaign.pillarPoints.length < 4) {
+      failures.push(`${campaignFile} should include at least four pillar points.`);
+    }
+
+    if (!Array.isArray(campaign.pillarPointsKo) || campaign.pillarPointsKo.length < 4) {
+      failures.push(`${campaignFile} should include at least four Korean pillar points.`);
+    }
+
+    if (!Array.isArray(campaign.complianceNotes) || campaign.complianceNotes.length < 3) {
+      failures.push(`${campaignFile} should include compliance guardrails.`);
+    }
+
+    const outputBase = join(outputDir, `${campaign.date}-${campaign.slug}`);
+    for (const suffix of requiredOutputSuffixes) {
+      const outputPath = suffix === ".md" ? `${outputBase}.md` : `${outputBase}${suffix}`;
+      if (!existsSync(outputPath)) failures.push(`Missing generated output for ${campaign.slug}: ${outputPath}`);
+    }
+  } catch (error) {
+    failures.push(`Invalid campaign JSON ${campaignFile}: ${error.message}`);
+  }
+}
+
+for (const file of outputFiles) {
   const body = read(file);
   if (body.includes("\uFFFD")) failures.push(`${file} contains replacement characters.`);
 
@@ -39,7 +80,7 @@ for (const file of files) {
   }
 }
 
-const combined = files.filter(existsSync).map(read).join("\n\n");
+const combined = outputFiles.map(read).join("\n\n");
 
 for (const marker of requiredPlatformMarkers) {
   if (!combined.includes(marker)) failures.push(`Content automation outputs are missing platform marker: ${marker}`);
@@ -49,9 +90,10 @@ for (const marker of requiredKoreanMarkers) {
   if (!combined.includes(marker)) failures.push(`Content automation outputs are missing Korean marker: ${marker}`);
 }
 
-if (!combined.includes("Do not guarantee approval, selection, or funding amount.")) {
-  failures.push("Content automation outputs are missing approval-guarantee guardrail.");
-}
+const hasApprovalGuardrail =
+  combined.includes("Do not guarantee approval, selection, or funding amount.") ||
+  combined.includes("Do not guarantee R&D-center approval, certification, or funding.");
+if (!hasApprovalGuardrail) failures.push("Content automation outputs are missing approval-guarantee guardrail.");
 
 if (!combined.includes("https://grantlabs.co.kr/checklist.html")) {
   failures.push("Content automation outputs are missing the checklist landing page.");

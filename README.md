@@ -39,12 +39,18 @@ content-automation/
   publishing-defaults.json
   campaigns/
     grantlabs-growth-check.json
+    rnd-center-funding-bridge.json
   output/
     2026-06-18-grantlabs-growth-check.md
     2026-06-18-grantlabs-growth-check-asset-briefs.md
     2026-06-18-grantlabs-growth-check-caption-pack.md
     2026-06-18-grantlabs-growth-check-publishing-queue.csv
     2026-06-18-grantlabs-growth-check-publishing-queue.md
+    2026-06-19-rnd-center-funding-bridge.md
+    2026-06-19-rnd-center-funding-bridge-asset-briefs.md
+    2026-06-19-rnd-center-funding-bridge-caption-pack.md
+    2026-06-19-rnd-center-funding-bridge-publishing-queue.csv
+    2026-06-19-rnd-center-funding-bridge-publishing-queue.md
 QA_CHECKLIST.md
 CLOUDFLARE_PAGES_SETUP.md
 DEPLOYMENT_ENVIRONMENTS.md

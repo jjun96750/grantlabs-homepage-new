@@ -1,0 +1,41 @@
+{
+  "slug": "rnd-center-funding-bridge",
+  "date": "2026-06-19",
+  "brand": "Grant Labs",
+  "topic": "R&D center preparation as a funding readiness bridge",
+  "topicKo": "기업부설연구소 준비와 정책자금 연결 전략",
+  "primaryAudience": "Korean technology, manufacturing, and service companies considering R&D-center setup, certification, patent, or policy funding applications",
+  "corePromise": "Clarify whether R&D-center preparation should come before funding applications, and identify the evidence that must be built first.",
+  "corePromiseKo": "정책자금 신청 전에 기업부설연구소 준비가 먼저 필요한지 확인하고, 먼저 만들어야 할 증빙을 정리합니다.",
+  "primaryCta": "Open the Grant Labs consultation checklist and request a 15-minute diagnostic call.",
+  "primaryCtaKo": "Grant Labs 상담 준비 체크리스트를 열고 15분 진단 상담을 요청하세요.",
+  "landingPage": "https://grantlabs.co.kr/checklist.html",
+  "contact": {
+    "phone": "010-5963-7624",
+    "email": "jjun96750@gmail.com"
+  },
+  "pillarPoints": [
+    "R&D-center setup is useful only when the company can prove people, space, and research activity.",
+    "Certification, patent, and research records can strengthen later funding readiness when sequenced correctly.",
+    "Companies should avoid creating a paper-only R&D center without operational evidence.",
+    "A diagnostic checklist helps decide whether to prepare R&D center, certification, patent, or funding first."
+  ],
+  "pillarPointsKo": [
+    "기업부설연구소는 연구 인력, 공간, 연구 활동을 증빙할 수 있을 때 의미가 있습니다.",
+    "인증, 특허, 연구 기록은 순서가 맞을 때 이후 정책자금 준비도를 높일 수 있습니다.",
+    "실제 운영 증빙 없이 서류상 연구소만 만드는 방식은 피해야 합니다.",
+    "진단 체크리스트로 연구소, 인증, 특허, 정책자금 중 무엇을 먼저 준비할지 판단할 수 있습니다."
+  ],
+  "proofAngles": [
+    "Research evidence readiness",
+    "Certification and funding sequencing",
+    "Operational proof before application",
+    "Avoiding paper-only setup risk"
+  ],
+  "complianceNotes": [
+    "Do not guarantee R&D-center approval, certification, or funding.",
+    "Avoid implying government affiliation.",
+    "Use diagnostic and preparation language instead of guaranteed-result language.",
+    "Do not recommend paper-only setup without real operational evidence."
+  ]
+}

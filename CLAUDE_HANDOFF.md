@@ -12,7 +12,7 @@
 - Static homepage draft is ready and pushed to GitHub.
 - No build step is required.
 - Main branch: `main`
-- Latest implementation commit captured in this handoff: `58c57d1 Add content automation quality check`
+- Latest implementation commit captured in this handoff: pending June 19 campaign commit
 - Local static validation passes with `npm run check`.
 - Standard local validation command is `npm run check`; local preview is `npm run serve`.
 - Standard commands are documented in `COMMANDS.md`.
@@ -22,6 +22,7 @@
 - Publishing queue automation can be generated with `npm run content:queue`.
 - The full content automation pipeline can be regenerated with `npm run content:run`.
 - Content automation outputs can be quality-checked with `npm run check:content`.
+- The current content automation set includes the 2026-06-18 policy-funding readiness campaign and the 2026-06-19 R&D-center readiness bridge campaign.
 - Ongoing development status is tracked in `DEVELOPMENT_STATUS.md`.
 - Repository contents are proprietary and covered by `LICENSE`.
 - Security and deployment issue reporting is documented in `SECURITY.md`.
@@ -74,11 +75,17 @@ scripts/check-deployed-site.mjs
 content-automation/platform-rules.json
 content-automation/publishing-defaults.json
 content-automation/campaigns/grantlabs-growth-check.json
+content-automation/campaigns/rnd-center-funding-bridge.json
 content-automation/output/2026-06-18-grantlabs-growth-check.md
 content-automation/output/2026-06-18-grantlabs-growth-check-asset-briefs.md
 content-automation/output/2026-06-18-grantlabs-growth-check-caption-pack.md
 content-automation/output/2026-06-18-grantlabs-growth-check-publishing-queue.csv
 content-automation/output/2026-06-18-grantlabs-growth-check-publishing-queue.md
+content-automation/output/2026-06-19-rnd-center-funding-bridge.md
+content-automation/output/2026-06-19-rnd-center-funding-bridge-asset-briefs.md
+content-automation/output/2026-06-19-rnd-center-funding-bridge-caption-pack.md
+content-automation/output/2026-06-19-rnd-center-funding-bridge-publishing-queue.csv
+content-automation/output/2026-06-19-rnd-center-funding-bridge-publishing-queue.md
 .github/workflows/static-site-check.yml
 .github/ISSUE_TEMPLATE/bug_report.md
 .github/ISSUE_TEMPLATE/content_update.md
@@ -117,7 +124,7 @@ content-automation/output/2026-06-18-grantlabs-growth-check-publishing-queue.md
 - `scripts/generate-content-plan.mjs` creates platform-specific posting guidance from the current Grant Labs campaign input.
 - `scripts/generate-publishing-queue.mjs` creates CSV and Markdown publishing queues with platform timing, asset, objective, and success-signal guidance.
 - `scripts/run-content-automation.mjs` runs the content plan, asset brief, caption pack, and publishing queue generators in sequence.
-- `scripts/check-content-automation.mjs` checks generated content outputs for platform coverage, Korean markers, checklist URL, compliance guardrails, and forbidden claims.
+- `scripts/check-content-automation.mjs` scans every campaign and generated output set for platform coverage, Korean markers, checklist URL, compliance guardrails, and forbidden claims.
 
 ## Next Steps
 
