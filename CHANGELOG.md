@@ -18,6 +18,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Refreshed Claude handoff notes with the latest publishing queue automation commit.
 - Added `npm run content:assets` to generate platform-specific production asset briefs.
 - Generated platform-specific asset briefs for the 2026-06-18 campaign.
+- Refreshed Claude handoff notes with the latest platform asset brief automation commit.
 
 ## 2026-06-17
 
