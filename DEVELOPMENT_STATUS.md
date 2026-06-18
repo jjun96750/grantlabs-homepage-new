@@ -137,6 +137,8 @@ Last updated: 2026-06-18
 - Generated publishing queue outputs for the 2026-06-18 campaign.
 - Publishing queue date generation now keeps day-zero posts on the campaign date.
 - Handoff memo refreshed after publishing queue automation implementation.
+- `npm run content:assets` now generates platform-specific production asset briefs.
+- Generated `content-automation/output/2026-06-18-grantlabs-growth-check-asset-briefs.md`.
 - `.nvmrc` added and covered by static validation for Node version consistency.
 - `.gitignore` expanded for deployment/build artifacts and covered by static validation.
 - `SECURITY.md` added with vulnerability and deployment-issue reporting guidance.

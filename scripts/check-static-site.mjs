@@ -30,6 +30,7 @@ const requiredFiles = [
   "SECURITY.md",
   "CHANGELOG.md",
   "scripts/serve-static.mjs",
+  "scripts/generate-asset-briefs.mjs",
   "scripts/generate-content-plan.mjs",
   "scripts/generate-publishing-queue.mjs",
   "scripts/check-local-preview.mjs",
@@ -38,6 +39,7 @@ const requiredFiles = [
   "content-automation/publishing-defaults.json",
   "content-automation/campaigns/grantlabs-growth-check.json",
   "content-automation/output/2026-06-18-grantlabs-growth-check.md",
+  "content-automation/output/2026-06-18-grantlabs-growth-check-asset-briefs.md",
   "content-automation/output/2026-06-18-grantlabs-growth-check-publishing-queue.csv",
   "content-automation/output/2026-06-18-grantlabs-growth-check-publishing-queue.md",
   ".github/workflows/static-site-check.yml",
@@ -296,6 +298,7 @@ if (existsSync("package.json")) {
     const pkg = JSON.parse(read("package.json"));
     if (pkg.private !== true) failures.push("package.json should be private.");
     if (pkg.scripts?.check !== "node scripts/check-static-site.mjs") failures.push("package.json is missing the standard check script.");
+    if (pkg.scripts?.["content:assets"] !== "node scripts/generate-asset-briefs.mjs") failures.push("package.json is missing the content asset brief script.");
     if (pkg.scripts?.["content:plan"] !== "node scripts/generate-content-plan.mjs") failures.push("package.json is missing the content automation plan script.");
     if (pkg.scripts?.["content:queue"] !== "node scripts/generate-publishing-queue.mjs") failures.push("package.json is missing the content publishing queue script.");
     if (pkg.scripts?.serve !== "node scripts/serve-static.mjs") failures.push("package.json is missing the local preview server script.");
@@ -370,10 +373,24 @@ if (existsSync("scripts/generate-content-plan.mjs")) {
   }
 }
 
+if (existsSync("scripts/generate-asset-briefs.mjs")) {
+  const assetGenerator = read("scripts/generate-asset-briefs.mjs");
+  for (const marker of ["content-automation/publishing-defaults.json", "specsByPlatform", "Production checklist", "Generated asset briefs"]) {
+    if (!assetGenerator.includes(marker)) failures.push(`scripts/generate-asset-briefs.mjs is missing marker: ${marker}`);
+  }
+}
+
 if (existsSync("scripts/generate-publishing-queue.mjs")) {
   const queueGenerator = read("scripts/generate-publishing-queue.mjs");
   for (const marker of ["content-automation/publishing-defaults.json", "publishing-queue", "successSignal", "Generated publishing queue"]) {
     if (!queueGenerator.includes(marker)) failures.push(`scripts/generate-publishing-queue.mjs is missing marker: ${marker}`);
+  }
+}
+
+if (existsSync("content-automation/output/2026-06-18-grantlabs-growth-check-asset-briefs.md")) {
+  const assetBriefs = read("content-automation/output/2026-06-18-grantlabs-growth-check-asset-briefs.md");
+  for (const marker of ["Asset Briefs", "Naver Blog", "Instagram Carousel", "YouTube Shorts", "TikTok", "Production checklist", "Compliance Guardrails"]) {
+    if (!assetBriefs.includes(marker)) failures.push(`generated asset briefs are missing marker: ${marker}`);
   }
 }
 
@@ -587,14 +604,14 @@ if (existsSync("DEVELOPMENT_STATUS.md")) {
 
 if (existsSync("README.md")) {
   const readme = read("README.md");
-  for (const marker of ["scripts/", "check-static-site.mjs", "generate-content-plan.mjs", "generate-publishing-queue.mjs", "serve-static.mjs", "check-local-preview.mjs", "check-deployed-site.mjs", "content-automation/", "social-card.svg", "npm run content:plan", "npm run content:queue", "npm run serve", "npm run preview:check"]) {
+  for (const marker of ["scripts/", "check-static-site.mjs", "generate-asset-briefs.mjs", "generate-content-plan.mjs", "generate-publishing-queue.mjs", "serve-static.mjs", "check-local-preview.mjs", "check-deployed-site.mjs", "content-automation/", "social-card.svg", "npm run content:assets", "npm run content:plan", "npm run content:queue", "npm run serve", "npm run preview:check"]) {
     if (!readme.includes(marker)) failures.push(`README.md is missing marker: ${marker}`);
   }
 }
 
 if (existsSync("COMMANDS.md")) {
   const commands = read("COMMANDS.md");
-  for (const marker of ["npm run check", "npm run content:plan", "npm run content:queue", "npm run serve", "npm run preview:check", "npm run smoke", "static-site validation", "platform-specific posting guidance", "publishing queue"]) {
+  for (const marker of ["npm run check", "npm run content:assets", "npm run content:plan", "npm run content:queue", "npm run serve", "npm run preview:check", "npm run smoke", "static-site validation", "asset briefs", "platform-specific posting guidance", "publishing queue"]) {
     if (!commands.includes(marker)) failures.push(`COMMANDS.md is missing marker: ${marker}`);
   }
 }

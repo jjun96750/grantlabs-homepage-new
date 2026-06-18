@@ -25,6 +25,7 @@ sitemap.xml
 site.webmanifest
 scripts/
   check-static-site.mjs
+  generate-asset-briefs.mjs
   generate-content-plan.mjs
   generate-publishing-queue.mjs
   serve-static.mjs
@@ -37,6 +38,7 @@ content-automation/
     grantlabs-growth-check.json
   output/
     2026-06-18-grantlabs-growth-check.md
+    2026-06-18-grantlabs-growth-check-asset-briefs.md
     2026-06-18-grantlabs-growth-check-publishing-queue.csv
     2026-06-18-grantlabs-growth-check-publishing-queue.md
 QA_CHECKLIST.md
@@ -70,6 +72,10 @@ C:\Users\ongee\OneDrive\문서\홈페이지 만들기\grantlabs-homepage-new\ind
 
 ```bash
 npm run check
+```
+
+```bash
+npm run content:assets
 ```
 
 ```bash

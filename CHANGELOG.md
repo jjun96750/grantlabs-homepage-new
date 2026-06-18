@@ -16,6 +16,8 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Generated CSV and Markdown publishing queues for the 2026-06-18 campaign.
 - Fixed publishing queue date generation so day-zero posts stay on the campaign date.
 - Refreshed Claude handoff notes with the latest publishing queue automation commit.
+- Added `npm run content:assets` to generate platform-specific production asset briefs.
+- Generated platform-specific asset briefs for the 2026-06-18 campaign.
 
 ## 2026-06-17
 
