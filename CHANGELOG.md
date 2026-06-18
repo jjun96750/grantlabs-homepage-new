@@ -24,6 +24,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Refreshed Claude handoff notes with the latest platform caption pack automation commit.
 - Added `npm run content:run` to regenerate the full content automation pipeline in one command.
 - Verified the full content automation runner regenerates all campaign outputs successfully.
+- Refreshed Claude handoff notes with the latest full content automation runner commit.
 
 ## 2026-06-17
 
