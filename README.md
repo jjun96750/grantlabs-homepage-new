@@ -26,6 +26,7 @@ site.webmanifest
 scripts/
   check-static-site.mjs
   generate-asset-briefs.mjs
+  generate-caption-pack.mjs
   generate-content-plan.mjs
   generate-publishing-queue.mjs
   serve-static.mjs
@@ -39,6 +40,7 @@ content-automation/
   output/
     2026-06-18-grantlabs-growth-check.md
     2026-06-18-grantlabs-growth-check-asset-briefs.md
+    2026-06-18-grantlabs-growth-check-caption-pack.md
     2026-06-18-grantlabs-growth-check-publishing-queue.csv
     2026-06-18-grantlabs-growth-check-publishing-queue.md
 QA_CHECKLIST.md
@@ -76,6 +78,10 @@ npm run check
 
 ```bash
 npm run content:assets
+```
+
+```bash
+npm run content:captions
 ```
 
 ```bash

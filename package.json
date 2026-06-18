@@ -6,6 +6,7 @@
   "scripts": {
     "check": "node scripts/check-static-site.mjs",
     "content:assets": "node scripts/generate-asset-briefs.mjs",
+    "content:captions": "node scripts/generate-caption-pack.mjs",
     "content:plan": "node scripts/generate-content-plan.mjs",
     "content:queue": "node scripts/generate-publishing-queue.mjs",
     "serve": "node scripts/serve-static.mjs",
