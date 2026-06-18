@@ -30,6 +30,7 @@ const requiredFiles = [
   "SECURITY.md",
   "CHANGELOG.md",
   "scripts/serve-static.mjs",
+  "scripts/check-content-automation.mjs",
   "scripts/generate-asset-briefs.mjs",
   "scripts/generate-caption-pack.mjs",
   "scripts/generate-content-plan.mjs",
@@ -301,6 +302,7 @@ if (existsSync("package.json")) {
     const pkg = JSON.parse(read("package.json"));
     if (pkg.private !== true) failures.push("package.json should be private.");
     if (pkg.scripts?.check !== "node scripts/check-static-site.mjs") failures.push("package.json is missing the standard check script.");
+    if (pkg.scripts?.["check:content"] !== "node scripts/check-content-automation.mjs") failures.push("package.json is missing the content automation check script.");
     if (pkg.scripts?.["content:assets"] !== "node scripts/generate-asset-briefs.mjs") failures.push("package.json is missing the content asset brief script.");
     if (pkg.scripts?.["content:captions"] !== "node scripts/generate-caption-pack.mjs") failures.push("package.json is missing the content caption pack script.");
     if (pkg.scripts?.["content:plan"] !== "node scripts/generate-content-plan.mjs") failures.push("package.json is missing the content automation plan script.");
@@ -382,6 +384,13 @@ if (existsSync("scripts/generate-asset-briefs.mjs")) {
   const assetGenerator = read("scripts/generate-asset-briefs.mjs");
   for (const marker of ["content-automation/publishing-defaults.json", "specsByPlatform", "Production checklist", "Generated asset briefs"]) {
     if (!assetGenerator.includes(marker)) failures.push(`scripts/generate-asset-briefs.mjs is missing marker: ${marker}`);
+  }
+}
+
+if (existsSync("scripts/check-content-automation.mjs")) {
+  const contentCheck = read("scripts/check-content-automation.mjs");
+  for (const marker of ["forbiddenClaims", "requiredPlatformMarkers", "Content automation check passed", "https://grantlabs.co.kr/checklist.html"]) {
+    if (!contentCheck.includes(marker)) failures.push(`scripts/check-content-automation.mjs is missing marker: ${marker}`);
   }
 }
 
@@ -630,14 +639,14 @@ if (existsSync("DEVELOPMENT_STATUS.md")) {
 
 if (existsSync("README.md")) {
   const readme = read("README.md");
-  for (const marker of ["scripts/", "check-static-site.mjs", "generate-asset-briefs.mjs", "generate-caption-pack.mjs", "generate-content-plan.mjs", "generate-publishing-queue.mjs", "run-content-automation.mjs", "serve-static.mjs", "check-local-preview.mjs", "check-deployed-site.mjs", "content-automation/", "social-card.svg", "npm run content:assets", "npm run content:captions", "npm run content:plan", "npm run content:queue", "npm run content:run", "npm run serve", "npm run preview:check"]) {
+  for (const marker of ["scripts/", "check-static-site.mjs", "check-content-automation.mjs", "generate-asset-briefs.mjs", "generate-caption-pack.mjs", "generate-content-plan.mjs", "generate-publishing-queue.mjs", "run-content-automation.mjs", "serve-static.mjs", "check-local-preview.mjs", "check-deployed-site.mjs", "content-automation/", "social-card.svg", "npm run check:content", "npm run content:assets", "npm run content:captions", "npm run content:plan", "npm run content:queue", "npm run content:run", "npm run serve", "npm run preview:check"]) {
     if (!readme.includes(marker)) failures.push(`README.md is missing marker: ${marker}`);
   }
 }
 
 if (existsSync("COMMANDS.md")) {
   const commands = read("COMMANDS.md");
-  for (const marker of ["npm run check", "npm run content:assets", "npm run content:captions", "npm run content:plan", "npm run content:queue", "npm run content:run", "npm run serve", "npm run preview:check", "npm run smoke", "static-site validation", "asset briefs", "caption pack", "platform-specific posting guidance", "publishing queue", "full content automation"]) {
+  for (const marker of ["npm run check", "npm run check:content", "npm run content:assets", "npm run content:captions", "npm run content:plan", "npm run content:queue", "npm run content:run", "npm run serve", "npm run preview:check", "npm run smoke", "static-site validation", "content automation quality", "asset briefs", "caption pack", "platform-specific posting guidance", "publishing queue", "full content automation"]) {
     if (!commands.includes(marker)) failures.push(`COMMANDS.md is missing marker: ${marker}`);
   }
 }

@@ -25,6 +25,7 @@ sitemap.xml
 site.webmanifest
 scripts/
   check-static-site.mjs
+  check-content-automation.mjs
   generate-asset-briefs.mjs
   generate-caption-pack.mjs
   generate-content-plan.mjs
@@ -75,6 +76,10 @@ C:\Users\ongee\OneDrive\문서\홈페이지 만들기\grantlabs-homepage-new\ind
 
 ```bash
 npm run check
+```
+
+```bash
+npm run check:content
 ```
 
 ```bash

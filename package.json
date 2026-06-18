@@ -5,6 +5,7 @@
   "description": "Static Grant Labs homepage for an isolated Cloudflare Pages project.",
   "scripts": {
     "check": "node scripts/check-static-site.mjs",
+    "check:content": "node scripts/check-content-automation.mjs",
     "content:assets": "node scripts/generate-asset-briefs.mjs",
     "content:captions": "node scripts/generate-caption-pack.mjs",
     "content:plan": "node scripts/generate-content-plan.mjs",

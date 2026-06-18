@@ -4,6 +4,7 @@ Use these commands for local and deployed validation.
 
 ```bash
 npm run check
+npm run check:content
 npm run content:assets
 npm run content:captions
 npm run content:plan
@@ -15,6 +16,7 @@ npm run smoke -- https://your-pages-preview.pages.dev
 ```
 
 - `npm run check` runs the local static-site validation.
+- `npm run check:content` runs content automation quality checks.
 - `npm run content:assets` generates platform-specific production asset briefs.
 - `npm run content:captions` generates a caption pack with platform-specific captions, hashtags, and thumbnail text.
 - `npm run content:plan` generates platform-specific posting guidance from the current campaign.

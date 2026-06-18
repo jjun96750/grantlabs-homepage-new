@@ -25,6 +25,8 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Added `npm run content:run` to regenerate the full content automation pipeline in one command.
 - Verified the full content automation runner regenerates all campaign outputs successfully.
 - Refreshed Claude handoff notes with the latest full content automation runner commit.
+- Added `npm run check:content` to validate content automation outputs for platform coverage, Korean markers, landing page links, and forbidden claims.
+- Verified the content automation quality check passes for the current campaign outputs.
 
 ## 2026-06-17
 
