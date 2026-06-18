@@ -143,6 +143,8 @@ Last updated: 2026-06-18
 - `npm run content:captions` now generates platform-specific captions, hashtags, and thumbnail text.
 - Generated `content-automation/output/2026-06-18-grantlabs-growth-check-caption-pack.md`.
 - Handoff memo refreshed after platform caption pack automation.
+- `npm run content:run` now regenerates the full content automation pipeline in one command.
+- Full content automation runner verified against the 2026-06-18 campaign outputs.
 - `.nvmrc` added and covered by static validation for Node version consistency.
 - `.gitignore` expanded for deployment/build artifacts and covered by static validation.
 - `SECURITY.md` added with vulnerability and deployment-issue reporting guidance.

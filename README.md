@@ -29,6 +29,7 @@ scripts/
   generate-caption-pack.mjs
   generate-content-plan.mjs
   generate-publishing-queue.mjs
+  run-content-automation.mjs
   serve-static.mjs
   check-local-preview.mjs
   check-deployed-site.mjs
@@ -90,6 +91,10 @@ npm run content:plan
 
 ```bash
 npm run content:queue
+```
+
+```bash
+npm run content:run
 ```
 
 ```bash

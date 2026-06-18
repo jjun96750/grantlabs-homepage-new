@@ -12,7 +12,7 @@
 - Static homepage draft is ready and pushed to GitHub.
 - No build step is required.
 - Main branch: `main`
-- Latest implementation commit captured in this handoff: `9bddb1e Add platform caption pack automation`
+- Latest implementation commit captured in this handoff: `pending content automation runner commit`
 - Local static validation passes with `npm run check`.
 - Standard local validation command is `npm run check`; local preview is `npm run serve`.
 - Standard commands are documented in `COMMANDS.md`.
@@ -20,6 +20,7 @@
 - Asset briefs can be generated with `npm run content:assets`.
 - Caption packs can be generated with `npm run content:captions`.
 - Publishing queue automation can be generated with `npm run content:queue`.
+- The full content automation pipeline can be regenerated with `npm run content:run`.
 - Ongoing development status is tracked in `DEVELOPMENT_STATUS.md`.
 - Repository contents are proprietary and covered by `LICENSE`.
 - Security and deployment issue reporting is documented in `SECURITY.md`.
@@ -64,6 +65,7 @@ scripts/generate-asset-briefs.mjs
 scripts/generate-caption-pack.mjs
 scripts/generate-content-plan.mjs
 scripts/generate-publishing-queue.mjs
+scripts/run-content-automation.mjs
 scripts/serve-static.mjs
 scripts/check-local-preview.mjs
 scripts/check-deployed-site.mjs
@@ -112,6 +114,7 @@ content-automation/output/2026-06-18-grantlabs-growth-check-publishing-queue.md
 - `scripts/generate-caption-pack.mjs` creates platform-specific captions, hashtags, CTA text, and thumbnail/overlay copy.
 - `scripts/generate-content-plan.mjs` creates platform-specific posting guidance from the current Grant Labs campaign input.
 - `scripts/generate-publishing-queue.mjs` creates CSV and Markdown publishing queues with platform timing, asset, objective, and success-signal guidance.
+- `scripts/run-content-automation.mjs` runs the content plan, asset brief, caption pack, and publishing queue generators in sequence.
 
 ## Next Steps
 

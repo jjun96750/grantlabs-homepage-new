@@ -22,6 +22,8 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Added `npm run content:captions` to generate platform-specific captions, hashtags, and thumbnail text.
 - Generated the first platform-specific caption pack for the 2026-06-18 campaign.
 - Refreshed Claude handoff notes with the latest platform caption pack automation commit.
+- Added `npm run content:run` to regenerate the full content automation pipeline in one command.
+- Verified the full content automation runner regenerates all campaign outputs successfully.
 
 ## 2026-06-17
 

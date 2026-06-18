@@ -9,6 +9,7 @@
     "content:captions": "node scripts/generate-caption-pack.mjs",
     "content:plan": "node scripts/generate-content-plan.mjs",
     "content:queue": "node scripts/generate-publishing-queue.mjs",
+    "content:run": "node scripts/run-content-automation.mjs",
     "serve": "node scripts/serve-static.mjs",
     "preview:check": "node scripts/check-local-preview.mjs",
     "smoke": "node scripts/check-deployed-site.mjs"
