@@ -148,6 +148,7 @@ Last updated: 2026-06-18
 - Handoff memo refreshed after full content automation runner implementation.
 - `npm run check:content` now validates content automation outputs for platform coverage, Korean markers, landing page links, and forbidden claims.
 - Content automation quality check passes for the current campaign outputs.
+- Handoff memo refreshed after content automation quality check implementation.
 - `.nvmrc` added and covered by static validation for Node version consistency.
 - `.gitignore` expanded for deployment/build artifacts and covered by static validation.
 - `SECURITY.md` added with vulnerability and deployment-issue reporting guidance.

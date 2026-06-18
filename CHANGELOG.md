@@ -27,6 +27,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Refreshed Claude handoff notes with the latest full content automation runner commit.
 - Added `npm run check:content` to validate content automation outputs for platform coverage, Korean markers, landing page links, and forbidden claims.
 - Verified the content automation quality check passes for the current campaign outputs.
+- Refreshed Claude handoff notes with the latest content automation quality check commit.
 
 ## 2026-06-17
 
