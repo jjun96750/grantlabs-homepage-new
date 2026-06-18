@@ -15,6 +15,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Added publishing queue defaults with platform objective, asset, timing, and success-signal guidance.
 - Generated CSV and Markdown publishing queues for the 2026-06-18 campaign.
 - Fixed publishing queue date generation so day-zero posts stay on the campaign date.
+- Refreshed Claude handoff notes with the latest publishing queue automation commit.
 
 ## 2026-06-17
 

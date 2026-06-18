@@ -136,6 +136,7 @@ Last updated: 2026-06-18
 - Publishing queue defaults now include platform objective, asset, timing, and success-signal guidance.
 - Generated publishing queue outputs for the 2026-06-18 campaign.
 - Publishing queue date generation now keeps day-zero posts on the campaign date.
+- Handoff memo refreshed after publishing queue automation implementation.
 - `.nvmrc` added and covered by static validation for Node version consistency.
 - `.gitignore` expanded for deployment/build artifacts and covered by static validation.
 - `SECURITY.md` added with vulnerability and deployment-issue reporting guidance.
