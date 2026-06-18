@@ -12,11 +12,12 @@
 - Static homepage draft is ready and pushed to GitHub.
 - No build step is required.
 - Main branch: `main`
-- Latest implementation commit captured in this handoff: `872a2b0 Add platform content automation`
+- Latest implementation commit captured in this handoff: `pending publishing queue automation commit`
 - Local static validation passes with `npm run check`.
 - Standard local validation command is `npm run check`; local preview is `npm run serve`.
 - Standard commands are documented in `COMMANDS.md`.
 - Content automation can be generated with `npm run content:plan`.
+- Publishing queue automation can be generated with `npm run content:queue`.
 - Ongoing development status is tracked in `DEVELOPMENT_STATUS.md`.
 - Repository contents are proprietary and covered by `LICENSE`.
 - Security and deployment issue reporting is documented in `SECURITY.md`.
@@ -58,12 +59,16 @@ SECURITY.md
 CHANGELOG.md
 scripts/check-static-site.mjs
 scripts/generate-content-plan.mjs
+scripts/generate-publishing-queue.mjs
 scripts/serve-static.mjs
 scripts/check-local-preview.mjs
 scripts/check-deployed-site.mjs
 content-automation/platform-rules.json
+content-automation/publishing-defaults.json
 content-automation/campaigns/grantlabs-growth-check.json
 content-automation/output/2026-06-18-grantlabs-growth-check.md
+content-automation/output/2026-06-18-grantlabs-growth-check-publishing-queue.csv
+content-automation/output/2026-06-18-grantlabs-growth-check-publishing-queue.md
 .github/workflows/static-site-check.yml
 .github/ISSUE_TEMPLATE/bug_report.md
 .github/ISSUE_TEMPLATE/content_update.md
@@ -98,6 +103,7 @@ content-automation/output/2026-06-18-grantlabs-growth-check.md
 - GitHub Actions runs `npm run check`, starts the local preview server, and runs `npm run preview:check` on pushes to `main` and pull requests, with timeout and concurrency controls.
 - `content-automation/platform-rules.json` defines per-platform posting strategy for Naver Blog, Instagram, YouTube, TikTok, Facebook, and LinkedIn.
 - `scripts/generate-content-plan.mjs` creates platform-specific posting guidance from the current Grant Labs campaign input.
+- `scripts/generate-publishing-queue.mjs` creates CSV and Markdown publishing queues with platform timing, asset, objective, and success-signal guidance.
 
 ## Next Steps
 

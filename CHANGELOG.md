@@ -11,6 +11,10 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Generated the first platform-specific content plan for the 2026-06-18 Grant Labs readiness campaign.
 - Added Korean platform-specific post starters to the content automation generator.
 - Refreshed Claude handoff notes with the latest platform content automation commit.
+- Added `npm run content:queue` to generate a platform-specific publishing sequence.
+- Added publishing queue defaults with platform objective, asset, timing, and success-signal guidance.
+- Generated CSV and Markdown publishing queues for the 2026-06-18 campaign.
+- Fixed publishing queue date generation so day-zero posts stay on the campaign date.
 
 ## 2026-06-17
 

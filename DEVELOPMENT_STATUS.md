@@ -132,6 +132,10 @@ Last updated: 2026-06-18
 - Generated `content-automation/output/2026-06-18-grantlabs-growth-check.md` as the first platform-specific posting plan.
 - Content automation now generates Korean post starters for each platform.
 - Handoff memo refreshed after platform content automation implementation.
+- `npm run content:queue` now generates platform-specific publishing queue CSV and Markdown outputs.
+- Publishing queue defaults now include platform objective, asset, timing, and success-signal guidance.
+- Generated publishing queue outputs for the 2026-06-18 campaign.
+- Publishing queue date generation now keeps day-zero posts on the campaign date.
 - `.nvmrc` added and covered by static validation for Node version consistency.
 - `.gitignore` expanded for deployment/build artifacts and covered by static validation.
 - `SECURITY.md` added with vulnerability and deployment-issue reporting guidance.

@@ -1,0 +1,68 @@
+{
+  "sequence": [
+    {
+      "platformId": "naver_blog",
+      "dayOffset": 0,
+      "slot": "09:30",
+      "objective": "Anchor search demand and create the source article for repurposing.",
+      "assetSpec": "Blog cover plus checklist/table images",
+      "successSignal": "Search impressions, checklist clicks, inquiry clicks"
+    },
+    {
+      "platformId": "linkedin_page",
+      "dayOffset": 0,
+      "slot": "11:20",
+      "objective": "Translate the blog into an executive insight for B2B credibility.",
+      "assetSpec": "Text post or PDF-style document carousel",
+      "successSignal": "Profile visits, saves, qualified comments"
+    },
+    {
+      "platformId": "instagram_carousel",
+      "dayOffset": 0,
+      "slot": "18:40",
+      "objective": "Create a saveable checklist from the anchor article.",
+      "assetSpec": "1080x1080 carousel, 7-9 slides",
+      "successSignal": "Saves, shares, profile taps"
+    },
+    {
+      "platformId": "instagram_reels",
+      "dayOffset": 1,
+      "slot": "12:10",
+      "objective": "Turn one checklist gap into a short authority signal.",
+      "assetSpec": "9:16 vertical video, captions, first-frame hook",
+      "successSignal": "Average watch time, replays, profile taps"
+    },
+    {
+      "platformId": "youtube_shorts",
+      "dayOffset": 1,
+      "slot": "18:20",
+      "objective": "Test a searchable question in short-form video.",
+      "assetSpec": "9:16 vertical video, spoken answer, pinned checklist comment",
+      "successSignal": "Retention, search discovery, checklist clicks"
+    },
+    {
+      "platformId": "tiktok",
+      "dayOffset": 2,
+      "slot": "12:30",
+      "objective": "Test a direct warning hook with faster pacing.",
+      "assetSpec": "9:16 vertical video, large captions, checklist overlay",
+      "successSignal": "Completion rate, comments, profile taps"
+    },
+    {
+      "platformId": "facebook_page",
+      "dayOffset": 2,
+      "slot": "17:50",
+      "objective": "Convert the message into a referral-friendly business-owner summary.",
+      "assetSpec": "Readable image or link preview plus phone CTA",
+      "successSignal": "Messages, calls, link clicks"
+    },
+    {
+      "platformId": "youtube_long",
+      "dayOffset": 3,
+      "slot": "19:00",
+      "objective": "Build deeper trust with a structured explanation and chapters.",
+      "assetSpec": "16:9 video, chapters, pinned checklist link",
+      "successSignal": "Watch time, returning viewers, checklist clicks"
+    }
+  ]
+}

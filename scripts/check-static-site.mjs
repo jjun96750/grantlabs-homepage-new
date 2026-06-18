@@ -31,11 +31,15 @@ const requiredFiles = [
   "CHANGELOG.md",
   "scripts/serve-static.mjs",
   "scripts/generate-content-plan.mjs",
+  "scripts/generate-publishing-queue.mjs",
   "scripts/check-local-preview.mjs",
   "scripts/check-deployed-site.mjs",
   "content-automation/platform-rules.json",
+  "content-automation/publishing-defaults.json",
   "content-automation/campaigns/grantlabs-growth-check.json",
   "content-automation/output/2026-06-18-grantlabs-growth-check.md",
+  "content-automation/output/2026-06-18-grantlabs-growth-check-publishing-queue.csv",
+  "content-automation/output/2026-06-18-grantlabs-growth-check-publishing-queue.md",
   ".github/workflows/static-site-check.yml",
   ".github/ISSUE_TEMPLATE/bug_report.md",
   ".github/ISSUE_TEMPLATE/content_update.md",
@@ -293,6 +297,7 @@ if (existsSync("package.json")) {
     if (pkg.private !== true) failures.push("package.json should be private.");
     if (pkg.scripts?.check !== "node scripts/check-static-site.mjs") failures.push("package.json is missing the standard check script.");
     if (pkg.scripts?.["content:plan"] !== "node scripts/generate-content-plan.mjs") failures.push("package.json is missing the content automation plan script.");
+    if (pkg.scripts?.["content:queue"] !== "node scripts/generate-publishing-queue.mjs") failures.push("package.json is missing the content publishing queue script.");
     if (pkg.scripts?.serve !== "node scripts/serve-static.mjs") failures.push("package.json is missing the local preview server script.");
     if (pkg.scripts?.["preview:check"] !== "node scripts/check-local-preview.mjs") failures.push("package.json is missing the local preview check script.");
     if (pkg.scripts?.smoke !== "node scripts/check-deployed-site.mjs") failures.push("package.json is missing the deployed smoke script.");
@@ -342,6 +347,22 @@ if (existsSync("content-automation/campaigns/grantlabs-growth-check.json")) {
   }
 }
 
+if (existsSync("content-automation/publishing-defaults.json")) {
+  try {
+    const defaults = JSON.parse(read("content-automation/publishing-defaults.json"));
+    if (!Array.isArray(defaults.sequence) || defaults.sequence.length < 8) {
+      failures.push("content automation publishing defaults should include the full platform sequence.");
+    }
+    for (const item of defaults.sequence || []) {
+      for (const field of ["platformId", "dayOffset", "slot", "objective", "assetSpec", "successSignal"]) {
+        if (item[field] === undefined || item[field] === "") failures.push(`publishing default is missing field: ${field}`);
+      }
+    }
+  } catch (error) {
+    failures.push(`Invalid content-automation/publishing-defaults.json: ${error.message}`);
+  }
+}
+
 if (existsSync("scripts/generate-content-plan.mjs")) {
   const planner = read("scripts/generate-content-plan.mjs");
   for (const marker of ["content-automation/platform-rules.json", "content-automation", "output", "koreanStarter", "Korean post starter", "complianceNotes", "repurposeRule", "Generated content plan"]) {
@@ -349,10 +370,31 @@ if (existsSync("scripts/generate-content-plan.mjs")) {
   }
 }
 
+if (existsSync("scripts/generate-publishing-queue.mjs")) {
+  const queueGenerator = read("scripts/generate-publishing-queue.mjs");
+  for (const marker of ["content-automation/publishing-defaults.json", "publishing-queue", "successSignal", "Generated publishing queue"]) {
+    if (!queueGenerator.includes(marker)) failures.push(`scripts/generate-publishing-queue.mjs is missing marker: ${marker}`);
+  }
+}
+
 if (existsSync("content-automation/output/2026-06-18-grantlabs-growth-check.md")) {
   const generatedPlan = read("content-automation/output/2026-06-18-grantlabs-growth-check.md");
   for (const marker of ["Naver Blog", "Instagram Carousel", "Instagram Reels", "YouTube Shorts", "YouTube Long-form", "TikTok", "Facebook Page", "LinkedIn Page", "Korean post starter", "정책자금", "Compliance guardrails", "https://grantlabs.co.kr/checklist.html"]) {
     if (!generatedPlan.includes(marker)) failures.push(`generated content plan is missing marker: ${marker}`);
+  }
+}
+
+if (existsSync("content-automation/output/2026-06-18-grantlabs-growth-check-publishing-queue.csv")) {
+  const queueCsv = read("content-automation/output/2026-06-18-grantlabs-growth-check-publishing-queue.csv");
+  for (const marker of ["Naver Blog", "Instagram Carousel", "YouTube Shorts", "TikTok", "LinkedIn Page", "successSignal"]) {
+    if (!queueCsv.includes(marker)) failures.push(`generated publishing queue CSV is missing marker: ${marker}`);
+  }
+}
+
+if (existsSync("content-automation/output/2026-06-18-grantlabs-growth-check-publishing-queue.md")) {
+  const queueMd = read("content-automation/output/2026-06-18-grantlabs-growth-check-publishing-queue.md");
+  for (const marker of ["Publishing Queue", "정책자금", "Naver Blog", "Instagram Carousel", "YouTube Long-form", "Guardrails"]) {
+    if (!queueMd.includes(marker)) failures.push(`generated publishing queue summary is missing marker: ${marker}`);
   }
 }
 
@@ -545,14 +587,14 @@ if (existsSync("DEVELOPMENT_STATUS.md")) {
 
 if (existsSync("README.md")) {
   const readme = read("README.md");
-  for (const marker of ["scripts/", "check-static-site.mjs", "generate-content-plan.mjs", "serve-static.mjs", "check-local-preview.mjs", "check-deployed-site.mjs", "content-automation/", "social-card.svg", "npm run content:plan", "npm run serve", "npm run preview:check"]) {
+  for (const marker of ["scripts/", "check-static-site.mjs", "generate-content-plan.mjs", "generate-publishing-queue.mjs", "serve-static.mjs", "check-local-preview.mjs", "check-deployed-site.mjs", "content-automation/", "social-card.svg", "npm run content:plan", "npm run content:queue", "npm run serve", "npm run preview:check"]) {
     if (!readme.includes(marker)) failures.push(`README.md is missing marker: ${marker}`);
   }
 }
 
 if (existsSync("COMMANDS.md")) {
   const commands = read("COMMANDS.md");
-  for (const marker of ["npm run check", "npm run content:plan", "npm run serve", "npm run preview:check", "npm run smoke", "static-site validation", "platform-specific posting guidance"]) {
+  for (const marker of ["npm run check", "npm run content:plan", "npm run content:queue", "npm run serve", "npm run preview:check", "npm run smoke", "static-site validation", "platform-specific posting guidance", "publishing queue"]) {
     if (!commands.includes(marker)) failures.push(`COMMANDS.md is missing marker: ${marker}`);
   }
 }

@@ -26,15 +26,19 @@ site.webmanifest
 scripts/
   check-static-site.mjs
   generate-content-plan.mjs
+  generate-publishing-queue.mjs
   serve-static.mjs
   check-local-preview.mjs
   check-deployed-site.mjs
 content-automation/
   platform-rules.json
+  publishing-defaults.json
   campaigns/
     grantlabs-growth-check.json
   output/
     2026-06-18-grantlabs-growth-check.md
+    2026-06-18-grantlabs-growth-check-publishing-queue.csv
+    2026-06-18-grantlabs-growth-check-publishing-queue.md
 QA_CHECKLIST.md
 CLOUDFLARE_PAGES_SETUP.md
 DEPLOYMENT_ENVIRONMENTS.md
@@ -70,6 +74,10 @@ npm run check
 
 ```bash
 npm run content:plan
+```
+
+```bash
+npm run content:queue
 ```
 
 ```bash
