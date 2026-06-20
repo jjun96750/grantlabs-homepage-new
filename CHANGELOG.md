@@ -2,6 +2,12 @@
 
 All notable changes to the Grant Labs new homepage are documented here.
 
+## 2026-06-21
+
+- Added `npm run sitemap:refresh` and `scripts/generate-sitemap.mjs` to regenerate sitemap lastmod values from the current Asia/Seoul date.
+- Updated generated status/readiness/journal scripts to use runtime Asia/Seoul dates instead of hardcoded generation dates.
+- Extended GitHub Actions and static validation to reject stale sitemap output.
+
 ## 2026-06-20
 
 - Added a new certification, patent, and policy-funding preparation sequence campaign.

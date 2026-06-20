@@ -13,6 +13,7 @@ npm run content:run
 npm run content:run:all
 npm run content:status
 npm run deployment:readiness
+npm run sitemap:refresh
 npm run status:journal
 npm run status:index
 npm run serve
@@ -30,6 +31,7 @@ npm run smoke -- https://your-pages-preview.pages.dev
 - `npm run content:run:all` runs the full content automation pipeline for all campaigns.
 - `npm run content:status` regenerates the campaign status table for collaborators.
 - `npm run deployment:readiness` regenerates the deployment readiness table for collaborators.
+- `npm run sitemap:refresh` runs the sitemap refresh and regenerates `sitemap.xml` with current Asia/Seoul lastmod values.
 - `npm run status:journal` regenerates the commit-based development journal for collaborators.
 - `npm run status:index` regenerates the collaborator-facing status index document.
 - `npm run serve` starts a dependency-free local preview server at `http://127.0.0.1:4173/`.

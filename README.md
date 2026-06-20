@@ -38,6 +38,7 @@ scripts/
   generate-content-plan.mjs
   generate-content-status.mjs
   generate-deployment-readiness.mjs
+  generate-sitemap.mjs
   generate-development-journal.mjs
   generate-status-index.mjs
   generate-publishing-queue.mjs
@@ -141,6 +142,10 @@ npm run content:status
 
 ```bash
 npm run deployment:readiness
+```
+
+```bash
+npm run sitemap:refresh
 ```
 
 ```bash

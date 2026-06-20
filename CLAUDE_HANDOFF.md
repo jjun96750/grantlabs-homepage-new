@@ -23,6 +23,7 @@
 - The full content automation pipeline can be regenerated with `npm run content:run`.
 - All content automation campaigns can be regenerated with `npm run content:run:all`.
 - Campaign status can be regenerated with `npm run content:status`.
+- Sitemap lastmod values can be regenerated with `npm run sitemap:refresh`.
 - Deployment readiness can be regenerated with `npm run deployment:readiness`.
 - Development journal can be regenerated with `npm run status:journal`.
 - Status index can be regenerated with `npm run status:index`.
@@ -81,6 +82,7 @@ scripts/generate-caption-pack.mjs
 scripts/generate-content-plan.mjs
 scripts/generate-content-status.mjs
 scripts/generate-deployment-readiness.mjs
+scripts/generate-sitemap.mjs
 scripts/generate-development-journal.mjs
 scripts/generate-status-index.mjs
 scripts/generate-publishing-queue.mjs
@@ -159,6 +161,7 @@ content-automation/output/2026-06-20-certification-patent-funding-sequence-publi
 - `scripts/generate-publishing-queue.mjs` creates CSV and Markdown publishing queues with platform timing, asset, objective, and success-signal guidance.
 - `scripts/generate-content-status.mjs` writes `content-automation/CAMPAIGN_STATUS.md` for handoff visibility.
 - `scripts/generate-deployment-readiness.mjs` writes `DEPLOYMENT_READINESS.md` for deployment handoff visibility.
+- `scripts/generate-sitemap.mjs` writes `sitemap.xml` with current Asia/Seoul lastmod values.
 - `scripts/generate-development-journal.mjs` writes `DEVELOPMENT_JOURNAL.md` for implementation-flow visibility.
 - `scripts/generate-status-index.mjs` writes `STATUS_INDEX.md` for fast collaborator orientation.
 - `scripts/run-content-automation.mjs` runs the content plan, asset brief, caption pack, and publishing queue generators in sequence.

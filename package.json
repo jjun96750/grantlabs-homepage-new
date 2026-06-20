@@ -14,6 +14,7 @@
     "content:run:all": "node scripts/run-all-content-automation.mjs",
     "content:status": "node scripts/generate-content-status.mjs",
     "deployment:readiness": "node scripts/generate-deployment-readiness.mjs",
+    "sitemap:refresh": "node scripts/generate-sitemap.mjs",
     "status:journal": "node scripts/generate-development-journal.mjs",
     "status:index": "node scripts/generate-status-index.mjs",
     "serve": "node scripts/serve-static.mjs",

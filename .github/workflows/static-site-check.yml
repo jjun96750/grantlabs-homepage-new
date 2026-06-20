@@ -34,6 +34,12 @@ jobs:
       - name: Verify content automation outputs are committed
         run: git diff --exit-code -- content-automation
 
+      - name: Regenerate sitemap
+        run: npm run sitemap:refresh
+
+      - name: Verify sitemap is committed
+        run: git diff --exit-code -- sitemap.xml
+
       - name: Regenerate deployment readiness report
         run: npm run deployment:readiness
 

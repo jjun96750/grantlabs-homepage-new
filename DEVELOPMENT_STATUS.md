@@ -1,6 +1,6 @@
 # Development Status
 
-Last updated: 2026-06-20
+Last updated: 2026-06-21
 
 ## Project
 
@@ -188,6 +188,9 @@ Last updated: 2026-06-20
 - `ProfessionalService` JSON-LD now includes the canonical Grant Labs logo URL and static validation coverage.
 - `site.webmanifest` now includes app id, scope, locale, categories, maskable icon purpose, and consultation/checklist shortcuts.
 - Open Graph and Twitter image alt metadata now describe the social card on indexable and legal/checklist pages.
+- `npm run sitemap:refresh` now regenerates `sitemap.xml` with current Asia/Seoul lastmod values.
+- Generated status/readiness/journal scripts now use runtime Asia/Seoul dates instead of hardcoded generation dates.
+- GitHub Actions now regenerates `sitemap.xml` and checks for uncommitted sitemap drift.
 - No build step is required.
 
 ## Current Files
@@ -232,6 +235,7 @@ scripts/generate-caption-pack.mjs
 scripts/generate-content-plan.mjs
 scripts/generate-content-status.mjs
 scripts/generate-deployment-readiness.mjs
+scripts/generate-sitemap.mjs
 scripts/generate-development-journal.mjs
 scripts/generate-status-index.mjs
 scripts/generate-publishing-queue.mjs
@@ -434,6 +438,13 @@ CHANGELOG.md
 11. Continue edits only in this repository.
 
 ## Change Log
+
+### 2026-06-21
+
+- Added `scripts/generate-sitemap.mjs` and `npm run sitemap:refresh`.
+- Updated `scripts/generate-deployment-readiness.mjs`, `scripts/generate-development-journal.mjs`, and `scripts/generate-status-index.mjs` to use runtime Asia/Seoul generation dates.
+- Extended `.github/workflows/static-site-check.yml` to regenerate `sitemap.xml` and reject stale sitemap output.
+- Updated `scripts/check-static-site.mjs` to validate current sitemap lastmod values from the runtime Asia/Seoul date.
 
 ### 2026-06-20
 
