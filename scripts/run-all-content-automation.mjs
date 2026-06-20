@@ -48,4 +48,14 @@ if (calendarResult.status !== 0) {
   process.exit(calendarResult.status || 1);
 }
 
+const todayResult = spawnSync(process.execPath, ["scripts/generate-today-actions.mjs"], {
+  stdio: "inherit",
+  shell: false
+});
+
+if (todayResult.status !== 0) {
+  console.error("Today actions generation failed.");
+  process.exit(todayResult.status || 1);
+}
+
 console.log(`\nContent automation completed for ${campaignFiles.length} campaign(s).`);

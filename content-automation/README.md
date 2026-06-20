@@ -64,3 +64,9 @@ Both `npm run check:content` and `npm run check` scan the campaign files and ver
 - `content-automation/PUBLISHING_CALENDAR.csv`
 
 These files combine every campaign publishing queue into one operations calendar. `npm run content:run:all` refreshes them automatically, and `npm run content:calendar` refreshes only the calendar.
+
+## Today Actions
+
+- `content-automation/TODAY_ACTIONS.md`
+
+This file filters the cross-campaign calendar to the current Asia/Seoul date. `npm run content:run:all` refreshes it automatically, and `npm run content:today` refreshes only today's action list.

@@ -193,6 +193,7 @@ Last updated: 2026-06-21
 - GitHub Actions now regenerates `sitemap.xml` and checks for uncommitted sitemap drift.
 - Added the 2026-06-21 consultation checklist conversion campaign.
 - Added `npm run content:calendar` and cross-campaign publishing calendar outputs.
+- Added `npm run content:today` and same-day publishing handoff output.
 - No build step is required.
 
 ## Current Files
@@ -237,6 +238,7 @@ scripts/generate-caption-pack.mjs
 scripts/generate-content-plan.mjs
 scripts/generate-content-status.mjs
 scripts/generate-publishing-calendar.mjs
+scripts/generate-today-actions.mjs
 scripts/generate-deployment-readiness.mjs
 scripts/generate-sitemap.mjs
 scripts/generate-development-journal.mjs
@@ -248,6 +250,7 @@ content-automation/README.md
 content-automation/CAMPAIGN_STATUS.md
 content-automation/PUBLISHING_CALENDAR.md
 content-automation/PUBLISHING_CALENDAR.csv
+content-automation/TODAY_ACTIONS.md
 content-automation/platform-rules.json
 content-automation/publishing-defaults.json
 content-automation/campaigns/certification-patent-funding-sequence.json
@@ -458,6 +461,7 @@ CHANGELOG.md
 - Updated `scripts/check-static-site.mjs` to validate current sitemap lastmod values from the runtime Asia/Seoul date.
 - Added `content-automation/campaigns/consultation-checklist-conversion.json`.
 - Added `scripts/generate-publishing-calendar.mjs`, `npm run content:calendar`, `content-automation/PUBLISHING_CALENDAR.md`, and `content-automation/PUBLISHING_CALENDAR.csv`.
+- Added `scripts/generate-today-actions.mjs`, `npm run content:today`, and `content-automation/TODAY_ACTIONS.md`.
 
 ### 2026-06-20
 

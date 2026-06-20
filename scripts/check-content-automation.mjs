@@ -5,6 +5,7 @@ const campaignsDir = "content-automation/campaigns";
 const outputDir = "content-automation/output";
 const calendarCsv = "content-automation/PUBLISHING_CALENDAR.csv";
 const calendarMd = "content-automation/PUBLISHING_CALENDAR.md";
+const todayActions = "content-automation/TODAY_ACTIONS.md";
 
 const requiredPlatformMarkers = [
   "Naver Blog",
@@ -45,6 +46,7 @@ if (!campaignFiles.length) failures.push("No content automation campaigns found.
 if (!outputFiles.length) failures.push("No content automation outputs found.");
 if (!existsSync(calendarCsv)) failures.push("Missing generated publishing calendar CSV.");
 if (!existsSync(calendarMd)) failures.push("Missing generated publishing calendar markdown.");
+if (!existsSync(todayActions)) failures.push("Missing generated today actions markdown.");
 
 for (const campaignFile of campaignFiles) {
   try {
@@ -107,6 +109,13 @@ if (existsSync(calendarMd)) {
   const calendar = read(calendarMd);
   for (const marker of ["Grant Labs Publishing Calendar", "npm run content:calendar", "Naver Blog", "LinkedIn Page", "consultation-checklist-conversion"]) {
     if (!calendar.includes(marker)) failures.push(`Publishing calendar is missing marker: ${marker}`);
+  }
+}
+
+if (existsSync(todayActions)) {
+  const today = read(todayActions);
+  for (const marker of ["Grant Labs Today Actions", "Today Queue", "npm run content:today", "consultation-checklist-conversion"]) {
+    if (!today.includes(marker)) failures.push(`Today actions document is missing marker: ${marker}`);
   }
 }
 

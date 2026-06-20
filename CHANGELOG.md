@@ -9,6 +9,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Extended GitHub Actions and static validation to reject stale sitemap output.
 - Added a consultation-checklist conversion campaign for 2026-06-21.
 - Added `npm run content:calendar` and cross-campaign publishing calendar outputs.
+- Added `npm run content:today` and `content-automation/TODAY_ACTIONS.md` for same-day publishing handoff.
 
 ## 2026-06-20
 
