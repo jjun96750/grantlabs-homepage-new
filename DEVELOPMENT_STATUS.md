@@ -183,6 +183,8 @@ Last updated: 2026-06-20
 - Contact phone field now uses telephone input mode, a lightweight pattern, and static validation coverage.
 - Grant Labs logo SVG assets are committed under `assets/brand/` and applied to the header, footer, 404 page, privacy page, and checklist page.
 - Static validation and Cloudflare cache policy coverage now include the brand logo assets.
+- `social-card.svg` now uses the Grant Labs wordmark treatment.
+- Local preview and deployed smoke checks now request brand logo SVG assets directly.
 - No build step is required.
 
 ## Current Files
@@ -451,6 +453,8 @@ CHANGELOG.md
 - Added Grant Labs logo SVG assets under `assets/brand/`.
 - Replaced text-based brand marks with logo wordmarks in the homepage header/footer, 404 page, privacy page, and checklist page.
 - Extended static validation and `_headers` cache rules for brand logo assets.
+- Updated `social-card.svg` to align with the logo wordmark treatment.
+- Extended `scripts/check-local-preview.mjs` and `scripts/check-deployed-site.mjs` to request brand logo SVG assets directly.
 
 ### 2026-06-19
 

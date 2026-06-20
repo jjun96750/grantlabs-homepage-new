@@ -20,6 +20,8 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Extended GitHub Actions to regenerate `DEVELOPMENT_JOURNAL.md` and fail on uncommitted journal drift.
 - Added Grant Labs logo SVG assets and applied the wordmark to the header, footer, 404 page, and legal/checklist headers.
 - Added static validation and cache policy coverage for the brand logo assets.
+- Updated `social-card.svg` to use the Grant Labs wordmark treatment.
+- Extended local preview and deployed smoke checks to request brand logo SVG assets directly.
 
 ## 2026-06-19
 

@@ -20,12 +20,9 @@
   <path d="M870 70h260v490H774c58-52 91-121 96-207 6-101-28-194 0-283Z" fill="#edf5f1"/>
   <circle cx="970" cy="218" r="108" fill="#dfeee7"/>
   <circle cx="1038" cy="366" r="142" fill="#cfe2d8"/>
-  <g transform="translate(112 108)">
-    <rect width="96" height="96" rx="28" fill="url(#mark)"/>
-    <text x="48" y="62" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="800" fill="#ffffff">GL</text>
-  </g>
-  <text x="232" y="150" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="800" fill="#173b33">Grant Labs</text>
-  <text x="232" y="188" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" letter-spacing="3" fill="#52736a">GROWTH FUNDING PARTNER</text>
+  <text x="112" y="154" font-family="Outfit, Arial, Helvetica, sans-serif" font-size="54" font-weight="850" fill="#173b33">Grant Labs</text>
+  <rect x="112" y="178" width="254" height="4" rx="2" fill="url(#mark)"/>
+  <text x="112" y="218" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" letter-spacing="3" fill="#52736a">GROWTH FUNDING PARTNER</text>
   <text x="112" y="286" font-family="Arial, Helvetica, sans-serif" font-size="56" font-weight="850" fill="#132f2a">Policy funding to</text>
   <text x="112" y="352" font-family="Arial, Helvetica, sans-serif" font-size="56" font-weight="850" fill="#132f2a">execution roadmap</text>
   <text x="112" y="422" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="600" fill="#526a64">Funding, certification, R&amp;D center, IP, incorporation, and support programs.</text>

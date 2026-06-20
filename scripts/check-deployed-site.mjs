@@ -22,7 +22,9 @@ const checks = [
   { path: "/sitemap.xml", marker: "<urlset", contentType: "xml", headers: ["cache-control"] },
   { path: "/site.webmanifest", marker: "Grant Labs", contentType: "json", headers: ["cache-control"] },
   { path: "/favicon.svg", marker: "<svg", contentType: "image/svg", headers: ["cache-control"] },
-  { path: "/social-card.svg", marker: "Grant Labs social sharing card", contentType: "image/svg", headers: ["cache-control"] },
+  { path: "/assets/brand/grant-labs-logo-white.svg", marker: "Grant Labs", contentType: "image/svg", headers: ["cache-control"] },
+  { path: "/assets/brand/grant-labs-logo-black.svg", marker: "Grant Labs", contentType: "image/svg", headers: ["cache-control"] },
+  { path: "/social-card.svg", marker: "GROWTH FUNDING PARTNER", contentType: "image/svg", headers: ["cache-control"] },
 ];
 
 const sitemapContentCheck = {

@@ -126,7 +126,7 @@ content-automation/output/2026-06-20-certification-patent-funding-sequence-publi
 - First screen uses a real business meeting photo from Unsplash.
 - The page is intentionally static for simple Cloudflare Pages deployment.
 - Static deployment support files are present: `_headers`, `robots.txt`, `sitemap.xml`, `favicon.svg`, and `site.webmanifest`.
-- Social sharing image is committed as `social-card.svg` and connected to Open Graph/Twitter metadata.
+- Social sharing image is committed as `social-card.svg`, uses the Grant Labs wordmark treatment, and is connected to Open Graph/Twitter metadata.
 - Privacy notice page is available at `privacy.html` and is linked from the form and footer.
 - Consultation checklist page is available at `checklist.html` and linked from the homepage/footer.
 - Contact form uses EmailJS first, then falls back to a pre-filled email draft.
@@ -141,8 +141,8 @@ content-automation/output/2026-06-20-certification-patent-funding-sequence-publi
 - `privacy.html` discloses the optional email field used by the consultation form.
 - `scripts/check-static-site.mjs` verifies required files including `.nojekyll`, metadata, duplicate HTML ids, hero image performance attributes, contact form fields, optional email payload handling, mobile-friendly phone input constraints, canonical contact values, EmailJS config values, CDN version pins, CSP allowlists including Pretendard font loading, `_headers`/local preview security-header synchronization, JSON-LD, docs markers, command docs, editor config, Node version pin, gitignore hygiene, SVG and brand logo asset metadata, robots/sitemap/canonical consistency, local `href` / `src` targets, cross-page hashes, inline event handler cleanup, and external new-window link safety.
 - `scripts/serve-static.mjs` provides a dependency-free local preview server at `http://127.0.0.1:4173/` with explicit 404, HEAD request handling, secured 405 responses, and Cloudflare-like security headers.
-- `scripts/check-local-preview.mjs` verifies local preview GET, HEAD, and unsupported-method status codes, content types, `Cache-Control: no-store`, homepage CDN script integrity markers, missing-route handling, and security/CSP headers including HSTS and Pretendard style/font loading.
-- `scripts/check-deployed-site.mjs` verifies pages, response headers, CSP markers, `Content-Type` values, homepage CDN script integrity markers, missing-route 404 handling, sitemap noindex cleanup, and prints a pass summary.
+- `scripts/check-local-preview.mjs` verifies local preview GET, HEAD, and unsupported-method status codes, content types, brand logo SVG asset responses, `Cache-Control: no-store`, homepage CDN script integrity markers, missing-route handling, and security/CSP headers including HSTS and Pretendard style/font loading.
+- `scripts/check-deployed-site.mjs` verifies pages, brand logo SVG assets, response headers, CSP markers, `Content-Type` values, homepage CDN script integrity markers, missing-route 404 handling, sitemap noindex cleanup, and prints a pass summary.
 - GitHub Actions runs `npm run content:run:all`, rejects uncommitted content automation drift, regenerates `DEPLOYMENT_READINESS.md`, rejects uncommitted readiness drift, regenerates `DEVELOPMENT_JOURNAL.md`, rejects uncommitted journal drift, regenerates `STATUS_INDEX.md`, rejects uncommitted status-index drift, runs `npm run check:content`, runs `npm run check`, starts the local preview server, and runs `npm run preview:check` on pushes to `main` and pull requests, with timeout and concurrency controls.
 - `content-automation/platform-rules.json` defines per-platform posting strategy for Naver Blog, Instagram, YouTube, TikTok, Facebook, and LinkedIn.
 - `content-automation/README.md` documents the campaign workflow, active campaigns, and expected generated output set.

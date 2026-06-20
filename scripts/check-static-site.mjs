@@ -557,7 +557,7 @@ if (existsSync("content-automation/output/2026-06-18-grantlabs-growth-check-publ
 
 if (existsSync("scripts/check-local-preview.mjs")) {
   const previewCheck = read("scripts/check-local-preview.mjs");
-  for (const marker of ["http://127.0.0.1:4173", "/styles/homepage.css", "/__missing-local-preview__", "strict-transport-security", "content-security-policy", "x-frame-options", "cache-control", "no-store", "htmlIntegrityMarkers", "method: \"HEAD\"", "method: \"POST\"", "GET, HEAD", "style-src 'self' https://cdn.jsdelivr.net", "font-src 'self' https://cdn.jsdelivr.net data:", lucideIntegrity, emailJsIntegrity, "Local preview check passed"]) {
+  for (const marker of ["http://127.0.0.1:4173", "/styles/homepage.css", "/assets/brand/grant-labs-logo-white.svg", "/assets/brand/grant-labs-logo-black.svg", "/social-card.svg", "/__missing-local-preview__", "strict-transport-security", "content-security-policy", "x-frame-options", "cache-control", "no-store", "htmlIntegrityMarkers", "method: \"HEAD\"", "method: \"POST\"", "GET, HEAD", "style-src 'self' https://cdn.jsdelivr.net", "font-src 'self' https://cdn.jsdelivr.net data:", lucideIntegrity, emailJsIntegrity, "Local preview check passed"]) {
     if (!previewCheck.includes(marker)) failures.push(`scripts/check-local-preview.mjs is missing marker: ${marker}`);
   }
 }
@@ -614,6 +614,9 @@ if (existsSync("social-card.svg")) {
   }
   if (!socialCard.includes("grantlabs.co.kr")) {
     failures.push("social-card.svg is missing the public domain label.");
+  }
+  if (!socialCard.includes("GROWTH FUNDING PARTNER")) {
+    failures.push("social-card.svg is missing the Grant Labs wordmark support line.");
   }
 }
 
@@ -707,7 +710,7 @@ if (existsSync("_redirects")) {
 
 if (existsSync("scripts/check-deployed-site.mjs")) {
   const smokeCheck = read("scripts/check-deployed-site.mjs");
-  for (const path of ["/", "/privacy.html", "/checklist.html", "/robots.txt", "/sitemap.xml", "/social-card.svg"]) {
+  for (const path of ["/", "/privacy.html", "/checklist.html", "/robots.txt", "/sitemap.xml", "/assets/brand/grant-labs-logo-white.svg", "/assets/brand/grant-labs-logo-black.svg", "/social-card.svg"]) {
     if (!smokeCheck.includes(path)) failures.push(`Deployed smoke check is missing path: ${path}`);
   }
   if (!smokeCheck.includes("/__missing-smoke-test__") || !smokeCheck.includes("expectedStatus: 404")) {

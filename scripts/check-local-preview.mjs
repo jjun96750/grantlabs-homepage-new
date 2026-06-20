@@ -21,6 +21,9 @@ const cspMarkers = [
 const checks = [
   { path: "/", status: 200, marker: "Grant Labs", contentType: "text/html" },
   { path: "/styles/homepage.css", status: 200, marker: ".hero", contentType: "text/css" },
+  { path: "/assets/brand/grant-labs-logo-white.svg", status: 200, marker: "Grant Labs", contentType: "image/svg" },
+  { path: "/assets/brand/grant-labs-logo-black.svg", status: 200, marker: "Grant Labs", contentType: "image/svg" },
+  { path: "/social-card.svg", status: 200, marker: "GROWTH FUNDING PARTNER", contentType: "image/svg" },
   { path: "/__missing-local-preview__", status: 404, marker: "404", contentType: "text/html" },
 ];
 
