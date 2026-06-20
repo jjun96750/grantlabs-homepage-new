@@ -8,6 +8,7 @@ const contains = (file, marker) => existsSync(file) && read(file).includes(marke
 const docs = [
   ["Start Here", "CLAUDE_HANDOFF.md", "Scope, current state, commands, files, and next steps for a new collaborator"],
   ["Development Log", "DEVELOPMENT_STATUS.md", "Long-running implementation status and chronological development notes"],
+  ["Development Journal", "DEVELOPMENT_JOURNAL.md", "Commit-based implementation flow for quick collaborator catch-up"],
   ["Campaign Status", "content-automation/CAMPAIGN_STATUS.md", "Campaign list and generated content output coverage"],
   ["Deployment Readiness", "DEPLOYMENT_READINESS.md", "Cloudflare Pages readiness checks and open deployment placeholders"],
   ["Deployment Environments", "DEPLOYMENT_ENVIRONMENTS.md", "Preview, production, domain, EmailJS, and smoke-test records"],
@@ -26,6 +27,7 @@ const guardrails = [
   ["Repository isolation", contains("CLAUDE_HANDOFF.md", "Do not modify the existing `grantlabs-website`")],
   ["Content drift checked in CI", contains(".github/workflows/static-site-check.yml", "git diff --exit-code -- content-automation")],
   ["Deployment readiness drift checked in CI", contains(".github/workflows/static-site-check.yml", "git diff --exit-code -- DEPLOYMENT_READINESS.md")],
+  ["Development journal drift checked in CI", contains(".github/workflows/static-site-check.yml", "git diff --exit-code -- DEVELOPMENT_JOURNAL.md")],
   ["Local preview checked in CI", contains(".github/workflows/static-site-check.yml", "npm run preview:check")],
   ["Content quality command documented", contains("COMMANDS.md", "npm run check:content")],
   ["Deployment readiness command documented", contains("COMMANDS.md", "npm run deployment:readiness")]
@@ -58,6 +60,7 @@ ${guardrailRows}
 \`\`\`bash
 npm run content:status
 npm run deployment:readiness
+npm run status:journal
 npm run status:index
 npm run check:content
 npm run check

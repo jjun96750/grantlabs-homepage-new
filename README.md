@@ -31,6 +31,7 @@ scripts/
   generate-content-plan.mjs
   generate-content-status.mjs
   generate-deployment-readiness.mjs
+  generate-development-journal.mjs
   generate-status-index.mjs
   generate-publishing-queue.mjs
   run-all-content-automation.mjs
@@ -67,6 +68,7 @@ QA_CHECKLIST.md
 CLOUDFLARE_PAGES_SETUP.md
 DEPLOYMENT_ENVIRONMENTS.md
 DEPLOYMENT_READINESS.md
+DEVELOPMENT_JOURNAL.md
 STATUS_INDEX.md
 ROLLBACK_PLAN.md
 CHANGELOG.md
@@ -132,6 +134,10 @@ npm run content:status
 
 ```bash
 npm run deployment:readiness
+```
+
+```bash
+npm run status:journal
 ```
 
 ```bash

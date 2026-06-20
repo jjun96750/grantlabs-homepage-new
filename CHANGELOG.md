@@ -16,6 +16,8 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Added `npm run deployment:readiness` and `DEPLOYMENT_READINESS.md` for collaborator-facing deployment status.
 - Extended GitHub Actions to regenerate `DEPLOYMENT_READINESS.md` and fail on uncommitted readiness drift.
 - Added `npm run status:index` and `STATUS_INDEX.md` as a collaborator-facing map of status documents and guardrails.
+- Added `npm run status:journal` and `DEVELOPMENT_JOURNAL.md` for commit-based implementation history.
+- Extended GitHub Actions to regenerate `DEVELOPMENT_JOURNAL.md` and fail on uncommitted journal drift.
 
 ## 2026-06-19
 

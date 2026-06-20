@@ -20,6 +20,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -37,6 +39,12 @@ jobs:
 
       - name: Verify deployment readiness report is committed
         run: git diff --exit-code -- DEPLOYMENT_READINESS.md
+
+      - name: Regenerate development journal
+        run: npm run status:journal
+
+      - name: Verify development journal is committed
+        run: git diff --exit-code -- DEVELOPMENT_JOURNAL.md
 
       - name: Regenerate status index
         run: npm run status:index

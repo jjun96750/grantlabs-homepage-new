@@ -21,6 +21,7 @@ const requiredFiles = [
   "LICENSE",
   "README.md",
   "STATUS_INDEX.md",
+  "DEVELOPMENT_JOURNAL.md",
   "COMMANDS.md",
   "CONTRIBUTING.md",
   "CLAUDE_HANDOFF.md",
@@ -39,6 +40,7 @@ const requiredFiles = [
   "scripts/generate-content-status.mjs",
   "scripts/generate-content-plan.mjs",
   "scripts/generate-deployment-readiness.mjs",
+  "scripts/generate-development-journal.mjs",
   "scripts/generate-status-index.mjs",
   "scripts/generate-publishing-queue.mjs",
   "scripts/run-all-content-automation.mjs",
@@ -363,6 +365,7 @@ if (existsSync("package.json")) {
     if (pkg.scripts?.["content:run:all"] !== "node scripts/run-all-content-automation.mjs") failures.push("package.json is missing the all-campaign content automation runner script.");
     if (pkg.scripts?.["content:status"] !== "node scripts/generate-content-status.mjs") failures.push("package.json is missing the content automation status script.");
     if (pkg.scripts?.["deployment:readiness"] !== "node scripts/generate-deployment-readiness.mjs") failures.push("package.json is missing the deployment readiness script.");
+    if (pkg.scripts?.["status:journal"] !== "node scripts/generate-development-journal.mjs") failures.push("package.json is missing the development journal script.");
     if (pkg.scripts?.["status:index"] !== "node scripts/generate-status-index.mjs") failures.push("package.json is missing the status index script.");
     if (pkg.scripts?.serve !== "node scripts/serve-static.mjs") failures.push("package.json is missing the local preview server script.");
     if (pkg.scripts?.["preview:check"] !== "node scripts/check-local-preview.mjs") failures.push("package.json is missing the local preview check script.");
@@ -450,9 +453,16 @@ if (existsSync("scripts/generate-deployment-readiness.mjs")) {
   }
 }
 
+if (existsSync("scripts/generate-development-journal.mjs")) {
+  const journalGenerator = read("scripts/generate-development-journal.mjs");
+  for (const marker of ["DEVELOPMENT_JOURNAL.md", "Recent Implementation Flow", "Refresh handoff", "Generated development journal"]) {
+    if (!journalGenerator.includes(marker)) failures.push(`scripts/generate-development-journal.mjs is missing marker: ${marker}`);
+  }
+}
+
 if (existsSync("scripts/generate-status-index.mjs")) {
   const statusIndexGenerator = read("scripts/generate-status-index.mjs");
-  for (const marker of ["STATUS_INDEX.md", "Recommended Reading Order", "Guardrail Summary", "Generated status index"]) {
+  for (const marker of ["STATUS_INDEX.md", "DEVELOPMENT_JOURNAL.md", "Recommended Reading Order", "Guardrail Summary", "Generated status index"]) {
     if (!statusIndexGenerator.includes(marker)) failures.push(`scripts/generate-status-index.mjs is missing marker: ${marker}`);
   }
 }
@@ -730,8 +740,15 @@ if (existsSync("DEPLOYMENT_READINESS.md")) {
 
 if (existsSync("STATUS_INDEX.md")) {
   const statusIndex = read("STATUS_INDEX.md");
-  for (const marker of ["Grant Labs Status Index", "Recommended Reading Order", "Guardrail Summary", "npm run status:index", "CLAUDE_HANDOFF.md", "DEPLOYMENT_READINESS.md"]) {
+  for (const marker of ["Grant Labs Status Index", "Recommended Reading Order", "Guardrail Summary", "npm run status:journal", "npm run status:index", "CLAUDE_HANDOFF.md", "DEVELOPMENT_JOURNAL.md", "DEPLOYMENT_READINESS.md"]) {
     if (!statusIndex.includes(marker)) failures.push(`STATUS_INDEX.md is missing marker: ${marker}`);
+  }
+}
+
+if (existsSync("DEVELOPMENT_JOURNAL.md")) {
+  const journal = read("DEVELOPMENT_JOURNAL.md");
+  for (const marker of ["Grant Labs Development Journal", "Recent Implementation Flow", "npm run status:journal", "STATUS_INDEX.md"]) {
+    if (!journal.includes(marker)) failures.push(`DEVELOPMENT_JOURNAL.md is missing marker: ${marker}`);
   }
 }
 
@@ -744,14 +761,14 @@ if (existsSync("DEVELOPMENT_STATUS.md")) {
 
 if (existsSync("README.md")) {
   const readme = read("README.md");
-  for (const marker of ["scripts/", "check-static-site.mjs", "check-content-automation.mjs", "generate-asset-briefs.mjs", "generate-caption-pack.mjs", "generate-content-plan.mjs", "generate-content-status.mjs", "generate-deployment-readiness.mjs", "generate-status-index.mjs", "generate-publishing-queue.mjs", "run-all-content-automation.mjs", "run-content-automation.mjs", "serve-static.mjs", "check-local-preview.mjs", "check-deployed-site.mjs", "content-automation/", "social-card.svg", "npm run check:content", "npm run content:assets", "npm run content:captions", "npm run content:plan", "npm run content:queue", "npm run content:run", "npm run content:run:all", "npm run content:status", "npm run deployment:readiness", "npm run status:index", "npm run serve", "npm run preview:check"]) {
+  for (const marker of ["scripts/", "check-static-site.mjs", "check-content-automation.mjs", "generate-asset-briefs.mjs", "generate-caption-pack.mjs", "generate-content-plan.mjs", "generate-content-status.mjs", "generate-deployment-readiness.mjs", "generate-development-journal.mjs", "generate-status-index.mjs", "generate-publishing-queue.mjs", "run-all-content-automation.mjs", "run-content-automation.mjs", "serve-static.mjs", "check-local-preview.mjs", "check-deployed-site.mjs", "content-automation/", "DEVELOPMENT_JOURNAL.md", "social-card.svg", "npm run check:content", "npm run content:assets", "npm run content:captions", "npm run content:plan", "npm run content:queue", "npm run content:run", "npm run content:run:all", "npm run content:status", "npm run deployment:readiness", "npm run status:journal", "npm run status:index", "npm run serve", "npm run preview:check"]) {
     if (!readme.includes(marker)) failures.push(`README.md is missing marker: ${marker}`);
   }
 }
 
 if (existsSync("COMMANDS.md")) {
   const commands = read("COMMANDS.md");
-  for (const marker of ["npm run check", "npm run check:content", "npm run content:assets", "npm run content:captions", "npm run content:plan", "npm run content:queue", "npm run content:run", "npm run content:run:all", "npm run content:status", "npm run deployment:readiness", "npm run status:index", "npm run serve", "npm run preview:check", "npm run smoke", "static-site validation", "content automation quality", "asset briefs", "caption pack", "platform-specific posting guidance", "publishing queue", "full content automation", "all campaigns", "campaign status", "deployment readiness", "status index"]) {
+  for (const marker of ["npm run check", "npm run check:content", "npm run content:assets", "npm run content:captions", "npm run content:plan", "npm run content:queue", "npm run content:run", "npm run content:run:all", "npm run content:status", "npm run deployment:readiness", "npm run status:journal", "npm run status:index", "npm run serve", "npm run preview:check", "npm run smoke", "static-site validation", "content automation quality", "asset briefs", "caption pack", "platform-specific posting guidance", "publishing queue", "full content automation", "all campaigns", "campaign status", "deployment readiness", "development journal", "status index"]) {
     if (!commands.includes(marker)) failures.push(`COMMANDS.md is missing marker: ${marker}`);
   }
 }
@@ -806,7 +823,7 @@ if (existsSync("CLOUDFLARE_PAGES_SETUP.md")) {
 
 if (existsSync(".github/workflows/static-site-check.yml")) {
   const workflow = read(".github/workflows/static-site-check.yml");
-  for (const marker of ["actions/setup-node@v4", "node-version: 20", "timeout-minutes: 5", "concurrency:", "cancel-in-progress: true", "npm run content:run:all", "git diff --exit-code -- content-automation", "npm run deployment:readiness", "git diff --exit-code -- DEPLOYMENT_READINESS.md", "npm run status:index", "git diff --exit-code -- STATUS_INDEX.md", "npm run check:content", "npm run check", "npm run serve", "npm run preview:check", "127.0.0.1:4173"]) {
+  for (const marker of ["actions/setup-node@v4", "fetch-depth: 0", "node-version: 20", "timeout-minutes: 5", "concurrency:", "cancel-in-progress: true", "npm run content:run:all", "git diff --exit-code -- content-automation", "npm run deployment:readiness", "git diff --exit-code -- DEPLOYMENT_READINESS.md", "npm run status:journal", "git diff --exit-code -- DEVELOPMENT_JOURNAL.md", "npm run status:index", "git diff --exit-code -- STATUS_INDEX.md", "npm run check:content", "npm run check", "npm run serve", "npm run preview:check", "127.0.0.1:4173"]) {
     if (!workflow.includes(marker)) failures.push(`static-site-check workflow is missing marker: ${marker}`);
   }
 }

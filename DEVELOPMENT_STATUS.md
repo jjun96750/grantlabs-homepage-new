@@ -165,6 +165,8 @@ Last updated: 2026-06-20
 - Added `npm run deployment:readiness` and `DEPLOYMENT_READINESS.md` to summarize deployment readiness and open deployment placeholders.
 - GitHub Actions now regenerates `DEPLOYMENT_READINESS.md` and checks for uncommitted readiness drift.
 - Added `npm run status:index` and `STATUS_INDEX.md` to give collaborators a single map of status documents and guardrails.
+- Added `npm run status:journal` and `DEVELOPMENT_JOURNAL.md` to keep a commit-based implementation journal for collaborators.
+- GitHub Actions now regenerates `DEVELOPMENT_JOURNAL.md` and checks for uncommitted journal drift.
 - `.nvmrc` added and covered by static validation for Node version consistency.
 - `.gitignore` expanded for deployment/build artifacts and covered by static validation.
 - `SECURITY.md` added with vulnerability and deployment-issue reporting guidance.
@@ -218,6 +220,7 @@ scripts/generate-caption-pack.mjs
 scripts/generate-content-plan.mjs
 scripts/generate-content-status.mjs
 scripts/generate-deployment-readiness.mjs
+scripts/generate-development-journal.mjs
 scripts/generate-status-index.mjs
 scripts/generate-publishing-queue.mjs
 scripts/run-all-content-automation.mjs
@@ -252,6 +255,7 @@ content-automation/output/2026-06-20-certification-patent-funding-sequence-publi
 .github/CODEOWNERS
 DEPLOYMENT_ENVIRONMENTS.md
 DEPLOYMENT_READINESS.md
+DEVELOPMENT_JOURNAL.md
 STATUS_INDEX.md
 ROLLBACK_PLAN.md
 SECURITY.md
@@ -435,6 +439,8 @@ CHANGELOG.md
 - Extended `.github/workflows/static-site-check.yml` to regenerate `DEPLOYMENT_READINESS.md` and reject stale readiness reports.
 - Added `scripts/generate-status-index.mjs`, `npm run status:index`, and `STATUS_INDEX.md`.
 - Extended `.github/workflows/static-site-check.yml` to regenerate `STATUS_INDEX.md` and reject stale status index reports.
+- Added `scripts/generate-development-journal.mjs`, `npm run status:journal`, and `DEVELOPMENT_JOURNAL.md`.
+- Extended `.github/workflows/static-site-check.yml` to regenerate `DEVELOPMENT_JOURNAL.md` and reject stale development journal reports.
 
 ### 2026-06-19
 
