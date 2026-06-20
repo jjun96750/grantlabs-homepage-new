@@ -186,6 +186,7 @@ Last updated: 2026-06-20
 - `social-card.svg` now uses the Grant Labs wordmark treatment.
 - Local preview and deployed smoke checks now request brand logo SVG assets directly.
 - `ProfessionalService` JSON-LD now includes the canonical Grant Labs logo URL and static validation coverage.
+- `site.webmanifest` now includes app id, scope, locale, categories, maskable icon purpose, and consultation/checklist shortcuts.
 - No build step is required.
 
 ## Current Files
@@ -457,6 +458,7 @@ CHANGELOG.md
 - Updated `social-card.svg` to align with the logo wordmark treatment.
 - Extended `scripts/check-local-preview.mjs` and `scripts/check-deployed-site.mjs` to request brand logo SVG assets directly.
 - Added the canonical Grant Labs logo URL to `ProfessionalService` JSON-LD and static validation.
+- Expanded `site.webmanifest` with app id, scope, locale, categories, maskable icon purpose, and consultation/checklist shortcuts.
 
 ### 2026-06-19
 

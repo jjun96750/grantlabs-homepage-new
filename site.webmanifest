@@ -2,15 +2,30 @@
   "name": "Grant Labs",
   "short_name": "Grant Labs",
   "description": "정책자금과 기업성장을 실행으로 연결하는 Grant Labs 홈페이지",
+  "id": "/",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
+  "lang": "ko-KR",
+  "categories": ["business", "productivity"],
   "background_color": "#f7f8f6",
   "theme_color": "#0f6b55",
   "icons": [
     {
       "src": "/favicon.svg",
       "sizes": "64x64",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "상담 신청",
+      "url": "/#contact"
+    },
+    {
+      "name": "상담 준비 체크리스트",
+      "url": "/checklist.html"
     }
   ]
 }

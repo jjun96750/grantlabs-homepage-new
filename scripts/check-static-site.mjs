@@ -355,7 +355,19 @@ if (existsSync("styles/homepage.css")) {
 
 if (existsSync("site.webmanifest")) {
   try {
-    JSON.parse(read("site.webmanifest"));
+    const manifest = JSON.parse(read("site.webmanifest"));
+    if (manifest.id !== "/") failures.push("site.webmanifest is missing the canonical app id.");
+    if (manifest.scope !== "/") failures.push("site.webmanifest is missing the canonical scope.");
+    if (manifest.lang !== "ko-KR") failures.push("site.webmanifest should declare Korean locale.");
+    if (!Array.isArray(manifest.categories) || !manifest.categories.includes("business")) {
+      failures.push("site.webmanifest should include the business category.");
+    }
+    if (!Array.isArray(manifest.icons) || !manifest.icons.some((icon) => icon.src === "/favicon.svg" && icon.purpose === "any maskable")) {
+      failures.push("site.webmanifest should expose the favicon as an any maskable icon.");
+    }
+    if (!Array.isArray(manifest.shortcuts) || !manifest.shortcuts.some((shortcut) => shortcut.url === "/#contact") || !manifest.shortcuts.some((shortcut) => shortcut.url === "/checklist.html")) {
+      failures.push("site.webmanifest should include consultation and checklist shortcuts.");
+    }
   } catch (error) {
     failures.push(`Invalid site.webmanifest JSON: ${error.message}`);
   }
