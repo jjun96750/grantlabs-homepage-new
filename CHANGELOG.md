@@ -10,6 +10,8 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Updated static validation to scan campaign inputs and generated output sets dynamically instead of maintaining campaign-specific required-file entries.
 - Added `npm run content:run:all` to regenerate every content automation campaign in one command.
 - Updated command docs and automation docs with the all-campaign regeneration workflow.
+- Added `npm run content:status` to generate a collaborator-facing campaign status table.
+- Added static validation coverage for `content-automation/CAMPAIGN_STATUS.md`.
 
 ## 2026-06-19
 

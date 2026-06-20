@@ -159,6 +159,8 @@ Last updated: 2026-06-20
 - Static validation now scans all campaign inputs and required generated output sets dynamically.
 - Added `npm run content:run:all` for regenerating every campaign in one command.
 - Command docs and content automation docs now describe the all-campaign regeneration workflow.
+- Added `npm run content:status` to regenerate a collaborator-facing campaign status table.
+- `content-automation/CAMPAIGN_STATUS.md` now records campaign outputs in one table for handoff visibility.
 - `.nvmrc` added and covered by static validation for Node version consistency.
 - `.gitignore` expanded for deployment/build artifacts and covered by static validation.
 - `SECURITY.md` added with vulnerability and deployment-issue reporting guidance.
@@ -210,10 +212,12 @@ scripts/check-content-automation.mjs
 scripts/generate-asset-briefs.mjs
 scripts/generate-caption-pack.mjs
 scripts/generate-content-plan.mjs
+scripts/generate-content-status.mjs
 scripts/generate-publishing-queue.mjs
 scripts/run-all-content-automation.mjs
 scripts/run-content-automation.mjs
 content-automation/README.md
+content-automation/CAMPAIGN_STATUS.md
 content-automation/platform-rules.json
 content-automation/publishing-defaults.json
 content-automation/campaigns/certification-patent-funding-sequence.json
@@ -415,6 +419,8 @@ CHANGELOG.md
 - Updated `scripts/check-static-site.mjs` to dynamically scan campaign inputs and expected output files.
 - Added `scripts/run-all-content-automation.mjs` and `npm run content:run:all`.
 - Updated `COMMANDS.md`, `README.md`, and `content-automation/README.md` with the all-campaign workflow.
+- Added `scripts/generate-content-status.mjs`, `npm run content:status`, and `content-automation/CAMPAIGN_STATUS.md`.
+- Updated static validation so the campaign status table stays present and useful for handoff.
 
 ### 2026-06-19
 

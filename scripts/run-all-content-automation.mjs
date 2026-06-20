@@ -28,4 +28,14 @@ for (const campaignPath of campaignFiles) {
   }
 }
 
+const statusResult = spawnSync(process.execPath, ["scripts/generate-content-status.mjs"], {
+  stdio: "inherit",
+  shell: false
+});
+
+if (statusResult.status !== 0) {
+  console.error("Content automation status generation failed.");
+  process.exit(statusResult.status || 1);
+}
+
 console.log(`\nContent automation completed for ${campaignFiles.length} campaign(s).`);

@@ -29,6 +29,7 @@ scripts/
   generate-asset-briefs.mjs
   generate-caption-pack.mjs
   generate-content-plan.mjs
+  generate-content-status.mjs
   generate-publishing-queue.mjs
   run-all-content-automation.mjs
   run-content-automation.mjs
@@ -36,6 +37,7 @@ scripts/
   check-local-preview.mjs
   check-deployed-site.mjs
 content-automation/
+  CAMPAIGN_STATUS.md
   README.md
   platform-rules.json
   publishing-defaults.json
@@ -118,6 +120,10 @@ npm run content:run
 
 ```bash
 npm run content:run:all
+```
+
+```bash
+npm run content:status
 ```
 
 ```bash

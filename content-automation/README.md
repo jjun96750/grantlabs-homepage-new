@@ -17,8 +17,14 @@ npm run content:run -- content-automation/campaigns/example-campaign.json
 npm run content:run:all
 ```
 
-4. Review the generated files under `content-automation/output/`.
-5. Run quality checks:
+4. Regenerate the collaborator-facing campaign status table when needed:
+
+```bash
+npm run content:status
+```
+
+5. Review the generated files under `content-automation/output/` and `content-automation/CAMPAIGN_STATUS.md`.
+6. Run quality checks:
 
 ```bash
 npm run check:content
@@ -43,4 +49,4 @@ Each campaign should have five generated files:
 - Publishing queue CSV: `<date>-<slug>-publishing-queue.csv`
 - Publishing queue summary: `<date>-<slug>-publishing-queue.md`
 
-Both `npm run check:content` and `npm run check` scan the campaign files and verify the expected output set.
+Both `npm run check:content` and `npm run check` scan the campaign files and verify the expected output set. `npm run content:run:all` also refreshes `content-automation/CAMPAIGN_STATUS.md`.
