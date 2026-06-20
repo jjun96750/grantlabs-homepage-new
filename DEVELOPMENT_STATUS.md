@@ -192,6 +192,7 @@ Last updated: 2026-06-21
 - Generated status/readiness/journal scripts now use runtime Asia/Seoul dates instead of hardcoded generation dates.
 - GitHub Actions now regenerates `sitemap.xml` and checks for uncommitted sitemap drift.
 - Added the 2026-06-21 consultation checklist conversion campaign.
+- Added `npm run content:calendar` and cross-campaign publishing calendar outputs.
 - No build step is required.
 
 ## Current Files
@@ -235,6 +236,7 @@ scripts/generate-asset-briefs.mjs
 scripts/generate-caption-pack.mjs
 scripts/generate-content-plan.mjs
 scripts/generate-content-status.mjs
+scripts/generate-publishing-calendar.mjs
 scripts/generate-deployment-readiness.mjs
 scripts/generate-sitemap.mjs
 scripts/generate-development-journal.mjs
@@ -244,6 +246,8 @@ scripts/run-all-content-automation.mjs
 scripts/run-content-automation.mjs
 content-automation/README.md
 content-automation/CAMPAIGN_STATUS.md
+content-automation/PUBLISHING_CALENDAR.md
+content-automation/PUBLISHING_CALENDAR.csv
 content-automation/platform-rules.json
 content-automation/publishing-defaults.json
 content-automation/campaigns/certification-patent-funding-sequence.json
@@ -453,6 +457,7 @@ CHANGELOG.md
 - Extended `.github/workflows/static-site-check.yml` to regenerate `sitemap.xml` and reject stale sitemap output.
 - Updated `scripts/check-static-site.mjs` to validate current sitemap lastmod values from the runtime Asia/Seoul date.
 - Added `content-automation/campaigns/consultation-checklist-conversion.json`.
+- Added `scripts/generate-publishing-calendar.mjs`, `npm run content:calendar`, `content-automation/PUBLISHING_CALENDAR.md`, and `content-automation/PUBLISHING_CALENDAR.csv`.
 
 ### 2026-06-20
 

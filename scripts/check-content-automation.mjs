@@ -3,6 +3,8 @@ import { join } from "node:path";
 
 const campaignsDir = "content-automation/campaigns";
 const outputDir = "content-automation/output";
+const calendarCsv = "content-automation/PUBLISHING_CALENDAR.csv";
+const calendarMd = "content-automation/PUBLISHING_CALENDAR.md";
 
 const requiredPlatformMarkers = [
   "Naver Blog",
@@ -41,6 +43,8 @@ const outputFiles = listFiles(outputDir, (file) => file.endsWith(".md") || file.
 
 if (!campaignFiles.length) failures.push("No content automation campaigns found.");
 if (!outputFiles.length) failures.push("No content automation outputs found.");
+if (!existsSync(calendarCsv)) failures.push("Missing generated publishing calendar CSV.");
+if (!existsSync(calendarMd)) failures.push("Missing generated publishing calendar markdown.");
 
 for (const campaignFile of campaignFiles) {
   try {
@@ -97,6 +101,13 @@ if (!hasApprovalGuardrail) failures.push("Content automation outputs are missing
 
 if (!combined.includes("https://grantlabs.co.kr/checklist.html")) {
   failures.push("Content automation outputs are missing the checklist landing page.");
+}
+
+if (existsSync(calendarMd)) {
+  const calendar = read(calendarMd);
+  for (const marker of ["Grant Labs Publishing Calendar", "npm run content:calendar", "Naver Blog", "LinkedIn Page", "consultation-checklist-conversion"]) {
+    if (!calendar.includes(marker)) failures.push(`Publishing calendar is missing marker: ${marker}`);
+  }
 }
 
 if (failures.length) {

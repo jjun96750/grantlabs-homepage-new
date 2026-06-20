@@ -37,6 +37,7 @@ scripts/
   generate-caption-pack.mjs
   generate-content-plan.mjs
   generate-content-status.mjs
+  generate-publishing-calendar.mjs
   generate-deployment-readiness.mjs
   generate-sitemap.mjs
   generate-development-journal.mjs
@@ -49,6 +50,8 @@ scripts/
   check-deployed-site.mjs
 content-automation/
   CAMPAIGN_STATUS.md
+  PUBLISHING_CALENDAR.md
+  PUBLISHING_CALENDAR.csv
   README.md
   platform-rules.json
   publishing-defaults.json
@@ -131,6 +134,10 @@ npm run content:plan
 
 ```bash
 npm run content:queue
+```
+
+```bash
+npm run content:calendar
 ```
 
 ```bash

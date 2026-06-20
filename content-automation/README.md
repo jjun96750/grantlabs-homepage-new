@@ -23,8 +23,14 @@ npm run content:run:all
 npm run content:status
 ```
 
-5. Review the generated files under `content-automation/output/` and `content-automation/CAMPAIGN_STATUS.md`.
-6. Run quality checks:
+5. Regenerate the cross-campaign publishing calendar when needed:
+
+```bash
+npm run content:calendar
+```
+
+6. Review the generated files under `content-automation/output/`, `content-automation/CAMPAIGN_STATUS.md`, and `content-automation/PUBLISHING_CALENDAR.md`.
+7. Run quality checks:
 
 ```bash
 npm run check:content
@@ -51,3 +57,10 @@ Each campaign should have five generated files:
 - Publishing queue summary: `<date>-<slug>-publishing-queue.md`
 
 Both `npm run check:content` and `npm run check` scan the campaign files and verify the expected output set. `npm run content:run:all` also refreshes `content-automation/CAMPAIGN_STATUS.md`.
+
+## Cross-Campaign Calendar
+
+- `content-automation/PUBLISHING_CALENDAR.md`
+- `content-automation/PUBLISHING_CALENDAR.csv`
+
+These files combine every campaign publishing queue into one operations calendar. `npm run content:run:all` refreshes them automatically, and `npm run content:calendar` refreshes only the calendar.

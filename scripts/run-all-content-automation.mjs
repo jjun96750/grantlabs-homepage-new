@@ -38,4 +38,14 @@ if (statusResult.status !== 0) {
   process.exit(statusResult.status || 1);
 }
 
+const calendarResult = spawnSync(process.execPath, ["scripts/generate-publishing-calendar.mjs"], {
+  stdio: "inherit",
+  shell: false
+});
+
+if (calendarResult.status !== 0) {
+  console.error("Publishing calendar generation failed.");
+  process.exit(calendarResult.status || 1);
+}
+
 console.log(`\nContent automation completed for ${campaignFiles.length} campaign(s).`);

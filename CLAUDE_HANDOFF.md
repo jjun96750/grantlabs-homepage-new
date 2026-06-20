@@ -20,6 +20,7 @@
 - Asset briefs can be generated with `npm run content:assets`.
 - Caption packs can be generated with `npm run content:captions`.
 - Publishing queue automation can be generated with `npm run content:queue`.
+- Cross-campaign publishing calendar can be regenerated with `npm run content:calendar`.
 - The full content automation pipeline can be regenerated with `npm run content:run`.
 - All content automation campaigns can be regenerated with `npm run content:run:all`.
 - Campaign status can be regenerated with `npm run content:status`.
@@ -81,6 +82,7 @@ scripts/generate-asset-briefs.mjs
 scripts/generate-caption-pack.mjs
 scripts/generate-content-plan.mjs
 scripts/generate-content-status.mjs
+scripts/generate-publishing-calendar.mjs
 scripts/generate-deployment-readiness.mjs
 scripts/generate-sitemap.mjs
 scripts/generate-development-journal.mjs
@@ -93,6 +95,8 @@ scripts/check-local-preview.mjs
 scripts/check-deployed-site.mjs
 content-automation/README.md
 content-automation/CAMPAIGN_STATUS.md
+content-automation/PUBLISHING_CALENDAR.md
+content-automation/PUBLISHING_CALENDAR.csv
 content-automation/platform-rules.json
 content-automation/publishing-defaults.json
 content-automation/campaigns/certification-patent-funding-sequence.json
@@ -165,6 +169,7 @@ content-automation/output/2026-06-21-consultation-checklist-conversion-publishin
 - `scripts/generate-caption-pack.mjs` creates platform-specific captions, hashtags, CTA text, and thumbnail/overlay copy.
 - `scripts/generate-content-plan.mjs` creates platform-specific posting guidance from the current Grant Labs campaign input.
 - `scripts/generate-publishing-queue.mjs` creates CSV and Markdown publishing queues with platform timing, asset, objective, and success-signal guidance.
+- `scripts/generate-publishing-calendar.mjs` combines every campaign publishing queue into `content-automation/PUBLISHING_CALENDAR.md` and `.csv`.
 - `scripts/generate-content-status.mjs` writes `content-automation/CAMPAIGN_STATUS.md` for handoff visibility.
 - `scripts/generate-deployment-readiness.mjs` writes `DEPLOYMENT_READINESS.md` for deployment handoff visibility.
 - `scripts/generate-sitemap.mjs` writes `sitemap.xml` with current Asia/Seoul lastmod values.

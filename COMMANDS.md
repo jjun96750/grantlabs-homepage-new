@@ -9,6 +9,7 @@ npm run content:assets
 npm run content:captions
 npm run content:plan
 npm run content:queue
+npm run content:calendar
 npm run content:run
 npm run content:run:all
 npm run content:status
@@ -27,6 +28,7 @@ npm run smoke -- https://your-pages-preview.pages.dev
 - `npm run content:captions` generates a caption pack with platform-specific captions, hashtags, and thumbnail text.
 - `npm run content:plan` generates platform-specific posting guidance from the current campaign.
 - `npm run content:queue` generates the platform-specific publishing queue.
+- `npm run content:calendar` regenerates the cross-campaign publishing calendar.
 - `npm run content:run` runs the full content automation pipeline.
 - `npm run content:run:all` runs the full content automation pipeline for all campaigns.
 - `npm run content:status` regenerates the campaign status table for collaborators.
