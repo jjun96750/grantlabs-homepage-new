@@ -185,6 +185,7 @@ Last updated: 2026-06-20
 - Static validation and Cloudflare cache policy coverage now include the brand logo assets.
 - `social-card.svg` now uses the Grant Labs wordmark treatment.
 - Local preview and deployed smoke checks now request brand logo SVG assets directly.
+- `ProfessionalService` JSON-LD now includes the canonical Grant Labs logo URL and static validation coverage.
 - No build step is required.
 
 ## Current Files
@@ -455,6 +456,7 @@ CHANGELOG.md
 - Extended static validation and `_headers` cache rules for brand logo assets.
 - Updated `social-card.svg` to align with the logo wordmark treatment.
 - Extended `scripts/check-local-preview.mjs` and `scripts/check-deployed-site.mjs` to request brand logo SVG assets directly.
+- Added the canonical Grant Labs logo URL to `ProfessionalService` JSON-LD and static validation.
 
 ### 2026-06-19
 

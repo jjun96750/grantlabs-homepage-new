@@ -238,13 +238,19 @@ if (existsSync("index.html")) {
   const jsonLdBlocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
   if (jsonLdBlocks.length < 2) failures.push("Expected Organization and FAQ JSON-LD blocks.");
 
+  const parsedJsonLdBlocks = [];
   jsonLdBlocks.forEach((match, index) => {
     try {
-      JSON.parse(match[1]);
+      parsedJsonLdBlocks.push(JSON.parse(match[1]));
     } catch (error) {
       failures.push(`Invalid JSON-LD block ${index + 1}: ${error.message}`);
     }
   });
+
+  const serviceJsonLd = parsedJsonLdBlocks.find((block) => block["@type"] === "ProfessionalService");
+  if (!serviceJsonLd?.logo || serviceJsonLd.logo !== `${siteOrigin}/assets/brand/grant-labs-logo.svg`) {
+    failures.push("ProfessionalService JSON-LD is missing the canonical Grant Labs logo URL.");
+  }
 
   if (!html.includes('class="skip-link"')) failures.push("index.html is missing a skip link.");
   if (!html.includes('id="main-content"')) failures.push("index.html is missing the main-content target.");

@@ -123,6 +123,7 @@ content-automation/output/2026-06-20-certification-patent-funding-sequence-publi
 
 - Korean Grant Labs homepage for policy funding, certification, R&D center, patent, corporation setup, and business support consulting.
 - Grant Labs wordmark logo SVG assets are committed under `assets/brand/` and used in the homepage header/footer, 404 page, privacy page, and checklist page.
+- `ProfessionalService` JSON-LD includes the canonical logo URL `https://grantlabs.co.kr/assets/brand/grant-labs-logo.svg`.
 - First screen uses a real business meeting photo from Unsplash.
 - The page is intentionally static for simple Cloudflare Pages deployment.
 - Static deployment support files are present: `_headers`, `robots.txt`, `sitemap.xml`, `favicon.svg`, and `site.webmanifest`.
