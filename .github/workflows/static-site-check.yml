@@ -26,6 +26,15 @@ jobs:
         with:
           node-version: 20
 
+      - name: Regenerate content automation outputs
+        run: npm run content:run:all
+
+      - name: Verify content automation outputs are committed
+        run: git diff --exit-code -- content-automation
+
+      - name: Run content automation validation
+        run: npm run check:content
+
       - name: Run static validation
         run: npm run check
 

@@ -12,6 +12,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Updated command docs and automation docs with the all-campaign regeneration workflow.
 - Added `npm run content:status` to generate a collaborator-facing campaign status table.
 - Added static validation coverage for `content-automation/CAMPAIGN_STATUS.md`.
+- Extended GitHub Actions to regenerate content automation outputs, fail on uncommitted content drift, and run `npm run check:content`.
 
 ## 2026-06-19
 

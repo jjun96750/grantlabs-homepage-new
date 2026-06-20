@@ -12,7 +12,7 @@
 - Static homepage draft is ready and pushed to GitHub.
 - No build step is required.
 - Main branch: `main`
-- Latest implementation commit captured in this handoff: `4596b94 Add content campaign status report`
+- Latest implementation commit captured in this handoff: pending CI content automation validation commit
 - Local static validation passes with `npm run check`.
 - Standard local validation command is `npm run check`; local preview is `npm run serve`.
 - Standard commands are documented in `COMMANDS.md`.
@@ -129,7 +129,7 @@ content-automation/output/2026-06-20-certification-patent-funding-sequence-publi
 - `scripts/serve-static.mjs` provides a dependency-free local preview server at `http://127.0.0.1:4173/` with explicit 404, HEAD request handling, secured 405 responses, and Cloudflare-like security headers.
 - `scripts/check-local-preview.mjs` verifies local preview GET, HEAD, and unsupported-method status codes, content types, `Cache-Control: no-store`, homepage CDN script integrity markers, missing-route handling, and security/CSP headers including HSTS and Pretendard style/font loading.
 - `scripts/check-deployed-site.mjs` verifies pages, response headers, CSP markers, `Content-Type` values, homepage CDN script integrity markers, missing-route 404 handling, sitemap noindex cleanup, and prints a pass summary.
-- GitHub Actions runs `npm run check`, starts the local preview server, and runs `npm run preview:check` on pushes to `main` and pull requests, with timeout and concurrency controls.
+- GitHub Actions runs `npm run content:run:all`, rejects uncommitted content automation drift, runs `npm run check:content`, runs `npm run check`, starts the local preview server, and runs `npm run preview:check` on pushes to `main` and pull requests, with timeout and concurrency controls.
 - `content-automation/platform-rules.json` defines per-platform posting strategy for Naver Blog, Instagram, YouTube, TikTok, Facebook, and LinkedIn.
 - `content-automation/README.md` documents the campaign workflow, active campaigns, and expected generated output set.
 - `content-automation/CAMPAIGN_STATUS.md` is the collaborator-facing table of campaigns and generated output status.

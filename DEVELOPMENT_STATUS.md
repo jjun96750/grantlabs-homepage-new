@@ -161,6 +161,7 @@ Last updated: 2026-06-20
 - Command docs and content automation docs now describe the all-campaign regeneration workflow.
 - Added `npm run content:status` to regenerate a collaborator-facing campaign status table.
 - `content-automation/CAMPAIGN_STATUS.md` now records campaign outputs in one table for handoff visibility.
+- GitHub Actions now regenerates content automation outputs, checks for uncommitted content drift, and runs `npm run check:content`.
 - `.nvmrc` added and covered by static validation for Node version consistency.
 - `.gitignore` expanded for deployment/build artifacts and covered by static validation.
 - `SECURITY.md` added with vulnerability and deployment-issue reporting guidance.
@@ -421,6 +422,7 @@ CHANGELOG.md
 - Updated `COMMANDS.md`, `README.md`, and `content-automation/README.md` with the all-campaign workflow.
 - Added `scripts/generate-content-status.mjs`, `npm run content:status`, and `content-automation/CAMPAIGN_STATUS.md`.
 - Updated static validation so the campaign status table stays present and useful for handoff.
+- Extended `.github/workflows/static-site-check.yml` to run `npm run content:run:all`, reject uncommitted content automation drift, and run `npm run check:content`.
 
 ### 2026-06-19
 
