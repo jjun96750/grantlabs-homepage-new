@@ -28,7 +28,7 @@
 - Development journal can be regenerated with `npm run status:journal`.
 - Status index can be regenerated with `npm run status:index`.
 - Content automation outputs can be quality-checked with `npm run check:content`.
-- The current content automation set includes the 2026-06-18 policy-funding readiness campaign, the 2026-06-19 R&D-center readiness bridge campaign, and the 2026-06-20 certification/patent/funding sequence campaign.
+- The current content automation set includes the 2026-06-18 policy-funding readiness campaign, the 2026-06-19 R&D-center readiness bridge campaign, the 2026-06-20 certification/patent/funding sequence campaign, and the 2026-06-21 consultation-checklist conversion campaign.
 - Ongoing development status is tracked in `DEVELOPMENT_STATUS.md`.
 - Repository contents are proprietary and covered by `LICENSE`.
 - Security and deployment issue reporting is documented in `SECURITY.md`.
@@ -96,6 +96,7 @@ content-automation/CAMPAIGN_STATUS.md
 content-automation/platform-rules.json
 content-automation/publishing-defaults.json
 content-automation/campaigns/certification-patent-funding-sequence.json
+content-automation/campaigns/consultation-checklist-conversion.json
 content-automation/campaigns/grantlabs-growth-check.json
 content-automation/campaigns/rnd-center-funding-bridge.json
 content-automation/output/2026-06-18-grantlabs-growth-check.md
@@ -113,6 +114,11 @@ content-automation/output/2026-06-20-certification-patent-funding-sequence-asset
 content-automation/output/2026-06-20-certification-patent-funding-sequence-caption-pack.md
 content-automation/output/2026-06-20-certification-patent-funding-sequence-publishing-queue.csv
 content-automation/output/2026-06-20-certification-patent-funding-sequence-publishing-queue.md
+content-automation/output/2026-06-21-consultation-checklist-conversion.md
+content-automation/output/2026-06-21-consultation-checklist-conversion-asset-briefs.md
+content-automation/output/2026-06-21-consultation-checklist-conversion-caption-pack.md
+content-automation/output/2026-06-21-consultation-checklist-conversion-publishing-queue.csv
+content-automation/output/2026-06-21-consultation-checklist-conversion-publishing-queue.md
 .github/workflows/static-site-check.yml
 .github/ISSUE_TEMPLATE/bug_report.md
 .github/ISSUE_TEMPLATE/content_update.md

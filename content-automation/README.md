@@ -38,6 +38,7 @@ npm run check
 | 2026-06-18 | `grantlabs-growth-check` | Policy-funding readiness and consultation checklist |
 | 2026-06-19 | `rnd-center-funding-bridge` | R&D center evidence and policy-funding sequence |
 | 2026-06-20 | `certification-patent-funding-sequence` | Certification, patent, and policy-funding preparation order |
+| 2026-06-21 | `consultation-checklist-conversion` | Consultation checklist to diagnostic call conversion |
 
 ## Generated Output Set
 

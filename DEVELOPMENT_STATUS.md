@@ -191,6 +191,7 @@ Last updated: 2026-06-21
 - `npm run sitemap:refresh` now regenerates `sitemap.xml` with current Asia/Seoul lastmod values.
 - Generated status/readiness/journal scripts now use runtime Asia/Seoul dates instead of hardcoded generation dates.
 - GitHub Actions now regenerates `sitemap.xml` and checks for uncommitted sitemap drift.
+- Added the 2026-06-21 consultation checklist conversion campaign.
 - No build step is required.
 
 ## Current Files
@@ -246,6 +247,7 @@ content-automation/CAMPAIGN_STATUS.md
 content-automation/platform-rules.json
 content-automation/publishing-defaults.json
 content-automation/campaigns/certification-patent-funding-sequence.json
+content-automation/campaigns/consultation-checklist-conversion.json
 content-automation/campaigns/grantlabs-growth-check.json
 content-automation/campaigns/rnd-center-funding-bridge.json
 content-automation/output/2026-06-18-grantlabs-growth-check.md
@@ -263,6 +265,11 @@ content-automation/output/2026-06-20-certification-patent-funding-sequence-asset
 content-automation/output/2026-06-20-certification-patent-funding-sequence-caption-pack.md
 content-automation/output/2026-06-20-certification-patent-funding-sequence-publishing-queue.csv
 content-automation/output/2026-06-20-certification-patent-funding-sequence-publishing-queue.md
+content-automation/output/2026-06-21-consultation-checklist-conversion.md
+content-automation/output/2026-06-21-consultation-checklist-conversion-asset-briefs.md
+content-automation/output/2026-06-21-consultation-checklist-conversion-caption-pack.md
+content-automation/output/2026-06-21-consultation-checklist-conversion-publishing-queue.csv
+content-automation/output/2026-06-21-consultation-checklist-conversion-publishing-queue.md
 .github/workflows/static-site-check.yml
 .github/ISSUE_TEMPLATE/bug_report.md
 .github/ISSUE_TEMPLATE/content_update.md
@@ -445,6 +452,7 @@ CHANGELOG.md
 - Updated `scripts/generate-deployment-readiness.mjs`, `scripts/generate-development-journal.mjs`, and `scripts/generate-status-index.mjs` to use runtime Asia/Seoul generation dates.
 - Extended `.github/workflows/static-site-check.yml` to regenerate `sitemap.xml` and reject stale sitemap output.
 - Updated `scripts/check-static-site.mjs` to validate current sitemap lastmod values from the runtime Asia/Seoul date.
+- Added `content-automation/campaigns/consultation-checklist-conversion.json`.
 
 ### 2026-06-20
 

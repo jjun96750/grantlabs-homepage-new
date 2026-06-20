@@ -72,6 +72,11 @@ content-automation/
     2026-06-20-certification-patent-funding-sequence-caption-pack.md
     2026-06-20-certification-patent-funding-sequence-publishing-queue.csv
     2026-06-20-certification-patent-funding-sequence-publishing-queue.md
+    2026-06-21-consultation-checklist-conversion.md
+    2026-06-21-consultation-checklist-conversion-asset-briefs.md
+    2026-06-21-consultation-checklist-conversion-caption-pack.md
+    2026-06-21-consultation-checklist-conversion-publishing-queue.csv
+    2026-06-21-consultation-checklist-conversion-publishing-queue.md
 QA_CHECKLIST.md
 CLOUDFLARE_PAGES_SETUP.md
 DEPLOYMENT_ENVIRONMENTS.md
