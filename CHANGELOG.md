@@ -2,6 +2,13 @@
 
 All notable changes to the Grant Labs new homepage are documented here.
 
+## 2026-06-20
+
+- Added a new certification, patent, and policy-funding preparation sequence campaign.
+- Generated the 2026-06-20 content plan, asset briefs, caption pack, and publishing queue outputs.
+- Added `content-automation/README.md` to document the ongoing campaign workflow and active campaign set.
+- Updated static validation to scan campaign inputs and generated output sets dynamically instead of maintaining campaign-specific required-file entries.
+
 ## 2026-06-19
 
 - Added a new R&D-center and policy-funding readiness campaign input.

@@ -1,4 +1,5 @@
-import { readFileSync, existsSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
+import { join } from "node:path";
 
 const requiredFiles = [
   "index.html",
@@ -38,20 +39,9 @@ const requiredFiles = [
   "scripts/run-content-automation.mjs",
   "scripts/check-local-preview.mjs",
   "scripts/check-deployed-site.mjs",
+  "content-automation/README.md",
   "content-automation/platform-rules.json",
   "content-automation/publishing-defaults.json",
-  "content-automation/campaigns/grantlabs-growth-check.json",
-  "content-automation/campaigns/rnd-center-funding-bridge.json",
-  "content-automation/output/2026-06-18-grantlabs-growth-check.md",
-  "content-automation/output/2026-06-18-grantlabs-growth-check-asset-briefs.md",
-  "content-automation/output/2026-06-18-grantlabs-growth-check-caption-pack.md",
-  "content-automation/output/2026-06-18-grantlabs-growth-check-publishing-queue.csv",
-  "content-automation/output/2026-06-18-grantlabs-growth-check-publishing-queue.md",
-  "content-automation/output/2026-06-19-rnd-center-funding-bridge.md",
-  "content-automation/output/2026-06-19-rnd-center-funding-bridge-asset-briefs.md",
-  "content-automation/output/2026-06-19-rnd-center-funding-bridge-caption-pack.md",
-  "content-automation/output/2026-06-19-rnd-center-funding-bridge-publishing-queue.csv",
-  "content-automation/output/2026-06-19-rnd-center-funding-bridge-publishing-queue.md",
   ".github/workflows/static-site-check.yml",
   ".github/ISSUE_TEMPLATE/bug_report.md",
   ".github/ISSUE_TEMPLATE/content_update.md",
@@ -62,6 +52,21 @@ const requiredFiles = [
 
 const failures = [];
 const read = (file) => readFileSync(file, "utf8");
+const listFiles = (dir, predicate) => {
+  if (!existsSync(dir)) return [];
+  return readdirSync(dir)
+    .map((name) => join(dir, name))
+    .filter((file) => statSync(file).isFile())
+    .filter(predicate);
+};
+
+const requiredContentOutputSuffixes = [
+  ".md",
+  "-asset-briefs.md",
+  "-caption-pack.md",
+  "-publishing-queue.csv",
+  "-publishing-queue.md",
+];
 
 const htmlPages = ["index.html", "404.html", "privacy.html", "checklist.html"];
 const siteOrigin = "https://grantlabs.co.kr";
@@ -99,6 +104,40 @@ const targetHash = (target) => {
 
 for (const file of requiredFiles) {
   if (!existsSync(file)) failures.push(`Missing required file: ${file}`);
+}
+
+const campaignFiles = listFiles("content-automation/campaigns", (file) => file.endsWith(".json"));
+if (!campaignFiles.length) {
+  failures.push("content automation should include at least one campaign file.");
+}
+
+for (const campaignFile of campaignFiles) {
+  try {
+    const campaign = JSON.parse(read(campaignFile));
+    for (const field of ["slug", "date", "brand", "topic", "topicKo", "primaryAudience", "corePromise", "corePromiseKo", "primaryCta", "primaryCtaKo", "landingPage"]) {
+      if (!campaign[field]) failures.push(`${campaignFile} is missing field: ${field}`);
+    }
+
+    if (!Array.isArray(campaign.pillarPoints) || campaign.pillarPoints.length < 4) {
+      failures.push(`${campaignFile} should include at least four pillar points.`);
+    }
+
+    if (!Array.isArray(campaign.pillarPointsKo) || campaign.pillarPointsKo.length < 4) {
+      failures.push(`${campaignFile} should include at least four Korean pillar points.`);
+    }
+
+    if (!Array.isArray(campaign.complianceNotes) || campaign.complianceNotes.length < 3) {
+      failures.push(`${campaignFile} should include compliance guardrails.`);
+    }
+
+    const outputBase = join("content-automation/output", `${campaign.date}-${campaign.slug}`);
+    for (const suffix of requiredContentOutputSuffixes) {
+      const outputPath = suffix === ".md" ? `${outputBase}.md` : `${outputBase}${suffix}`;
+      if (!existsSync(outputPath)) failures.push(`${campaignFile} is missing generated output: ${outputPath}`);
+    }
+  } catch (error) {
+    failures.push(`Invalid content automation campaign ${campaignFile}: ${error.message}`);
+  }
 }
 
 for (const page of htmlPages) {

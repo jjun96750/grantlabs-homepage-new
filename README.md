@@ -35,9 +35,11 @@ scripts/
   check-local-preview.mjs
   check-deployed-site.mjs
 content-automation/
+  README.md
   platform-rules.json
   publishing-defaults.json
   campaigns/
+    certification-patent-funding-sequence.json
     grantlabs-growth-check.json
     rnd-center-funding-bridge.json
   output/
@@ -51,6 +53,11 @@ content-automation/
     2026-06-19-rnd-center-funding-bridge-caption-pack.md
     2026-06-19-rnd-center-funding-bridge-publishing-queue.csv
     2026-06-19-rnd-center-funding-bridge-publishing-queue.md
+    2026-06-20-certification-patent-funding-sequence.md
+    2026-06-20-certification-patent-funding-sequence-asset-briefs.md
+    2026-06-20-certification-patent-funding-sequence-caption-pack.md
+    2026-06-20-certification-patent-funding-sequence-publishing-queue.csv
+    2026-06-20-certification-patent-funding-sequence-publishing-queue.md
 QA_CHECKLIST.md
 CLOUDFLARE_PAGES_SETUP.md
 DEPLOYMENT_ENVIRONMENTS.md
