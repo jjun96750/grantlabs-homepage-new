@@ -12,7 +12,7 @@
 - Static homepage draft is ready and pushed to GitHub.
 - No build step is required.
 - Main branch: `main`
-- Latest implementation commit captured in this handoff: `9affd82 Run content automation checks in CI`
+- Latest implementation commit captured in this handoff: pending deployment readiness report commit
 - Local static validation passes with `npm run check`.
 - Standard local validation command is `npm run check`; local preview is `npm run serve`.
 - Standard commands are documented in `COMMANDS.md`.
@@ -23,6 +23,7 @@
 - The full content automation pipeline can be regenerated with `npm run content:run`.
 - All content automation campaigns can be regenerated with `npm run content:run:all`.
 - Campaign status can be regenerated with `npm run content:status`.
+- Deployment readiness can be regenerated with `npm run deployment:readiness`.
 - Content automation outputs can be quality-checked with `npm run check:content`.
 - The current content automation set includes the 2026-06-18 policy-funding readiness campaign, the 2026-06-19 R&D-center readiness bridge campaign, and the 2026-06-20 certification/patent/funding sequence campaign.
 - Ongoing development status is tracked in `DEVELOPMENT_STATUS.md`.
@@ -61,6 +62,7 @@ site.webmanifest
 QA_CHECKLIST.md
 CLOUDFLARE_PAGES_SETUP.md
 DEPLOYMENT_ENVIRONMENTS.md
+DEPLOYMENT_READINESS.md
 ROLLBACK_PLAN.md
 SECURITY.md
 CHANGELOG.md
@@ -70,6 +72,7 @@ scripts/generate-asset-briefs.mjs
 scripts/generate-caption-pack.mjs
 scripts/generate-content-plan.mjs
 scripts/generate-content-status.mjs
+scripts/generate-deployment-readiness.mjs
 scripts/generate-publishing-queue.mjs
 scripts/run-all-content-automation.mjs
 scripts/run-content-automation.mjs
@@ -133,11 +136,13 @@ content-automation/output/2026-06-20-certification-patent-funding-sequence-publi
 - `content-automation/platform-rules.json` defines per-platform posting strategy for Naver Blog, Instagram, YouTube, TikTok, Facebook, and LinkedIn.
 - `content-automation/README.md` documents the campaign workflow, active campaigns, and expected generated output set.
 - `content-automation/CAMPAIGN_STATUS.md` is the collaborator-facing table of campaigns and generated output status.
+- `DEPLOYMENT_READINESS.md` is the collaborator-facing table of deployment readiness checks and open deployment placeholders.
 - `scripts/generate-asset-briefs.mjs` creates platform-specific production briefs with canvas, checklist, CTA, and success-signal guidance.
 - `scripts/generate-caption-pack.mjs` creates platform-specific captions, hashtags, CTA text, and thumbnail/overlay copy.
 - `scripts/generate-content-plan.mjs` creates platform-specific posting guidance from the current Grant Labs campaign input.
 - `scripts/generate-publishing-queue.mjs` creates CSV and Markdown publishing queues with platform timing, asset, objective, and success-signal guidance.
 - `scripts/generate-content-status.mjs` writes `content-automation/CAMPAIGN_STATUS.md` for handoff visibility.
+- `scripts/generate-deployment-readiness.mjs` writes `DEPLOYMENT_READINESS.md` for deployment handoff visibility.
 - `scripts/run-content-automation.mjs` runs the content plan, asset brief, caption pack, and publishing queue generators in sequence.
 - `scripts/run-all-content-automation.mjs` discovers every campaign JSON file and runs the full automation pipeline for each one.
 - `scripts/check-content-automation.mjs` scans every campaign and generated output set for platform coverage, Korean markers, checklist URL, compliance guardrails, and forbidden claims.

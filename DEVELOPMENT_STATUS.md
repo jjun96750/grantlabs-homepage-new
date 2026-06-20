@@ -162,6 +162,7 @@ Last updated: 2026-06-20
 - Added `npm run content:status` to regenerate a collaborator-facing campaign status table.
 - `content-automation/CAMPAIGN_STATUS.md` now records campaign outputs in one table for handoff visibility.
 - GitHub Actions now regenerates content automation outputs, checks for uncommitted content drift, and runs `npm run check:content`.
+- Added `npm run deployment:readiness` and `DEPLOYMENT_READINESS.md` to summarize deployment readiness and open deployment placeholders.
 - `.nvmrc` added and covered by static validation for Node version consistency.
 - `.gitignore` expanded for deployment/build artifacts and covered by static validation.
 - `SECURITY.md` added with vulnerability and deployment-issue reporting guidance.
@@ -214,6 +215,7 @@ scripts/generate-asset-briefs.mjs
 scripts/generate-caption-pack.mjs
 scripts/generate-content-plan.mjs
 scripts/generate-content-status.mjs
+scripts/generate-deployment-readiness.mjs
 scripts/generate-publishing-queue.mjs
 scripts/run-all-content-automation.mjs
 scripts/run-content-automation.mjs
@@ -246,6 +248,7 @@ content-automation/output/2026-06-20-certification-patent-funding-sequence-publi
 .github/PULL_REQUEST_TEMPLATE.md
 .github/CODEOWNERS
 DEPLOYMENT_ENVIRONMENTS.md
+DEPLOYMENT_READINESS.md
 ROLLBACK_PLAN.md
 SECURITY.md
 CHANGELOG.md
@@ -423,6 +426,8 @@ CHANGELOG.md
 - Added `scripts/generate-content-status.mjs`, `npm run content:status`, and `content-automation/CAMPAIGN_STATUS.md`.
 - Updated static validation so the campaign status table stays present and useful for handoff.
 - Extended `.github/workflows/static-site-check.yml` to run `npm run content:run:all`, reject uncommitted content automation drift, and run `npm run check:content`.
+- Added `scripts/generate-deployment-readiness.mjs`, `npm run deployment:readiness`, and `DEPLOYMENT_READINESS.md`.
+- Updated static validation so the deployment readiness report stays present and useful for handoff.
 
 ### 2026-06-19
 

@@ -27,6 +27,7 @@ const requiredFiles = [
   "CLOUDFLARE_PAGES_SETUP.md",
   "QA_CHECKLIST.md",
   "DEPLOYMENT_ENVIRONMENTS.md",
+  "DEPLOYMENT_READINESS.md",
   "ROLLBACK_PLAN.md",
   "SECURITY.md",
   "CHANGELOG.md",
@@ -36,6 +37,7 @@ const requiredFiles = [
   "scripts/generate-caption-pack.mjs",
   "scripts/generate-content-status.mjs",
   "scripts/generate-content-plan.mjs",
+  "scripts/generate-deployment-readiness.mjs",
   "scripts/generate-publishing-queue.mjs",
   "scripts/run-all-content-automation.mjs",
   "scripts/run-content-automation.mjs",
@@ -358,6 +360,7 @@ if (existsSync("package.json")) {
     if (pkg.scripts?.["content:run"] !== "node scripts/run-content-automation.mjs") failures.push("package.json is missing the content automation runner script.");
     if (pkg.scripts?.["content:run:all"] !== "node scripts/run-all-content-automation.mjs") failures.push("package.json is missing the all-campaign content automation runner script.");
     if (pkg.scripts?.["content:status"] !== "node scripts/generate-content-status.mjs") failures.push("package.json is missing the content automation status script.");
+    if (pkg.scripts?.["deployment:readiness"] !== "node scripts/generate-deployment-readiness.mjs") failures.push("package.json is missing the deployment readiness script.");
     if (pkg.scripts?.serve !== "node scripts/serve-static.mjs") failures.push("package.json is missing the local preview server script.");
     if (pkg.scripts?.["preview:check"] !== "node scripts/check-local-preview.mjs") failures.push("package.json is missing the local preview check script.");
     if (pkg.scripts?.smoke !== "node scripts/check-deployed-site.mjs") failures.push("package.json is missing the deployed smoke script.");
@@ -434,6 +437,13 @@ if (existsSync("scripts/generate-content-status.mjs")) {
   const statusGenerator = read("scripts/generate-content-status.mjs");
   for (const marker of ["content-automation/CAMPAIGN_STATUS.md", "Campaign Outputs", "content:run:all", "Generated campaign status"]) {
     if (!statusGenerator.includes(marker)) failures.push(`scripts/generate-content-status.mjs is missing marker: ${marker}`);
+  }
+}
+
+if (existsSync("scripts/generate-deployment-readiness.mjs")) {
+  const readinessGenerator = read("scripts/generate-deployment-readiness.mjs");
+  for (const marker of ["DEPLOYMENT_READINESS.md", "Readiness Checks", "Open Deployment Items", "Generated deployment readiness"]) {
+    if (!readinessGenerator.includes(marker)) failures.push(`scripts/generate-deployment-readiness.mjs is missing marker: ${marker}`);
   }
 }
 
@@ -701,6 +711,13 @@ if (existsSync("DEPLOYMENT_ENVIRONMENTS.md")) {
   }
 }
 
+if (existsSync("DEPLOYMENT_READINESS.md")) {
+  const readiness = read("DEPLOYMENT_READINESS.md");
+  for (const marker of ["Grant Labs Deployment Readiness", "Readiness Checks", "Open Deployment Items", "npm run deployment:readiness", "npm run smoke -- <preview-url>"]) {
+    if (!readiness.includes(marker)) failures.push(`DEPLOYMENT_READINESS.md is missing marker: ${marker}`);
+  }
+}
+
 if (existsSync("DEVELOPMENT_STATUS.md")) {
   const status = read("DEVELOPMENT_STATUS.md");
   for (const legacyCommand of ["node scripts/check-static-site.mjs", "node scripts/check-deployed-site.mjs <preview-url>"]) {
@@ -710,14 +727,14 @@ if (existsSync("DEVELOPMENT_STATUS.md")) {
 
 if (existsSync("README.md")) {
   const readme = read("README.md");
-  for (const marker of ["scripts/", "check-static-site.mjs", "check-content-automation.mjs", "generate-asset-briefs.mjs", "generate-caption-pack.mjs", "generate-content-plan.mjs", "generate-content-status.mjs", "generate-publishing-queue.mjs", "run-all-content-automation.mjs", "run-content-automation.mjs", "serve-static.mjs", "check-local-preview.mjs", "check-deployed-site.mjs", "content-automation/", "social-card.svg", "npm run check:content", "npm run content:assets", "npm run content:captions", "npm run content:plan", "npm run content:queue", "npm run content:run", "npm run content:run:all", "npm run content:status", "npm run serve", "npm run preview:check"]) {
+  for (const marker of ["scripts/", "check-static-site.mjs", "check-content-automation.mjs", "generate-asset-briefs.mjs", "generate-caption-pack.mjs", "generate-content-plan.mjs", "generate-content-status.mjs", "generate-deployment-readiness.mjs", "generate-publishing-queue.mjs", "run-all-content-automation.mjs", "run-content-automation.mjs", "serve-static.mjs", "check-local-preview.mjs", "check-deployed-site.mjs", "content-automation/", "social-card.svg", "npm run check:content", "npm run content:assets", "npm run content:captions", "npm run content:plan", "npm run content:queue", "npm run content:run", "npm run content:run:all", "npm run content:status", "npm run deployment:readiness", "npm run serve", "npm run preview:check"]) {
     if (!readme.includes(marker)) failures.push(`README.md is missing marker: ${marker}`);
   }
 }
 
 if (existsSync("COMMANDS.md")) {
   const commands = read("COMMANDS.md");
-  for (const marker of ["npm run check", "npm run check:content", "npm run content:assets", "npm run content:captions", "npm run content:plan", "npm run content:queue", "npm run content:run", "npm run content:run:all", "npm run content:status", "npm run serve", "npm run preview:check", "npm run smoke", "static-site validation", "content automation quality", "asset briefs", "caption pack", "platform-specific posting guidance", "publishing queue", "full content automation", "all campaigns", "campaign status"]) {
+  for (const marker of ["npm run check", "npm run check:content", "npm run content:assets", "npm run content:captions", "npm run content:plan", "npm run content:queue", "npm run content:run", "npm run content:run:all", "npm run content:status", "npm run deployment:readiness", "npm run serve", "npm run preview:check", "npm run smoke", "static-site validation", "content automation quality", "asset briefs", "caption pack", "platform-specific posting guidance", "publishing queue", "full content automation", "all campaigns", "campaign status", "deployment readiness"]) {
     if (!commands.includes(marker)) failures.push(`COMMANDS.md is missing marker: ${marker}`);
   }
 }

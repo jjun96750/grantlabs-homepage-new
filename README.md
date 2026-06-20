@@ -30,6 +30,7 @@ scripts/
   generate-caption-pack.mjs
   generate-content-plan.mjs
   generate-content-status.mjs
+  generate-deployment-readiness.mjs
   generate-publishing-queue.mjs
   run-all-content-automation.mjs
   run-content-automation.mjs
@@ -64,6 +65,7 @@ content-automation/
 QA_CHECKLIST.md
 CLOUDFLARE_PAGES_SETUP.md
 DEPLOYMENT_ENVIRONMENTS.md
+DEPLOYMENT_READINESS.md
 ROLLBACK_PLAN.md
 CHANGELOG.md
 CLAUDE_HANDOFF.md
@@ -124,6 +126,10 @@ npm run content:run:all
 
 ```bash
 npm run content:status
+```
+
+```bash
+npm run deployment:readiness
 ```
 
 ```bash

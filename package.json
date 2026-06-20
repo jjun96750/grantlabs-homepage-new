@@ -13,6 +13,7 @@
     "content:run": "node scripts/run-content-automation.mjs",
     "content:run:all": "node scripts/run-all-content-automation.mjs",
     "content:status": "node scripts/generate-content-status.mjs",
+    "deployment:readiness": "node scripts/generate-deployment-readiness.mjs",
     "serve": "node scripts/serve-static.mjs",
     "preview:check": "node scripts/check-local-preview.mjs",
     "smoke": "node scripts/check-deployed-site.mjs"
