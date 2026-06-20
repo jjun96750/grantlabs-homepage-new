@@ -129,6 +129,7 @@ content-automation/output/2026-06-20-certification-patent-funding-sequence-publi
 - Static deployment support files are present: `_headers`, `robots.txt`, `sitemap.xml`, `favicon.svg`, and `site.webmanifest`.
 - `site.webmanifest` includes app id, scope, Korean locale, business/productivity categories, maskable icon purpose, and consultation/checklist shortcuts.
 - Social sharing image is committed as `social-card.svg`, uses the Grant Labs wordmark treatment, and is connected to Open Graph/Twitter metadata.
+- Open Graph and Twitter image alt metadata describes the social sharing card.
 - Privacy notice page is available at `privacy.html` and is linked from the form and footer.
 - Consultation checklist page is available at `checklist.html` and linked from the homepage/footer.
 - Contact form uses EmailJS first, then falls back to a pre-filled email draft.

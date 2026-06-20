@@ -308,6 +308,9 @@ if (existsSync("index.html")) {
   if (!html.includes('rel="preconnect"')) failures.push("index.html is missing preconnect hints.");
   if (!html.includes('class="promise-section"')) failures.push("index.html is missing the consultation promise section.");
   if (!html.includes("social-card.svg")) failures.push("index.html is missing the local social sharing image.");
+  if (!html.includes('property="og:image:alt"') || !html.includes('name="twitter:image:alt"')) {
+    failures.push("index.html is missing social image alt metadata.");
+  }
 }
 
 for (const page of ["404.html", "privacy.html", "checklist.html"]) {
@@ -319,6 +322,9 @@ for (const page of ["404.html", "privacy.html", "checklist.html"]) {
   if (/\son[a-z]+=/i.test(html)) failures.push(`${page} includes an inline event handler.`);
   if (page !== "404.html" && !html.includes('rel="canonical"')) failures.push(`${page} is missing a canonical link.`);
   if (page !== "404.html" && !html.includes("social-card.svg")) failures.push(`${page} is missing the local social sharing image.`);
+  if (page !== "404.html" && (!html.includes('property="og:image:alt"') || !html.includes('name="twitter:image:alt"'))) {
+    failures.push(`${page} is missing social image alt metadata.`);
+  }
 }
 
 if (existsSync("privacy.html")) {

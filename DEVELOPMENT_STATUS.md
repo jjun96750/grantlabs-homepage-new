@@ -187,6 +187,7 @@ Last updated: 2026-06-20
 - Local preview and deployed smoke checks now request brand logo SVG assets directly.
 - `ProfessionalService` JSON-LD now includes the canonical Grant Labs logo URL and static validation coverage.
 - `site.webmanifest` now includes app id, scope, locale, categories, maskable icon purpose, and consultation/checklist shortcuts.
+- Open Graph and Twitter image alt metadata now describe the social card on indexable and legal/checklist pages.
 - No build step is required.
 
 ## Current Files
@@ -459,6 +460,7 @@ CHANGELOG.md
 - Extended `scripts/check-local-preview.mjs` and `scripts/check-deployed-site.mjs` to request brand logo SVG assets directly.
 - Added the canonical Grant Labs logo URL to `ProfessionalService` JSON-LD and static validation.
 - Expanded `site.webmanifest` with app id, scope, locale, categories, maskable icon purpose, and consultation/checklist shortcuts.
+- Added Open Graph and Twitter image alt metadata for social-card accessibility.
 
 ### 2026-06-19
 

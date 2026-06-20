@@ -24,6 +24,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Extended local preview and deployed smoke checks to request brand logo SVG assets directly.
 - Added the canonical Grant Labs logo URL to `ProfessionalService` JSON-LD and static validation.
 - Expanded `site.webmanifest` with app id, scope, locale, categories, maskable icon purpose, and consultation/checklist shortcuts.
+- Added Open Graph and Twitter image alt metadata for social-card accessibility.
 
 ## 2026-06-19
 
