@@ -18,6 +18,8 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Added `npm run status:index` and `STATUS_INDEX.md` as a collaborator-facing map of status documents and guardrails.
 - Added `npm run status:journal` and `DEVELOPMENT_JOURNAL.md` for commit-based implementation history.
 - Extended GitHub Actions to regenerate `DEVELOPMENT_JOURNAL.md` and fail on uncommitted journal drift.
+- Added Grant Labs logo SVG assets and applied the wordmark to the header, footer, 404 page, and legal/checklist headers.
+- Added static validation and cache policy coverage for the brand logo assets.
 
 ## 2026-06-19
 

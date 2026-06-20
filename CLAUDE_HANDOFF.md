@@ -43,6 +43,10 @@ index.html
 privacy.html
 checklist.html
 styles/homepage.css
+assets/brand/grant-labs-logo.svg
+assets/brand/grant-labs-logo-black.svg
+assets/brand/grant-labs-logo-gold.svg
+assets/brand/grant-labs-logo-white.svg
 README.md
 STATUS_INDEX.md
 DEVELOPMENT_JOURNAL.md
@@ -118,6 +122,7 @@ content-automation/output/2026-06-20-certification-patent-funding-sequence-publi
 ## Design Direction
 
 - Korean Grant Labs homepage for policy funding, certification, R&D center, patent, corporation setup, and business support consulting.
+- Grant Labs wordmark logo SVG assets are committed under `assets/brand/` and used in the homepage header/footer, 404 page, privacy page, and checklist page.
 - First screen uses a real business meeting photo from Unsplash.
 - The page is intentionally static for simple Cloudflare Pages deployment.
 - Static deployment support files are present: `_headers`, `robots.txt`, `sitemap.xml`, `favicon.svg`, and `site.webmanifest`.
@@ -130,11 +135,11 @@ content-automation/output/2026-06-20-certification-patent-funding-sequence-publi
 - EmailJS browser SDK is pinned to `@emailjs/browser@4.4.1`; do not switch it back to a major-version alias.
 - Pinned CDN scripts include SRI `integrity` attributes and `crossorigin="anonymous"`.
 - Contact form includes a hidden honeypot field, `aria-describedby` wiring, `aria-busy` submission state updates, and `page_url` / `submitted_at` metadata.
-- Cloudflare `_headers` includes host-scoped HSTS, CSP, the approved Pretendard style/font CDN allowlist, clickjacking protection, baseline browser security headers, and cache policies for CSS, favicon, social card, manifest, robots, and sitemap files.
+- Cloudflare `_headers` includes host-scoped HSTS, CSP, the approved Pretendard style/font CDN allowlist, clickjacking protection, baseline browser security headers, and cache policies for CSS, favicon, brand logo assets, social card, manifest, robots, and sitemap files.
 - Cloudflare `_redirects` routes unknown paths to `404.html` with a 404 status.
 - `privacy.html` is intentionally `noindex` and excluded from `sitemap.xml`.
 - `privacy.html` discloses the optional email field used by the consultation form.
-- `scripts/check-static-site.mjs` verifies required files including `.nojekyll`, metadata, duplicate HTML ids, hero image performance attributes, contact form fields, optional email payload handling, mobile-friendly phone input constraints, canonical contact values, EmailJS config values, CDN version pins, CSP allowlists including Pretendard font loading, `_headers`/local preview security-header synchronization, JSON-LD, docs markers, command docs, editor config, Node version pin, gitignore hygiene, SVG asset metadata, robots/sitemap/canonical consistency, local `href` / `src` targets, cross-page hashes, inline event handler cleanup, and external new-window link safety.
+- `scripts/check-static-site.mjs` verifies required files including `.nojekyll`, metadata, duplicate HTML ids, hero image performance attributes, contact form fields, optional email payload handling, mobile-friendly phone input constraints, canonical contact values, EmailJS config values, CDN version pins, CSP allowlists including Pretendard font loading, `_headers`/local preview security-header synchronization, JSON-LD, docs markers, command docs, editor config, Node version pin, gitignore hygiene, SVG and brand logo asset metadata, robots/sitemap/canonical consistency, local `href` / `src` targets, cross-page hashes, inline event handler cleanup, and external new-window link safety.
 - `scripts/serve-static.mjs` provides a dependency-free local preview server at `http://127.0.0.1:4173/` with explicit 404, HEAD request handling, secured 405 responses, and Cloudflare-like security headers.
 - `scripts/check-local-preview.mjs` verifies local preview GET, HEAD, and unsupported-method status codes, content types, `Cache-Control: no-store`, homepage CDN script integrity markers, missing-route handling, and security/CSP headers including HSTS and Pretendard style/font loading.
 - `scripts/check-deployed-site.mjs` verifies pages, response headers, CSP markers, `Content-Type` values, homepage CDN script integrity markers, missing-route 404 handling, sitemap noindex cleanup, and prints a pass summary.

@@ -15,6 +15,7 @@ Last updated: 2026-06-20
 - GitHub repository created.
 - Local repository initialized.
 - Static homepage draft completed.
+- Grant Labs official SVG logo assets are applied to the homepage header, footer, legal pages, checklist page, and 404 page.
 - Repository pushed to GitHub.
 - Claude handoff memo created.
 - Development status document created and actively maintained.
@@ -180,6 +181,8 @@ Last updated: 2026-06-20
 - Static validation now checks EmailJS public key, service ID, and template ID consistency.
 - Hero image now has explicit dimensions, async decoding, fetch priority, and static validation coverage.
 - Contact phone field now uses telephone input mode, a lightweight pattern, and static validation coverage.
+- Grant Labs logo SVG assets are committed under `assets/brand/` and applied to the header, footer, 404 page, privacy page, and checklist page.
+- Static validation and Cloudflare cache policy coverage now include the brand logo assets.
 - No build step is required.
 
 ## Current Files
@@ -189,6 +192,10 @@ index.html
 privacy.html
 checklist.html
 styles/homepage.css
+assets/brand/grant-labs-logo.svg
+assets/brand/grant-labs-logo-black.svg
+assets/brand/grant-labs-logo-gold.svg
+assets/brand/grant-labs-logo-white.svg
 README.md
 COMMANDS.md
 CONTRIBUTING.md
@@ -441,6 +448,9 @@ CHANGELOG.md
 - Extended `.github/workflows/static-site-check.yml` to regenerate `STATUS_INDEX.md` and reject stale status index reports.
 - Added `scripts/generate-development-journal.mjs`, `npm run status:journal`, and `DEVELOPMENT_JOURNAL.md`.
 - Extended `.github/workflows/static-site-check.yml` to regenerate `DEVELOPMENT_JOURNAL.md` and reject stale development journal reports.
+- Added Grant Labs logo SVG assets under `assets/brand/`.
+- Replaced text-based brand marks with logo wordmarks in the homepage header/footer, 404 page, privacy page, and checklist page.
+- Extended static validation and `_headers` cache rules for brand logo assets.
 
 ### 2026-06-19
 

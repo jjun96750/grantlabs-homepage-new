@@ -13,6 +13,10 @@ const requiredFiles = [
   "styles/homepage.css",
   "favicon.svg",
   "social-card.svg",
+  "assets/brand/grant-labs-logo.svg",
+  "assets/brand/grant-labs-logo-black.svg",
+  "assets/brand/grant-labs-logo-gold.svg",
+  "assets/brand/grant-labs-logo-white.svg",
   "site.webmanifest",
   "robots.txt",
   "sitemap.xml",
@@ -658,6 +662,20 @@ if (existsSync("robots.txt")) {
   }
 }
 
+for (const logoFile of [
+  "assets/brand/grant-labs-logo.svg",
+  "assets/brand/grant-labs-logo-black.svg",
+  "assets/brand/grant-labs-logo-gold.svg",
+  "assets/brand/grant-labs-logo-white.svg",
+]) {
+  if (!existsSync(logoFile)) continue;
+  const logo = read(logoFile);
+  for (const marker of ["<svg", 'viewBox="0 0 520 120"', "Grant Labs", 'role="img"']) {
+    if (!logo.includes(marker)) failures.push(`${logoFile} is missing marker: ${marker}`);
+  }
+  if (logo.includes("@import")) failures.push(`${logoFile} should not import remote fonts.`);
+}
+
 if (existsSync("_headers")) {
   const headers = read("_headers");
   for (const marker of ["Strict-Transport-Security", "Content-Security-Policy", "X-Content-Type-Options", "X-Frame-Options", "Referrer-Policy", "Permissions-Policy"]) {
@@ -675,7 +693,7 @@ if (existsSync("_headers")) {
   if (!headers.includes("style-src 'self' https://cdn.jsdelivr.net") || !headers.includes("font-src 'self' https://cdn.jsdelivr.net data:")) {
     failures.push("_headers CSP does not allow the approved Pretendard font CDN.");
   }
-  for (const path of ["/social-card.svg", "/site.webmanifest", "/robots.txt", "/sitemap.xml"]) {
+  for (const path of ["/social-card.svg", "/assets/brand/*", "/site.webmanifest", "/robots.txt", "/sitemap.xml"]) {
     if (!headers.includes(path)) failures.push(`_headers is missing cache policy for ${path}`);
   }
 }
@@ -761,7 +779,7 @@ if (existsSync("DEVELOPMENT_STATUS.md")) {
 
 if (existsSync("README.md")) {
   const readme = read("README.md");
-  for (const marker of ["scripts/", "check-static-site.mjs", "check-content-automation.mjs", "generate-asset-briefs.mjs", "generate-caption-pack.mjs", "generate-content-plan.mjs", "generate-content-status.mjs", "generate-deployment-readiness.mjs", "generate-development-journal.mjs", "generate-status-index.mjs", "generate-publishing-queue.mjs", "run-all-content-automation.mjs", "run-content-automation.mjs", "serve-static.mjs", "check-local-preview.mjs", "check-deployed-site.mjs", "content-automation/", "DEVELOPMENT_JOURNAL.md", "social-card.svg", "npm run check:content", "npm run content:assets", "npm run content:captions", "npm run content:plan", "npm run content:queue", "npm run content:run", "npm run content:run:all", "npm run content:status", "npm run deployment:readiness", "npm run status:journal", "npm run status:index", "npm run serve", "npm run preview:check"]) {
+  for (const marker of ["scripts/", "check-static-site.mjs", "check-content-automation.mjs", "generate-asset-briefs.mjs", "generate-caption-pack.mjs", "generate-content-plan.mjs", "generate-content-status.mjs", "generate-deployment-readiness.mjs", "generate-development-journal.mjs", "generate-status-index.mjs", "generate-publishing-queue.mjs", "run-all-content-automation.mjs", "run-content-automation.mjs", "serve-static.mjs", "check-local-preview.mjs", "check-deployed-site.mjs", "content-automation/", "assets/brand/", "DEVELOPMENT_JOURNAL.md", "social-card.svg", "npm run check:content", "npm run content:assets", "npm run content:captions", "npm run content:plan", "npm run content:queue", "npm run content:run", "npm run content:run:all", "npm run content:status", "npm run deployment:readiness", "npm run status:journal", "npm run status:index", "npm run serve", "npm run preview:check"]) {
     if (!readme.includes(marker)) failures.push(`README.md is missing marker: ${marker}`);
   }
 }

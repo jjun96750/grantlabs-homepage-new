@@ -16,6 +16,13 @@ privacy.html
 checklist.html
 styles/
   homepage.css
+assets/
+  brand/
+    grant-labs-logo.svg
+    grant-labs-logo-black.svg
+    grant-labs-logo-gold.svg
+    grant-labs-logo-white.svg
+assets/brand/
 .nojekyll
 _headers
 favicon.svg

@@ -89,33 +89,24 @@ a {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   text-decoration: none;
-  min-width: 190px;
+  min-width: 214px;
 }
 
-.brand-mark {
-  width: 38px;
-  height: 38px;
-  border: 1px solid rgba(255, 255, 255, 0.45);
-  border-radius: 8px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 800;
-  background: rgba(255, 255, 255, 0.12);
-}
-
-.brand strong,
-.footer strong {
+.brand-logo {
   display: block;
-  font-size: 17px;
-  line-height: 1.1;
+  width: 148px;
+  height: auto;
+  flex: 0 0 auto;
+}
+
+.brand-logo-light {
+  filter: drop-shadow(0 1px 8px rgba(0, 0, 0, 0.22));
 }
 
 .brand small {
   display: block;
-  margin-top: 3px;
   font-size: 11px;
   color: rgba(255, 255, 255, 0.72);
 }
@@ -1086,6 +1077,12 @@ button:disabled,
   gap: 24px;
 }
 
+.footer-logo {
+  display: block;
+  width: 150px;
+  height: auto;
+}
+
 .footer-links {
   display: flex;
   align-items: center;
@@ -1181,12 +1178,6 @@ button:disabled,
   margin-bottom: 42px;
 }
 
-.not-found-brand .brand-mark {
-  color: #fff;
-  border-color: transparent;
-  background: var(--green);
-}
-
 .not-found-brand small {
   color: var(--muted);
 }
@@ -1224,12 +1215,6 @@ button:disabled,
 
 .legal-brand {
   color: var(--ink);
-}
-
-.legal-brand .brand-mark {
-  color: #fff;
-  border-color: transparent;
-  background: var(--green);
 }
 
 .legal-brand small {
@@ -1533,6 +1518,10 @@ button:disabled,
 
   .brand {
     min-width: auto;
+  }
+
+  .brand-logo {
+    width: 132px;
   }
 
   .header-cta {
