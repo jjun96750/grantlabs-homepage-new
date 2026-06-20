@@ -38,6 +38,12 @@ jobs:
       - name: Verify deployment readiness report is committed
         run: git diff --exit-code -- DEPLOYMENT_READINESS.md
 
+      - name: Regenerate status index
+        run: npm run status:index
+
+      - name: Verify status index is committed
+        run: git diff --exit-code -- STATUS_INDEX.md
+
       - name: Run content automation validation
         run: npm run check:content
 

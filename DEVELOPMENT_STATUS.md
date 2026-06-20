@@ -164,6 +164,7 @@ Last updated: 2026-06-20
 - GitHub Actions now regenerates content automation outputs, checks for uncommitted content drift, and runs `npm run check:content`.
 - Added `npm run deployment:readiness` and `DEPLOYMENT_READINESS.md` to summarize deployment readiness and open deployment placeholders.
 - GitHub Actions now regenerates `DEPLOYMENT_READINESS.md` and checks for uncommitted readiness drift.
+- Added `npm run status:index` and `STATUS_INDEX.md` to give collaborators a single map of status documents and guardrails.
 - `.nvmrc` added and covered by static validation for Node version consistency.
 - `.gitignore` expanded for deployment/build artifacts and covered by static validation.
 - `SECURITY.md` added with vulnerability and deployment-issue reporting guidance.
@@ -217,6 +218,7 @@ scripts/generate-caption-pack.mjs
 scripts/generate-content-plan.mjs
 scripts/generate-content-status.mjs
 scripts/generate-deployment-readiness.mjs
+scripts/generate-status-index.mjs
 scripts/generate-publishing-queue.mjs
 scripts/run-all-content-automation.mjs
 scripts/run-content-automation.mjs
@@ -250,6 +252,7 @@ content-automation/output/2026-06-20-certification-patent-funding-sequence-publi
 .github/CODEOWNERS
 DEPLOYMENT_ENVIRONMENTS.md
 DEPLOYMENT_READINESS.md
+STATUS_INDEX.md
 ROLLBACK_PLAN.md
 SECURITY.md
 CHANGELOG.md
@@ -430,6 +433,8 @@ CHANGELOG.md
 - Added `scripts/generate-deployment-readiness.mjs`, `npm run deployment:readiness`, and `DEPLOYMENT_READINESS.md`.
 - Updated static validation so the deployment readiness report stays present and useful for handoff.
 - Extended `.github/workflows/static-site-check.yml` to regenerate `DEPLOYMENT_READINESS.md` and reject stale readiness reports.
+- Added `scripts/generate-status-index.mjs`, `npm run status:index`, and `STATUS_INDEX.md`.
+- Extended `.github/workflows/static-site-check.yml` to regenerate `STATUS_INDEX.md` and reject stale status index reports.
 
 ### 2026-06-19
 

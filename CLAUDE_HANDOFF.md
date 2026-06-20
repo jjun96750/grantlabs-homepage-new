@@ -12,7 +12,7 @@
 - Static homepage draft is ready and pushed to GitHub.
 - No build step is required.
 - Main branch: `main`
-- Latest implementation commit captured in this handoff: `cc583d9 Check deployment readiness drift in CI`
+- Latest implementation commit captured in this handoff: pending status index commit
 - Local static validation passes with `npm run check`.
 - Standard local validation command is `npm run check`; local preview is `npm run serve`.
 - Standard commands are documented in `COMMANDS.md`.
@@ -24,6 +24,7 @@
 - All content automation campaigns can be regenerated with `npm run content:run:all`.
 - Campaign status can be regenerated with `npm run content:status`.
 - Deployment readiness can be regenerated with `npm run deployment:readiness`.
+- Status index can be regenerated with `npm run status:index`.
 - Content automation outputs can be quality-checked with `npm run check:content`.
 - The current content automation set includes the 2026-06-18 policy-funding readiness campaign, the 2026-06-19 R&D-center readiness bridge campaign, and the 2026-06-20 certification/patent/funding sequence campaign.
 - Ongoing development status is tracked in `DEVELOPMENT_STATUS.md`.
@@ -42,6 +43,7 @@ privacy.html
 checklist.html
 styles/homepage.css
 README.md
+STATUS_INDEX.md
 COMMANDS.md
 CONTRIBUTING.md
 CLAUDE_HANDOFF.md
@@ -73,6 +75,7 @@ scripts/generate-caption-pack.mjs
 scripts/generate-content-plan.mjs
 scripts/generate-content-status.mjs
 scripts/generate-deployment-readiness.mjs
+scripts/generate-status-index.mjs
 scripts/generate-publishing-queue.mjs
 scripts/run-all-content-automation.mjs
 scripts/run-content-automation.mjs
@@ -132,17 +135,19 @@ content-automation/output/2026-06-20-certification-patent-funding-sequence-publi
 - `scripts/serve-static.mjs` provides a dependency-free local preview server at `http://127.0.0.1:4173/` with explicit 404, HEAD request handling, secured 405 responses, and Cloudflare-like security headers.
 - `scripts/check-local-preview.mjs` verifies local preview GET, HEAD, and unsupported-method status codes, content types, `Cache-Control: no-store`, homepage CDN script integrity markers, missing-route handling, and security/CSP headers including HSTS and Pretendard style/font loading.
 - `scripts/check-deployed-site.mjs` verifies pages, response headers, CSP markers, `Content-Type` values, homepage CDN script integrity markers, missing-route 404 handling, sitemap noindex cleanup, and prints a pass summary.
-- GitHub Actions runs `npm run content:run:all`, rejects uncommitted content automation drift, regenerates `DEPLOYMENT_READINESS.md`, rejects uncommitted readiness drift, runs `npm run check:content`, runs `npm run check`, starts the local preview server, and runs `npm run preview:check` on pushes to `main` and pull requests, with timeout and concurrency controls.
+- GitHub Actions runs `npm run content:run:all`, rejects uncommitted content automation drift, regenerates `DEPLOYMENT_READINESS.md`, rejects uncommitted readiness drift, regenerates `STATUS_INDEX.md`, rejects uncommitted status-index drift, runs `npm run check:content`, runs `npm run check`, starts the local preview server, and runs `npm run preview:check` on pushes to `main` and pull requests, with timeout and concurrency controls.
 - `content-automation/platform-rules.json` defines per-platform posting strategy for Naver Blog, Instagram, YouTube, TikTok, Facebook, and LinkedIn.
 - `content-automation/README.md` documents the campaign workflow, active campaigns, and expected generated output set.
 - `content-automation/CAMPAIGN_STATUS.md` is the collaborator-facing table of campaigns and generated output status.
 - `DEPLOYMENT_READINESS.md` is the collaborator-facing table of deployment readiness checks and open deployment placeholders.
+- `STATUS_INDEX.md` is the collaborator-facing map of status documents and safety guardrails.
 - `scripts/generate-asset-briefs.mjs` creates platform-specific production briefs with canvas, checklist, CTA, and success-signal guidance.
 - `scripts/generate-caption-pack.mjs` creates platform-specific captions, hashtags, CTA text, and thumbnail/overlay copy.
 - `scripts/generate-content-plan.mjs` creates platform-specific posting guidance from the current Grant Labs campaign input.
 - `scripts/generate-publishing-queue.mjs` creates CSV and Markdown publishing queues with platform timing, asset, objective, and success-signal guidance.
 - `scripts/generate-content-status.mjs` writes `content-automation/CAMPAIGN_STATUS.md` for handoff visibility.
 - `scripts/generate-deployment-readiness.mjs` writes `DEPLOYMENT_READINESS.md` for deployment handoff visibility.
+- `scripts/generate-status-index.mjs` writes `STATUS_INDEX.md` for fast collaborator orientation.
 - `scripts/run-content-automation.mjs` runs the content plan, asset brief, caption pack, and publishing queue generators in sequence.
 - `scripts/run-all-content-automation.mjs` discovers every campaign JSON file and runs the full automation pipeline for each one.
 - `scripts/check-content-automation.mjs` scans every campaign and generated output set for platform coverage, Korean markers, checklist URL, compliance guardrails, and forbidden claims.

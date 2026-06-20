@@ -20,6 +20,7 @@ const requiredFiles = [
   "_redirects",
   "LICENSE",
   "README.md",
+  "STATUS_INDEX.md",
   "COMMANDS.md",
   "CONTRIBUTING.md",
   "CLAUDE_HANDOFF.md",
@@ -38,6 +39,7 @@ const requiredFiles = [
   "scripts/generate-content-status.mjs",
   "scripts/generate-content-plan.mjs",
   "scripts/generate-deployment-readiness.mjs",
+  "scripts/generate-status-index.mjs",
   "scripts/generate-publishing-queue.mjs",
   "scripts/run-all-content-automation.mjs",
   "scripts/run-content-automation.mjs",
@@ -361,6 +363,7 @@ if (existsSync("package.json")) {
     if (pkg.scripts?.["content:run:all"] !== "node scripts/run-all-content-automation.mjs") failures.push("package.json is missing the all-campaign content automation runner script.");
     if (pkg.scripts?.["content:status"] !== "node scripts/generate-content-status.mjs") failures.push("package.json is missing the content automation status script.");
     if (pkg.scripts?.["deployment:readiness"] !== "node scripts/generate-deployment-readiness.mjs") failures.push("package.json is missing the deployment readiness script.");
+    if (pkg.scripts?.["status:index"] !== "node scripts/generate-status-index.mjs") failures.push("package.json is missing the status index script.");
     if (pkg.scripts?.serve !== "node scripts/serve-static.mjs") failures.push("package.json is missing the local preview server script.");
     if (pkg.scripts?.["preview:check"] !== "node scripts/check-local-preview.mjs") failures.push("package.json is missing the local preview check script.");
     if (pkg.scripts?.smoke !== "node scripts/check-deployed-site.mjs") failures.push("package.json is missing the deployed smoke script.");
@@ -444,6 +447,13 @@ if (existsSync("scripts/generate-deployment-readiness.mjs")) {
   const readinessGenerator = read("scripts/generate-deployment-readiness.mjs");
   for (const marker of ["DEPLOYMENT_READINESS.md", "Readiness Checks", "Open Deployment Items", "Generated deployment readiness"]) {
     if (!readinessGenerator.includes(marker)) failures.push(`scripts/generate-deployment-readiness.mjs is missing marker: ${marker}`);
+  }
+}
+
+if (existsSync("scripts/generate-status-index.mjs")) {
+  const statusIndexGenerator = read("scripts/generate-status-index.mjs");
+  for (const marker of ["STATUS_INDEX.md", "Recommended Reading Order", "Guardrail Summary", "Generated status index"]) {
+    if (!statusIndexGenerator.includes(marker)) failures.push(`scripts/generate-status-index.mjs is missing marker: ${marker}`);
   }
 }
 
@@ -718,6 +728,13 @@ if (existsSync("DEPLOYMENT_READINESS.md")) {
   }
 }
 
+if (existsSync("STATUS_INDEX.md")) {
+  const statusIndex = read("STATUS_INDEX.md");
+  for (const marker of ["Grant Labs Status Index", "Recommended Reading Order", "Guardrail Summary", "npm run status:index", "CLAUDE_HANDOFF.md", "DEPLOYMENT_READINESS.md"]) {
+    if (!statusIndex.includes(marker)) failures.push(`STATUS_INDEX.md is missing marker: ${marker}`);
+  }
+}
+
 if (existsSync("DEVELOPMENT_STATUS.md")) {
   const status = read("DEVELOPMENT_STATUS.md");
   for (const legacyCommand of ["node scripts/check-static-site.mjs", "node scripts/check-deployed-site.mjs <preview-url>"]) {
@@ -727,14 +744,14 @@ if (existsSync("DEVELOPMENT_STATUS.md")) {
 
 if (existsSync("README.md")) {
   const readme = read("README.md");
-  for (const marker of ["scripts/", "check-static-site.mjs", "check-content-automation.mjs", "generate-asset-briefs.mjs", "generate-caption-pack.mjs", "generate-content-plan.mjs", "generate-content-status.mjs", "generate-deployment-readiness.mjs", "generate-publishing-queue.mjs", "run-all-content-automation.mjs", "run-content-automation.mjs", "serve-static.mjs", "check-local-preview.mjs", "check-deployed-site.mjs", "content-automation/", "social-card.svg", "npm run check:content", "npm run content:assets", "npm run content:captions", "npm run content:plan", "npm run content:queue", "npm run content:run", "npm run content:run:all", "npm run content:status", "npm run deployment:readiness", "npm run serve", "npm run preview:check"]) {
+  for (const marker of ["scripts/", "check-static-site.mjs", "check-content-automation.mjs", "generate-asset-briefs.mjs", "generate-caption-pack.mjs", "generate-content-plan.mjs", "generate-content-status.mjs", "generate-deployment-readiness.mjs", "generate-status-index.mjs", "generate-publishing-queue.mjs", "run-all-content-automation.mjs", "run-content-automation.mjs", "serve-static.mjs", "check-local-preview.mjs", "check-deployed-site.mjs", "content-automation/", "social-card.svg", "npm run check:content", "npm run content:assets", "npm run content:captions", "npm run content:plan", "npm run content:queue", "npm run content:run", "npm run content:run:all", "npm run content:status", "npm run deployment:readiness", "npm run status:index", "npm run serve", "npm run preview:check"]) {
     if (!readme.includes(marker)) failures.push(`README.md is missing marker: ${marker}`);
   }
 }
 
 if (existsSync("COMMANDS.md")) {
   const commands = read("COMMANDS.md");
-  for (const marker of ["npm run check", "npm run check:content", "npm run content:assets", "npm run content:captions", "npm run content:plan", "npm run content:queue", "npm run content:run", "npm run content:run:all", "npm run content:status", "npm run deployment:readiness", "npm run serve", "npm run preview:check", "npm run smoke", "static-site validation", "content automation quality", "asset briefs", "caption pack", "platform-specific posting guidance", "publishing queue", "full content automation", "all campaigns", "campaign status", "deployment readiness"]) {
+  for (const marker of ["npm run check", "npm run check:content", "npm run content:assets", "npm run content:captions", "npm run content:plan", "npm run content:queue", "npm run content:run", "npm run content:run:all", "npm run content:status", "npm run deployment:readiness", "npm run status:index", "npm run serve", "npm run preview:check", "npm run smoke", "static-site validation", "content automation quality", "asset briefs", "caption pack", "platform-specific posting guidance", "publishing queue", "full content automation", "all campaigns", "campaign status", "deployment readiness", "status index"]) {
     if (!commands.includes(marker)) failures.push(`COMMANDS.md is missing marker: ${marker}`);
   }
 }
@@ -789,7 +806,7 @@ if (existsSync("CLOUDFLARE_PAGES_SETUP.md")) {
 
 if (existsSync(".github/workflows/static-site-check.yml")) {
   const workflow = read(".github/workflows/static-site-check.yml");
-  for (const marker of ["actions/setup-node@v4", "node-version: 20", "timeout-minutes: 5", "concurrency:", "cancel-in-progress: true", "npm run content:run:all", "git diff --exit-code -- content-automation", "npm run deployment:readiness", "git diff --exit-code -- DEPLOYMENT_READINESS.md", "npm run check:content", "npm run check", "npm run serve", "npm run preview:check", "127.0.0.1:4173"]) {
+  for (const marker of ["actions/setup-node@v4", "node-version: 20", "timeout-minutes: 5", "concurrency:", "cancel-in-progress: true", "npm run content:run:all", "git diff --exit-code -- content-automation", "npm run deployment:readiness", "git diff --exit-code -- DEPLOYMENT_READINESS.md", "npm run status:index", "git diff --exit-code -- STATUS_INDEX.md", "npm run check:content", "npm run check", "npm run serve", "npm run preview:check", "127.0.0.1:4173"]) {
     if (!workflow.includes(marker)) failures.push(`static-site-check workflow is missing marker: ${marker}`);
   }
 }
