@@ -36,6 +36,7 @@ const requiredFiles = [
   "scripts/generate-caption-pack.mjs",
   "scripts/generate-content-plan.mjs",
   "scripts/generate-publishing-queue.mjs",
+  "scripts/run-all-content-automation.mjs",
   "scripts/run-content-automation.mjs",
   "scripts/check-local-preview.mjs",
   "scripts/check-deployed-site.mjs",
@@ -353,6 +354,7 @@ if (existsSync("package.json")) {
     if (pkg.scripts?.["content:plan"] !== "node scripts/generate-content-plan.mjs") failures.push("package.json is missing the content automation plan script.");
     if (pkg.scripts?.["content:queue"] !== "node scripts/generate-publishing-queue.mjs") failures.push("package.json is missing the content publishing queue script.");
     if (pkg.scripts?.["content:run"] !== "node scripts/run-content-automation.mjs") failures.push("package.json is missing the content automation runner script.");
+    if (pkg.scripts?.["content:run:all"] !== "node scripts/run-all-content-automation.mjs") failures.push("package.json is missing the all-campaign content automation runner script.");
     if (pkg.scripts?.serve !== "node scripts/serve-static.mjs") failures.push("package.json is missing the local preview server script.");
     if (pkg.scripts?.["preview:check"] !== "node scripts/check-local-preview.mjs") failures.push("package.json is missing the local preview check script.");
     if (pkg.scripts?.smoke !== "node scripts/check-deployed-site.mjs") failures.push("package.json is missing the deployed smoke script.");
@@ -457,6 +459,13 @@ if (existsSync("scripts/run-content-automation.mjs")) {
   const runner = read("scripts/run-content-automation.mjs");
   for (const marker of ["generate-content-plan.mjs", "generate-asset-briefs.mjs", "generate-caption-pack.mjs", "generate-publishing-queue.mjs", "Content automation completed"]) {
     if (!runner.includes(marker)) failures.push(`scripts/run-content-automation.mjs is missing marker: ${marker}`);
+  }
+}
+
+if (existsSync("scripts/run-all-content-automation.mjs")) {
+  const allRunner = read("scripts/run-all-content-automation.mjs");
+  for (const marker of ["content-automation/campaigns", "run-content-automation.mjs", "Content automation completed for", "campaignFiles.length"]) {
+    if (!allRunner.includes(marker)) failures.push(`scripts/run-all-content-automation.mjs is missing marker: ${marker}`);
   }
 }
 
@@ -684,14 +693,14 @@ if (existsSync("DEVELOPMENT_STATUS.md")) {
 
 if (existsSync("README.md")) {
   const readme = read("README.md");
-  for (const marker of ["scripts/", "check-static-site.mjs", "check-content-automation.mjs", "generate-asset-briefs.mjs", "generate-caption-pack.mjs", "generate-content-plan.mjs", "generate-publishing-queue.mjs", "run-content-automation.mjs", "serve-static.mjs", "check-local-preview.mjs", "check-deployed-site.mjs", "content-automation/", "social-card.svg", "npm run check:content", "npm run content:assets", "npm run content:captions", "npm run content:plan", "npm run content:queue", "npm run content:run", "npm run serve", "npm run preview:check"]) {
+  for (const marker of ["scripts/", "check-static-site.mjs", "check-content-automation.mjs", "generate-asset-briefs.mjs", "generate-caption-pack.mjs", "generate-content-plan.mjs", "generate-publishing-queue.mjs", "run-all-content-automation.mjs", "run-content-automation.mjs", "serve-static.mjs", "check-local-preview.mjs", "check-deployed-site.mjs", "content-automation/", "social-card.svg", "npm run check:content", "npm run content:assets", "npm run content:captions", "npm run content:plan", "npm run content:queue", "npm run content:run", "npm run content:run:all", "npm run serve", "npm run preview:check"]) {
     if (!readme.includes(marker)) failures.push(`README.md is missing marker: ${marker}`);
   }
 }
 
 if (existsSync("COMMANDS.md")) {
   const commands = read("COMMANDS.md");
-  for (const marker of ["npm run check", "npm run check:content", "npm run content:assets", "npm run content:captions", "npm run content:plan", "npm run content:queue", "npm run content:run", "npm run serve", "npm run preview:check", "npm run smoke", "static-site validation", "content automation quality", "asset briefs", "caption pack", "platform-specific posting guidance", "publishing queue", "full content automation"]) {
+  for (const marker of ["npm run check", "npm run check:content", "npm run content:assets", "npm run content:captions", "npm run content:plan", "npm run content:queue", "npm run content:run", "npm run content:run:all", "npm run serve", "npm run preview:check", "npm run smoke", "static-site validation", "content automation quality", "asset briefs", "caption pack", "platform-specific posting guidance", "publishing queue", "full content automation", "all campaigns"]) {
     if (!commands.includes(marker)) failures.push(`COMMANDS.md is missing marker: ${marker}`);
   }
 }

@@ -11,8 +11,14 @@ This folder keeps campaign inputs and generated posting assets for Grant Labs ho
 npm run content:run -- content-automation/campaigns/example-campaign.json
 ```
 
-3. Review the generated files under `content-automation/output/`.
-4. Run quality checks:
+3. Or regenerate every campaign at once:
+
+```bash
+npm run content:run:all
+```
+
+4. Review the generated files under `content-automation/output/`.
+5. Run quality checks:
 
 ```bash
 npm run check:content

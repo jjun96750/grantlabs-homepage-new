@@ -8,6 +8,8 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Generated the 2026-06-20 content plan, asset briefs, caption pack, and publishing queue outputs.
 - Added `content-automation/README.md` to document the ongoing campaign workflow and active campaign set.
 - Updated static validation to scan campaign inputs and generated output sets dynamically instead of maintaining campaign-specific required-file entries.
+- Added `npm run content:run:all` to regenerate every content automation campaign in one command.
+- Updated command docs and automation docs with the all-campaign regeneration workflow.
 
 ## 2026-06-19
 

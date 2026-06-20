@@ -12,7 +12,7 @@
 - Static homepage draft is ready and pushed to GitHub.
 - No build step is required.
 - Main branch: `main`
-- Latest implementation commit captured in this handoff: `d6f549e Add June 20 content campaign`
+- Latest implementation commit captured in this handoff: pending all-campaign automation runner commit
 - Local static validation passes with `npm run check`.
 - Standard local validation command is `npm run check`; local preview is `npm run serve`.
 - Standard commands are documented in `COMMANDS.md`.
@@ -21,6 +21,7 @@
 - Caption packs can be generated with `npm run content:captions`.
 - Publishing queue automation can be generated with `npm run content:queue`.
 - The full content automation pipeline can be regenerated with `npm run content:run`.
+- All content automation campaigns can be regenerated with `npm run content:run:all`.
 - Content automation outputs can be quality-checked with `npm run check:content`.
 - The current content automation set includes the 2026-06-18 policy-funding readiness campaign, the 2026-06-19 R&D-center readiness bridge campaign, and the 2026-06-20 certification/patent/funding sequence campaign.
 - Ongoing development status is tracked in `DEVELOPMENT_STATUS.md`.
@@ -68,6 +69,7 @@ scripts/generate-asset-briefs.mjs
 scripts/generate-caption-pack.mjs
 scripts/generate-content-plan.mjs
 scripts/generate-publishing-queue.mjs
+scripts/run-all-content-automation.mjs
 scripts/run-content-automation.mjs
 scripts/serve-static.mjs
 scripts/check-local-preview.mjs
@@ -132,6 +134,7 @@ content-automation/output/2026-06-20-certification-patent-funding-sequence-publi
 - `scripts/generate-content-plan.mjs` creates platform-specific posting guidance from the current Grant Labs campaign input.
 - `scripts/generate-publishing-queue.mjs` creates CSV and Markdown publishing queues with platform timing, asset, objective, and success-signal guidance.
 - `scripts/run-content-automation.mjs` runs the content plan, asset brief, caption pack, and publishing queue generators in sequence.
+- `scripts/run-all-content-automation.mjs` discovers every campaign JSON file and runs the full automation pipeline for each one.
 - `scripts/check-content-automation.mjs` scans every campaign and generated output set for platform coverage, Korean markers, checklist URL, compliance guardrails, and forbidden claims.
 - `scripts/check-static-site.mjs` also scans campaign inputs and expected generated output files dynamically, so future campaigns should not require campaign-specific static validation entries.
 

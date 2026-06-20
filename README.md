@@ -30,6 +30,7 @@ scripts/
   generate-caption-pack.mjs
   generate-content-plan.mjs
   generate-publishing-queue.mjs
+  run-all-content-automation.mjs
   run-content-automation.mjs
   serve-static.mjs
   check-local-preview.mjs
@@ -113,6 +114,10 @@ npm run content:queue
 
 ```bash
 npm run content:run
+```
+
+```bash
+npm run content:run:all
 ```
 
 ```bash

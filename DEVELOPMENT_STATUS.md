@@ -157,6 +157,8 @@ Last updated: 2026-06-20
 - Generated the 2026-06-20 content plan, asset briefs, caption pack, and publishing queue outputs.
 - Added `content-automation/README.md` with campaign workflow, active campaigns, and expected output set.
 - Static validation now scans all campaign inputs and required generated output sets dynamically.
+- Added `npm run content:run:all` for regenerating every campaign in one command.
+- Command docs and content automation docs now describe the all-campaign regeneration workflow.
 - `.nvmrc` added and covered by static validation for Node version consistency.
 - `.gitignore` expanded for deployment/build artifacts and covered by static validation.
 - `SECURITY.md` added with vulnerability and deployment-issue reporting guidance.
@@ -209,6 +211,7 @@ scripts/generate-asset-briefs.mjs
 scripts/generate-caption-pack.mjs
 scripts/generate-content-plan.mjs
 scripts/generate-publishing-queue.mjs
+scripts/run-all-content-automation.mjs
 scripts/run-content-automation.mjs
 content-automation/README.md
 content-automation/platform-rules.json
@@ -410,6 +413,8 @@ CHANGELOG.md
 - Generated the June 20 content plan, asset briefs, caption pack, and publishing queue outputs.
 - Added `content-automation/README.md` for campaign workflow and active campaign status.
 - Updated `scripts/check-static-site.mjs` to dynamically scan campaign inputs and expected output files.
+- Added `scripts/run-all-content-automation.mjs` and `npm run content:run:all`.
+- Updated `COMMANDS.md`, `README.md`, and `content-automation/README.md` with the all-campaign workflow.
 
 ### 2026-06-19
 
