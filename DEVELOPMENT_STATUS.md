@@ -163,6 +163,7 @@ Last updated: 2026-06-20
 - `content-automation/CAMPAIGN_STATUS.md` now records campaign outputs in one table for handoff visibility.
 - GitHub Actions now regenerates content automation outputs, checks for uncommitted content drift, and runs `npm run check:content`.
 - Added `npm run deployment:readiness` and `DEPLOYMENT_READINESS.md` to summarize deployment readiness and open deployment placeholders.
+- GitHub Actions now regenerates `DEPLOYMENT_READINESS.md` and checks for uncommitted readiness drift.
 - `.nvmrc` added and covered by static validation for Node version consistency.
 - `.gitignore` expanded for deployment/build artifacts and covered by static validation.
 - `SECURITY.md` added with vulnerability and deployment-issue reporting guidance.
@@ -428,6 +429,7 @@ CHANGELOG.md
 - Extended `.github/workflows/static-site-check.yml` to run `npm run content:run:all`, reject uncommitted content automation drift, and run `npm run check:content`.
 - Added `scripts/generate-deployment-readiness.mjs`, `npm run deployment:readiness`, and `DEPLOYMENT_READINESS.md`.
 - Updated static validation so the deployment readiness report stays present and useful for handoff.
+- Extended `.github/workflows/static-site-check.yml` to regenerate `DEPLOYMENT_READINESS.md` and reject stale readiness reports.
 
 ### 2026-06-19
 

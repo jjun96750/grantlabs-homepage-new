@@ -32,6 +32,12 @@ jobs:
       - name: Verify content automation outputs are committed
         run: git diff --exit-code -- content-automation
 
+      - name: Regenerate deployment readiness report
+        run: npm run deployment:readiness
+
+      - name: Verify deployment readiness report is committed
+        run: git diff --exit-code -- DEPLOYMENT_READINESS.md
+
       - name: Run content automation validation
         run: npm run check:content
 

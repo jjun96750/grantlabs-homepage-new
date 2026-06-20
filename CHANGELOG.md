@@ -14,6 +14,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Added static validation coverage for `content-automation/CAMPAIGN_STATUS.md`.
 - Extended GitHub Actions to regenerate content automation outputs, fail on uncommitted content drift, and run `npm run check:content`.
 - Added `npm run deployment:readiness` and `DEPLOYMENT_READINESS.md` for collaborator-facing deployment status.
+- Extended GitHub Actions to regenerate `DEPLOYMENT_READINESS.md` and fail on uncommitted readiness drift.
 
 ## 2026-06-19
 
