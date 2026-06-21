@@ -2,6 +2,11 @@
 
 All notable changes to the Grant Labs new homepage are documented here.
 
+## 2026-06-22
+
+- Added `npm run content:performance` and `content-automation/PERFORMANCE_LOG.md` for post URL, metric, learning, and repurpose tracking.
+- Refreshed sitemap, deployment readiness, today actions, upcoming actions, and content automation outputs for the current Asia/Seoul date.
+
 ## 2026-06-21
 
 - Added `npm run sitemap:refresh` and `scripts/generate-sitemap.mjs` to regenerate sitemap lastmod values from the current Asia/Seoul date.

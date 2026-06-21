@@ -68,4 +68,14 @@ if (upcomingResult.status !== 0) {
   process.exit(upcomingResult.status || 1);
 }
 
+const performanceResult = spawnSync(process.execPath, ["scripts/generate-performance-log.mjs"], {
+  stdio: "inherit",
+  shell: false
+});
+
+if (performanceResult.status !== 0) {
+  console.error("Performance log generation failed.");
+  process.exit(performanceResult.status || 1);
+}
+
 console.log(`\nContent automation completed for ${campaignFiles.length} campaign(s).`);

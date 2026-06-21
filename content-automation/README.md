@@ -36,7 +36,13 @@ npm run content:calendar
 npm run content:upcoming
 ```
 
-8. Run quality checks:
+8. Regenerate performance tracking when needed:
+
+```bash
+npm run content:performance
+```
+
+9. Run quality checks:
 
 ```bash
 npm run check:content
@@ -84,3 +90,10 @@ It also includes platform execution notes from `platform-rules.json` and a repor
 
 This file filters the cross-campaign calendar to future dates after the current Asia/Seoul date. `npm run content:run:all` refreshes it automatically, and `npm run content:upcoming` refreshes only the upcoming action list.
 It includes a date summary, campaign source links, and a preparation log for asset readiness, caption readiness, ownership, and blockers.
+
+## Performance Log
+
+- `content-automation/PERFORMANCE_LOG.md`
+
+This file turns the cross-campaign calendar into a performance tracking sheet. `npm run content:run:all` refreshes it automatically, and `npm run content:performance` refreshes only the performance log.
+Use it after posts go live to record URLs, primary metrics, learnings, repurpose decisions, and follow-up owners.

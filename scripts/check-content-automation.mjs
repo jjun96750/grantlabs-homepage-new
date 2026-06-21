@@ -7,6 +7,7 @@ const calendarCsv = "content-automation/PUBLISHING_CALENDAR.csv";
 const calendarMd = "content-automation/PUBLISHING_CALENDAR.md";
 const todayActions = "content-automation/TODAY_ACTIONS.md";
 const upcomingActions = "content-automation/UPCOMING_ACTIONS.md";
+const performanceLog = "content-automation/PERFORMANCE_LOG.md";
 
 const requiredPlatformMarkers = [
   "Naver Blog",
@@ -49,6 +50,7 @@ if (!existsSync(calendarCsv)) failures.push("Missing generated publishing calend
 if (!existsSync(calendarMd)) failures.push("Missing generated publishing calendar markdown.");
 if (!existsSync(todayActions)) failures.push("Missing generated today actions markdown.");
 if (!existsSync(upcomingActions)) failures.push("Missing generated upcoming actions markdown.");
+if (!existsSync(performanceLog)) failures.push("Missing generated performance log markdown.");
 
 for (const campaignFile of campaignFiles) {
   try {
@@ -125,6 +127,13 @@ if (existsSync(upcomingActions)) {
   const upcoming = read(upcomingActions);
   for (const marker of ["Grant Labs Upcoming Actions", "Upcoming Queue", "Date Summary", "Preparation Log", "Source Files", "npm run content:upcoming", "consultation-checklist-conversion"]) {
     if (!upcoming.includes(marker)) failures.push(`Upcoming actions document is missing marker: ${marker}`);
+  }
+}
+
+if (existsSync(performanceLog)) {
+  const performance = read(performanceLog);
+  for (const marker of ["Grant Labs Performance Log", "Post Performance", "Campaign Learnings", "Platform Learnings", "npm run content:performance", "consultation-checklist-conversion"]) {
+    if (!performance.includes(marker)) failures.push(`Performance log document is missing marker: ${marker}`);
   }
 }
 
