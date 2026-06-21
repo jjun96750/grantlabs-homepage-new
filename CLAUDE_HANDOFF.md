@@ -22,6 +22,7 @@
 - Publishing queue automation can be generated with `npm run content:queue`.
 - Cross-campaign publishing calendar can be regenerated with `npm run content:calendar`.
 - Today's publishing handoff can be regenerated with `npm run content:today`.
+- Upcoming publishing preparation can be regenerated with `npm run content:upcoming`.
 - The full content automation pipeline can be regenerated with `npm run content:run`.
 - All content automation campaigns can be regenerated with `npm run content:run:all`.
 - Campaign status can be regenerated with `npm run content:status`.
@@ -85,6 +86,7 @@ scripts/generate-content-plan.mjs
 scripts/generate-content-status.mjs
 scripts/generate-publishing-calendar.mjs
 scripts/generate-today-actions.mjs
+scripts/generate-upcoming-actions.mjs
 scripts/generate-deployment-readiness.mjs
 scripts/generate-sitemap.mjs
 scripts/generate-development-journal.mjs
@@ -100,6 +102,7 @@ content-automation/CAMPAIGN_STATUS.md
 content-automation/PUBLISHING_CALENDAR.md
 content-automation/PUBLISHING_CALENDAR.csv
 content-automation/TODAY_ACTIONS.md
+content-automation/UPCOMING_ACTIONS.md
 content-automation/platform-rules.json
 content-automation/publishing-defaults.json
 content-automation/campaigns/certification-patent-funding-sequence.json
@@ -176,6 +179,7 @@ content-automation/output/2026-06-21-consultation-checklist-conversion-publishin
 - `scripts/generate-today-actions.mjs` filters the publishing calendar into `content-automation/TODAY_ACTIONS.md` for same-day operator handoff.
 - `content-automation/TODAY_ACTIONS.md` includes source-file links to the relevant campaign plan, asset brief, caption pack, publishing queue, and CSV files.
 - `content-automation/TODAY_ACTIONS.md` also includes platform execution notes plus a reporting log for published URLs, first signals, and follow-up needs.
+- `scripts/generate-upcoming-actions.mjs` filters future calendar rows into `content-automation/UPCOMING_ACTIONS.md` for preparation, ownership, and blocker tracking.
 - `scripts/generate-content-status.mjs` writes `content-automation/CAMPAIGN_STATUS.md` for handoff visibility.
 - `scripts/generate-deployment-readiness.mjs` writes `DEPLOYMENT_READINESS.md` for deployment handoff visibility.
 - `scripts/generate-sitemap.mjs` writes `sitemap.xml` with current Asia/Seoul lastmod values.

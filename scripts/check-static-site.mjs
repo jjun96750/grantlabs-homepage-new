@@ -44,6 +44,7 @@ const requiredFiles = [
   "scripts/generate-content-status.mjs",
   "scripts/generate-publishing-calendar.mjs",
   "scripts/generate-today-actions.mjs",
+  "scripts/generate-upcoming-actions.mjs",
   "scripts/generate-content-plan.mjs",
   "scripts/generate-deployment-readiness.mjs",
   "scripts/generate-sitemap.mjs",
@@ -59,6 +60,7 @@ const requiredFiles = [
   "content-automation/PUBLISHING_CALENDAR.md",
   "content-automation/PUBLISHING_CALENDAR.csv",
   "content-automation/TODAY_ACTIONS.md",
+  "content-automation/UPCOMING_ACTIONS.md",
   "content-automation/platform-rules.json",
   "content-automation/publishing-defaults.json",
   ".github/workflows/static-site-check.yml",
@@ -403,6 +405,7 @@ if (existsSync("package.json")) {
     if (pkg.scripts?.["content:queue"] !== "node scripts/generate-publishing-queue.mjs") failures.push("package.json is missing the content publishing queue script.");
     if (pkg.scripts?.["content:calendar"] !== "node scripts/generate-publishing-calendar.mjs") failures.push("package.json is missing the content publishing calendar script.");
     if (pkg.scripts?.["content:today"] !== "node scripts/generate-today-actions.mjs") failures.push("package.json is missing the content today actions script.");
+    if (pkg.scripts?.["content:upcoming"] !== "node scripts/generate-upcoming-actions.mjs") failures.push("package.json is missing the content upcoming actions script.");
     if (pkg.scripts?.["content:run"] !== "node scripts/run-content-automation.mjs") failures.push("package.json is missing the content automation runner script.");
     if (pkg.scripts?.["content:run:all"] !== "node scripts/run-all-content-automation.mjs") failures.push("package.json is missing the all-campaign content automation runner script.");
     if (pkg.scripts?.["content:status"] !== "node scripts/generate-content-status.mjs") failures.push("package.json is missing the content automation status script.");
@@ -559,6 +562,13 @@ if (existsSync("scripts/generate-today-actions.mjs")) {
   }
 }
 
+if (existsSync("scripts/generate-upcoming-actions.mjs")) {
+  const upcomingGenerator = read("scripts/generate-upcoming-actions.mjs");
+  for (const marker of ["content-automation/UPCOMING_ACTIONS.md", "content-automation/campaigns", "Upcoming Queue", "Date Summary", "Preparation Log", "Asia/Seoul", "Generated upcoming actions"]) {
+    if (!upcomingGenerator.includes(marker)) failures.push(`scripts/generate-upcoming-actions.mjs is missing marker: ${marker}`);
+  }
+}
+
 if (existsSync("scripts/run-content-automation.mjs")) {
   const runner = read("scripts/run-content-automation.mjs");
   for (const marker of ["generate-content-plan.mjs", "generate-asset-briefs.mjs", "generate-caption-pack.mjs", "generate-publishing-queue.mjs", "Content automation completed"]) {
@@ -568,7 +578,7 @@ if (existsSync("scripts/run-content-automation.mjs")) {
 
 if (existsSync("scripts/run-all-content-automation.mjs")) {
   const allRunner = read("scripts/run-all-content-automation.mjs");
-  for (const marker of ["content-automation/campaigns", "run-content-automation.mjs", "generate-content-status.mjs", "generate-publishing-calendar.mjs", "generate-today-actions.mjs", "Content automation completed for", "campaignFiles.length"]) {
+  for (const marker of ["content-automation/campaigns", "run-content-automation.mjs", "generate-content-status.mjs", "generate-publishing-calendar.mjs", "generate-today-actions.mjs", "generate-upcoming-actions.mjs", "Content automation completed for", "campaignFiles.length"]) {
     if (!allRunner.includes(marker)) failures.push(`scripts/run-all-content-automation.mjs is missing marker: ${marker}`);
   }
 }
@@ -591,6 +601,13 @@ if (existsSync("content-automation/TODAY_ACTIONS.md")) {
   const todayActions = read("content-automation/TODAY_ACTIONS.md");
   for (const marker of ["Grant Labs Today Actions", "Today Queue", "Source Files", "Platform Execution Notes", "Reporting Log", "Published URL", "npm run content:today", "consultation-checklist-conversion"]) {
     if (!todayActions.includes(marker)) failures.push(`content-automation/TODAY_ACTIONS.md is missing marker: ${marker}`);
+  }
+}
+
+if (existsSync("content-automation/UPCOMING_ACTIONS.md")) {
+  const upcomingActions = read("content-automation/UPCOMING_ACTIONS.md");
+  for (const marker of ["Grant Labs Upcoming Actions", "Upcoming Queue", "Date Summary", "Preparation Log", "Source Files", "npm run content:upcoming", "consultation-checklist-conversion"]) {
+    if (!upcomingActions.includes(marker)) failures.push(`content-automation/UPCOMING_ACTIONS.md is missing marker: ${marker}`);
   }
 }
 
@@ -856,14 +873,14 @@ if (existsSync("DEVELOPMENT_STATUS.md")) {
 
 if (existsSync("README.md")) {
   const readme = read("README.md");
-  for (const marker of ["scripts/", "check-static-site.mjs", "check-content-automation.mjs", "generate-asset-briefs.mjs", "generate-caption-pack.mjs", "generate-content-plan.mjs", "generate-content-status.mjs", "generate-deployment-readiness.mjs", "generate-sitemap.mjs", "generate-development-journal.mjs", "generate-status-index.mjs", "generate-publishing-queue.mjs", "generate-publishing-calendar.mjs", "generate-today-actions.mjs", "run-all-content-automation.mjs", "run-content-automation.mjs", "serve-static.mjs", "check-local-preview.mjs", "check-deployed-site.mjs", "content-automation/", "PUBLISHING_CALENDAR.md", "TODAY_ACTIONS.md", "assets/brand/", "DEVELOPMENT_JOURNAL.md", "social-card.svg", "npm run check:content", "npm run content:assets", "npm run content:captions", "npm run content:plan", "npm run content:queue", "npm run content:calendar", "npm run content:today", "npm run content:run", "npm run content:run:all", "npm run content:status", "npm run deployment:readiness", "npm run sitemap:refresh", "npm run status:journal", "npm run status:index", "npm run serve", "npm run preview:check"]) {
+  for (const marker of ["scripts/", "check-static-site.mjs", "check-content-automation.mjs", "generate-asset-briefs.mjs", "generate-caption-pack.mjs", "generate-content-plan.mjs", "generate-content-status.mjs", "generate-deployment-readiness.mjs", "generate-sitemap.mjs", "generate-development-journal.mjs", "generate-status-index.mjs", "generate-publishing-queue.mjs", "generate-publishing-calendar.mjs", "generate-today-actions.mjs", "generate-upcoming-actions.mjs", "run-all-content-automation.mjs", "run-content-automation.mjs", "serve-static.mjs", "check-local-preview.mjs", "check-deployed-site.mjs", "content-automation/", "PUBLISHING_CALENDAR.md", "TODAY_ACTIONS.md", "UPCOMING_ACTIONS.md", "assets/brand/", "DEVELOPMENT_JOURNAL.md", "social-card.svg", "npm run check:content", "npm run content:assets", "npm run content:captions", "npm run content:plan", "npm run content:queue", "npm run content:calendar", "npm run content:today", "npm run content:upcoming", "npm run content:run", "npm run content:run:all", "npm run content:status", "npm run deployment:readiness", "npm run sitemap:refresh", "npm run status:journal", "npm run status:index", "npm run serve", "npm run preview:check"]) {
     if (!readme.includes(marker)) failures.push(`README.md is missing marker: ${marker}`);
   }
 }
 
 if (existsSync("COMMANDS.md")) {
   const commands = read("COMMANDS.md");
-  for (const marker of ["npm run check", "npm run check:content", "npm run content:assets", "npm run content:captions", "npm run content:plan", "npm run content:queue", "npm run content:calendar", "npm run content:today", "npm run content:run", "npm run content:run:all", "npm run content:status", "npm run deployment:readiness", "npm run sitemap:refresh", "npm run status:journal", "npm run status:index", "npm run serve", "npm run preview:check", "npm run smoke", "static-site validation", "content automation quality", "asset briefs", "caption pack", "platform-specific posting guidance", "publishing queue", "publishing calendar", "today actions", "full content automation", "all campaigns", "campaign status", "deployment readiness", "sitemap refresh", "development journal", "status index"]) {
+  for (const marker of ["npm run check", "npm run check:content", "npm run content:assets", "npm run content:captions", "npm run content:plan", "npm run content:queue", "npm run content:calendar", "npm run content:today", "npm run content:upcoming", "npm run content:run", "npm run content:run:all", "npm run content:status", "npm run deployment:readiness", "npm run sitemap:refresh", "npm run status:journal", "npm run status:index", "npm run serve", "npm run preview:check", "npm run smoke", "static-site validation", "content automation quality", "asset briefs", "caption pack", "platform-specific posting guidance", "publishing queue", "publishing calendar", "today actions", "upcoming actions", "full content automation", "all campaigns", "campaign status", "deployment readiness", "sitemap refresh", "development journal", "status index"]) {
     if (!commands.includes(marker)) failures.push(`COMMANDS.md is missing marker: ${marker}`);
   }
 }

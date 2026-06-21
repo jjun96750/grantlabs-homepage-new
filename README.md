@@ -39,6 +39,7 @@ scripts/
   generate-content-status.mjs
   generate-publishing-calendar.mjs
   generate-today-actions.mjs
+  generate-upcoming-actions.mjs
   generate-deployment-readiness.mjs
   generate-sitemap.mjs
   generate-development-journal.mjs
@@ -54,6 +55,7 @@ content-automation/
   PUBLISHING_CALENDAR.md
   PUBLISHING_CALENDAR.csv
   TODAY_ACTIONS.md
+  UPCOMING_ACTIONS.md
   README.md
   platform-rules.json
   publishing-defaults.json
@@ -144,6 +146,10 @@ npm run content:calendar
 
 ```bash
 npm run content:today
+```
+
+```bash
+npm run content:upcoming
 ```
 
 ```bash

@@ -12,6 +12,7 @@
     "content:queue": "node scripts/generate-publishing-queue.mjs",
     "content:calendar": "node scripts/generate-publishing-calendar.mjs",
     "content:today": "node scripts/generate-today-actions.mjs",
+    "content:upcoming": "node scripts/generate-upcoming-actions.mjs",
     "content:run": "node scripts/run-content-automation.mjs",
     "content:run:all": "node scripts/run-all-content-automation.mjs",
     "content:status": "node scripts/generate-content-status.mjs",

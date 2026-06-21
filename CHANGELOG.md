@@ -12,6 +12,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Added `npm run content:today` and `content-automation/TODAY_ACTIONS.md` for same-day publishing handoff.
 - Extended `content-automation/TODAY_ACTIONS.md` with direct links to each campaign's plan, asset brief, caption pack, and publishing queue.
 - Added platform execution notes and a reporting log to `content-automation/TODAY_ACTIONS.md` so each same-day post can be published, tracked, and handed off by channel.
+- Added `npm run content:upcoming` and `content-automation/UPCOMING_ACTIONS.md` for future publishing preparation and blocker tracking.
 
 ## 2026-06-20
 

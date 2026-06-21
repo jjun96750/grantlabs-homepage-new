@@ -30,7 +30,13 @@ npm run content:calendar
 ```
 
 6. Review the generated files under `content-automation/output/`, `content-automation/CAMPAIGN_STATUS.md`, and `content-automation/PUBLISHING_CALENDAR.md`.
-7. Run quality checks:
+7. Regenerate future publishing preparation when needed:
+
+```bash
+npm run content:upcoming
+```
+
+8. Run quality checks:
 
 ```bash
 npm run check:content
@@ -71,3 +77,10 @@ These files combine every campaign publishing queue into one operations calendar
 
 This file filters the cross-campaign calendar to the current Asia/Seoul date. `npm run content:run:all` refreshes it automatically, and `npm run content:today` refreshes only today's action list.
 It also includes platform execution notes from `platform-rules.json` and a reporting log for published URLs, first signals, and follow-up needs.
+
+## Upcoming Actions
+
+- `content-automation/UPCOMING_ACTIONS.md`
+
+This file filters the cross-campaign calendar to future dates after the current Asia/Seoul date. `npm run content:run:all` refreshes it automatically, and `npm run content:upcoming` refreshes only the upcoming action list.
+It includes a date summary, campaign source links, and a preparation log for asset readiness, caption readiness, ownership, and blockers.

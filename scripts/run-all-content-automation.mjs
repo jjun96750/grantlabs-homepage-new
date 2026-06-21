@@ -58,4 +58,14 @@ if (todayResult.status !== 0) {
   process.exit(todayResult.status || 1);
 }
 
+const upcomingResult = spawnSync(process.execPath, ["scripts/generate-upcoming-actions.mjs"], {
+  stdio: "inherit",
+  shell: false
+});
+
+if (upcomingResult.status !== 0) {
+  console.error("Upcoming actions generation failed.");
+  process.exit(upcomingResult.status || 1);
+}
+
 console.log(`\nContent automation completed for ${campaignFiles.length} campaign(s).`);
