@@ -3,6 +3,7 @@ import { join } from "node:path";
 
 const calendarCsv = "content-automation/PUBLISHING_CALENDAR.csv";
 const campaignsDir = "content-automation/campaigns";
+const platformRulesPath = "content-automation/platform-rules.json";
 const outputPath = "content-automation/TODAY_ACTIONS.md";
 const today = new Intl.DateTimeFormat("en-CA", {
   timeZone: "Asia/Seoul",
@@ -50,6 +51,12 @@ const rows = existsSync(calendarCsv)
   ? parseCsv(readFileSync(calendarCsv, "utf8")).filter((row) => row.publishDate === today)
   : [];
 
+const platformRules = existsSync(platformRulesPath)
+  ? JSON.parse(readFileSync(platformRulesPath, "utf8")).platforms || []
+  : [];
+
+const platformByName = new Map(platformRules.map((platform) => [platform.name, platform]));
+
 const campaignBySlug = new Map(
   readdirSync(campaignsDir)
     .map((name) => join(campaignsDir, name))
@@ -80,6 +87,21 @@ const sourceRows = [...new Set(rows.map((row) => row.campaign))]
   })
   .join("\n") || "| n/a | n/a | n/a | n/a | n/a | n/a |";
 
+const executionRows = rows.length
+  ? rows.map((row) => {
+    const platform = platformByName.get(row.platform);
+    if (!platform) {
+      return `| ${row.publishTime} | ${row.platform} | Match the asset to the scheduled format. | Capture the post URL and first engagement signal. | Use the campaign source files for follow-up variants. |`;
+    }
+
+    return `| ${row.publishTime} | ${row.platform} | ${platform.format} Hook: ${platform.hook} | Check ${row.successSignal}. CTA: ${platform.cta} | ${platform.repurposeRule} Avoid: ${platform.avoid} |`;
+  }).join("\n")
+  : "| n/a | n/a | No scheduled publishing actions. | n/a | n/a |";
+
+const reportingRows = rows.length
+  ? rows.map((row) => `| ${row.publishTime} | ${row.platform} | \`${row.campaign}\` |  |  |  |  |`).join("\n")
+  : "| n/a | n/a | n/a |  |  |  |  |";
+
 const content = `# Grant Labs Today Actions
 
 Date: ${today}
@@ -101,6 +123,20 @@ ${guardrails}
 | Campaign | Plan | Assets | Captions | Queue | CSV |
 | --- | --- | --- | --- | --- | --- |
 ${sourceRows}
+
+## Platform Execution Notes
+
+| Time | Platform | Before publishing | After publishing | Repurpose note |
+| --- | --- | --- | --- | --- |
+${executionRows}
+
+## Reporting Log
+
+Fill this after each post so the next collaborator can see what actually shipped.
+
+| Time | Platform | Campaign | Published URL | Posted by | First signal | Follow-up needed |
+| --- | --- | --- | --- | --- | --- | --- |
+${reportingRows}
 
 ## Refresh
 

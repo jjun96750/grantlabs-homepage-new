@@ -70,3 +70,4 @@ These files combine every campaign publishing queue into one operations calendar
 - `content-automation/TODAY_ACTIONS.md`
 
 This file filters the cross-campaign calendar to the current Asia/Seoul date. `npm run content:run:all` refreshes it automatically, and `npm run content:today` refreshes only today's action list.
+It also includes platform execution notes from `platform-rules.json` and a reporting log for published URLs, first signals, and follow-up needs.

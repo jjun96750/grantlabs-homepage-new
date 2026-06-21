@@ -195,6 +195,7 @@ Last updated: 2026-06-21
 - Added `npm run content:calendar` and cross-campaign publishing calendar outputs.
 - Added `npm run content:today` and same-day publishing handoff output.
 - `content-automation/TODAY_ACTIONS.md` now links directly to each campaign's plan, asset brief, caption pack, and publishing queue.
+- `content-automation/TODAY_ACTIONS.md` now includes platform execution notes and a reporting log for published URLs, first signals, and follow-up needs.
 - No build step is required.
 
 ## Current Files
@@ -464,6 +465,7 @@ CHANGELOG.md
 - Added `scripts/generate-publishing-calendar.mjs`, `npm run content:calendar`, `content-automation/PUBLISHING_CALENDAR.md`, and `content-automation/PUBLISHING_CALENDAR.csv`.
 - Added `scripts/generate-today-actions.mjs`, `npm run content:today`, and `content-automation/TODAY_ACTIONS.md`.
 - Extended today's action handoff with direct source-file links for campaign plan, asset brief, caption pack, queue, and CSV files.
+- Extended today's action handoff with platform execution notes and a reporting log for published URL, first-signal, and follow-up tracking.
 
 ### 2026-06-20
 
