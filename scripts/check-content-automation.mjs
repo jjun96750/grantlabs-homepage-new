@@ -114,7 +114,7 @@ if (existsSync(calendarMd)) {
 
 if (existsSync(todayActions)) {
   const today = read(todayActions);
-  for (const marker of ["Grant Labs Today Actions", "Today Queue", "npm run content:today", "consultation-checklist-conversion"]) {
+  for (const marker of ["Grant Labs Today Actions", "Today Queue", "Source Files", "npm run content:today", "consultation-checklist-conversion"]) {
     if (!today.includes(marker)) failures.push(`Today actions document is missing marker: ${marker}`);
   }
 }

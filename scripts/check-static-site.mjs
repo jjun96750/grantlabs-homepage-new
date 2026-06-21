@@ -554,7 +554,7 @@ if (existsSync("scripts/generate-publishing-calendar.mjs")) {
 
 if (existsSync("scripts/generate-today-actions.mjs")) {
   const todayGenerator = read("scripts/generate-today-actions.mjs");
-  for (const marker of ["content-automation/TODAY_ACTIONS.md", "Asia/Seoul", "Today Queue", "Generated today actions"]) {
+  for (const marker of ["content-automation/TODAY_ACTIONS.md", "content-automation/campaigns", "Source Files", "Asia/Seoul", "Today Queue", "Generated today actions"]) {
     if (!todayGenerator.includes(marker)) failures.push(`scripts/generate-today-actions.mjs is missing marker: ${marker}`);
   }
 }
@@ -589,7 +589,7 @@ if (existsSync("content-automation/PUBLISHING_CALENDAR.md")) {
 
 if (existsSync("content-automation/TODAY_ACTIONS.md")) {
   const todayActions = read("content-automation/TODAY_ACTIONS.md");
-  for (const marker of ["Grant Labs Today Actions", "Today Queue", "npm run content:today", "consultation-checklist-conversion"]) {
+  for (const marker of ["Grant Labs Today Actions", "Today Queue", "Source Files", "npm run content:today", "consultation-checklist-conversion"]) {
     if (!todayActions.includes(marker)) failures.push(`content-automation/TODAY_ACTIONS.md is missing marker: ${marker}`);
   }
 }

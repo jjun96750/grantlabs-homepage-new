@@ -1,6 +1,8 @@
-import { existsSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync, statSync, writeFileSync } from "node:fs";
+import { join } from "node:path";
 
 const calendarCsv = "content-automation/PUBLISHING_CALENDAR.csv";
+const campaignsDir = "content-automation/campaigns";
 const outputPath = "content-automation/TODAY_ACTIONS.md";
 const today = new Intl.DateTimeFormat("en-CA", {
   timeZone: "Asia/Seoul",
@@ -48,6 +50,17 @@ const rows = existsSync(calendarCsv)
   ? parseCsv(readFileSync(calendarCsv, "utf8")).filter((row) => row.publishDate === today)
   : [];
 
+const campaignBySlug = new Map(
+  readdirSync(campaignsDir)
+    .map((name) => join(campaignsDir, name))
+    .filter((file) => statSync(file).isFile())
+    .filter((file) => file.endsWith(".json"))
+    .map((file) => {
+      const campaign = JSON.parse(readFileSync(file, "utf8"));
+      return [campaign.slug, campaign];
+    })
+);
+
 const actionRows = rows.length
   ? rows.map((row) => `| ${row.publishTime} | ${row.platform} | \`${row.campaign}\` | ${row.objective} | ${row.assetSpec} | ${row.successSignal} |`).join("\n")
   : "| n/a | n/a | n/a | No scheduled publishing actions for today. | n/a | n/a |";
@@ -55,6 +68,17 @@ const actionRows = rows.length
 const guardrails = [...new Set(rows.map((row) => row.guardrail).filter(Boolean))]
   .map((guardrail) => `- ${guardrail}`)
   .join("\n") || "- Keep claims diagnostic and preparation-focused. Do not guarantee approval, funding, certification, or patent outcomes.";
+
+const sourceRows = [...new Set(rows.map((row) => row.campaign))]
+  .sort()
+  .map((slug) => {
+    const campaign = campaignBySlug.get(slug);
+    if (!campaign) return `| \`${slug}\` | missing campaign file | missing | missing | missing | missing |`;
+
+    const base = `${campaign.date}-${campaign.slug}`;
+    return `| \`${slug}\` | [Plan](output/${base}.md) | [Assets](output/${base}-asset-briefs.md) | [Captions](output/${base}-caption-pack.md) | [Queue](output/${base}-publishing-queue.md) | [CSV](output/${base}-publishing-queue.csv) |`;
+  })
+  .join("\n") || "| n/a | n/a | n/a | n/a | n/a | n/a |";
 
 const content = `# Grant Labs Today Actions
 
@@ -71,6 +95,12 @@ ${actionRows}
 ## Guardrails
 
 ${guardrails}
+
+## Source Files
+
+| Campaign | Plan | Assets | Captions | Queue | CSV |
+| --- | --- | --- | --- | --- | --- |
+${sourceRows}
 
 ## Refresh
 

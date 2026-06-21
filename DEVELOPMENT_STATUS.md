@@ -194,6 +194,7 @@ Last updated: 2026-06-21
 - Added the 2026-06-21 consultation checklist conversion campaign.
 - Added `npm run content:calendar` and cross-campaign publishing calendar outputs.
 - Added `npm run content:today` and same-day publishing handoff output.
+- `content-automation/TODAY_ACTIONS.md` now links directly to each campaign's plan, asset brief, caption pack, and publishing queue.
 - No build step is required.
 
 ## Current Files
@@ -462,6 +463,7 @@ CHANGELOG.md
 - Added `content-automation/campaigns/consultation-checklist-conversion.json`.
 - Added `scripts/generate-publishing-calendar.mjs`, `npm run content:calendar`, `content-automation/PUBLISHING_CALENDAR.md`, and `content-automation/PUBLISHING_CALENDAR.csv`.
 - Added `scripts/generate-today-actions.mjs`, `npm run content:today`, and `content-automation/TODAY_ACTIONS.md`.
+- Extended today's action handoff with direct source-file links for campaign plan, asset brief, caption pack, queue, and CSV files.
 
 ### 2026-06-20
 
