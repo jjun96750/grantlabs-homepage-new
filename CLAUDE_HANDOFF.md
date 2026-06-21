@@ -12,7 +12,7 @@
 - Static homepage draft is ready and pushed to GitHub.
 - No build step is required.
 - Main branch: `main`
-- Latest implementation commit captured in this handoff: `5269eeb Add content performance tracking`
+- Latest implementation commit captured in this handoff: `6da3720 Add daily content operations brief`
 - Local static validation passes with `npm run check`.
 - Standard local validation command is `npm run check`; local preview is `npm run serve`.
 - Standard commands are documented in `COMMANDS.md`.
