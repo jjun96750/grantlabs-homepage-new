@@ -42,7 +42,13 @@ npm run content:upcoming
 npm run content:performance
 ```
 
-9. Run quality checks:
+9. Regenerate the daily operator brief when needed:
+
+```bash
+npm run content:brief
+```
+
+10. Run quality checks:
 
 ```bash
 npm run check:content
@@ -97,3 +103,9 @@ It includes a date summary, campaign source links, and a preparation log for ass
 
 This file turns the cross-campaign calendar into a performance tracking sheet. `npm run content:run:all` refreshes it automatically, and `npm run content:performance` refreshes only the performance log.
 Use it after posts go live to record URLs, primary metrics, learnings, repurpose decisions, and follow-up owners.
+
+## Daily Brief
+
+- `content-automation/DAILY_BRIEF.md`
+
+This file summarizes today's focus, tomorrow's preparation queue, and the records that need updating. `npm run content:run:all` refreshes it automatically, and `npm run content:brief` refreshes only the daily brief.

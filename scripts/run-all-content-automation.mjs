@@ -78,4 +78,14 @@ if (performanceResult.status !== 0) {
   process.exit(performanceResult.status || 1);
 }
 
+const briefResult = spawnSync(process.execPath, ["scripts/generate-daily-brief.mjs"], {
+  stdio: "inherit",
+  shell: false
+});
+
+if (briefResult.status !== 0) {
+  console.error("Daily brief generation failed.");
+  process.exit(briefResult.status || 1);
+}
+
 console.log(`\nContent automation completed for ${campaignFiles.length} campaign(s).`);

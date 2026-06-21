@@ -8,6 +8,7 @@ const calendarMd = "content-automation/PUBLISHING_CALENDAR.md";
 const todayActions = "content-automation/TODAY_ACTIONS.md";
 const upcomingActions = "content-automation/UPCOMING_ACTIONS.md";
 const performanceLog = "content-automation/PERFORMANCE_LOG.md";
+const dailyBrief = "content-automation/DAILY_BRIEF.md";
 
 const requiredPlatformMarkers = [
   "Naver Blog",
@@ -51,6 +52,7 @@ if (!existsSync(calendarMd)) failures.push("Missing generated publishing calenda
 if (!existsSync(todayActions)) failures.push("Missing generated today actions markdown.");
 if (!existsSync(upcomingActions)) failures.push("Missing generated upcoming actions markdown.");
 if (!existsSync(performanceLog)) failures.push("Missing generated performance log markdown.");
+if (!existsSync(dailyBrief)) failures.push("Missing generated daily brief markdown.");
 
 for (const campaignFile of campaignFiles) {
   try {
@@ -134,6 +136,13 @@ if (existsSync(performanceLog)) {
   const performance = read(performanceLog);
   for (const marker of ["Grant Labs Performance Log", "Post Performance", "Campaign Learnings", "Platform Learnings", "npm run content:performance", "consultation-checklist-conversion"]) {
     if (!performance.includes(marker)) failures.push(`Performance log document is missing marker: ${marker}`);
+  }
+}
+
+if (existsSync(dailyBrief)) {
+  const brief = read(dailyBrief);
+  for (const marker of ["Grant Labs Daily Brief", "Snapshot", "Today Focus", "Tomorrow Prep", "Update These Records", "npm run content:brief"]) {
+    if (!brief.includes(marker)) failures.push(`Daily brief document is missing marker: ${marker}`);
   }
 }
 

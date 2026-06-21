@@ -198,6 +198,7 @@ Last updated: 2026-06-22
 - `content-automation/TODAY_ACTIONS.md` now includes platform execution notes and a reporting log for published URLs, first signals, and follow-up needs.
 - Added `npm run content:upcoming` and `content-automation/UPCOMING_ACTIONS.md` for future publishing preparation, ownership, and blocker tracking.
 - Added `npm run content:performance` and `content-automation/PERFORMANCE_LOG.md` for post URL, metric, learning, and repurpose tracking.
+- Added `npm run content:brief` and `content-automation/DAILY_BRIEF.md` for a single daily operator summary.
 - No build step is required.
 
 ## Current Files
@@ -245,6 +246,7 @@ scripts/generate-publishing-calendar.mjs
 scripts/generate-today-actions.mjs
 scripts/generate-upcoming-actions.mjs
 scripts/generate-performance-log.mjs
+scripts/generate-daily-brief.mjs
 scripts/generate-deployment-readiness.mjs
 scripts/generate-sitemap.mjs
 scripts/generate-development-journal.mjs
@@ -259,6 +261,7 @@ content-automation/PUBLISHING_CALENDAR.csv
 content-automation/TODAY_ACTIONS.md
 content-automation/UPCOMING_ACTIONS.md
 content-automation/PERFORMANCE_LOG.md
+content-automation/DAILY_BRIEF.md
 content-automation/platform-rules.json
 content-automation/publishing-defaults.json
 content-automation/campaigns/certification-patent-funding-sequence.json
@@ -464,6 +467,7 @@ CHANGELOG.md
 ### 2026-06-22
 
 - Added `scripts/generate-performance-log.mjs`, `npm run content:performance`, and `content-automation/PERFORMANCE_LOG.md`.
+- Added `scripts/generate-daily-brief.mjs`, `npm run content:brief`, and `content-automation/DAILY_BRIEF.md`.
 - Refreshed sitemap, deployment readiness, today actions, upcoming actions, and content automation outputs for the current Asia/Seoul date.
 
 ### 2026-06-21
