@@ -16,14 +16,15 @@ Last updated: 2026-06-22
 - Platform-ready copy now uses channel-specific publishing behavior: Naver gets readable sections and a visible raw URL CTA, Instagram/TikTok avoid assuming clickable captions, and YouTube/Facebook/LinkedIn keep URL-forward post formats.
 - Naver Blog now has a plain-text `01-naver-blog-copy.txt` per campaign with raw checklist URL, readable paragraph breaks, and no Markdown link syntax.
 - Content automation now generates `content-automation/READY_COPY_INDEX.md` as a collaborator-facing map to each campaign's platform-ready summary and Naver plain-text file.
-- `content-automation/TODAY_ACTIONS.md` now includes an operator posting checklist with exact ready-copy files, tracked URLs, quality status, and final platform checks.
+- `content-automation/TODAY_ACTIONS.md` now includes an operator posting checklist with clickable ready-copy file links, tracked URLs, quality status, and final platform checks.
 - `npm run content:run` and `npm run content:run:all` now include the platform-ready copy step.
 - `npm run check:content` now requires platform-ready copy summaries and validates the Naver plain-text file.
 - Content automation now generates campaign/platform UTM checklist links in `content-automation/TRACKED_LINKS.md` and `.csv`.
 - Content automation now generates `content-automation/PLATFORM_PLAYBOOK.md` from platform rules for collaborator publishing QA.
 - Content automation now generates `content-automation/COPY_QUALITY_REPORT.md`; all 32 campaign/platform copy checks currently report Ready.
+- `content-automation/PERFORMANCE_LOG.md` now includes publishing status, tracked CTA URLs, first-check dates, and a daily review queue for follow-up ownership.
 - `content-automation/PLATFORM_PLAYBOOK.md` now includes universal readability rules, Naver raw URL guidance, Markdown-link warnings, and channel-specific pre-publish QA.
-- Latest validation after the platform-ready copy index update: `Content automation check passed.` and `Static site check passed.`
+- Latest validation after the performance follow-up update: `Content automation check passed.` and `Static site check passed.`
 - `npm run check:content` now rejects likely mojibake markers in campaign inputs and generated content automation outputs.
 - `npm run check:content` now requires the Naver Blog caption section to keep the raw checklist URL and avoid Markdown-only links.
 - GitHub repository created.
@@ -213,6 +214,7 @@ Last updated: 2026-06-22
 - `content-automation/TODAY_ACTIONS.md` now includes exact ready-copy files, tracked URLs, quality status, and final platform checks for same-day operators.
 - Added `npm run content:upcoming` and `content-automation/UPCOMING_ACTIONS.md` for future publishing preparation, ownership, and blocker tracking.
 - Added `npm run content:performance` and `content-automation/PERFORMANCE_LOG.md` for post URL, metric, learning, and repurpose tracking.
+- `content-automation/PERFORMANCE_LOG.md` now carries publishing status, tracked CTA URLs, first-check dates, and a daily review queue.
 - Added `npm run content:links` and `content-automation/TRACKED_LINKS.md` / `.csv` for campaign/platform UTM checklist URLs.
 - Added `npm run content:playbook` and `content-automation/PLATFORM_PLAYBOOK.md` for channel roles, CTAs, ready-copy files, and publishing QA.
 - Added `npm run content:ready-index` and `content-automation/READY_COPY_INDEX.md` for quick access to campaign ready-copy summaries and Naver plain-text files.
@@ -498,6 +500,7 @@ CHANGELOG.md
 - Strengthened `scripts/check-content-automation.mjs` to reject likely mojibake markers in campaign inputs and generated content automation outputs.
 - Strengthened `scripts/check-content-automation.mjs` to enforce raw checklist URLs in Naver Blog caption sections.
 - Added `scripts/generate-performance-log.mjs`, `npm run content:performance`, and `content-automation/PERFORMANCE_LOG.md`.
+- Extended `scripts/generate-performance-log.mjs` to include tracked CTA URLs, publishing status, first-check dates, and a daily review queue.
 - Added `scripts/generate-tracked-links.mjs`, `npm run content:links`, and `content-automation/TRACKED_LINKS.md` / `.csv`.
 - Added `scripts/generate-platform-playbook.mjs`, `npm run content:playbook`, and `content-automation/PLATFORM_PLAYBOOK.md`.
 - Added `scripts/generate-ready-copy-index.mjs`, `npm run content:ready-index`, and `content-automation/READY_COPY_INDEX.md`.

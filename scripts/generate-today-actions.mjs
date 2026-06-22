@@ -152,12 +152,16 @@ const executionRows = rows.length
 const operatorRows = rows.length
   ? rows.map((row) => {
     const readyFile = readyCopyByPlatform[row.platform] || "See platform-ready folder";
+    const campaign = campaignBySlug.get(row.campaign);
+    const readyFileLink = campaign
+      ? `[${readyFile}](output/platform-ready-copy/${campaign.date}-${campaign.slug}/${readyFile})`
+      : `\`${readyFile}\``;
     const trackedUrl = trackedLinkByKey.get(`${row.campaign}::${row.platform}`) || row.landingPage || "missing tracked URL";
     const quality = qualityByKey.get(`${row.campaign}::${row.platform}`);
     const qualityText = quality ? quality.status : "Not checked";
     const finalCheck = finalCheckByPlatform[row.platform] || "Match the platform playbook before publishing";
 
-    return `| ${row.publishTime} | ${row.platform} | \`${row.campaign}\` | \`${readyFile}\` | ${qualityText} | ${trackedUrl} | ${finalCheck} |`;
+    return `| ${row.publishTime} | ${row.platform} | \`${row.campaign}\` | ${readyFileLink} | ${qualityText} | ${trackedUrl} | ${finalCheck} |`;
   }).join("\n")
   : "| n/a | n/a | n/a | n/a | n/a | n/a | No scheduled publishing actions. |";
 

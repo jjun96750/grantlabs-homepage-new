@@ -132,7 +132,7 @@ These files combine every campaign publishing queue into one operations calendar
 - `content-automation/TODAY_ACTIONS.md`
 
 This file filters the cross-campaign calendar to the current Asia/Seoul date. `npm run content:run:all` refreshes it automatically, and `npm run content:today` refreshes only today's action list.
-It also includes platform execution notes from `platform-rules.json`, an operator posting checklist with exact ready-copy files, tracked URLs, quality status, and final channel checks, plus a reporting log for published URLs, first signals, and follow-up needs.
+It also includes platform execution notes from `platform-rules.json`, an operator posting checklist with clickable ready-copy file links, tracked URLs, quality status, and final channel checks, plus a reporting log for published URLs, first signals, and follow-up needs.
 
 ## Upcoming Actions
 
@@ -146,7 +146,7 @@ It includes a date summary, campaign source links, and a preparation log for ass
 - `content-automation/PERFORMANCE_LOG.md`
 
 This file turns the cross-campaign calendar into a performance tracking sheet. `npm run content:run:all` refreshes it automatically, and `npm run content:performance` refreshes only the performance log.
-Use it after posts go live to record URLs, primary metrics, learnings, repurpose decisions, and follow-up owners.
+Use it after posts go live to record publishing status, tracked CTA URLs, published URLs, first-check dates, primary metrics, learnings, repurpose decisions, and follow-up owners. It also includes a daily review queue for post-publication follow-up.
 
 ## Tracked Links
 

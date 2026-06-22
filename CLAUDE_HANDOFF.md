@@ -209,7 +209,7 @@ content-automation/output/2026-06-21-consultation-checklist-conversion-publishin
 - `content-automation/TODAY_ACTIONS.md` includes source-file links to the relevant campaign plan, asset brief, caption pack, publishing queue, and CSV files.
 - `content-automation/TODAY_ACTIONS.md` also includes platform execution notes, an operator posting checklist with exact ready-copy files/tracked URLs/quality status/final platform checks, plus a reporting log for published URLs, first signals, and follow-up needs.
 - `scripts/generate-upcoming-actions.mjs` filters future calendar rows into `content-automation/UPCOMING_ACTIONS.md` for preparation, ownership, and blocker tracking.
-- `scripts/generate-performance-log.mjs` creates `content-automation/PERFORMANCE_LOG.md` for post URLs, metrics, learnings, repurpose decisions, and follow-up owners.
+- `scripts/generate-performance-log.mjs` creates `content-automation/PERFORMANCE_LOG.md` with publishing status, tracked CTA URLs, first-check dates, post URLs, metrics, learnings, repurpose decisions, a daily review queue, and follow-up owners.
 - `scripts/generate-tracked-links.mjs` creates `content-automation/TRACKED_LINKS.md` and `.csv` with UTM-tagged checklist URLs for every campaign/platform pair.
 - `scripts/generate-platform-playbook.mjs` creates `content-automation/PLATFORM_PLAYBOOK.md` from platform rules so each channel has role, CTA, ready-copy, and QA guidance.
 - `scripts/generate-ready-copy-index.mjs` creates `content-automation/READY_COPY_INDEX.md` as a quick access map to campaign ready-copy summaries and Naver plain-text files.

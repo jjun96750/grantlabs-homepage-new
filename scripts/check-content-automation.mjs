@@ -207,7 +207,7 @@ if (existsSync(calendarMd)) {
 
 if (existsSync(todayActions)) {
   const today = read(todayActions);
-  for (const marker of ["Grant Labs Today Actions", "Today Queue", "Source Files", "Ready Copy", "Platform Execution Notes", "Operator Posting Checklist", "Tracked URL", "Reporting Log", "npm run content:today", "consultation-checklist-conversion"]) {
+  for (const marker of ["Grant Labs Today Actions", "Today Queue", "Source Files", "Ready Copy", "Platform Execution Notes", "Operator Posting Checklist", "Tracked URL", "output/platform-ready-copy/", "Reporting Log", "npm run content:today", "consultation-checklist-conversion"]) {
     if (!today.includes(marker)) failures.push(`Today actions document is missing marker: ${marker}`);
   }
 }
@@ -221,7 +221,7 @@ if (existsSync(upcomingActions)) {
 
 if (existsSync(performanceLog)) {
   const performance = read(performanceLog);
-  for (const marker of ["Grant Labs Performance Log", "Post Performance", "Campaign Learnings", "Platform Learnings", "npm run content:performance", "consultation-checklist-conversion"]) {
+  for (const marker of ["Grant Labs Performance Log", "Post Performance", "Status", "Tracked CTA URL", "First check date", "Daily Review Queue", "Campaign Learnings", "Platform Learnings", "npm run content:performance", "consultation-checklist-conversion"]) {
     if (!performance.includes(marker)) failures.push(`Performance log document is missing marker: ${marker}`);
   }
 }

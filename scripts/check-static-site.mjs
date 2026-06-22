@@ -590,7 +590,7 @@ if (existsSync("scripts/generate-upcoming-actions.mjs")) {
 
 if (existsSync("scripts/generate-performance-log.mjs")) {
   const performanceGenerator = read("scripts/generate-performance-log.mjs");
-  for (const marker of ["content-automation/PERFORMANCE_LOG.md", "Post Performance", "Campaign Learnings", "Platform Learnings", "Asia/Seoul", "Generated performance log"]) {
+  for (const marker of ["content-automation/PERFORMANCE_LOG.md", "content-automation/TRACKED_LINKS.csv", "Post Performance", "Status", "Tracked CTA URL", "First check date", "Daily Review Queue", "Campaign Learnings", "Platform Learnings", "Asia/Seoul", "Generated performance log"]) {
     if (!performanceGenerator.includes(marker)) failures.push(`scripts/generate-performance-log.mjs is missing marker: ${marker}`);
   }
 }
@@ -660,7 +660,7 @@ if (existsSync("content-automation/PUBLISHING_CALENDAR.md")) {
 
 if (existsSync("content-automation/TODAY_ACTIONS.md")) {
   const todayActions = read("content-automation/TODAY_ACTIONS.md");
-  for (const marker of ["Grant Labs Today Actions", "Today Queue", "Source Files", "Platform Execution Notes", "Operator Posting Checklist", "Ready-copy file", "Tracked URL", "Reporting Log", "Published URL", "npm run content:today", "consultation-checklist-conversion"]) {
+  for (const marker of ["Grant Labs Today Actions", "Today Queue", "Source Files", "Platform Execution Notes", "Operator Posting Checklist", "Ready-copy file", "Tracked URL", "output/platform-ready-copy/", "Reporting Log", "Published URL", "npm run content:today", "consultation-checklist-conversion"]) {
     if (!todayActions.includes(marker)) failures.push(`content-automation/TODAY_ACTIONS.md is missing marker: ${marker}`);
   }
 }
@@ -674,7 +674,7 @@ if (existsSync("content-automation/UPCOMING_ACTIONS.md")) {
 
 if (existsSync("content-automation/PERFORMANCE_LOG.md")) {
   const performanceLog = read("content-automation/PERFORMANCE_LOG.md");
-  for (const marker of ["Grant Labs Performance Log", "Post Performance", "Campaign Learnings", "Platform Learnings", "npm run content:performance", "consultation-checklist-conversion"]) {
+  for (const marker of ["Grant Labs Performance Log", "Post Performance", "Status", "Tracked CTA URL", "First check date", "Daily Review Queue", "Campaign Learnings", "Platform Learnings", "npm run content:performance", "consultation-checklist-conversion"]) {
     if (!performanceLog.includes(marker)) failures.push(`content-automation/PERFORMANCE_LOG.md is missing marker: ${marker}`);
   }
 }
