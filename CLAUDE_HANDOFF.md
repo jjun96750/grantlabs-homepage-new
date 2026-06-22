@@ -12,7 +12,7 @@
 - Static homepage draft is ready and pushed to GitHub.
 - No build step is required.
 - Main branch: `main`
-- Latest implementation commit captured in this handoff: `0fd8ca4 Add platform posting QA automation`
+- Latest implementation commit captured in this handoff: `9d2d41b Carry overdue posts into today actions`
 - Local static validation passes with `npm run check`.
 - Standard local validation command is `npm run check`; local preview is `npm run serve`.
 - Standard commands are documented in `COMMANDS.md`.
@@ -208,9 +208,9 @@ content-automation/output/2026-06-21-consultation-checklist-conversion-publishin
 - `scripts/generate-content-plan.mjs` creates platform-specific posting guidance from the current Grant Labs campaign input.
 - `scripts/generate-publishing-queue.mjs` creates CSV and Markdown publishing queues with platform timing, asset, objective, and success-signal guidance.
 - `scripts/generate-publishing-calendar.mjs` combines every campaign publishing queue into `content-automation/PUBLISHING_CALENDAR.md` and `.csv`.
-- `scripts/generate-today-actions.mjs` filters the publishing calendar into `content-automation/TODAY_ACTIONS.md` for same-day operator handoff.
+- `scripts/generate-today-actions.mjs` filters the publishing calendar into `content-automation/TODAY_ACTIONS.md` for same-day operator handoff and overdue carryover.
 - `content-automation/TODAY_ACTIONS.md` includes source-file links to the relevant campaign plan, asset brief, caption pack, publishing queue, and CSV files.
-- `content-automation/TODAY_ACTIONS.md` also includes platform execution notes, an operator posting checklist with exact ready-copy files/tracked URLs/quality status/final platform checks, plus a reporting log for published URLs, first signals, and follow-up needs.
+- `content-automation/TODAY_ACTIONS.md` also includes overdue carryover, platform execution notes, an operator posting checklist with exact ready-copy files/tracked URLs/quality status/final platform checks, plus a reporting log for published URLs, first signals, and follow-up needs.
 - `scripts/generate-upcoming-actions.mjs` filters future calendar rows into `content-automation/UPCOMING_ACTIONS.md` for preparation, ownership, and blocker tracking.
 - `scripts/generate-performance-log.mjs` creates `content-automation/PERFORMANCE_LOG.md` with publishing status, tracked CTA URLs, first-check dates, post URLs, metrics, learnings, repurpose decisions, a daily review queue, and follow-up owners.
 - `scripts/generate-tracked-links.mjs` creates `content-automation/TRACKED_LINKS.md` and `.csv` with UTM-tagged checklist URLs for every campaign/platform pair.
