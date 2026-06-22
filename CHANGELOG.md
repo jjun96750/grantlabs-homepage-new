@@ -2,6 +2,13 @@
 
 All notable changes to the Grant Labs new homepage are documented here.
 
+## 2026-06-23
+
+- Refreshed date-sensitive content automation outputs for 2026-06-23, including today actions, upcoming actions, daily brief, tracked links, performance log, ready-copy index, platform playbook, posting QA, and copy quality report.
+- Regenerated `content-automation/TODAY_ACTIONS.md` with an `Overdue Carryover` section so prior unconfirmed posts remain visible with clickable ready-copy links and tracked CTA URLs.
+- Regenerated `sitemap.xml` so all public page `lastmod` values match the current Asia/Seoul date.
+- Revalidated the refreshed outputs with `npm run check:content` and `npm run check`.
+
 ## 2026-06-22
 
 - Improved platform-ready copy quality by rebuilding Naver Blog output with readable section breaks, a visible raw URL CTA, and platform-specific link behavior for Instagram, TikTok, YouTube, Facebook, and LinkedIn.
@@ -10,6 +17,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Extended `content-automation/TODAY_ACTIONS.md` with an operator posting checklist containing clickable ready-copy file links, tracked URLs, quality status, and final platform checks.
 - Extended `content-automation/PERFORMANCE_LOG.md` with publishing status, tracked CTA URLs, first-check dates, and a daily review queue for post-publication follow-up.
 - Added `npm run content:posting-qa` and `content-automation/PLATFORM_POSTING_QA.md` for per-site editor paste checks, tracked CTA URLs, and link-handling QA.
+- Extended `content-automation/TODAY_ACTIONS.md` with overdue carryover so missed publishing slots stay visible until posted or rescheduled.
 - Added platform-ready copy generation for every content automation campaign, including plain-text Naver Blog files under `content-automation/output/platform-ready-copy/`.
 - Added `npm run content:ready-copy` and wired platform-ready copy into `npm run content:run` / `npm run content:run:all`.
 - Extended content automation checks to require platform-ready copy summaries and validate the Naver plain-text file for raw URL, readable paragraphs, and no Markdown link syntax.

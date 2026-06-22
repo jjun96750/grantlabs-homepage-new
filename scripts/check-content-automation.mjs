@@ -210,7 +210,7 @@ if (existsSync(calendarMd)) {
 
 if (existsSync(todayActions)) {
   const today = read(todayActions);
-  for (const marker of ["Grant Labs Today Actions", "Today Queue", "Source Files", "Ready Copy", "Platform Execution Notes", "Operator Posting Checklist", "Tracked URL", "output/platform-ready-copy/", "Reporting Log", "npm run content:today", "consultation-checklist-conversion"]) {
+  for (const marker of ["Grant Labs Today Actions", "Today Queue", "Overdue Carryover", "Source Files", "Ready Copy", "Platform Execution Notes", "Operator Posting Checklist", "Tracked URL", "output/platform-ready-copy/", "Reporting Log", "npm run content:today", "consultation-checklist-conversion"]) {
     if (!today.includes(marker)) failures.push(`Today actions document is missing marker: ${marker}`);
   }
 }
