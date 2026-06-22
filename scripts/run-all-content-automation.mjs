@@ -98,6 +98,16 @@ if (playbookResult.status !== 0) {
   process.exit(playbookResult.status || 1);
 }
 
+const qualityResult = spawnSync(process.execPath, ["scripts/generate-copy-quality-report.mjs"], {
+  stdio: "inherit",
+  shell: false
+});
+
+if (qualityResult.status !== 0) {
+  console.error("Copy quality report generation failed.");
+  process.exit(qualityResult.status || 1);
+}
+
 const briefResult = spawnSync(process.execPath, ["scripts/generate-daily-brief.mjs"], {
   stdio: "inherit",
   shell: false

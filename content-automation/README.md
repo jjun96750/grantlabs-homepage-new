@@ -61,13 +61,19 @@ npm run content:links
 npm run content:playbook
 ```
 
-12. Regenerate the daily operator brief when needed:
+12. Regenerate the copy quality report when needed:
+
+```bash
+npm run content:quality
+```
+
+13. Regenerate the daily operator brief when needed:
 
 ```bash
 npm run content:brief
 ```
 
-13. Run quality checks:
+14. Run quality checks:
 
 ```bash
 npm run check:content
@@ -142,6 +148,12 @@ These files give every campaign/platform pair a UTM-tagged checklist URL. Use th
 - `content-automation/PLATFORM_PLAYBOOK.md`
 
 This file turns `platform-rules.json` into a collaborator-facing posting guide with each channel's role, best format, CTA, ready-copy file, and publishing QA. `npm run content:run:all` refreshes it automatically, and `npm run content:playbook` refreshes only the playbook.
+
+## Copy Quality Report
+
+- `content-automation/COPY_QUALITY_REPORT.md`
+
+This file checks every platform-ready copy file for readability, raw URL handling, platform-specific link behavior, and obvious publishing blockers. `npm run content:run:all` refreshes it automatically, and `npm run content:quality` refreshes only the quality report.
 
 ## Daily Brief
 

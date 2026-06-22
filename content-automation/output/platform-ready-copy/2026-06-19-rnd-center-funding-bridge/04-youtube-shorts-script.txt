@@ -16,7 +16,9 @@ YouTube Shorts script:
 
 Caption:
 신청 전 준비도를 먼저 확인하세요.
-캡션 링크가 클릭되지 않는 플랫폼에서는 프로필 링크, 고정 댓글, 또는 설명란에 아래 주소를 넣으세요.
+Pinned comment:
+상담 전 준비 체크리스트:
+https://grantlabs.co.kr/checklist.html
 
 https://grantlabs.co.kr/checklist.html
 

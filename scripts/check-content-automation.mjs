@@ -9,6 +9,7 @@ const todayActions = "content-automation/TODAY_ACTIONS.md";
 const upcomingActions = "content-automation/UPCOMING_ACTIONS.md";
 const performanceLog = "content-automation/PERFORMANCE_LOG.md";
 const dailyBrief = "content-automation/DAILY_BRIEF.md";
+const copyQualityReport = "content-automation/COPY_QUALITY_REPORT.md";
 
 const requiredPlatformMarkers = [
   "Naver Blog",
@@ -62,6 +63,7 @@ if (!existsSync(todayActions)) failures.push("Missing generated today actions ma
 if (!existsSync(upcomingActions)) failures.push("Missing generated upcoming actions markdown.");
 if (!existsSync(performanceLog)) failures.push("Missing generated performance log markdown.");
 if (!existsSync(dailyBrief)) failures.push("Missing generated daily brief markdown.");
+if (!existsSync(copyQualityReport)) failures.push("Missing generated copy quality report markdown.");
 
 for (const campaignFile of campaignFiles) {
   try {
@@ -219,6 +221,13 @@ if (existsSync(dailyBrief)) {
   const brief = read(dailyBrief);
   for (const marker of ["Grant Labs Daily Brief", "Snapshot", "Today Focus", "Tomorrow Prep", "Update These Records", "platform-ready copy", "npm run content:brief"]) {
     if (!brief.includes(marker)) failures.push(`Daily brief document is missing marker: ${marker}`);
+  }
+}
+
+if (existsSync(copyQualityReport)) {
+  const quality = read(copyQualityReport);
+  for (const marker of ["Grant Labs Copy Quality Report", "Ready: 32", "Needs review or missing: 0", "Naver Blog", "Instagram Reels", "YouTube Shorts", "Readable, URL-forward, and platform-aware", "npm run content:quality"]) {
+    if (!quality.includes(marker)) failures.push(`Copy quality report is missing marker: ${marker}`);
   }
 }
 

@@ -150,6 +150,12 @@ Hashtags:
 
 function buildShortVideoReady(platformName) {
   const { topic, pillarPoints, landingPage, cta } = campaignFields();
+  const linkGuidance = platformName === "Instagram Reels"
+    ? "링크는 인스타그램 캡션에서 클릭되지 않을 수 있습니다. 프로필 링크, 스토리 링크, 또는 DM 안내에 체크리스트 주소를 연결하세요."
+    : platformName === "YouTube Shorts"
+      ? `Pinned comment:\n상담 전 준비 체크리스트:\n${landingPage}`
+      : "캡션 링크가 클릭되지 않는 플랫폼에서는 프로필 링크, 고정 댓글, 또는 설명란에 아래 주소를 넣으세요.";
+
   return normalizeSocialCopy(`${platformName} script:
 첫 2초 훅:
 "정책자금이나 기업인증 준비 중이면, 신청 전에 이 자료부터 확인하세요."
@@ -165,7 +171,7 @@ ${numberedLines(pillarPoints.slice(0, 4))}
 
 Caption:
 신청 전 준비도를 먼저 확인하세요.
-캡션 링크가 클릭되지 않는 플랫폼에서는 프로필 링크, 고정 댓글, 또는 설명란에 아래 주소를 넣으세요.
+${linkGuidance}
 
 ${landingPage}
 

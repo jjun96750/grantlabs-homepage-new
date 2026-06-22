@@ -27,6 +27,7 @@
 - Post performance tracking can be regenerated with `npm run content:performance`.
 - Campaign/platform tracked links can be regenerated with `npm run content:links`.
 - Platform publishing playbook can be regenerated with `npm run content:playbook`.
+- Copy quality report can be regenerated with `npm run content:quality`.
 - Daily operator brief can be regenerated with `npm run content:brief`.
 - The full content automation pipeline can be regenerated with `npm run content:run`.
 - All content automation campaigns can be regenerated with `npm run content:run:all`.
@@ -99,6 +100,7 @@ scripts/generate-upcoming-actions.mjs
 scripts/generate-performance-log.mjs
 scripts/generate-tracked-links.mjs
 scripts/generate-platform-playbook.mjs
+scripts/generate-copy-quality-report.mjs
 scripts/generate-daily-brief.mjs
 scripts/generate-deployment-readiness.mjs
 scripts/generate-sitemap.mjs
@@ -120,6 +122,7 @@ content-automation/PERFORMANCE_LOG.md
 content-automation/TRACKED_LINKS.md
 content-automation/TRACKED_LINKS.csv
 content-automation/PLATFORM_PLAYBOOK.md
+content-automation/COPY_QUALITY_REPORT.md
 content-automation/DAILY_BRIEF.md
 content-automation/platform-rules.json
 content-automation/publishing-defaults.json
@@ -206,6 +209,7 @@ content-automation/output/2026-06-21-consultation-checklist-conversion-publishin
 - `scripts/generate-performance-log.mjs` creates `content-automation/PERFORMANCE_LOG.md` for post URLs, metrics, learnings, repurpose decisions, and follow-up owners.
 - `scripts/generate-tracked-links.mjs` creates `content-automation/TRACKED_LINKS.md` and `.csv` with UTM-tagged checklist URLs for every campaign/platform pair.
 - `scripts/generate-platform-playbook.mjs` creates `content-automation/PLATFORM_PLAYBOOK.md` from platform rules so each channel has role, CTA, ready-copy, and QA guidance.
+- `scripts/generate-copy-quality-report.mjs` creates `content-automation/COPY_QUALITY_REPORT.md` and reports readiness for every campaign/platform copy file.
 - `scripts/generate-daily-brief.mjs` creates `content-automation/DAILY_BRIEF.md` as the daily operator summary across today's focus, tomorrow prep, and records to update.
 - `scripts/generate-content-status.mjs` writes `content-automation/CAMPAIGN_STATUS.md` for handoff visibility.
 - `scripts/generate-deployment-readiness.mjs` writes `DEPLOYMENT_READINESS.md` for deployment handoff visibility.

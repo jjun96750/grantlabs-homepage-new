@@ -19,6 +19,7 @@ Last updated: 2026-06-22
 - `npm run check:content` now requires platform-ready copy summaries and validates the Naver plain-text file.
 - Content automation now generates campaign/platform UTM checklist links in `content-automation/TRACKED_LINKS.md` and `.csv`.
 - Content automation now generates `content-automation/PLATFORM_PLAYBOOK.md` from platform rules for collaborator publishing QA.
+- Content automation now generates `content-automation/COPY_QUALITY_REPORT.md`; all 32 campaign/platform copy checks currently report Ready.
 - `content-automation/PLATFORM_PLAYBOOK.md` now includes universal readability rules, Naver raw URL guidance, Markdown-link warnings, and channel-specific pre-publish QA.
 - Latest validation after the platform-specific readability update: `Content automation check passed.` and `Static site check passed.`
 - `npm run check:content` now rejects likely mojibake markers in campaign inputs and generated content automation outputs.
@@ -211,6 +212,7 @@ Last updated: 2026-06-22
 - Added `npm run content:performance` and `content-automation/PERFORMANCE_LOG.md` for post URL, metric, learning, and repurpose tracking.
 - Added `npm run content:links` and `content-automation/TRACKED_LINKS.md` / `.csv` for campaign/platform UTM checklist URLs.
 - Added `npm run content:playbook` and `content-automation/PLATFORM_PLAYBOOK.md` for channel roles, CTAs, ready-copy files, and publishing QA.
+- Added `npm run content:quality` and `content-automation/COPY_QUALITY_REPORT.md` for readability, URL handling, and platform-specific publishing blocker checks.
 - Added `npm run content:brief` and `content-automation/DAILY_BRIEF.md` for a single daily operator summary.
 - No build step is required.
 
@@ -261,6 +263,7 @@ scripts/generate-upcoming-actions.mjs
 scripts/generate-performance-log.mjs
 scripts/generate-tracked-links.mjs
 scripts/generate-platform-playbook.mjs
+scripts/generate-copy-quality-report.mjs
 scripts/generate-daily-brief.mjs
 scripts/generate-deployment-readiness.mjs
 scripts/generate-sitemap.mjs
@@ -279,6 +282,7 @@ content-automation/PERFORMANCE_LOG.md
 content-automation/TRACKED_LINKS.md
 content-automation/TRACKED_LINKS.csv
 content-automation/PLATFORM_PLAYBOOK.md
+content-automation/COPY_QUALITY_REPORT.md
 content-automation/DAILY_BRIEF.md
 content-automation/platform-rules.json
 content-automation/publishing-defaults.json
@@ -490,6 +494,7 @@ CHANGELOG.md
 - Added `scripts/generate-performance-log.mjs`, `npm run content:performance`, and `content-automation/PERFORMANCE_LOG.md`.
 - Added `scripts/generate-tracked-links.mjs`, `npm run content:links`, and `content-automation/TRACKED_LINKS.md` / `.csv`.
 - Added `scripts/generate-platform-playbook.mjs`, `npm run content:playbook`, and `content-automation/PLATFORM_PLAYBOOK.md`.
+- Added `scripts/generate-copy-quality-report.mjs`, `npm run content:quality`, and `content-automation/COPY_QUALITY_REPORT.md`.
 - Added `scripts/generate-daily-brief.mjs`, `npm run content:brief`, and `content-automation/DAILY_BRIEF.md`.
 - Refreshed sitemap, deployment readiness, today actions, upcoming actions, and content automation outputs for the current Asia/Seoul date.
 
