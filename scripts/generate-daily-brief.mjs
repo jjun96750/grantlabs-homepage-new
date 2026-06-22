@@ -122,6 +122,7 @@ ${table(tomorrowRows, "No tomorrow preparation actions found.")}
 ## Update These Records
 
 - Fill published URLs and first signals in \`content-automation/TODAY_ACTIONS.md\`.
+- Use the platform-ready copy files before publishing, especially Naver's \`01-naver-blog-copy.txt\`.
 - Record actual post results and learnings in \`content-automation/PERFORMANCE_LOG.md\`.
 - Check asset readiness and blockers in \`content-automation/UPCOMING_ACTIONS.md\`.
 - Keep claims diagnostic and preparation-focused; do not guarantee approval, selection, certification, patent registration, or funding.

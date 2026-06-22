@@ -80,12 +80,12 @@ const sourceRows = [...new Set(rows.map((row) => row.campaign))]
   .sort()
   .map((slug) => {
     const campaign = campaignBySlug.get(slug);
-    if (!campaign) return `| \`${slug}\` | missing campaign file | missing | missing | missing | missing |`;
+    if (!campaign) return `| \`${slug}\` | missing campaign file | missing | missing | missing | missing | missing |`;
 
     const base = `${campaign.date}-${campaign.slug}`;
-    return `| \`${slug}\` | [Plan](output/${base}.md) | [Assets](output/${base}-asset-briefs.md) | [Captions](output/${base}-caption-pack.md) | [Queue](output/${base}-publishing-queue.md) | [CSV](output/${base}-publishing-queue.csv) |`;
+    return `| \`${slug}\` | [Plan](output/${base}.md) | [Assets](output/${base}-asset-briefs.md) | [Captions](output/${base}-caption-pack.md) | [Ready Copy](output/${base}-platform-ready-copy.md) | [Queue](output/${base}-publishing-queue.md) | [CSV](output/${base}-publishing-queue.csv) |`;
   })
-  .join("\n") || "| n/a | n/a | n/a | n/a | n/a | n/a |";
+  .join("\n") || "| n/a | n/a | n/a | n/a | n/a | n/a | n/a |";
 
 const handoffRows = rows.length
   ? rows.map((row) => `| ${row.publishDate} ${row.publishTime} | ${row.platform} | \`${row.campaign}\` |  |  |  |  |`).join("\n")
@@ -111,8 +111,8 @@ ${dateSummaries}
 
 ## Source Files
 
-| Campaign | Plan | Assets | Captions | Queue | CSV |
-| --- | --- | --- | --- | --- | --- |
+| Campaign | Plan | Assets | Captions | Ready Copy | Queue | CSV |
+| --- | --- | --- | --- | --- | --- | --- |
 ${sourceRows}
 
 ## Preparation Log

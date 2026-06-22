@@ -35,7 +35,8 @@ const requiredOutputSuffixes = [
 
 const requiredSharedFiles = [
   "content-automation/TRACKED_LINKS.md",
-  "content-automation/TRACKED_LINKS.csv"
+  "content-automation/TRACKED_LINKS.csv",
+  "content-automation/PLATFORM_PLAYBOOK.md"
 ];
 
 const failures = [];
@@ -154,6 +155,13 @@ if (existsSync("content-automation/TRACKED_LINKS.md")) {
   }
 }
 
+if (existsSync("content-automation/PLATFORM_PLAYBOOK.md")) {
+  const playbook = read("content-automation/PLATFORM_PLAYBOOK.md");
+  for (const marker of ["Grant Labs Platform Playbook", "Publishing QA", "Ready-copy file", "TRACKED_LINKS.md", "PERFORMANCE_LOG.md", "Naver Blog", "LinkedIn Page"]) {
+    if (!playbook.includes(marker)) failures.push(`content-automation/PLATFORM_PLAYBOOK.md is missing marker: ${marker}`);
+  }
+}
+
 const combined = outputFiles.map(read).join("\n\n");
 
 for (const marker of requiredPlatformMarkers) {
@@ -182,14 +190,14 @@ if (existsSync(calendarMd)) {
 
 if (existsSync(todayActions)) {
   const today = read(todayActions);
-  for (const marker of ["Grant Labs Today Actions", "Today Queue", "Source Files", "Platform Execution Notes", "Reporting Log", "npm run content:today", "consultation-checklist-conversion"]) {
+  for (const marker of ["Grant Labs Today Actions", "Today Queue", "Source Files", "Ready Copy", "Platform Execution Notes", "Reporting Log", "npm run content:today", "consultation-checklist-conversion"]) {
     if (!today.includes(marker)) failures.push(`Today actions document is missing marker: ${marker}`);
   }
 }
 
 if (existsSync(upcomingActions)) {
   const upcoming = read(upcomingActions);
-  for (const marker of ["Grant Labs Upcoming Actions", "Upcoming Queue", "Date Summary", "Preparation Log", "Source Files", "npm run content:upcoming", "consultation-checklist-conversion"]) {
+  for (const marker of ["Grant Labs Upcoming Actions", "Upcoming Queue", "Date Summary", "Preparation Log", "Source Files", "Ready Copy", "npm run content:upcoming", "consultation-checklist-conversion"]) {
     if (!upcoming.includes(marker)) failures.push(`Upcoming actions document is missing marker: ${marker}`);
   }
 }
@@ -203,7 +211,7 @@ if (existsSync(performanceLog)) {
 
 if (existsSync(dailyBrief)) {
   const brief = read(dailyBrief);
-  for (const marker of ["Grant Labs Daily Brief", "Snapshot", "Today Focus", "Tomorrow Prep", "Update These Records", "npm run content:brief"]) {
+  for (const marker of ["Grant Labs Daily Brief", "Snapshot", "Today Focus", "Tomorrow Prep", "Update These Records", "platform-ready copy", "npm run content:brief"]) {
     if (!brief.includes(marker)) failures.push(`Daily brief document is missing marker: ${marker}`);
   }
 }

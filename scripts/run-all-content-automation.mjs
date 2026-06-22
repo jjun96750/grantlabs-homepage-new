@@ -88,6 +88,16 @@ if (linksResult.status !== 0) {
   process.exit(linksResult.status || 1);
 }
 
+const playbookResult = spawnSync(process.execPath, ["scripts/generate-platform-playbook.mjs"], {
+  stdio: "inherit",
+  shell: false
+});
+
+if (playbookResult.status !== 0) {
+  console.error("Platform playbook generation failed.");
+  process.exit(playbookResult.status || 1);
+}
+
 const briefResult = spawnSync(process.execPath, ["scripts/generate-daily-brief.mjs"], {
   stdio: "inherit",
   shell: false

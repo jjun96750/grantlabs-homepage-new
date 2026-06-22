@@ -47,6 +47,7 @@ const requiredFiles = [
   "scripts/generate-upcoming-actions.mjs",
   "scripts/generate-performance-log.mjs",
   "scripts/generate-tracked-links.mjs",
+  "scripts/generate-platform-playbook.mjs",
   "scripts/generate-daily-brief.mjs",
   "scripts/generate-content-plan.mjs",
   "scripts/generate-deployment-readiness.mjs",
@@ -67,6 +68,7 @@ const requiredFiles = [
   "content-automation/PERFORMANCE_LOG.md",
   "content-automation/TRACKED_LINKS.md",
   "content-automation/TRACKED_LINKS.csv",
+  "content-automation/PLATFORM_PLAYBOOK.md",
   "content-automation/DAILY_BRIEF.md",
   "content-automation/platform-rules.json",
   "content-automation/publishing-defaults.json",
@@ -415,6 +417,7 @@ if (existsSync("package.json")) {
     if (pkg.scripts?.["content:upcoming"] !== "node scripts/generate-upcoming-actions.mjs") failures.push("package.json is missing the content upcoming actions script.");
     if (pkg.scripts?.["content:performance"] !== "node scripts/generate-performance-log.mjs") failures.push("package.json is missing the content performance log script.");
     if (pkg.scripts?.["content:links"] !== "node scripts/generate-tracked-links.mjs") failures.push("package.json is missing the content tracked links script.");
+    if (pkg.scripts?.["content:playbook"] !== "node scripts/generate-platform-playbook.mjs") failures.push("package.json is missing the platform playbook script.");
     if (pkg.scripts?.["content:brief"] !== "node scripts/generate-daily-brief.mjs") failures.push("package.json is missing the content daily brief script.");
     if (pkg.scripts?.["content:run"] !== "node scripts/run-content-automation.mjs") failures.push("package.json is missing the content automation runner script.");
     if (pkg.scripts?.["content:run:all"] !== "node scripts/run-all-content-automation.mjs") failures.push("package.json is missing the all-campaign content automation runner script.");
@@ -593,6 +596,13 @@ if (existsSync("scripts/generate-tracked-links.mjs")) {
   }
 }
 
+if (existsSync("scripts/generate-platform-playbook.mjs")) {
+  const playbookGenerator = read("scripts/generate-platform-playbook.mjs");
+  for (const marker of ["content-automation/PLATFORM_PLAYBOOK.md", "platform-rules.json", "Ready-copy file", "Publishing QA", "Generated platform playbook"]) {
+    if (!playbookGenerator.includes(marker)) failures.push(`scripts/generate-platform-playbook.mjs is missing marker: ${marker}`);
+  }
+}
+
 if (existsSync("scripts/generate-daily-brief.mjs")) {
   const briefGenerator = read("scripts/generate-daily-brief.mjs");
   for (const marker of ["content-automation/DAILY_BRIEF.md", "Today Focus", "Tomorrow Prep", "Update These Records", "Asia/Seoul", "Generated daily brief"]) {
@@ -609,7 +619,7 @@ if (existsSync("scripts/run-content-automation.mjs")) {
 
 if (existsSync("scripts/run-all-content-automation.mjs")) {
   const allRunner = read("scripts/run-all-content-automation.mjs");
-  for (const marker of ["content-automation/campaigns", "run-content-automation.mjs", "generate-content-status.mjs", "generate-publishing-calendar.mjs", "generate-today-actions.mjs", "generate-upcoming-actions.mjs", "generate-performance-log.mjs", "generate-tracked-links.mjs", "generate-daily-brief.mjs", "Content automation completed for", "campaignFiles.length"]) {
+  for (const marker of ["content-automation/campaigns", "run-content-automation.mjs", "generate-content-status.mjs", "generate-publishing-calendar.mjs", "generate-today-actions.mjs", "generate-upcoming-actions.mjs", "generate-performance-log.mjs", "generate-tracked-links.mjs", "generate-platform-playbook.mjs", "generate-daily-brief.mjs", "Content automation completed for", "campaignFiles.length"]) {
     if (!allRunner.includes(marker)) failures.push(`scripts/run-all-content-automation.mjs is missing marker: ${marker}`);
   }
 }
@@ -653,6 +663,13 @@ if (existsSync("content-automation/TRACKED_LINKS.md")) {
   const trackedLinks = read("content-automation/TRACKED_LINKS.md");
   for (const marker of ["Grant Labs Tracked Links", "utm_source", "utm_medium", "utm_campaign", "utm_content", "npm run content:links", "Naver Blog", "LinkedIn Page"]) {
     if (!trackedLinks.includes(marker)) failures.push(`content-automation/TRACKED_LINKS.md is missing marker: ${marker}`);
+  }
+}
+
+if (existsSync("content-automation/PLATFORM_PLAYBOOK.md")) {
+  const playbook = read("content-automation/PLATFORM_PLAYBOOK.md");
+  for (const marker of ["Grant Labs Platform Playbook", "How To Use", "Publishing QA", "Ready-copy file", "TRACKED_LINKS.md", "PERFORMANCE_LOG.md", "Naver Blog", "LinkedIn Page"]) {
+    if (!playbook.includes(marker)) failures.push(`content-automation/PLATFORM_PLAYBOOK.md is missing marker: ${marker}`);
   }
 }
 
@@ -925,14 +942,14 @@ if (existsSync("DEVELOPMENT_STATUS.md")) {
 
 if (existsSync("README.md")) {
   const readme = read("README.md");
-  for (const marker of ["scripts/", "check-static-site.mjs", "check-content-automation.mjs", "generate-asset-briefs.mjs", "generate-caption-pack.mjs", "generate-content-plan.mjs", "generate-content-status.mjs", "generate-deployment-readiness.mjs", "generate-sitemap.mjs", "generate-development-journal.mjs", "generate-status-index.mjs", "generate-publishing-queue.mjs", "generate-publishing-calendar.mjs", "generate-today-actions.mjs", "generate-upcoming-actions.mjs", "generate-performance-log.mjs", "generate-tracked-links.mjs", "generate-daily-brief.mjs", "run-all-content-automation.mjs", "run-content-automation.mjs", "serve-static.mjs", "check-local-preview.mjs", "check-deployed-site.mjs", "content-automation/", "PUBLISHING_CALENDAR.md", "TODAY_ACTIONS.md", "UPCOMING_ACTIONS.md", "PERFORMANCE_LOG.md", "TRACKED_LINKS.md", "DAILY_BRIEF.md", "assets/brand/", "DEVELOPMENT_JOURNAL.md", "social-card.svg", "npm run check:content", "npm run content:assets", "npm run content:captions", "npm run content:plan", "npm run content:queue", "npm run content:calendar", "npm run content:today", "npm run content:upcoming", "npm run content:performance", "npm run content:links", "npm run content:brief", "npm run content:run", "npm run content:run:all", "npm run content:status", "npm run deployment:readiness", "npm run sitemap:refresh", "npm run status:journal", "npm run status:index", "npm run serve", "npm run preview:check"]) {
+  for (const marker of ["scripts/", "check-static-site.mjs", "check-content-automation.mjs", "generate-asset-briefs.mjs", "generate-caption-pack.mjs", "generate-content-plan.mjs", "generate-content-status.mjs", "generate-deployment-readiness.mjs", "generate-sitemap.mjs", "generate-development-journal.mjs", "generate-status-index.mjs", "generate-publishing-queue.mjs", "generate-publishing-calendar.mjs", "generate-today-actions.mjs", "generate-upcoming-actions.mjs", "generate-performance-log.mjs", "generate-tracked-links.mjs", "generate-platform-playbook.mjs", "generate-daily-brief.mjs", "run-all-content-automation.mjs", "run-content-automation.mjs", "serve-static.mjs", "check-local-preview.mjs", "check-deployed-site.mjs", "content-automation/", "PUBLISHING_CALENDAR.md", "TODAY_ACTIONS.md", "UPCOMING_ACTIONS.md", "PERFORMANCE_LOG.md", "TRACKED_LINKS.md", "PLATFORM_PLAYBOOK.md", "DAILY_BRIEF.md", "assets/brand/", "DEVELOPMENT_JOURNAL.md", "social-card.svg", "npm run check:content", "npm run content:assets", "npm run content:captions", "npm run content:plan", "npm run content:queue", "npm run content:calendar", "npm run content:today", "npm run content:upcoming", "npm run content:performance", "npm run content:links", "npm run content:playbook", "npm run content:brief", "npm run content:run", "npm run content:run:all", "npm run content:status", "npm run deployment:readiness", "npm run sitemap:refresh", "npm run status:journal", "npm run status:index", "npm run serve", "npm run preview:check"]) {
     if (!readme.includes(marker)) failures.push(`README.md is missing marker: ${marker}`);
   }
 }
 
 if (existsSync("COMMANDS.md")) {
   const commands = read("COMMANDS.md");
-  for (const marker of ["npm run check", "npm run check:content", "npm run content:assets", "npm run content:captions", "npm run content:plan", "npm run content:queue", "npm run content:calendar", "npm run content:today", "npm run content:upcoming", "npm run content:performance", "npm run content:links", "npm run content:brief", "npm run content:run", "npm run content:run:all", "npm run content:status", "npm run deployment:readiness", "npm run sitemap:refresh", "npm run status:journal", "npm run status:index", "npm run serve", "npm run preview:check", "npm run smoke", "static-site validation", "content automation quality", "asset briefs", "caption pack", "platform-specific posting guidance", "publishing queue", "publishing calendar", "today actions", "upcoming actions", "performance log", "tracked links", "daily brief", "full content automation", "all campaigns", "campaign status", "deployment readiness", "sitemap refresh", "development journal", "status index"]) {
+  for (const marker of ["npm run check", "npm run check:content", "npm run content:assets", "npm run content:captions", "npm run content:plan", "npm run content:queue", "npm run content:calendar", "npm run content:today", "npm run content:upcoming", "npm run content:performance", "npm run content:links", "npm run content:playbook", "npm run content:brief", "npm run content:run", "npm run content:run:all", "npm run content:status", "npm run deployment:readiness", "npm run sitemap:refresh", "npm run status:journal", "npm run status:index", "npm run serve", "npm run preview:check", "npm run smoke", "static-site validation", "content automation quality", "asset briefs", "caption pack", "platform-specific posting guidance", "publishing queue", "publishing calendar", "today actions", "upcoming actions", "performance log", "tracked links", "platform playbook", "daily brief", "full content automation", "all campaigns", "campaign status", "deployment readiness", "sitemap refresh", "development journal", "status index"]) {
     if (!commands.includes(marker)) failures.push(`COMMANDS.md is missing marker: ${marker}`);
   }
 }
