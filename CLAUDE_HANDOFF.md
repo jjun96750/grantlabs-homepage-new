@@ -33,6 +33,7 @@
 - Development journal can be regenerated with `npm run status:journal`.
 - Status index can be regenerated with `npm run status:index`.
 - Content automation outputs can be quality-checked with `npm run check:content`.
+- `npm run check:content` rejects likely mojibake markers in campaign inputs and generated content outputs.
 - The current content automation set includes the 2026-06-18 policy-funding readiness campaign, the 2026-06-19 R&D-center readiness bridge campaign, the 2026-06-20 certification/patent/funding sequence campaign, and the 2026-06-21 consultation-checklist conversion campaign.
 - Ongoing development status is tracked in `DEVELOPMENT_STATUS.md`.
 - Repository contents are proprietary and covered by `LICENSE`.
@@ -196,6 +197,7 @@ content-automation/output/2026-06-21-consultation-checklist-conversion-publishin
 - `scripts/run-content-automation.mjs` runs the content plan, asset brief, caption pack, and publishing queue generators in sequence.
 - `scripts/run-all-content-automation.mjs` discovers every campaign JSON file and runs the full automation pipeline for each one.
 - `scripts/check-content-automation.mjs` scans every campaign and generated output set for platform coverage, Korean markers, checklist URL, compliance guardrails, and forbidden claims.
+- `scripts/check-content-automation.mjs` also rejects likely mojibake markers so broken Korean output is caught before commit.
 - `scripts/check-static-site.mjs` also scans campaign inputs and expected generated output files dynamically, so future campaigns should not require campaign-specific static validation entries.
 
 ## Next Steps

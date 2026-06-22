@@ -4,6 +4,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 
 ## 2026-06-22
 
+- Strengthened `npm run check:content` to reject likely mojibake markers in campaign inputs and generated content automation outputs.
 - Added `npm run content:performance` and `content-automation/PERFORMANCE_LOG.md` for post URL, metric, learning, and repurpose tracking.
 - Added `npm run content:brief` and `content-automation/DAILY_BRIEF.md` for a single daily operator summary.
 - Refreshed sitemap, deployment readiness, today actions, upcoming actions, and content automation outputs for the current Asia/Seoul date.

@@ -23,6 +23,7 @@ const requiredPlatformMarkers = [
 
 const requiredKoreanMarkers = ["정책자금", "기업인증", "체크리스트"];
 const forbiddenClaims = ["100% 승인", "무조건 승인", "정부 공식 대행", "보장합니다", "확정"];
+const mojibakeMarkers = ["?뺤", "?곷", "?댄", "泥댄", "湲곗", "臾몄", "\uFFFD"];
 const requiredOutputSuffixes = [
   ".md",
   "-asset-briefs.md",
@@ -33,6 +34,7 @@ const requiredOutputSuffixes = [
 
 const failures = [];
 const read = (file) => readFileSync(file, "utf8");
+const includedMarkers = (body, markers) => markers.filter((marker) => body.includes(marker));
 
 const listFiles = (dir, predicate) => {
   if (!existsSync(dir)) return [];
@@ -56,7 +58,8 @@ if (!existsSync(dailyBrief)) failures.push("Missing generated daily brief markdo
 
 for (const campaignFile of campaignFiles) {
   try {
-    const campaign = JSON.parse(read(campaignFile));
+    const rawCampaign = read(campaignFile);
+    const campaign = JSON.parse(rawCampaign);
     for (const field of ["slug", "date", "brand", "topic", "topicKo", "corePromise", "primaryCta", "landingPage"]) {
       if (!campaign[field]) failures.push(`${campaignFile} is missing field: ${field}`);
     }
@@ -73,6 +76,10 @@ for (const campaignFile of campaignFiles) {
       failures.push(`${campaignFile} should include compliance guardrails.`);
     }
 
+    for (const marker of includedMarkers(rawCampaign, mojibakeMarkers)) {
+      failures.push(`${campaignFile} contains likely mojibake marker: ${marker}`);
+    }
+
     const outputBase = join(outputDir, `${campaign.date}-${campaign.slug}`);
     for (const suffix of requiredOutputSuffixes) {
       const outputPath = suffix === ".md" ? `${outputBase}.md` : `${outputBase}${suffix}`;
@@ -86,6 +93,10 @@ for (const campaignFile of campaignFiles) {
 for (const file of outputFiles) {
   const body = read(file);
   if (body.includes("\uFFFD")) failures.push(`${file} contains replacement characters.`);
+
+  for (const marker of includedMarkers(body, mojibakeMarkers)) {
+    failures.push(`${file} contains likely mojibake marker: ${marker}`);
+  }
 
   for (const claim of forbiddenClaims) {
     if (body.includes(claim)) failures.push(`${file} includes forbidden claim: ${claim}`);

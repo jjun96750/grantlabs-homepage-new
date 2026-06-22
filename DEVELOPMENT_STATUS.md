@@ -12,6 +12,7 @@ Last updated: 2026-06-22
 
 ## Current Status
 
+- `npm run check:content` now rejects likely mojibake markers in campaign inputs and generated content automation outputs.
 - GitHub repository created.
 - Local repository initialized.
 - Static homepage draft completed.
@@ -466,6 +467,7 @@ CHANGELOG.md
 
 ### 2026-06-22
 
+- Strengthened `scripts/check-content-automation.mjs` to reject likely mojibake markers in campaign inputs and generated content automation outputs.
 - Added `scripts/generate-performance-log.mjs`, `npm run content:performance`, and `content-automation/PERFORMANCE_LOG.md`.
 - Added `scripts/generate-daily-brief.mjs`, `npm run content:brief`, and `content-automation/DAILY_BRIEF.md`.
 - Refreshed sitemap, deployment readiness, today actions, upcoming actions, and content automation outputs for the current Asia/Seoul date.
