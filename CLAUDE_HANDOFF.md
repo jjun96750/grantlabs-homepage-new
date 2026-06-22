@@ -12,13 +12,14 @@
 - Static homepage draft is ready and pushed to GitHub.
 - No build step is required.
 - Main branch: `main`
-- Latest implementation commit captured in this handoff: `1453dac Detect mojibake in content automation`
+- Latest implementation commit captured in this handoff: `be50636 Add platform-ready publishing copy`
 - Local static validation passes with `npm run check`.
 - Standard local validation command is `npm run check`; local preview is `npm run serve`.
 - Standard commands are documented in `COMMANDS.md`.
 - Content automation can be generated with `npm run content:plan`.
 - Asset briefs can be generated with `npm run content:assets`.
 - Caption packs can be generated with `npm run content:captions`.
+- Platform-ready copy-only publishing files can be generated with `npm run content:ready-copy`.
 - Publishing queue automation can be generated with `npm run content:queue`.
 - Cross-campaign publishing calendar can be regenerated with `npm run content:calendar`.
 - Today's publishing handoff can be regenerated with `npm run content:today`.
@@ -35,6 +36,7 @@
 - Content automation outputs can be quality-checked with `npm run check:content`.
 - `npm run check:content` rejects likely mojibake markers in campaign inputs and generated content outputs.
 - `npm run check:content` also requires the Naver Blog caption section to keep the raw checklist URL and avoid Markdown-only links.
+- `npm run check:content` validates the Naver platform-ready plain-text file for raw URL, readable paragraphs, and no Markdown link syntax.
 - The current content automation set includes the 2026-06-18 policy-funding readiness campaign, the 2026-06-19 R&D-center readiness bridge campaign, the 2026-06-20 certification/patent/funding sequence campaign, and the 2026-06-21 consultation-checklist conversion campaign.
 - Ongoing development status is tracked in `DEVELOPMENT_STATUS.md`.
 - Repository contents are proprietary and covered by `LICENSE`.
@@ -86,6 +88,7 @@ scripts/check-static-site.mjs
 scripts/check-content-automation.mjs
 scripts/generate-asset-briefs.mjs
 scripts/generate-caption-pack.mjs
+scripts/generate-platform-ready-copy.mjs
 scripts/generate-content-plan.mjs
 scripts/generate-content-status.mjs
 scripts/generate-publishing-calendar.mjs
@@ -120,21 +123,25 @@ content-automation/campaigns/rnd-center-funding-bridge.json
 content-automation/output/2026-06-18-grantlabs-growth-check.md
 content-automation/output/2026-06-18-grantlabs-growth-check-asset-briefs.md
 content-automation/output/2026-06-18-grantlabs-growth-check-caption-pack.md
+content-automation/output/2026-06-18-grantlabs-growth-check-platform-ready-copy.md
 content-automation/output/2026-06-18-grantlabs-growth-check-publishing-queue.csv
 content-automation/output/2026-06-18-grantlabs-growth-check-publishing-queue.md
 content-automation/output/2026-06-19-rnd-center-funding-bridge.md
 content-automation/output/2026-06-19-rnd-center-funding-bridge-asset-briefs.md
 content-automation/output/2026-06-19-rnd-center-funding-bridge-caption-pack.md
+content-automation/output/2026-06-19-rnd-center-funding-bridge-platform-ready-copy.md
 content-automation/output/2026-06-19-rnd-center-funding-bridge-publishing-queue.csv
 content-automation/output/2026-06-19-rnd-center-funding-bridge-publishing-queue.md
 content-automation/output/2026-06-20-certification-patent-funding-sequence.md
 content-automation/output/2026-06-20-certification-patent-funding-sequence-asset-briefs.md
 content-automation/output/2026-06-20-certification-patent-funding-sequence-caption-pack.md
+content-automation/output/2026-06-20-certification-patent-funding-sequence-platform-ready-copy.md
 content-automation/output/2026-06-20-certification-patent-funding-sequence-publishing-queue.csv
 content-automation/output/2026-06-20-certification-patent-funding-sequence-publishing-queue.md
 content-automation/output/2026-06-21-consultation-checklist-conversion.md
 content-automation/output/2026-06-21-consultation-checklist-conversion-asset-briefs.md
 content-automation/output/2026-06-21-consultation-checklist-conversion-caption-pack.md
+content-automation/output/2026-06-21-consultation-checklist-conversion-platform-ready-copy.md
 content-automation/output/2026-06-21-consultation-checklist-conversion-publishing-queue.csv
 content-automation/output/2026-06-21-consultation-checklist-conversion-publishing-queue.md
 .github/workflows/static-site-check.yml
@@ -181,6 +188,7 @@ content-automation/output/2026-06-21-consultation-checklist-conversion-publishin
 - `STATUS_INDEX.md` is the collaborator-facing map of status documents and safety guardrails.
 - `scripts/generate-asset-briefs.mjs` creates platform-specific production briefs with canvas, checklist, CTA, and success-signal guidance.
 - `scripts/generate-caption-pack.mjs` creates platform-specific captions, hashtags, CTA text, and thumbnail/overlay copy.
+- `scripts/generate-platform-ready-copy.mjs` creates copy-and-paste files under `content-automation/output/platform-ready-copy/<date>-<slug>/`, including plain-text Naver Blog copy with a raw checklist URL.
 - `scripts/generate-content-plan.mjs` creates platform-specific posting guidance from the current Grant Labs campaign input.
 - `scripts/generate-publishing-queue.mjs` creates CSV and Markdown publishing queues with platform timing, asset, objective, and success-signal guidance.
 - `scripts/generate-publishing-calendar.mjs` combines every campaign publishing queue into `content-automation/PUBLISHING_CALENDAR.md` and `.csv`.
@@ -195,11 +203,12 @@ content-automation/output/2026-06-21-consultation-checklist-conversion-publishin
 - `scripts/generate-sitemap.mjs` writes `sitemap.xml` with current Asia/Seoul lastmod values.
 - `scripts/generate-development-journal.mjs` writes `DEVELOPMENT_JOURNAL.md` for implementation-flow visibility.
 - `scripts/generate-status-index.mjs` writes `STATUS_INDEX.md` for fast collaborator orientation.
-- `scripts/run-content-automation.mjs` runs the content plan, asset brief, caption pack, and publishing queue generators in sequence.
+- `scripts/run-content-automation.mjs` runs the content plan, asset brief, caption pack, platform-ready copy, and publishing queue generators in sequence.
 - `scripts/run-all-content-automation.mjs` discovers every campaign JSON file and runs the full automation pipeline for each one.
 - `scripts/check-content-automation.mjs` scans every campaign and generated output set for platform coverage, Korean markers, checklist URL, compliance guardrails, and forbidden claims.
 - `scripts/check-content-automation.mjs` also rejects likely mojibake markers so broken Korean output is caught before commit.
 - `scripts/check-content-automation.mjs` verifies Naver Blog caption packs keep `https://grantlabs.co.kr/checklist.html` as a raw URL rather than a Markdown-only link.
+- `scripts/check-content-automation.mjs` verifies the generated Naver platform-ready copy stays plain text, keeps at least 10 readable paragraphs, and preserves the raw checklist URL.
 - `scripts/check-static-site.mjs` also scans campaign inputs and expected generated output files dynamically, so future campaigns should not require campaign-specific static validation entries.
 
 ## Next Steps
