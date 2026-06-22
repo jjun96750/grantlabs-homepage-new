@@ -27,6 +27,7 @@
 - Post performance tracking can be regenerated with `npm run content:performance`.
 - Campaign/platform tracked links can be regenerated with `npm run content:links`.
 - Platform publishing playbook can be regenerated with `npm run content:playbook`.
+- Ready-copy index can be regenerated with `npm run content:ready-index`.
 - Copy quality report can be regenerated with `npm run content:quality`.
 - Daily operator brief can be regenerated with `npm run content:brief`.
 - The full content automation pipeline can be regenerated with `npm run content:run`.
@@ -100,6 +101,7 @@ scripts/generate-upcoming-actions.mjs
 scripts/generate-performance-log.mjs
 scripts/generate-tracked-links.mjs
 scripts/generate-platform-playbook.mjs
+scripts/generate-ready-copy-index.mjs
 scripts/generate-copy-quality-report.mjs
 scripts/generate-daily-brief.mjs
 scripts/generate-deployment-readiness.mjs
@@ -122,6 +124,7 @@ content-automation/PERFORMANCE_LOG.md
 content-automation/TRACKED_LINKS.md
 content-automation/TRACKED_LINKS.csv
 content-automation/PLATFORM_PLAYBOOK.md
+content-automation/READY_COPY_INDEX.md
 content-automation/COPY_QUALITY_REPORT.md
 content-automation/DAILY_BRIEF.md
 content-automation/platform-rules.json
@@ -204,11 +207,12 @@ content-automation/output/2026-06-21-consultation-checklist-conversion-publishin
 - `scripts/generate-publishing-calendar.mjs` combines every campaign publishing queue into `content-automation/PUBLISHING_CALENDAR.md` and `.csv`.
 - `scripts/generate-today-actions.mjs` filters the publishing calendar into `content-automation/TODAY_ACTIONS.md` for same-day operator handoff.
 - `content-automation/TODAY_ACTIONS.md` includes source-file links to the relevant campaign plan, asset brief, caption pack, publishing queue, and CSV files.
-- `content-automation/TODAY_ACTIONS.md` also includes platform execution notes plus a reporting log for published URLs, first signals, and follow-up needs.
+- `content-automation/TODAY_ACTIONS.md` also includes platform execution notes, an operator posting checklist with exact ready-copy files/tracked URLs/quality status/final platform checks, plus a reporting log for published URLs, first signals, and follow-up needs.
 - `scripts/generate-upcoming-actions.mjs` filters future calendar rows into `content-automation/UPCOMING_ACTIONS.md` for preparation, ownership, and blocker tracking.
 - `scripts/generate-performance-log.mjs` creates `content-automation/PERFORMANCE_LOG.md` for post URLs, metrics, learnings, repurpose decisions, and follow-up owners.
 - `scripts/generate-tracked-links.mjs` creates `content-automation/TRACKED_LINKS.md` and `.csv` with UTM-tagged checklist URLs for every campaign/platform pair.
 - `scripts/generate-platform-playbook.mjs` creates `content-automation/PLATFORM_PLAYBOOK.md` from platform rules so each channel has role, CTA, ready-copy, and QA guidance.
+- `scripts/generate-ready-copy-index.mjs` creates `content-automation/READY_COPY_INDEX.md` as a quick access map to campaign ready-copy summaries and Naver plain-text files.
 - `scripts/generate-copy-quality-report.mjs` creates `content-automation/COPY_QUALITY_REPORT.md` and reports readiness for every campaign/platform copy file.
 - `scripts/generate-daily-brief.mjs` creates `content-automation/DAILY_BRIEF.md` as the daily operator summary across today's focus, tomorrow prep, and records to update.
 - `scripts/generate-content-status.mjs` writes `content-automation/CAMPAIGN_STATUS.md` for handoff visibility.

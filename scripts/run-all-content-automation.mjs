@@ -48,26 +48,6 @@ if (calendarResult.status !== 0) {
   process.exit(calendarResult.status || 1);
 }
 
-const todayResult = spawnSync(process.execPath, ["scripts/generate-today-actions.mjs"], {
-  stdio: "inherit",
-  shell: false
-});
-
-if (todayResult.status !== 0) {
-  console.error("Today actions generation failed.");
-  process.exit(todayResult.status || 1);
-}
-
-const upcomingResult = spawnSync(process.execPath, ["scripts/generate-upcoming-actions.mjs"], {
-  stdio: "inherit",
-  shell: false
-});
-
-if (upcomingResult.status !== 0) {
-  console.error("Upcoming actions generation failed.");
-  process.exit(upcomingResult.status || 1);
-}
-
 const performanceResult = spawnSync(process.execPath, ["scripts/generate-performance-log.mjs"], {
   stdio: "inherit",
   shell: false
@@ -98,6 +78,16 @@ if (playbookResult.status !== 0) {
   process.exit(playbookResult.status || 1);
 }
 
+const readyIndexResult = spawnSync(process.execPath, ["scripts/generate-ready-copy-index.mjs"], {
+  stdio: "inherit",
+  shell: false
+});
+
+if (readyIndexResult.status !== 0) {
+  console.error("Ready copy index generation failed.");
+  process.exit(readyIndexResult.status || 1);
+}
+
 const qualityResult = spawnSync(process.execPath, ["scripts/generate-copy-quality-report.mjs"], {
   stdio: "inherit",
   shell: false
@@ -106,6 +96,26 @@ const qualityResult = spawnSync(process.execPath, ["scripts/generate-copy-qualit
 if (qualityResult.status !== 0) {
   console.error("Copy quality report generation failed.");
   process.exit(qualityResult.status || 1);
+}
+
+const todayResult = spawnSync(process.execPath, ["scripts/generate-today-actions.mjs"], {
+  stdio: "inherit",
+  shell: false
+});
+
+if (todayResult.status !== 0) {
+  console.error("Today actions generation failed.");
+  process.exit(todayResult.status || 1);
+}
+
+const upcomingResult = spawnSync(process.execPath, ["scripts/generate-upcoming-actions.mjs"], {
+  stdio: "inherit",
+  shell: false
+});
+
+if (upcomingResult.status !== 0) {
+  console.error("Upcoming actions generation failed.");
+  process.exit(upcomingResult.status || 1);
 }
 
 const briefResult = spawnSync(process.execPath, ["scripts/generate-daily-brief.mjs"], {

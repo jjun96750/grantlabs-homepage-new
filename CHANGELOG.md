@@ -6,6 +6,8 @@ All notable changes to the Grant Labs new homepage are documented here.
 
 - Improved platform-ready copy quality by rebuilding Naver Blog output with readable section breaks, a visible raw URL CTA, and platform-specific link behavior for Instagram, TikTok, YouTube, Facebook, and LinkedIn.
 - Added `npm run content:quality` with `content-automation/COPY_QUALITY_REPORT.md`; all 32 campaign/platform copy checks currently report Ready.
+- Added `npm run content:ready-index` with `content-automation/READY_COPY_INDEX.md` so collaborators can jump directly to each campaign summary and Naver plain-text copy.
+- Extended `content-automation/TODAY_ACTIONS.md` with an operator posting checklist containing exact ready-copy files, tracked URLs, quality status, and final platform checks.
 - Added platform-ready copy generation for every content automation campaign, including plain-text Naver Blog files under `content-automation/output/platform-ready-copy/`.
 - Added `npm run content:ready-copy` and wired platform-ready copy into `npm run content:run` / `npm run content:run:all`.
 - Extended content automation checks to require platform-ready copy summaries and validate the Naver plain-text file for raw URL, readable paragraphs, and no Markdown link syntax.

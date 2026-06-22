@@ -2,6 +2,8 @@ import { existsSync, readFileSync, readdirSync, statSync, writeFileSync } from "
 import { join } from "node:path";
 
 const calendarCsv = "content-automation/PUBLISHING_CALENDAR.csv";
+const trackedLinksCsv = "content-automation/TRACKED_LINKS.csv";
+const copyQualityReportPath = "content-automation/COPY_QUALITY_REPORT.md";
 const campaignsDir = "content-automation/campaigns";
 const platformRulesPath = "content-automation/platform-rules.json";
 const outputPath = "content-automation/TODAY_ACTIONS.md";
@@ -51,11 +53,60 @@ const rows = existsSync(calendarCsv)
   ? parseCsv(readFileSync(calendarCsv, "utf8")).filter((row) => row.publishDate === today)
   : [];
 
+const trackedRows = existsSync(trackedLinksCsv)
+  ? parseCsv(readFileSync(trackedLinksCsv, "utf8"))
+  : [];
+
 const platformRules = existsSync(platformRulesPath)
   ? JSON.parse(readFileSync(platformRulesPath, "utf8")).platforms || []
   : [];
 
 const platformByName = new Map(platformRules.map((platform) => [platform.name, platform]));
+const trackedLinkByKey = new Map(trackedRows.map((row) => [`${row.campaign}::${row.platform}`, row.trackedUrl]));
+
+const readyCopyByPlatform = {
+  "Naver Blog": "01-naver-blog-copy.txt",
+  "Instagram Carousel": "02-instagram-carousel-caption.txt",
+  "Instagram Reels": "03-instagram-reels-script.txt",
+  "YouTube Shorts": "04-youtube-shorts-script.txt",
+  "YouTube Long-form": "05-youtube-long-description.txt",
+  "TikTok": "06-tiktok-caption.txt",
+  "Facebook Page": "07-facebook-page-post.txt",
+  "LinkedIn Page": "08-linkedin-page-post.txt"
+};
+
+const finalCheckByPlatform = {
+  "Naver Blog": "Raw URL visible, no Markdown links, section breaks kept",
+  "Instagram Carousel": "Profile/story/DM link route set, first slide readable",
+  "Instagram Reels": "Profile/story/DM link route set, first 2 seconds strong",
+  "YouTube Shorts": "Pinned comment URL ready, title is searchable",
+  "YouTube Long-form": "Description URL and pinned comment ready, chapters kept",
+  "TikTok": "Profile/comment link route set, captions large",
+  "Facebook Page": "URL visible, phone/contact CTA present",
+  "LinkedIn Page": "URL visible, tone is executive and evidence-led"
+};
+
+function parseQualityRows(markdown) {
+  return markdown
+    .split(/\r?\n/)
+    .filter((line) => line.startsWith("| "))
+    .filter((line) => !line.includes("| ---"))
+    .map((line) => line.split("|").slice(1, -1).map((cell) => cell.trim()))
+    .filter((cells) => cells.length >= 6 && cells[0] !== "Date")
+    .map(([date, campaign, platform, fileName, status, notes]) => ({
+      date,
+      campaign: campaign.replace(/`/g, ""),
+      platform,
+      fileName: fileName.replace(/`/g, ""),
+      status,
+      notes
+    }));
+}
+
+const qualityRows = existsSync(copyQualityReportPath)
+  ? parseQualityRows(readFileSync(copyQualityReportPath, "utf8"))
+  : [];
+const qualityByKey = new Map(qualityRows.map((row) => [`${row.campaign}::${row.platform}`, row]));
 
 const campaignBySlug = new Map(
   readdirSync(campaignsDir)
@@ -98,6 +149,18 @@ const executionRows = rows.length
   }).join("\n")
   : "| n/a | n/a | No scheduled publishing actions. | n/a | n/a |";
 
+const operatorRows = rows.length
+  ? rows.map((row) => {
+    const readyFile = readyCopyByPlatform[row.platform] || "See platform-ready folder";
+    const trackedUrl = trackedLinkByKey.get(`${row.campaign}::${row.platform}`) || row.landingPage || "missing tracked URL";
+    const quality = qualityByKey.get(`${row.campaign}::${row.platform}`);
+    const qualityText = quality ? quality.status : "Not checked";
+    const finalCheck = finalCheckByPlatform[row.platform] || "Match the platform playbook before publishing";
+
+    return `| ${row.publishTime} | ${row.platform} | \`${row.campaign}\` | \`${readyFile}\` | ${qualityText} | ${trackedUrl} | ${finalCheck} |`;
+  }).join("\n")
+  : "| n/a | n/a | n/a | n/a | n/a | n/a | No scheduled publishing actions. |";
+
 const reportingRows = rows.length
   ? rows.map((row) => `| ${row.publishTime} | ${row.platform} | \`${row.campaign}\` |  |  |  |  |`).join("\n")
   : "| n/a | n/a | n/a |  |  |  |  |";
@@ -129,6 +192,14 @@ ${sourceRows}
 | Time | Platform | Before publishing | After publishing | Repurpose note |
 | --- | --- | --- | --- | --- |
 ${executionRows}
+
+## Operator Posting Checklist
+
+Use this table at publishing time. It points to the exact copy file, the tracked URL to place in the post or profile route, and the final channel-specific check.
+
+| Time | Platform | Campaign | Ready-copy file | Quality | Tracked URL | Final check |
+| --- | --- | --- | --- | --- | --- | --- |
+${operatorRows}
 
 ## Reporting Log
 

@@ -43,6 +43,7 @@ scripts/
   generate-performance-log.mjs
   generate-tracked-links.mjs
   generate-platform-playbook.mjs
+  generate-ready-copy-index.mjs
   generate-copy-quality-report.mjs
   generate-daily-brief.mjs
   generate-deployment-readiness.mjs
@@ -65,6 +66,7 @@ content-automation/
   TRACKED_LINKS.md
   TRACKED_LINKS.csv
   PLATFORM_PLAYBOOK.md
+  READY_COPY_INDEX.md
   COPY_QUALITY_REPORT.md
   DAILY_BRIEF.md
   README.md
@@ -173,6 +175,10 @@ npm run content:links
 
 ```bash
 npm run content:playbook
+```
+
+```bash
+npm run content:ready-index
 ```
 
 ```bash

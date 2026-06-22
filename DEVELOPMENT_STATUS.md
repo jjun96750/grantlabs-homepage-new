@@ -15,13 +15,15 @@ Last updated: 2026-06-22
 - Content automation now generates platform-ready copy-only files for every campaign under `content-automation/output/platform-ready-copy/`.
 - Platform-ready copy now uses channel-specific publishing behavior: Naver gets readable sections and a visible raw URL CTA, Instagram/TikTok avoid assuming clickable captions, and YouTube/Facebook/LinkedIn keep URL-forward post formats.
 - Naver Blog now has a plain-text `01-naver-blog-copy.txt` per campaign with raw checklist URL, readable paragraph breaks, and no Markdown link syntax.
+- Content automation now generates `content-automation/READY_COPY_INDEX.md` as a collaborator-facing map to each campaign's platform-ready summary and Naver plain-text file.
+- `content-automation/TODAY_ACTIONS.md` now includes an operator posting checklist with exact ready-copy files, tracked URLs, quality status, and final platform checks.
 - `npm run content:run` and `npm run content:run:all` now include the platform-ready copy step.
 - `npm run check:content` now requires platform-ready copy summaries and validates the Naver plain-text file.
 - Content automation now generates campaign/platform UTM checklist links in `content-automation/TRACKED_LINKS.md` and `.csv`.
 - Content automation now generates `content-automation/PLATFORM_PLAYBOOK.md` from platform rules for collaborator publishing QA.
 - Content automation now generates `content-automation/COPY_QUALITY_REPORT.md`; all 32 campaign/platform copy checks currently report Ready.
 - `content-automation/PLATFORM_PLAYBOOK.md` now includes universal readability rules, Naver raw URL guidance, Markdown-link warnings, and channel-specific pre-publish QA.
-- Latest validation after the platform-specific readability update: `Content automation check passed.` and `Static site check passed.`
+- Latest validation after the platform-ready copy index update: `Content automation check passed.` and `Static site check passed.`
 - `npm run check:content` now rejects likely mojibake markers in campaign inputs and generated content automation outputs.
 - `npm run check:content` now requires the Naver Blog caption section to keep the raw checklist URL and avoid Markdown-only links.
 - GitHub repository created.
@@ -208,10 +210,12 @@ Last updated: 2026-06-22
 - Added `npm run content:today` and same-day publishing handoff output.
 - `content-automation/TODAY_ACTIONS.md` now links directly to each campaign's plan, asset brief, caption pack, and publishing queue.
 - `content-automation/TODAY_ACTIONS.md` now includes platform execution notes and a reporting log for published URLs, first signals, and follow-up needs.
+- `content-automation/TODAY_ACTIONS.md` now includes exact ready-copy files, tracked URLs, quality status, and final platform checks for same-day operators.
 - Added `npm run content:upcoming` and `content-automation/UPCOMING_ACTIONS.md` for future publishing preparation, ownership, and blocker tracking.
 - Added `npm run content:performance` and `content-automation/PERFORMANCE_LOG.md` for post URL, metric, learning, and repurpose tracking.
 - Added `npm run content:links` and `content-automation/TRACKED_LINKS.md` / `.csv` for campaign/platform UTM checklist URLs.
 - Added `npm run content:playbook` and `content-automation/PLATFORM_PLAYBOOK.md` for channel roles, CTAs, ready-copy files, and publishing QA.
+- Added `npm run content:ready-index` and `content-automation/READY_COPY_INDEX.md` for quick access to campaign ready-copy summaries and Naver plain-text files.
 - Added `npm run content:quality` and `content-automation/COPY_QUALITY_REPORT.md` for readability, URL handling, and platform-specific publishing blocker checks.
 - Added `npm run content:brief` and `content-automation/DAILY_BRIEF.md` for a single daily operator summary.
 - No build step is required.
@@ -263,6 +267,7 @@ scripts/generate-upcoming-actions.mjs
 scripts/generate-performance-log.mjs
 scripts/generate-tracked-links.mjs
 scripts/generate-platform-playbook.mjs
+scripts/generate-ready-copy-index.mjs
 scripts/generate-copy-quality-report.mjs
 scripts/generate-daily-brief.mjs
 scripts/generate-deployment-readiness.mjs
@@ -282,6 +287,7 @@ content-automation/PERFORMANCE_LOG.md
 content-automation/TRACKED_LINKS.md
 content-automation/TRACKED_LINKS.csv
 content-automation/PLATFORM_PLAYBOOK.md
+content-automation/READY_COPY_INDEX.md
 content-automation/COPY_QUALITY_REPORT.md
 content-automation/DAILY_BRIEF.md
 content-automation/platform-rules.json
@@ -494,6 +500,7 @@ CHANGELOG.md
 - Added `scripts/generate-performance-log.mjs`, `npm run content:performance`, and `content-automation/PERFORMANCE_LOG.md`.
 - Added `scripts/generate-tracked-links.mjs`, `npm run content:links`, and `content-automation/TRACKED_LINKS.md` / `.csv`.
 - Added `scripts/generate-platform-playbook.mjs`, `npm run content:playbook`, and `content-automation/PLATFORM_PLAYBOOK.md`.
+- Added `scripts/generate-ready-copy-index.mjs`, `npm run content:ready-index`, and `content-automation/READY_COPY_INDEX.md`.
 - Added `scripts/generate-copy-quality-report.mjs`, `npm run content:quality`, and `content-automation/COPY_QUALITY_REPORT.md`.
 - Added `scripts/generate-daily-brief.mjs`, `npm run content:brief`, and `content-automation/DAILY_BRIEF.md`.
 - Refreshed sitemap, deployment readiness, today actions, upcoming actions, and content automation outputs for the current Asia/Seoul date.
@@ -509,6 +516,7 @@ CHANGELOG.md
 - Added `scripts/generate-today-actions.mjs`, `npm run content:today`, and `content-automation/TODAY_ACTIONS.md`.
 - Extended today's action handoff with direct source-file links for campaign plan, asset brief, caption pack, queue, and CSV files.
 - Extended today's action handoff with platform execution notes and a reporting log for published URL, first-signal, and follow-up tracking.
+- Extended today's action handoff with an operator posting checklist for ready-copy files, tracked URLs, quality status, and final channel checks.
 - Added `scripts/generate-upcoming-actions.mjs`, `npm run content:upcoming`, and `content-automation/UPCOMING_ACTIONS.md`.
 
 ### 2026-06-20

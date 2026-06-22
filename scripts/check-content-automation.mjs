@@ -10,6 +10,7 @@ const upcomingActions = "content-automation/UPCOMING_ACTIONS.md";
 const performanceLog = "content-automation/PERFORMANCE_LOG.md";
 const dailyBrief = "content-automation/DAILY_BRIEF.md";
 const copyQualityReport = "content-automation/COPY_QUALITY_REPORT.md";
+const readyCopyIndex = "content-automation/READY_COPY_INDEX.md";
 
 const requiredPlatformMarkers = [
   "Naver Blog",
@@ -37,7 +38,8 @@ const requiredOutputSuffixes = [
 const requiredSharedFiles = [
   "content-automation/TRACKED_LINKS.md",
   "content-automation/TRACKED_LINKS.csv",
-  "content-automation/PLATFORM_PLAYBOOK.md"
+  "content-automation/PLATFORM_PLAYBOOK.md",
+  readyCopyIndex
 ];
 
 const failures = [];
@@ -170,6 +172,13 @@ if (existsSync("content-automation/PLATFORM_PLAYBOOK.md")) {
   }
 }
 
+if (existsSync(readyCopyIndex)) {
+  const index = read(readyCopyIndex);
+  for (const marker of ["Grant Labs Ready Copy Index", "Campaign Ready Copy", "Naver Plain Text", "Platform File Map", "01-naver-blog-copy.txt", "Markdown link syntax", "npm run content:ready-index"]) {
+    if (!index.includes(marker)) failures.push(`${readyCopyIndex} is missing marker: ${marker}`);
+  }
+}
+
 const combined = outputFiles.map(read).join("\n\n");
 
 for (const marker of requiredPlatformMarkers) {
@@ -198,7 +207,7 @@ if (existsSync(calendarMd)) {
 
 if (existsSync(todayActions)) {
   const today = read(todayActions);
-  for (const marker of ["Grant Labs Today Actions", "Today Queue", "Source Files", "Ready Copy", "Platform Execution Notes", "Reporting Log", "npm run content:today", "consultation-checklist-conversion"]) {
+  for (const marker of ["Grant Labs Today Actions", "Today Queue", "Source Files", "Ready Copy", "Platform Execution Notes", "Operator Posting Checklist", "Tracked URL", "Reporting Log", "npm run content:today", "consultation-checklist-conversion"]) {
     if (!today.includes(marker)) failures.push(`Today actions document is missing marker: ${marker}`);
   }
 }

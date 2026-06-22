@@ -61,19 +61,25 @@ npm run content:links
 npm run content:playbook
 ```
 
-12. Regenerate the copy quality report when needed:
+12. Regenerate the ready-copy index when needed:
+
+```bash
+npm run content:ready-index
+```
+
+13. Regenerate the copy quality report when needed:
 
 ```bash
 npm run content:quality
 ```
 
-13. Regenerate the daily operator brief when needed:
+14. Regenerate the daily operator brief when needed:
 
 ```bash
 npm run content:brief
 ```
 
-14. Run quality checks:
+15. Run quality checks:
 
 ```bash
 npm run check:content
@@ -108,6 +114,12 @@ For Naver Blog, use `01-naver-blog-copy.txt` so raw URLs remain clickable and Ma
 
 Both `npm run check:content` and `npm run check` scan the campaign files and verify the expected output set. `npm run content:run:all` also refreshes `content-automation/CAMPAIGN_STATUS.md`.
 
+## Ready Copy Index
+
+- `content-automation/READY_COPY_INDEX.md`
+
+This file is the fastest handoff map for publishers. It lists every campaign's platform-ready summary and direct Naver plain-text file so collaborators can open the right copy without scanning raw caption packs. `npm run content:run:all` refreshes it automatically, and `npm run content:ready-index` refreshes only the index.
+
 ## Cross-Campaign Calendar
 
 - `content-automation/PUBLISHING_CALENDAR.md`
@@ -120,7 +132,7 @@ These files combine every campaign publishing queue into one operations calendar
 - `content-automation/TODAY_ACTIONS.md`
 
 This file filters the cross-campaign calendar to the current Asia/Seoul date. `npm run content:run:all` refreshes it automatically, and `npm run content:today` refreshes only today's action list.
-It also includes platform execution notes from `platform-rules.json` and a reporting log for published URLs, first signals, and follow-up needs.
+It also includes platform execution notes from `platform-rules.json`, an operator posting checklist with exact ready-copy files, tracked URLs, quality status, and final channel checks, plus a reporting log for published URLs, first signals, and follow-up needs.
 
 ## Upcoming Actions
 
