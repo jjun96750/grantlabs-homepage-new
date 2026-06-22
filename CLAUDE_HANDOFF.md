@@ -12,7 +12,7 @@
 - Static homepage draft is ready and pushed to GitHub.
 - No build step is required.
 - Main branch: `main`
-- Latest implementation commit captured in this handoff: `ffdee34 Enhance performance follow-up log`
+- Latest implementation commit captured in this handoff: `0fd8ca4 Add platform posting QA automation`
 - Local static validation passes with `npm run check`.
 - Standard local validation command is `npm run check`; local preview is `npm run serve`.
 - Standard commands are documented in `COMMANDS.md`.
