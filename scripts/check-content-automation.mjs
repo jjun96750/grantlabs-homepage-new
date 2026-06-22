@@ -106,6 +106,12 @@ for (const campaignFile of campaignFiles) {
       if (/^\s*#{1,6}\s+/m.test(naverReady) || /\[[^\]]+\]\(https?:\/\//.test(naverReady)) {
         failures.push(`${naverReadyPath} should be plain text without Markdown headings or links.`);
       }
+      if (!naverReady.includes("----------------------------------------") || !naverReady.includes("Grant Labs 상담 준비 체크리스트")) {
+        failures.push(`${naverReadyPath} needs readable section breaks and a clear checklist CTA block.`);
+      }
+      if (naverReady.includes("네이버 에디터")) {
+        failures.push(`${naverReadyPath} should not include editor instructions in public post copy.`);
+      }
       if (naverParagraphs.length < 10) {
         failures.push(`${naverReadyPath} needs at least 10 readable paragraphs.`);
       }
@@ -157,7 +163,7 @@ if (existsSync("content-automation/TRACKED_LINKS.md")) {
 
 if (existsSync("content-automation/PLATFORM_PLAYBOOK.md")) {
   const playbook = read("content-automation/PLATFORM_PLAYBOOK.md");
-  for (const marker of ["Grant Labs Platform Playbook", "Publishing QA", "Ready-copy file", "TRACKED_LINKS.md", "PERFORMANCE_LOG.md", "Naver Blog", "LinkedIn Page"]) {
+  for (const marker of ["Grant Labs Platform Playbook", "Universal Readability Rules", "Publishing QA", "Ready-copy file", "TRACKED_LINKS.md", "PERFORMANCE_LOG.md", "raw URL", "Markdown link syntax", "Naver Blog", "LinkedIn Page"]) {
     if (!playbook.includes(marker)) failures.push(`content-automation/PLATFORM_PLAYBOOK.md is missing marker: ${marker}`);
   }
 }

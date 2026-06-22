@@ -36,7 +36,7 @@ npm run content:calendar
 npm run content:ready-copy -- content-automation/campaigns/example-campaign.json
 ```
 
-These files are intended for direct copy-and-paste publishing. Naver Blog uses plain text with a raw URL instead of Markdown link syntax.
+These files are intended for direct copy-and-paste publishing. Naver Blog uses readable plain text with section breaks and a raw URL instead of Markdown link syntax. Instagram and TikTok copy do not assume caption links are clickable; use profile links, story links, comments, or DM routing where needed.
 8. Regenerate future publishing preparation when needed:
 
 ```bash

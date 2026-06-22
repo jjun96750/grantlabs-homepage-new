@@ -18,9 +18,9 @@ Ready copy folder:
 - `07-facebook-page-post.txt`
 - `08-linkedin-page-post.txt`
 
-## Naver Publishing Guardrail
+## Publishing Guardrails
 
-- Use `01-naver-blog-copy.txt`.
-- Keep the raw checklist URL on its own line.
-- Do not paste Markdown link syntax into Naver Blog.
+- Naver Blog: use clear section breaks, keep the raw checklist URL visible, and add the URL through SmartEditor link controls if auto-linking fails.
+- Instagram and TikTok: assume caption links may not be clickable; route users to profile, story, comments, or DM.
+- YouTube, Facebook, and LinkedIn: keep the checklist URL visible in description, post body, or pinned comment.
 - Keep paragraph breaks as generated.

@@ -13,11 +13,14 @@ Last updated: 2026-06-22
 ## Current Status
 
 - Content automation now generates platform-ready copy-only files for every campaign under `content-automation/output/platform-ready-copy/`.
+- Platform-ready copy now uses channel-specific publishing behavior: Naver gets readable sections and a visible raw URL CTA, Instagram/TikTok avoid assuming clickable captions, and YouTube/Facebook/LinkedIn keep URL-forward post formats.
 - Naver Blog now has a plain-text `01-naver-blog-copy.txt` per campaign with raw checklist URL, readable paragraph breaks, and no Markdown link syntax.
 - `npm run content:run` and `npm run content:run:all` now include the platform-ready copy step.
 - `npm run check:content` now requires platform-ready copy summaries and validates the Naver plain-text file.
 - Content automation now generates campaign/platform UTM checklist links in `content-automation/TRACKED_LINKS.md` and `.csv`.
 - Content automation now generates `content-automation/PLATFORM_PLAYBOOK.md` from platform rules for collaborator publishing QA.
+- `content-automation/PLATFORM_PLAYBOOK.md` now includes universal readability rules, Naver raw URL guidance, Markdown-link warnings, and channel-specific pre-publish QA.
+- Latest validation after the platform-specific readability update: `Content automation check passed.` and `Static site check passed.`
 - `npm run check:content` now rejects likely mojibake markers in campaign inputs and generated content automation outputs.
 - `npm run check:content` now requires the Naver Blog caption section to keep the raw checklist URL and avoid Markdown-only links.
 - GitHub repository created.
@@ -481,6 +484,7 @@ CHANGELOG.md
 
 ### 2026-06-22
 
+- Rebuilt `scripts/generate-platform-ready-copy.mjs` so Naver Blog copy has readable section breaks and a visible raw URL CTA, while Instagram/TikTok/YouTube/Facebook/LinkedIn copy follows each channel's link behavior.
 - Strengthened `scripts/check-content-automation.mjs` to reject likely mojibake markers in campaign inputs and generated content automation outputs.
 - Strengthened `scripts/check-content-automation.mjs` to enforce raw checklist URLs in Naver Blog caption sections.
 - Added `scripts/generate-performance-log.mjs`, `npm run content:performance`, and `content-automation/PERFORMANCE_LOG.md`.

@@ -6,31 +6,8 @@ const campaignPath = process.argv[2] || "content-automation/campaigns/grantlabs-
 const readJson = (file) => JSON.parse(readFileSync(file, "utf8"));
 const campaign = readJson(campaignPath);
 const baseName = `${campaign.date}-${campaign.slug}`;
-const captionPackPath = join("content-automation", "output", `${baseName}-caption-pack.md`);
 const readyDir = join("content-automation", "output", "platform-ready-copy", baseName);
 const summaryPath = join("content-automation", "output", `${baseName}-platform-ready-copy.md`);
-
-const captionPack = readFileSync(captionPackPath, "utf8");
-
-function extractSection(markdown, heading) {
-  const escaped = heading.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-  const pattern = new RegExp(`^## ${escaped}\\s*$`, "m");
-  const match = markdown.match(pattern);
-  if (!match || match.index == null) return "";
-
-  const start = match.index + match[0].length;
-  const rest = markdown.slice(start);
-  const next = rest.search(/^##\s+/m);
-  return (next >= 0 ? rest.slice(0, next) : rest).trim();
-}
-
-function between(text, startMarker, endMarker) {
-  const start = text.indexOf(startMarker);
-  if (start < 0) return "";
-  const afterStart = text.slice(start + startMarker.length);
-  const end = afterStart.indexOf(endMarker);
-  return (end >= 0 ? afterStart.slice(0, end) : afterStart).trim();
-}
 
 function stripMarkdown(text) {
   return text
@@ -38,7 +15,6 @@ function stripMarkdown(text) {
     .replace(/^#{1,6}\s+/gm, "")
     .replace(/\*\*([^*]+)\*\*/g, "$1")
     .replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, "$1\n$2")
-    .replace(/^-\s+/gm, "- ")
     .replace(/\n{3,}/g, "\n\n")
     .trim();
 }
@@ -59,8 +35,7 @@ function deDuplicateParagraphs(text) {
 
 function normalizeSocialCopy(text) {
   return stripMarkdown(text)
-    .replace(/^Thumbnail\/Text overlay:\s*/gm, "Thumbnail/Text overlay:\n")
-    .replace(/^CTA:\s*/gm, "CTA:\n")
+    .replace(/\n{3,}/g, "\n\n")
     .trim();
 }
 
@@ -68,33 +43,54 @@ function listLines(items) {
   return items.map((item) => `- ${item}`).join("\n");
 }
 
+function numberedLines(items) {
+  return items.map((item, index) => `${index + 1}. ${item}`).join("\n");
+}
+
+function campaignFields() {
+  return {
+    topic: campaign.topicKo || campaign.topic,
+    corePromise: campaign.corePromiseKo || campaign.corePromise,
+    cta: campaign.primaryCtaKo || campaign.primaryCta,
+    pillarPoints: campaign.pillarPointsKo?.length ? campaign.pillarPointsKo : campaign.pillarPoints,
+    landingPage: campaign.landingPage || "https://grantlabs.co.kr/checklist.html",
+    phone: campaign.contact?.phone || "",
+    email: campaign.contact?.email || "",
+    guardrails: campaign.complianceNotesKo?.length ? campaign.complianceNotesKo : campaign.complianceNotes
+  };
+}
+
 function buildNaverReadyCopy() {
-  const topic = campaign.topicKo || campaign.topic;
-  const corePromise = campaign.corePromiseKo || campaign.corePromise;
-  const cta = campaign.primaryCtaKo || campaign.primaryCta;
-  const pillarPoints = campaign.pillarPointsKo?.length ? campaign.pillarPointsKo : campaign.pillarPoints;
-  const landingPage = campaign.landingPage || "https://grantlabs.co.kr/checklist.html";
-  const phone = campaign.contact?.phone || "";
-  const email = campaign.contact?.email || "";
-  const guardrails = campaign.complianceNotesKo?.length ? campaign.complianceNotesKo : campaign.complianceNotes;
+  const { topic, corePromise, cta, pillarPoints, landingPage, phone, email, guardrails } = campaignFields();
 
-  return deDuplicateParagraphs(stripMarkdown(`${topic}: 상담 전에 먼저 확인할 준비 체크리스트
+  return deDuplicateParagraphs(stripMarkdown(`${topic}: 상담 전 꼭 확인할 준비 체크리스트
 
-정책자금, 기업인증, 특허, 연구소 설립을 검토할 때 가장 먼저 필요한 것은 "가능하다/불가능하다"의 단정이 아니라 현재 준비 상태를 정확히 보는 일입니다.
+정책자금, 기업인증, 특허, 기업부설연구소를 검토하고 있다면 신청서부터 쓰기보다 현재 준비 상태를 먼저 정리해야 합니다.
 
 ${corePromise}
 
-1. 상담이 길어지는 가장 큰 이유
+----------------------------------------
+
+이 글에서 확인할 내용
+
+1. 상담 전에 먼저 정리해야 할 자료
+2. 신청 순서를 잘못 잡으면 생기는 문제
+3. Grant Labs 체크리스트를 활용하는 방법
+4. 상담 요청 전 바로 열어볼 링크
+
+----------------------------------------
+
+1. 상담이 길어지는 이유
 
 사업 개요, 매출 구조, 고용 현황, 인증 보유 여부, 기술 자료, 지식재산 준비 현황이 흩어져 있으면 상담 시간이 길어지고 실제 실행 순서도 흐려집니다.
 
 그래서 Grant Labs는 먼저 체크리스트 기반으로 현재 상태를 정리한 뒤, 정책자금과 인증, 특허, 연구소 설립 중 무엇을 먼저 검토해야 하는지 순서를 잡습니다.
 
-2. 신청 전에 먼저 확인할 핵심 항목
+2. 신청 전에 확인할 핵심 항목
 
 ${listLines(pillarPoints)}
 
-위 항목은 단순한 서류 목록이 아니라 실행 우선순위를 정하는 기준입니다. 준비가 충분한 항목은 빠르게 다음 단계로 넘기고, 부족한 항목은 보완 계획을 먼저 세우는 방식이 필요합니다.
+위 항목은 단순한 서류 목록이 아닙니다. 어떤 지원을 먼저 검토할지, 어떤 증빙을 보완해야 할지, 상담에서 무엇을 확인해야 할지 정하는 기준입니다.
 
 3. 예시로 보면 더 명확합니다
 
@@ -110,13 +106,17 @@ ${listLines(pillarPoints)}
 
 모든 자료가 완벽하게 준비되어야 상담이 가능한 것은 아닙니다. 다만 현재 어떤 자료가 있고 무엇이 부족한지 알고 시작하면 상담 결과가 훨씬 구체적입니다.
 
-5. Grant Labs 상담 준비 링크
+----------------------------------------
 
-아래 체크리스트에서 현재 상태를 먼저 점검해보세요. 이후 상담에서는 체크리스트 내용을 기준으로 실행 가능성, 보완 순서, 다음 액션을 함께 정리할 수 있습니다.
+Grant Labs 상담 준비 체크리스트
+
+아래 주소를 눌러 상담 전 준비 상태를 먼저 확인해보세요.
 
 ${landingPage}
 
 상담 문의: ${phone}${phone && email ? " / " : ""}${email}
+
+----------------------------------------
 
 진행 시 유의사항
 
@@ -125,52 +125,147 @@ ${listLines(guardrails)}
 ${cta}`));
 }
 
+function buildInstagramCarouselReady() {
+  const { topic, pillarPoints, landingPage, cta } = campaignFields();
+  return normalizeSocialCopy(`Carousel caption:
+저장해두고 상담 전에 확인하세요.
+
+${topic}
+
+신청 전 먼저 볼 항목
+${numberedLines(pillarPoints.slice(0, 4))}
+
+링크는 인스타그램 캡션에서 클릭되지 않을 수 있습니다.
+프로필 링크, 스토리 링크, 또는 DM 안내에 체크리스트 주소를 연결하세요.
+
+체크리스트 주소:
+${landingPage}
+
+CTA:
+${cta}
+
+Hashtags:
+#정책자금 #기업인증 #사업자금 #대표님체크리스트 #GrantLabs`);
+}
+
+function buildShortVideoReady(platformName) {
+  const { topic, pillarPoints, landingPage, cta } = campaignFields();
+  return normalizeSocialCopy(`${platformName} script:
+첫 2초 훅:
+"정책자금이나 기업인증 준비 중이면, 신청 전에 이 자료부터 확인하세요."
+
+본문:
+${topic}
+
+오늘 확인할 4가지
+${numberedLines(pillarPoints.slice(0, 4))}
+
+마무리:
+"준비 순서가 잡히면 상담 시간이 줄고, 어떤 지원을 먼저 검토할지 판단이 빨라집니다."
+
+Caption:
+신청 전 준비도를 먼저 확인하세요.
+캡션 링크가 클릭되지 않는 플랫폼에서는 프로필 링크, 고정 댓글, 또는 설명란에 아래 주소를 넣으세요.
+
+${landingPage}
+
+CTA:
+${cta}`);
+}
+
+function buildYoutubeLongReady() {
+  const { topic, corePromise, pillarPoints, landingPage } = campaignFields();
+  return normalizeSocialCopy(`Title:
+${topic}: 신청 전 준비 순서와 체크리스트
+
+Description:
+${corePromise}
+
+이번 영상에서는 정책자금, 기업인증, 특허, 기업부설연구소 준비를 따로 보지 않고 실제 상담 전에 확인해야 할 순서로 정리합니다.
+
+Chapters:
+00:00 신청 전에 순서가 중요한 이유
+01:10 상담이 길어지는 자료 문제
+02:30 먼저 확인할 핵심 증빙
+04:10 인증·특허·연구소·정책자금 연결
+06:00 상담 전 체크리스트 사용법
+
+Key checks:
+${listLines(pillarPoints)}
+
+Checklist:
+${landingPage}
+
+Pinned comment:
+상담 전 준비 체크리스트:
+${landingPage}`);
+}
+
+function buildFacebookReady() {
+  const { topic, pillarPoints, landingPage, phone } = campaignFields();
+  return normalizeSocialCopy(`Post:
+${topic}
+
+정책자금·기업인증을 준비 중이라면 신청 전에 자료부터 점검해보세요.
+
+먼저 확인할 항목
+${listLines(pillarPoints.slice(0, 4))}
+
+상담 준비 체크리스트:
+${landingPage}
+
+문의: ${phone}`);
+}
+
+function buildLinkedinReady() {
+  const { topic, corePromise, pillarPoints, landingPage } = campaignFields();
+  return normalizeSocialCopy(`Post:
+${topic}
+
+정책자금과 기업인증은 신청 자체보다 사전 증빙과 준비 순서가 더 중요할 때가 많습니다.
+
+${corePromise}
+
+Key checks:
+${listLines(pillarPoints.slice(0, 4))}
+
+Checklist:
+${landingPage}`);
+}
+
 function writeReadyFile(name, body) {
   const filePath = join(readyDir, name);
   writeFileSync(filePath, `${body.trim()}\n`, "utf8");
   return filePath;
 }
 
-const sections = {
-  naver: extractSection(captionPack, "Naver Blog"),
-  instagramCarousel: extractSection(captionPack, "Instagram Carousel"),
-  instagramReels: extractSection(captionPack, "Instagram Reels"),
-  youtubeShorts: extractSection(captionPack, "YouTube Shorts"),
-  youtubeLong: extractSection(captionPack, "YouTube Long-form"),
-  tiktok: extractSection(captionPack, "TikTok"),
-  facebook: extractSection(captionPack, "Facebook Page"),
-  linkedin: extractSection(captionPack, "LinkedIn Page")
-};
-
-const naverReady = buildNaverReadyCopy();
-
 mkdirSync(readyDir, { recursive: true });
 
 const files = [
-  ["01-naver-blog-copy.txt", naverReady],
-  ["02-instagram-carousel-caption.txt", normalizeSocialCopy(sections.instagramCarousel)],
-  ["03-instagram-reels-script.txt", normalizeSocialCopy(sections.instagramReels)],
-  ["04-youtube-shorts-script.txt", normalizeSocialCopy(sections.youtubeShorts)],
-  ["05-youtube-long-description.txt", normalizeSocialCopy(sections.youtubeLong)],
-  ["06-tiktok-caption.txt", normalizeSocialCopy(sections.tiktok)],
-  ["07-facebook-page-post.txt", normalizeSocialCopy(sections.facebook)],
-  ["08-linkedin-page-post.txt", normalizeSocialCopy(sections.linkedin)]
+  ["01-naver-blog-copy.txt", buildNaverReadyCopy()],
+  ["02-instagram-carousel-caption.txt", buildInstagramCarouselReady()],
+  ["03-instagram-reels-script.txt", buildShortVideoReady("Instagram Reels")],
+  ["04-youtube-shorts-script.txt", buildShortVideoReady("YouTube Shorts")],
+  ["05-youtube-long-description.txt", buildYoutubeLongReady()],
+  ["06-tiktok-caption.txt", buildShortVideoReady("TikTok")],
+  ["07-facebook-page-post.txt", buildFacebookReady()],
+  ["08-linkedin-page-post.txt", buildLinkedinReady()]
 ].map(([name, body]) => ({ name, path: writeReadyFile(name, body) }));
 
 writeReadyFile("README.md", `# Platform Ready Copy - ${baseName}
 
 Use these files for copy-and-paste publishing.
 
-- Naver Blog: use \`01-naver-blog-copy.txt\`. It is plain text with raw URLs.
-- Instagram Carousel: use \`02-instagram-carousel-caption.txt\`.
+- Naver Blog: use \`01-naver-blog-copy.txt\`. It is structured as title, opening, dividers, checklist, CTA, and raw URL.
+- Instagram Carousel: use \`02-instagram-carousel-caption.txt\`. Links in captions may not be clickable, so connect the checklist through profile, story, or DM.
 - Instagram Reels: use \`03-instagram-reels-script.txt\`.
-- YouTube Shorts: use \`04-youtube-shorts-script.txt\`.
+- YouTube Shorts: use \`04-youtube-shorts-script.txt\`. Put the URL in the description or pinned comment.
 - YouTube Long-form: use \`05-youtube-long-description.txt\`.
-- TikTok: use \`06-tiktok-caption.txt\`.
+- TikTok: use \`06-tiktok-caption.txt\`. Put the URL in profile or comments when caption links are unavailable.
 - Facebook Page: use \`07-facebook-page-post.txt\`.
 - LinkedIn Page: use \`08-linkedin-page-post.txt\`.
 
-Do not paste Markdown links into Naver Blog. Keep the raw URL on its own line.
+For Naver Blog, keep the URL visible on its own line. If SmartEditor does not auto-link it, select the CTA text and insert the URL with the link button.
 `);
 
 const summary = `# ${campaign.brand} Platform Ready Copy
@@ -186,11 +281,11 @@ Ready copy folder:
 
 ${files.map((file) => `- \`${file.name}\``).join("\n")}
 
-## Naver Publishing Guardrail
+## Publishing Guardrails
 
-- Use \`01-naver-blog-copy.txt\`.
-- Keep the raw checklist URL on its own line.
-- Do not paste Markdown link syntax into Naver Blog.
+- Naver Blog: use clear section breaks, keep the raw checklist URL visible, and add the URL through SmartEditor link controls if auto-linking fails.
+- Instagram and TikTok: assume caption links may not be clickable; route users to profile, story, comments, or DM.
+- YouTube, Facebook, and LinkedIn: keep the checklist URL visible in description, post body, or pinned comment.
 - Keep paragraph breaks as generated.
 `;
 

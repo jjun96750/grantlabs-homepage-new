@@ -195,7 +195,7 @@ content-automation/output/2026-06-21-consultation-checklist-conversion-publishin
 - `STATUS_INDEX.md` is the collaborator-facing map of status documents and safety guardrails.
 - `scripts/generate-asset-briefs.mjs` creates platform-specific production briefs with canvas, checklist, CTA, and success-signal guidance.
 - `scripts/generate-caption-pack.mjs` creates platform-specific captions, hashtags, CTA text, and thumbnail/overlay copy.
-- `scripts/generate-platform-ready-copy.mjs` creates copy-and-paste files under `content-automation/output/platform-ready-copy/<date>-<slug>/`, including plain-text Naver Blog copy with a raw checklist URL.
+- `scripts/generate-platform-ready-copy.mjs` creates copy-and-paste files under `content-automation/output/platform-ready-copy/<date>-<slug>/`, including readable plain-text Naver Blog copy with section breaks, a visible raw checklist URL, and channel-specific link behavior for social/video platforms.
 - `scripts/generate-content-plan.mjs` creates platform-specific posting guidance from the current Grant Labs campaign input.
 - `scripts/generate-publishing-queue.mjs` creates CSV and Markdown publishing queues with platform timing, asset, objective, and success-signal guidance.
 - `scripts/generate-publishing-calendar.mjs` combines every campaign publishing queue into `content-automation/PUBLISHING_CALENDAR.md` and `.csv`.
