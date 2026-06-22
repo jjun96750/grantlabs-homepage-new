@@ -16,6 +16,7 @@ Last updated: 2026-06-22
 - Naver Blog now has a plain-text `01-naver-blog-copy.txt` per campaign with raw checklist URL, readable paragraph breaks, and no Markdown link syntax.
 - `npm run content:run` and `npm run content:run:all` now include the platform-ready copy step.
 - `npm run check:content` now requires platform-ready copy summaries and validates the Naver plain-text file.
+- Content automation now generates campaign/platform UTM checklist links in `content-automation/TRACKED_LINKS.md` and `.csv`.
 - `npm run check:content` now rejects likely mojibake markers in campaign inputs and generated content automation outputs.
 - `npm run check:content` now requires the Naver Blog caption section to keep the raw checklist URL and avoid Markdown-only links.
 - GitHub repository created.
@@ -204,6 +205,7 @@ Last updated: 2026-06-22
 - `content-automation/TODAY_ACTIONS.md` now includes platform execution notes and a reporting log for published URLs, first signals, and follow-up needs.
 - Added `npm run content:upcoming` and `content-automation/UPCOMING_ACTIONS.md` for future publishing preparation, ownership, and blocker tracking.
 - Added `npm run content:performance` and `content-automation/PERFORMANCE_LOG.md` for post URL, metric, learning, and repurpose tracking.
+- Added `npm run content:links` and `content-automation/TRACKED_LINKS.md` / `.csv` for campaign/platform UTM checklist URLs.
 - Added `npm run content:brief` and `content-automation/DAILY_BRIEF.md` for a single daily operator summary.
 - No build step is required.
 
@@ -252,6 +254,7 @@ scripts/generate-publishing-calendar.mjs
 scripts/generate-today-actions.mjs
 scripts/generate-upcoming-actions.mjs
 scripts/generate-performance-log.mjs
+scripts/generate-tracked-links.mjs
 scripts/generate-daily-brief.mjs
 scripts/generate-deployment-readiness.mjs
 scripts/generate-sitemap.mjs
@@ -267,6 +270,8 @@ content-automation/PUBLISHING_CALENDAR.csv
 content-automation/TODAY_ACTIONS.md
 content-automation/UPCOMING_ACTIONS.md
 content-automation/PERFORMANCE_LOG.md
+content-automation/TRACKED_LINKS.md
+content-automation/TRACKED_LINKS.csv
 content-automation/DAILY_BRIEF.md
 content-automation/platform-rules.json
 content-automation/publishing-defaults.json
@@ -475,6 +480,7 @@ CHANGELOG.md
 - Strengthened `scripts/check-content-automation.mjs` to reject likely mojibake markers in campaign inputs and generated content automation outputs.
 - Strengthened `scripts/check-content-automation.mjs` to enforce raw checklist URLs in Naver Blog caption sections.
 - Added `scripts/generate-performance-log.mjs`, `npm run content:performance`, and `content-automation/PERFORMANCE_LOG.md`.
+- Added `scripts/generate-tracked-links.mjs`, `npm run content:links`, and `content-automation/TRACKED_LINKS.md` / `.csv`.
 - Added `scripts/generate-daily-brief.mjs`, `npm run content:brief`, and `content-automation/DAILY_BRIEF.md`.
 - Refreshed sitemap, deployment readiness, today actions, upcoming actions, and content automation outputs for the current Asia/Seoul date.
 

@@ -13,6 +13,7 @@ npm run content:calendar
 npm run content:today
 npm run content:upcoming
 npm run content:performance
+npm run content:links
 npm run content:brief
 npm run content:run
 npm run content:run:all
@@ -36,6 +37,7 @@ npm run smoke -- https://your-pages-preview.pages.dev
 - `npm run content:today` regenerates today's publishing action list for today actions handoff.
 - `npm run content:upcoming` regenerates upcoming actions for future publishing preparation and blocker tracking.
 - `npm run content:performance` regenerates the performance log for post URLs, metrics, learnings, and repurpose decisions.
+- `npm run content:links` regenerates tracked links with UTM checklist URLs for every campaign and platform.
 - `npm run content:brief` regenerates the daily brief for today's focus, tomorrow preparation, and required record updates.
 - `npm run content:run` runs the full content automation pipeline.
 - `npm run content:run:all` runs the full content automation pipeline for all campaigns.

@@ -33,6 +33,11 @@ const requiredOutputSuffixes = [
   "-publishing-queue.csv"
 ];
 
+const requiredSharedFiles = [
+  "content-automation/TRACKED_LINKS.md",
+  "content-automation/TRACKED_LINKS.csv"
+];
+
 const failures = [];
 const read = (file) => readFileSync(file, "utf8");
 const includedMarkers = (body, markers) => markers.filter((marker) => body.includes(marker));
@@ -133,6 +138,19 @@ for (const file of outputFiles.filter((file) => file.endsWith("-caption-pack.md"
   }
   if (/\[[^\]]+\]\(https?:\/\//.test(naver)) {
     failures.push(`${file} Naver Blog section should use raw URLs instead of Markdown links.`);
+  }
+}
+
+for (const file of requiredSharedFiles) {
+  if (!existsSync(file)) {
+    failures.push(`Missing shared content automation output: ${file}`);
+  }
+}
+
+if (existsSync("content-automation/TRACKED_LINKS.md")) {
+  const trackedLinks = read("content-automation/TRACKED_LINKS.md");
+  for (const marker of ["utm_source", "utm_medium", "utm_campaign", "utm_content", "Naver Blog", "LinkedIn Page"]) {
+    if (!trackedLinks.includes(marker)) failures.push(`content-automation/TRACKED_LINKS.md is missing marker: ${marker}`);
   }
 }
 

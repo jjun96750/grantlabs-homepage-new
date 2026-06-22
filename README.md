@@ -41,6 +41,7 @@ scripts/
   generate-today-actions.mjs
   generate-upcoming-actions.mjs
   generate-performance-log.mjs
+  generate-tracked-links.mjs
   generate-daily-brief.mjs
   generate-deployment-readiness.mjs
   generate-sitemap.mjs
@@ -59,6 +60,8 @@ content-automation/
   TODAY_ACTIONS.md
   UPCOMING_ACTIONS.md
   PERFORMANCE_LOG.md
+  TRACKED_LINKS.md
+  TRACKED_LINKS.csv
   DAILY_BRIEF.md
   README.md
   platform-rules.json
@@ -158,6 +161,10 @@ npm run content:upcoming
 
 ```bash
 npm run content:performance
+```
+
+```bash
+npm run content:links
 ```
 
 ```bash

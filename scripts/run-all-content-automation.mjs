@@ -78,6 +78,16 @@ if (performanceResult.status !== 0) {
   process.exit(performanceResult.status || 1);
 }
 
+const linksResult = spawnSync(process.execPath, ["scripts/generate-tracked-links.mjs"], {
+  stdio: "inherit",
+  shell: false
+});
+
+if (linksResult.status !== 0) {
+  console.error("Tracked links generation failed.");
+  process.exit(linksResult.status || 1);
+}
+
 const briefResult = spawnSync(process.execPath, ["scripts/generate-daily-brief.mjs"], {
   stdio: "inherit",
   shell: false

@@ -49,13 +49,19 @@ npm run content:upcoming
 npm run content:performance
 ```
 
-10. Regenerate the daily operator brief when needed:
+10. Regenerate tracked campaign/platform checklist links when needed:
+
+```bash
+npm run content:links
+```
+
+11. Regenerate the daily operator brief when needed:
 
 ```bash
 npm run content:brief
 ```
 
-11. Run quality checks:
+12. Run quality checks:
 
 ```bash
 npm run check:content
@@ -117,6 +123,13 @@ It includes a date summary, campaign source links, and a preparation log for ass
 
 This file turns the cross-campaign calendar into a performance tracking sheet. `npm run content:run:all` refreshes it automatically, and `npm run content:performance` refreshes only the performance log.
 Use it after posts go live to record URLs, primary metrics, learnings, repurpose decisions, and follow-up owners.
+
+## Tracked Links
+
+- `content-automation/TRACKED_LINKS.md`
+- `content-automation/TRACKED_LINKS.csv`
+
+These files give every campaign/platform pair a UTM-tagged checklist URL. Use the tracked URL in social, video, and blog CTAs when the platform accepts full URLs, then record published URLs and first metrics in `PERFORMANCE_LOG.md`. `npm run content:run:all` refreshes them automatically, and `npm run content:links` refreshes only the link matrix.
 
 ## Daily Brief
 

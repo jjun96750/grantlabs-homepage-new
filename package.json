@@ -15,6 +15,7 @@
     "content:today": "node scripts/generate-today-actions.mjs",
     "content:upcoming": "node scripts/generate-upcoming-actions.mjs",
     "content:performance": "node scripts/generate-performance-log.mjs",
+    "content:links": "node scripts/generate-tracked-links.mjs",
     "content:brief": "node scripts/generate-daily-brief.mjs",
     "content:run": "node scripts/run-content-automation.mjs",
     "content:run:all": "node scripts/run-all-content-automation.mjs",
