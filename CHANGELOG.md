@@ -9,6 +9,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Added `npm run content:ready-index` with `content-automation/READY_COPY_INDEX.md` so collaborators can jump directly to each campaign summary and Naver plain-text copy.
 - Extended `content-automation/TODAY_ACTIONS.md` with an operator posting checklist containing clickable ready-copy file links, tracked URLs, quality status, and final platform checks.
 - Extended `content-automation/PERFORMANCE_LOG.md` with publishing status, tracked CTA URLs, first-check dates, and a daily review queue for post-publication follow-up.
+- Added `npm run content:posting-qa` and `content-automation/PLATFORM_POSTING_QA.md` for per-site editor paste checks, tracked CTA URLs, and link-handling QA.
 - Added platform-ready copy generation for every content automation campaign, including plain-text Naver Blog files under `content-automation/output/platform-ready-copy/`.
 - Added `npm run content:ready-copy` and wired platform-ready copy into `npm run content:run` / `npm run content:run:all`.
 - Extended content automation checks to require platform-ready copy summaries and validate the Naver plain-text file for raw URL, readable paragraphs, and no Markdown link syntax.

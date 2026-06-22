@@ -27,6 +27,7 @@
 - Post performance tracking can be regenerated with `npm run content:performance`.
 - Campaign/platform tracked links can be regenerated with `npm run content:links`.
 - Platform publishing playbook can be regenerated with `npm run content:playbook`.
+- Platform posting QA can be regenerated with `npm run content:posting-qa`.
 - Ready-copy index can be regenerated with `npm run content:ready-index`.
 - Copy quality report can be regenerated with `npm run content:quality`.
 - Daily operator brief can be regenerated with `npm run content:brief`.
@@ -101,6 +102,7 @@ scripts/generate-upcoming-actions.mjs
 scripts/generate-performance-log.mjs
 scripts/generate-tracked-links.mjs
 scripts/generate-platform-playbook.mjs
+scripts/generate-platform-posting-qa.mjs
 scripts/generate-ready-copy-index.mjs
 scripts/generate-copy-quality-report.mjs
 scripts/generate-daily-brief.mjs
@@ -124,6 +126,7 @@ content-automation/PERFORMANCE_LOG.md
 content-automation/TRACKED_LINKS.md
 content-automation/TRACKED_LINKS.csv
 content-automation/PLATFORM_PLAYBOOK.md
+content-automation/PLATFORM_POSTING_QA.md
 content-automation/READY_COPY_INDEX.md
 content-automation/COPY_QUALITY_REPORT.md
 content-automation/DAILY_BRIEF.md
@@ -212,6 +215,7 @@ content-automation/output/2026-06-21-consultation-checklist-conversion-publishin
 - `scripts/generate-performance-log.mjs` creates `content-automation/PERFORMANCE_LOG.md` with publishing status, tracked CTA URLs, first-check dates, post URLs, metrics, learnings, repurpose decisions, a daily review queue, and follow-up owners.
 - `scripts/generate-tracked-links.mjs` creates `content-automation/TRACKED_LINKS.md` and `.csv` with UTM-tagged checklist URLs for every campaign/platform pair.
 - `scripts/generate-platform-playbook.mjs` creates `content-automation/PLATFORM_PLAYBOOK.md` from platform rules so each channel has role, CTA, ready-copy, and QA guidance.
+- `scripts/generate-platform-posting-qa.mjs` creates `content-automation/PLATFORM_POSTING_QA.md` from platform rules, tracked links, and ready-copy files so each site has editor paste checks and link-handling QA.
 - `scripts/generate-ready-copy-index.mjs` creates `content-automation/READY_COPY_INDEX.md` as a quick access map to campaign ready-copy summaries and Naver plain-text files.
 - `scripts/generate-copy-quality-report.mjs` creates `content-automation/COPY_QUALITY_REPORT.md` and reports readiness for every campaign/platform copy file.
 - `scripts/generate-daily-brief.mjs` creates `content-automation/DAILY_BRIEF.md` as the daily operator summary across today's focus, tomorrow prep, and records to update.

@@ -11,6 +11,7 @@ const performanceLog = "content-automation/PERFORMANCE_LOG.md";
 const dailyBrief = "content-automation/DAILY_BRIEF.md";
 const copyQualityReport = "content-automation/COPY_QUALITY_REPORT.md";
 const readyCopyIndex = "content-automation/READY_COPY_INDEX.md";
+const platformPostingQa = "content-automation/PLATFORM_POSTING_QA.md";
 
 const requiredPlatformMarkers = [
   "Naver Blog",
@@ -39,6 +40,7 @@ const requiredSharedFiles = [
   "content-automation/TRACKED_LINKS.md",
   "content-automation/TRACKED_LINKS.csv",
   "content-automation/PLATFORM_PLAYBOOK.md",
+  platformPostingQa,
   readyCopyIndex
 ];
 
@@ -66,6 +68,7 @@ if (!existsSync(upcomingActions)) failures.push("Missing generated upcoming acti
 if (!existsSync(performanceLog)) failures.push("Missing generated performance log markdown.");
 if (!existsSync(dailyBrief)) failures.push("Missing generated daily brief markdown.");
 if (!existsSync(copyQualityReport)) failures.push("Missing generated copy quality report markdown.");
+if (!existsSync(platformPostingQa)) failures.push("Missing generated platform posting QA markdown.");
 
 for (const campaignFile of campaignFiles) {
   try {
@@ -237,6 +240,13 @@ if (existsSync(copyQualityReport)) {
   const quality = read(copyQualityReport);
   for (const marker of ["Grant Labs Copy Quality Report", "Ready: 32", "Needs review or missing: 0", "Naver Blog", "Instagram Reels", "YouTube Shorts", "Readable, URL-forward, and platform-aware", "npm run content:quality"]) {
     if (!quality.includes(marker)) failures.push(`Copy quality report is missing marker: ${marker}`);
+  }
+}
+
+if (existsSync(platformPostingQa)) {
+  const postingQa = read(platformPostingQa);
+  for (const marker of ["Grant Labs Platform Posting QA", "Campaign Posting Matrix", "Platform Editor QA", "Tracked CTA URL", "Link handling", "Editor Paste QA", "npm run content:posting-qa", "Naver Blog", "Instagram Reels", "YouTube Shorts"]) {
+    if (!postingQa.includes(marker)) failures.push(`Platform posting QA is missing marker: ${marker}`);
   }
 }
 

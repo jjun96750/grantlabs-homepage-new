@@ -21,6 +21,7 @@ Last updated: 2026-06-22
 - `npm run check:content` now requires platform-ready copy summaries and validates the Naver plain-text file.
 - Content automation now generates campaign/platform UTM checklist links in `content-automation/TRACKED_LINKS.md` and `.csv`.
 - Content automation now generates `content-automation/PLATFORM_PLAYBOOK.md` from platform rules for collaborator publishing QA.
+- Content automation now generates `content-automation/PLATFORM_POSTING_QA.md` for per-site editor paste checks, tracked CTA URLs, and link-handling QA.
 - Content automation now generates `content-automation/COPY_QUALITY_REPORT.md`; all 32 campaign/platform copy checks currently report Ready.
 - `content-automation/PERFORMANCE_LOG.md` now includes publishing status, tracked CTA URLs, first-check dates, and a daily review queue for follow-up ownership.
 - `content-automation/PLATFORM_PLAYBOOK.md` now includes universal readability rules, Naver raw URL guidance, Markdown-link warnings, and channel-specific pre-publish QA.
@@ -217,6 +218,7 @@ Last updated: 2026-06-22
 - `content-automation/PERFORMANCE_LOG.md` now carries publishing status, tracked CTA URLs, first-check dates, and a daily review queue.
 - Added `npm run content:links` and `content-automation/TRACKED_LINKS.md` / `.csv` for campaign/platform UTM checklist URLs.
 - Added `npm run content:playbook` and `content-automation/PLATFORM_PLAYBOOK.md` for channel roles, CTAs, ready-copy files, and publishing QA.
+- Added `npm run content:posting-qa` and `content-automation/PLATFORM_POSTING_QA.md` for per-site editor paste checks, tracked CTA URLs, and link-handling QA.
 - Added `npm run content:ready-index` and `content-automation/READY_COPY_INDEX.md` for quick access to campaign ready-copy summaries and Naver plain-text files.
 - Added `npm run content:quality` and `content-automation/COPY_QUALITY_REPORT.md` for readability, URL handling, and platform-specific publishing blocker checks.
 - Added `npm run content:brief` and `content-automation/DAILY_BRIEF.md` for a single daily operator summary.
@@ -503,6 +505,7 @@ CHANGELOG.md
 - Extended `scripts/generate-performance-log.mjs` to include tracked CTA URLs, publishing status, first-check dates, and a daily review queue.
 - Added `scripts/generate-tracked-links.mjs`, `npm run content:links`, and `content-automation/TRACKED_LINKS.md` / `.csv`.
 - Added `scripts/generate-platform-playbook.mjs`, `npm run content:playbook`, and `content-automation/PLATFORM_PLAYBOOK.md`.
+- Added `scripts/generate-platform-posting-qa.mjs`, `npm run content:posting-qa`, and `content-automation/PLATFORM_POSTING_QA.md`.
 - Added `scripts/generate-ready-copy-index.mjs`, `npm run content:ready-index`, and `content-automation/READY_COPY_INDEX.md`.
 - Added `scripts/generate-copy-quality-report.mjs`, `npm run content:quality`, and `content-automation/COPY_QUALITY_REPORT.md`.
 - Added `scripts/generate-daily-brief.mjs`, `npm run content:brief`, and `content-automation/DAILY_BRIEF.md`.

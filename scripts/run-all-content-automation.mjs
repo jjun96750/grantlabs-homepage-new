@@ -48,16 +48,6 @@ if (calendarResult.status !== 0) {
   process.exit(calendarResult.status || 1);
 }
 
-const performanceResult = spawnSync(process.execPath, ["scripts/generate-performance-log.mjs"], {
-  stdio: "inherit",
-  shell: false
-});
-
-if (performanceResult.status !== 0) {
-  console.error("Performance log generation failed.");
-  process.exit(performanceResult.status || 1);
-}
-
 const linksResult = spawnSync(process.execPath, ["scripts/generate-tracked-links.mjs"], {
   stdio: "inherit",
   shell: false
@@ -66,6 +56,16 @@ const linksResult = spawnSync(process.execPath, ["scripts/generate-tracked-links
 if (linksResult.status !== 0) {
   console.error("Tracked links generation failed.");
   process.exit(linksResult.status || 1);
+}
+
+const performanceResult = spawnSync(process.execPath, ["scripts/generate-performance-log.mjs"], {
+  stdio: "inherit",
+  shell: false
+});
+
+if (performanceResult.status !== 0) {
+  console.error("Performance log generation failed.");
+  process.exit(performanceResult.status || 1);
 }
 
 const playbookResult = spawnSync(process.execPath, ["scripts/generate-platform-playbook.mjs"], {
@@ -96,6 +96,16 @@ const qualityResult = spawnSync(process.execPath, ["scripts/generate-copy-qualit
 if (qualityResult.status !== 0) {
   console.error("Copy quality report generation failed.");
   process.exit(qualityResult.status || 1);
+}
+
+const postingQaResult = spawnSync(process.execPath, ["scripts/generate-platform-posting-qa.mjs"], {
+  stdio: "inherit",
+  shell: false
+});
+
+if (postingQaResult.status !== 0) {
+  console.error("Platform posting QA generation failed.");
+  process.exit(postingQaResult.status || 1);
 }
 
 const todayResult = spawnSync(process.execPath, ["scripts/generate-today-actions.mjs"], {

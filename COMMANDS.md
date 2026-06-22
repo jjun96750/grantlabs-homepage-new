@@ -15,6 +15,7 @@ npm run content:upcoming
 npm run content:performance
 npm run content:links
 npm run content:playbook
+npm run content:posting-qa
 npm run content:ready-index
 npm run content:quality
 npm run content:brief
@@ -42,6 +43,7 @@ npm run smoke -- https://your-pages-preview.pages.dev
 - `npm run content:performance` regenerates the performance log for post URLs, metrics, learnings, and repurpose decisions.
 - `npm run content:links` regenerates tracked links with UTM checklist URLs for every campaign and platform.
 - `npm run content:playbook` regenerates the platform playbook for channel roles, formats, CTAs, and publishing QA.
+- `npm run content:posting-qa` regenerates the platform posting QA sheet for editor paste checks, tracked URLs, and channel-specific link handling.
 - `npm run content:ready-index` regenerates the ready-copy index for quick access to campaign summaries and Naver plain-text files.
 - `npm run content:quality` regenerates the copy quality report for readability, URL handling, and platform-specific publishing blockers.
 - `npm run content:brief` regenerates the daily brief for today's focus, tomorrow preparation, and required record updates.
