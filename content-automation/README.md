@@ -30,25 +30,32 @@ npm run content:calendar
 ```
 
 6. Review the generated files under `content-automation/output/`, `content-automation/CAMPAIGN_STATUS.md`, and `content-automation/PUBLISHING_CALENDAR.md`.
-7. Regenerate future publishing preparation when needed:
+7. Generate platform-ready copy-only files when needed:
+
+```bash
+npm run content:ready-copy -- content-automation/campaigns/example-campaign.json
+```
+
+These files are intended for direct copy-and-paste publishing. Naver Blog uses plain text with a raw URL instead of Markdown link syntax.
+8. Regenerate future publishing preparation when needed:
 
 ```bash
 npm run content:upcoming
 ```
 
-8. Regenerate performance tracking when needed:
+9. Regenerate performance tracking when needed:
 
 ```bash
 npm run content:performance
 ```
 
-9. Regenerate the daily operator brief when needed:
+10. Regenerate the daily operator brief when needed:
 
 ```bash
 npm run content:brief
 ```
 
-10. Run quality checks:
+11. Run quality checks:
 
 ```bash
 npm run check:content
@@ -71,8 +78,15 @@ Each campaign should have five generated files:
 - Content plan: `<date>-<slug>.md`
 - Asset briefs: `<date>-<slug>-asset-briefs.md`
 - Caption pack: `<date>-<slug>-caption-pack.md`
+- Platform-ready copy summary: `<date>-<slug>-platform-ready-copy.md`
 - Publishing queue CSV: `<date>-<slug>-publishing-queue.csv`
 - Publishing queue summary: `<date>-<slug>-publishing-queue.md`
+
+Each campaign also gets copy-only channel files under:
+
+`content-automation/output/platform-ready-copy/<date>-<slug>/`
+
+For Naver Blog, use `01-naver-blog-copy.txt` so raw URLs remain clickable and Markdown symbols do not appear in the editor.
 
 Both `npm run check:content` and `npm run check` scan the campaign files and verify the expected output set. `npm run content:run:all` also refreshes `content-automation/CAMPAIGN_STATUS.md`.
 

@@ -535,7 +535,7 @@ if (existsSync("scripts/generate-asset-briefs.mjs")) {
 
 if (existsSync("scripts/check-content-automation.mjs")) {
   const contentCheck = read("scripts/check-content-automation.mjs");
-  for (const marker of ["forbiddenClaims", "mojibakeMarkers", "includedMarkers", "requiredPlatformMarkers", "Content automation check passed", "https://grantlabs.co.kr/checklist.html"]) {
+  for (const marker of ["forbiddenClaims", "mojibakeMarkers", "includedMarkers", "requiredPlatformMarkers", "Naver Blog section", "Markdown links", "Content automation check passed", "https://grantlabs.co.kr/checklist.html"]) {
     if (!contentCheck.includes(marker)) failures.push(`scripts/check-content-automation.mjs is missing marker: ${marker}`);
   }
 }

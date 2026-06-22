@@ -10,6 +10,7 @@
     "content:captions": "node scripts/generate-caption-pack.mjs",
     "content:plan": "node scripts/generate-content-plan.mjs",
     "content:queue": "node scripts/generate-publishing-queue.mjs",
+    "content:ready-copy": "node scripts/generate-platform-ready-copy.mjs",
     "content:calendar": "node scripts/generate-publishing-calendar.mjs",
     "content:today": "node scripts/generate-today-actions.mjs",
     "content:upcoming": "node scripts/generate-upcoming-actions.mjs",

@@ -28,6 +28,7 @@ const requiredOutputSuffixes = [
   ".md",
   "-asset-briefs.md",
   "-caption-pack.md",
+  "-platform-ready-copy.md",
   "-publishing-queue.md",
   "-publishing-queue.csv"
 ];
@@ -85,6 +86,24 @@ for (const campaignFile of campaignFiles) {
       const outputPath = suffix === ".md" ? `${outputBase}.md` : `${outputBase}${suffix}`;
       if (!existsSync(outputPath)) failures.push(`Missing generated output for ${campaign.slug}: ${outputPath}`);
     }
+
+    const readyDir = join(outputDir, "platform-ready-copy", `${campaign.date}-${campaign.slug}`);
+    const naverReadyPath = join(readyDir, "01-naver-blog-copy.txt");
+    if (!existsSync(naverReadyPath)) {
+      failures.push(`Missing Naver platform-ready copy for ${campaign.slug}: ${naverReadyPath}`);
+    } else {
+      const naverReady = read(naverReadyPath);
+      const naverParagraphs = naverReady.split(/\n{2,}/).filter((paragraph) => paragraph.trim().length > 0);
+      if (!naverReady.includes("https://grantlabs.co.kr/checklist.html")) {
+        failures.push(`${naverReadyPath} is missing the raw checklist URL.`);
+      }
+      if (/^\s*#{1,6}\s+/m.test(naverReady) || /\[[^\]]+\]\(https?:\/\//.test(naverReady)) {
+        failures.push(`${naverReadyPath} should be plain text without Markdown headings or links.`);
+      }
+      if (naverParagraphs.length < 10) {
+        failures.push(`${naverReadyPath} needs at least 10 readable paragraphs.`);
+      }
+    }
   } catch (error) {
     failures.push(`Invalid campaign JSON ${campaignFile}: ${error.message}`);
   }
@@ -100,6 +119,20 @@ for (const file of outputFiles) {
 
   for (const claim of forbiddenClaims) {
     if (body.includes(claim)) failures.push(`${file} includes forbidden claim: ${claim}`);
+  }
+}
+
+for (const file of outputFiles.filter((file) => file.endsWith("-caption-pack.md"))) {
+  const body = read(file);
+  const naverMatch = body.match(/## Naver Blog[\s\S]*?(?=\n## |\n$)/);
+  const naver = naverMatch?.[0] || "";
+
+  if (!naver) failures.push(`${file} is missing a Naver Blog section.`);
+  if (!naver.includes("https://grantlabs.co.kr/checklist.html")) {
+    failures.push(`${file} Naver Blog section is missing the raw checklist URL.`);
+  }
+  if (/\[[^\]]+\]\(https?:\/\//.test(naver)) {
+    failures.push(`${file} Naver Blog section should use raw URLs instead of Markdown links.`);
   }
 }
 

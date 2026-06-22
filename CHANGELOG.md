@@ -4,7 +4,11 @@ All notable changes to the Grant Labs new homepage are documented here.
 
 ## 2026-06-22
 
+- Added platform-ready copy generation for every content automation campaign, including plain-text Naver Blog files under `content-automation/output/platform-ready-copy/`.
+- Added `npm run content:ready-copy` and wired platform-ready copy into `npm run content:run` / `npm run content:run:all`.
+- Extended content automation checks to require platform-ready copy summaries and validate the Naver plain-text file for raw URL, readable paragraphs, and no Markdown link syntax.
 - Strengthened `npm run check:content` to reject likely mojibake markers in campaign inputs and generated content automation outputs.
+- Strengthened `npm run check:content` to require raw checklist URLs and reject Markdown links in Naver Blog caption sections.
 - Added `npm run content:performance` and `content-automation/PERFORMANCE_LOG.md` for post URL, metric, learning, and repurpose tracking.
 - Added `npm run content:brief` and `content-automation/DAILY_BRIEF.md` for a single daily operator summary.
 - Refreshed sitemap, deployment readiness, today actions, upcoming actions, and content automation outputs for the current Asia/Seoul date.

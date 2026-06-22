@@ -12,7 +12,12 @@ Last updated: 2026-06-22
 
 ## Current Status
 
+- Content automation now generates platform-ready copy-only files for every campaign under `content-automation/output/platform-ready-copy/`.
+- Naver Blog now has a plain-text `01-naver-blog-copy.txt` per campaign with raw checklist URL, readable paragraph breaks, and no Markdown link syntax.
+- `npm run content:run` and `npm run content:run:all` now include the platform-ready copy step.
+- `npm run check:content` now requires platform-ready copy summaries and validates the Naver plain-text file.
 - `npm run check:content` now rejects likely mojibake markers in campaign inputs and generated content automation outputs.
+- `npm run check:content` now requires the Naver Blog caption section to keep the raw checklist URL and avoid Markdown-only links.
 - GitHub repository created.
 - Local repository initialized.
 - Static homepage draft completed.
@@ -468,6 +473,7 @@ CHANGELOG.md
 ### 2026-06-22
 
 - Strengthened `scripts/check-content-automation.mjs` to reject likely mojibake markers in campaign inputs and generated content automation outputs.
+- Strengthened `scripts/check-content-automation.mjs` to enforce raw checklist URLs in Naver Blog caption sections.
 - Added `scripts/generate-performance-log.mjs`, `npm run content:performance`, and `content-automation/PERFORMANCE_LOG.md`.
 - Added `scripts/generate-daily-brief.mjs`, `npm run content:brief`, and `content-automation/DAILY_BRIEF.md`.
 - Refreshed sitemap, deployment readiness, today actions, upcoming actions, and content automation outputs for the current Asia/Seoul date.

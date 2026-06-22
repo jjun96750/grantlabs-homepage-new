@@ -6,6 +6,7 @@ const steps = [
   ["content plan", "scripts/generate-content-plan.mjs"],
   ["asset briefs", "scripts/generate-asset-briefs.mjs"],
   ["caption pack", "scripts/generate-caption-pack.mjs"],
+  ["platform-ready copy", "scripts/generate-platform-ready-copy.mjs"],
   ["publishing queue", "scripts/generate-publishing-queue.mjs"]
 ];
 
