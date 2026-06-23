@@ -12,7 +12,7 @@
 - Static homepage draft is ready and pushed to GitHub.
 - No build step is required.
 - Main branch: `main`
-- Latest implementation commit captured in this handoff: `9d2d41b Carry overdue posts into today actions`
+- Latest implementation commit captured in this handoff: `10f9ade Add lead attribution and ops refresh`
 - Local static validation passes with `npm run check`.
 - Standard local validation command is `npm run check`; local preview is `npm run serve`.
 - Standard commands are documented in `COMMANDS.md`.
@@ -38,6 +38,7 @@
 - Deployment readiness can be regenerated with `npm run deployment:readiness`.
 - Development journal can be regenerated with `npm run status:journal`.
 - Status index can be regenerated with `npm run status:index`.
+- Daily ops refresh can be regenerated with `npm run ops:refresh`; it refreshes content outputs, sitemap, readiness/status documents, and validation in one pass.
 - Content automation outputs can be quality-checked with `npm run check:content`.
 - `npm run check:content` rejects likely mojibake markers in campaign inputs and generated content outputs.
 - `npm run check:content` also requires the Naver Blog caption section to keep the raw checklist URL and avoid Markdown-only links.
@@ -65,6 +66,7 @@ assets/brand/grant-labs-logo-white.svg
 README.md
 STATUS_INDEX.md
 DEVELOPMENT_JOURNAL.md
+OPS_REFRESH_REPORT.md
 COMMANDS.md
 CONTRIBUTING.md
 CLAUDE_HANDOFF.md
@@ -113,6 +115,7 @@ scripts/generate-status-index.mjs
 scripts/generate-publishing-queue.mjs
 scripts/run-all-content-automation.mjs
 scripts/run-content-automation.mjs
+scripts/run-daily-ops-refresh.mjs
 scripts/serve-static.mjs
 scripts/check-local-preview.mjs
 scripts/check-deployed-site.mjs
@@ -186,7 +189,7 @@ content-automation/output/2026-06-21-consultation-checklist-conversion-publishin
 - Lucide is pinned to `lucide@1.18.0`; do not switch it back to `latest`.
 - EmailJS browser SDK is pinned to `@emailjs/browser@4.4.1`; do not switch it back to a major-version alias.
 - Pinned CDN scripts include SRI `integrity` attributes and `crossorigin="anonymous"`.
-- Contact form includes a hidden honeypot field, `aria-describedby` wiring, `aria-busy` submission state updates, and `page_url` / `submitted_at` metadata.
+- Contact form includes a hidden honeypot field, `aria-describedby` wiring, `aria-busy` submission state updates, and attribution metadata: `page_url`, `submitted_at`, `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, and `referrer`.
 - Cloudflare `_headers` includes host-scoped HSTS, CSP, the approved Pretendard style/font CDN allowlist, clickjacking protection, baseline browser security headers, and cache policies for CSS, favicon, brand logo assets, social card, manifest, robots, and sitemap files.
 - Cloudflare `_redirects` routes unknown paths to `404.html` with a 404 status.
 - `privacy.html` is intentionally `noindex` and excluded from `sitemap.xml`.
@@ -224,6 +227,7 @@ content-automation/output/2026-06-21-consultation-checklist-conversion-publishin
 - `scripts/generate-sitemap.mjs` writes `sitemap.xml` with current Asia/Seoul lastmod values.
 - `scripts/generate-development-journal.mjs` writes `DEVELOPMENT_JOURNAL.md` for implementation-flow visibility.
 - `scripts/generate-status-index.mjs` writes `STATUS_INDEX.md` for fast collaborator orientation.
+- `scripts/run-daily-ops-refresh.mjs` runs the daily operations refresh and writes `OPS_REFRESH_REPORT.md` with pass/fail status for generated content, sitemap, status docs, and validation.
 - `scripts/run-content-automation.mjs` runs the content plan, asset brief, caption pack, platform-ready copy, and publishing queue generators in sequence.
 - `scripts/run-all-content-automation.mjs` discovers every campaign JSON file and runs the full automation pipeline for each one.
 - `scripts/check-content-automation.mjs` scans every campaign and generated output set for platform coverage, Korean markers, checklist URL, compliance guardrails, and forbidden claims.
@@ -242,7 +246,7 @@ content-automation/output/2026-06-21-consultation-checklist-conversion-publishin
 6. Run `npm run preview:check` against the running local preview.
 7. Run `npm run smoke -- <preview-url>` after the preview is live.
 8. Run `QA_CHECKLIST.md` after the preview is live.
-9. Verify EmailJS delivery, `page_url` / `submitted_at`, and the email-draft fallback in the deployed preview.
+9. Verify EmailJS delivery, attribution metadata (`page_url`, `submitted_at`, UTM fields, `referrer`), and the email-draft fallback in the deployed preview.
 10. Continue edits only in this repository.
 11. Keep `DEVELOPMENT_STATUS.md` updated whenever the project state changes.
 
@@ -259,6 +263,7 @@ English fallback:
 ```text
 Work only in https://github.com/jjun96750/grantlabs-homepage-new.
 Do not touch the existing grantlabs-website repository or production site.
-Read CLAUDE_HANDOFF.md and DEVELOPMENT_STATUS.md first.
+Read CLAUDE_HANDOFF.md, DEVELOPMENT_STATUS.md, STATUS_INDEX.md, and OPS_REFRESH_REPORT.md first.
 This is a static homepage draft for a separate Cloudflare Pages project. Use index.html and styles/homepage.css as the main files.
+During development, run npm run ops:refresh or the relevant status-document generation commands, and keep progress records updated.
 ```
