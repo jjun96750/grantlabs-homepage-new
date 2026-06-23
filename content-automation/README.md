@@ -156,7 +156,7 @@ These files combine every campaign publishing queue into one operations calendar
 - `content-automation/TODAY_ACTIONS.md`
 
 This file filters the cross-campaign calendar to the current Asia/Seoul date. `npm run content:run:all` refreshes it automatically, and `npm run content:today` refreshes only today's action list.
-It also includes overdue carryover, platform execution notes from `platform-rules.json`, an operator posting checklist with clickable ready-copy file links, tracked URLs, quality status, and final channel checks, plus a reporting log for published URLs, first signals, and follow-up needs.
+It also includes overdue carryover with oldest-item priority and platform/campaign summaries, platform execution notes from `platform-rules.json`, an operator posting checklist with clickable ready-copy file links, tracked URLs, quality status, and final channel checks, plus a reporting log for published URLs, first signals, and follow-up needs.
 
 ## Upcoming Actions
 

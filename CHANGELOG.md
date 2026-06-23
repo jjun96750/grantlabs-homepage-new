@@ -14,6 +14,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Added priority follow-up and missing-URL summaries to `content-automation/POST_PUBLICATION_REVIEW.md` so collaborators can act before scanning the full review table.
 - Updated `content-automation/PERFORMANCE_LOG.md` generation to preserve manually entered published URLs, results, learnings, repurpose decisions, and owners across refreshes.
 - Updated `content-automation/TODAY_ACTIONS.md` so `Overdue Carryover` hides rows that already have a published URL or completed status in `PERFORMANCE_LOG.md`.
+- Added `Overdue Priority` and `Overdue Summary` sections to `content-automation/TODAY_ACTIONS.md` so operators can act on the oldest carryover and see platform/campaign volume before scanning the full table.
 - Regenerated `sitemap.xml` so all public page `lastmod` values match the current Asia/Seoul date.
 - Added lead attribution capture to the consultation form so EmailJS and email fallback include UTM source, medium, campaign, content, referrer, page URL, and submission time.
 - Revalidated the refreshed outputs with `npm run check:content` and `npm run check`.

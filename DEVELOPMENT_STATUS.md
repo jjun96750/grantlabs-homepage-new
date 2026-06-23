@@ -34,6 +34,7 @@ Last updated: 2026-06-23
 - `content-automation/POST_PUBLICATION_REVIEW.md` now includes a priority follow-up table and missing-URL summaries by platform and campaign.
 - `content-automation/PERFORMANCE_LOG.md` now preserves manually entered published URLs, results, learnings, repurpose decisions, and owners across regeneration.
 - `content-automation/TODAY_ACTIONS.md` now hides overdue rows that already have a published URL or completed status in `PERFORMANCE_LOG.md`.
+- `content-automation/TODAY_ACTIONS.md` now includes overdue priority and summary sections so operators can start with the oldest carryover and see platform/campaign volume before scanning the full table.
 - `content-automation/PERFORMANCE_LOG.md` now includes publishing status, tracked CTA URLs, first-check dates, and a daily review queue for follow-up ownership.
 - `content-automation/PLATFORM_PLAYBOOK.md` now includes universal readability rules, Naver raw URL guidance, Markdown-link warnings, and channel-specific pre-publish QA.
 - Latest validation after the 2026-06-23 refresh: `Content automation check passed.` and `Static site check passed.`
