@@ -603,7 +603,7 @@ if (existsSync("scripts/generate-publishing-calendar.mjs")) {
 
 if (existsSync("scripts/generate-today-actions.mjs")) {
   const todayGenerator = read("scripts/generate-today-actions.mjs");
-  for (const marker of ["content-automation/TODAY_ACTIONS.md", "content-automation/campaigns", "content-automation/platform-rules.json", "content-automation/TRACKED_LINKS.csv", "content-automation/COPY_QUALITY_REPORT.md", "content-automation/PERFORMANCE_LOG.md", "parsePublishedPerformanceKeys", "Source Files", "Platform Execution Notes", "Operator Posting Checklist", "Tracked URL", "Overdue Carryover", "Reporting Log", "Asia/Seoul", "Today Queue", "Generated today actions"]) {
+  for (const marker of ["content-automation/TODAY_ACTIONS.md", "content-automation/campaigns", "content-automation/platform-rules.json", "content-automation/TRACKED_LINKS.csv", "content-automation/COPY_QUALITY_REPORT.md", "content-automation/PERFORMANCE_LOG.md", "parsePublishedPerformanceKeys", "Source Files", "Platform Execution Notes", "Operator Posting Checklist", "Tracked URL", "Overdue Carryover", "Overdue Priority", "Overdue Summary", "Reporting Log", "Asia/Seoul", "Today Queue", "Generated today actions"]) {
     if (!todayGenerator.includes(marker)) failures.push(`scripts/generate-today-actions.mjs is missing marker: ${marker}`);
   }
 }
@@ -715,7 +715,7 @@ if (existsSync("content-automation/PUBLISHING_CALENDAR.md")) {
 
 if (existsSync("content-automation/TODAY_ACTIONS.md")) {
   const todayActions = read("content-automation/TODAY_ACTIONS.md");
-  for (const marker of ["Grant Labs Today Actions", "Today Queue", "Overdue Carryover", "Source Files", "Platform Execution Notes", "Operator Posting Checklist", "Ready-copy file", "Tracked URL", "output/platform-ready-copy/", "Reporting Log", "Published URL", "npm run content:today", "consultation-checklist-conversion"]) {
+  for (const marker of ["Grant Labs Today Actions", "Today Queue", "Overdue Carryover", "Overdue Priority", "Overdue Summary", "Source Files", "Platform Execution Notes", "Operator Posting Checklist", "Ready-copy file", "Tracked URL", "output/platform-ready-copy/", "Reporting Log", "Published URL", "npm run content:today", "consultation-checklist-conversion"]) {
     if (!todayActions.includes(marker)) failures.push(`content-automation/TODAY_ACTIONS.md is missing marker: ${marker}`);
   }
 }

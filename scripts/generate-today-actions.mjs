@@ -61,7 +61,9 @@ const publishedKeys = existsSync(performanceLogPath)
 const isPublished = (row) => publishedKeys.has(`${row.publishDate} ${row.publishTime}::${row.platform}::${row.campaign}`);
 
 const rows = allRows.filter((row) => row.publishDate === today);
-const overdueRows = allRows.filter((row) => row.publishDate < today && !isPublished(row));
+const overdueRows = allRows
+  .filter((row) => row.publishDate < today && !isPublished(row))
+  .sort((a, b) => `${a.publishDate} ${a.publishTime}`.localeCompare(`${b.publishDate} ${b.publishTime}`));
 const handoffRows = [...overdueRows, ...rows];
 
 const trackedRows = existsSync(trackedLinksCsv)
@@ -154,8 +156,8 @@ const actionRows = rows.length
   ? rows.map((row) => `| ${row.publishTime} | ${row.platform} | \`${row.campaign}\` | ${row.objective} | ${row.assetSpec} | ${row.successSignal} |`).join("\n")
   : "| n/a | n/a | n/a | No scheduled publishing actions for today. | n/a | n/a |";
 
-const overdueActionRows = overdueRows.length
-  ? overdueRows.map((row) => {
+const renderOverdueRows = (items, emptyMessage) => items.length
+  ? items.map((row) => {
     const readyFile = readyCopyByPlatform[row.platform] || "See platform-ready folder";
     const campaign = campaignBySlug.get(row.campaign);
     const readyFileLink = campaign
@@ -166,7 +168,23 @@ const overdueActionRows = overdueRows.length
 
     return `| ${row.publishDate} ${row.publishTime} | ${row.platform} | \`${row.campaign}\` | ${readyFileLink} | ${trackedUrl} | ${finalCheck} |`;
   }).join("\n")
-  : "| n/a | n/a | n/a | No overdue publishing actions. | n/a | n/a |";
+  : `| n/a | n/a | n/a | ${emptyMessage} | n/a | n/a |`;
+
+const summarizeBy = (items, field) => [...items.reduce((counts, row) => {
+  const key = row[field] || "Unassigned";
+  counts.set(key, (counts.get(key) || 0) + 1);
+  return counts;
+}, new Map())]
+  .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+
+const overduePriorityRows = renderOverdueRows(overdueRows.slice(0, 8), "No overdue priority actions.");
+const overdueActionRows = renderOverdueRows(overdueRows, "No overdue publishing actions.");
+const overduePlatformRows = summarizeBy(overdueRows, "platform")
+  .map(([platform, count]) => `| ${platform} | ${count} |`)
+  .join("\n") || "| n/a | 0 |";
+const overdueCampaignRows = summarizeBy(overdueRows, "campaign")
+  .map(([campaign, count]) => `| \`${campaign}\` | ${count} |`)
+  .join("\n") || "| n/a | 0 |";
 
 const guardrails = [...new Set(handoffRows.map((row) => row.guardrail).filter(Boolean))]
   .map((guardrail) => `- ${guardrail}`)
@@ -229,6 +247,24 @@ ${actionRows}
 ## Overdue Carryover
 
 Review these first. Items with a Published URL or completed status in \`content-automation/PERFORMANCE_LOG.md\` are hidden automatically; otherwise publish or reschedule them before adding new variants.
+
+## Overdue Priority
+
+Start with these oldest carryover items before scanning the full table.
+
+| Original slot | Platform | Campaign | Ready-copy file | Tracked URL | Final check |
+| --- | --- | --- | --- | --- | --- |
+${overduePriorityRows}
+
+## Overdue Summary
+
+| Platform | Overdue items |
+| --- | --- |
+${overduePlatformRows}
+
+| Campaign | Overdue items |
+| --- | --- |
+${overdueCampaignRows}
 
 | Original slot | Platform | Campaign | Ready-copy file | Tracked URL | Final check |
 | --- | --- | --- | --- | --- | --- |
