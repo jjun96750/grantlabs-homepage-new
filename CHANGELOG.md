@@ -7,6 +7,8 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Refreshed date-sensitive content automation outputs for 2026-06-23, including today actions, upcoming actions, daily brief, tracked links, performance log, ready-copy index, platform playbook, posting QA, and copy quality report.
 - Regenerated `content-automation/TODAY_ACTIONS.md` with an `Overdue Carryover` section so prior unconfirmed posts remain visible with clickable ready-copy links and tracked CTA URLs.
 - Added `npm run ops:refresh` and `OPS_REFRESH_REPORT.md` to run the daily content, sitemap, status-document, and validation refresh in one command.
+- Updated GitHub Actions to use `npm run ops:refresh` as the canonical regeneration and validation step, including drift checks for `OPS_REFRESH_REPORT.md`.
+- Added `npm run content:platform-fit` and `content-automation/PLATFORM_FIT_REPORT.md` to check site-specific posting fit, including Naver URL handling, Instagram/TikTok link limits, YouTube pinned comments, and Facebook/LinkedIn visible URLs.
 - Regenerated `sitemap.xml` so all public page `lastmod` values match the current Asia/Seoul date.
 - Added lead attribution capture to the consultation form so EmailJS and email fallback include UTM source, medium, campaign, content, referrer, page URL, and submission time.
 - Revalidated the refreshed outputs with `npm run check:content` and `npm run check`.

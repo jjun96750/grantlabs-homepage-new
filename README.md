@@ -47,6 +47,7 @@ scripts/
   generate-platform-posting-qa.mjs
   generate-ready-copy-index.mjs
   generate-copy-quality-report.mjs
+  generate-platform-fit-report.mjs
   generate-daily-brief.mjs
   generate-deployment-readiness.mjs
   generate-sitemap.mjs
@@ -72,6 +73,7 @@ content-automation/
   PLATFORM_POSTING_QA.md
   READY_COPY_INDEX.md
   COPY_QUALITY_REPORT.md
+  PLATFORM_FIT_REPORT.md
   DAILY_BRIEF.md
   README.md
   platform-rules.json
@@ -191,6 +193,10 @@ npm run content:ready-index
 
 ```bash
 npm run content:quality
+```
+
+```bash
+npm run content:platform-fit
 ```
 
 ```bash

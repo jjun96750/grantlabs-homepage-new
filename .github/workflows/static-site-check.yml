@@ -28,8 +28,8 @@ jobs:
         with:
           node-version: 20
 
-      - name: Regenerate content automation outputs
-        run: npm run content:run:all
+      - name: Run daily ops refresh
+        run: npm run ops:refresh
 
       - name: Verify content automation outputs are committed
         run: git diff --exit-code -- content-automation
@@ -58,11 +58,8 @@ jobs:
       - name: Verify status index is committed
         run: git diff --exit-code -- STATUS_INDEX.md
 
-      - name: Run content automation validation
-        run: npm run check:content
-
-      - name: Run static validation
-        run: npm run check
+      - name: Verify ops refresh report is committed
+        run: git diff --exit-code -- OPS_REFRESH_REPORT.md
 
       - name: Run local preview validation
         shell: bash

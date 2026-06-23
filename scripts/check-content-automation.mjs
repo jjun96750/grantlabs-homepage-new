@@ -10,6 +10,7 @@ const upcomingActions = "content-automation/UPCOMING_ACTIONS.md";
 const performanceLog = "content-automation/PERFORMANCE_LOG.md";
 const dailyBrief = "content-automation/DAILY_BRIEF.md";
 const copyQualityReport = "content-automation/COPY_QUALITY_REPORT.md";
+const platformFitReport = "content-automation/PLATFORM_FIT_REPORT.md";
 const readyCopyIndex = "content-automation/READY_COPY_INDEX.md";
 const platformPostingQa = "content-automation/PLATFORM_POSTING_QA.md";
 
@@ -68,6 +69,7 @@ if (!existsSync(upcomingActions)) failures.push("Missing generated upcoming acti
 if (!existsSync(performanceLog)) failures.push("Missing generated performance log markdown.");
 if (!existsSync(dailyBrief)) failures.push("Missing generated daily brief markdown.");
 if (!existsSync(copyQualityReport)) failures.push("Missing generated copy quality report markdown.");
+if (!existsSync(platformFitReport)) failures.push("Missing generated platform fit report markdown.");
 if (!existsSync(platformPostingQa)) failures.push("Missing generated platform posting QA markdown.");
 
 for (const campaignFile of campaignFiles) {
@@ -240,6 +242,13 @@ if (existsSync(copyQualityReport)) {
   const quality = read(copyQualityReport);
   for (const marker of ["Grant Labs Copy Quality Report", "Ready: 32", "Needs review or missing: 0", "Naver Blog", "Instagram Reels", "YouTube Shorts", "Readable, URL-forward, and platform-aware", "npm run content:quality"]) {
     if (!quality.includes(marker)) failures.push(`Copy quality report is missing marker: ${marker}`);
+  }
+}
+
+if (existsSync(platformFitReport)) {
+  const fit = read(platformFitReport);
+  for (const marker of ["Grant Labs Platform Fit Report", "Ready: 32", "Needs platform edit or missing: 0", "Naver Blog", "Instagram Carousel", "YouTube Long-form", "Operator Rule", "SmartEditor", "caption URLs may not be clickable", "npm run content:platform-fit"]) {
+    if (!fit.includes(marker)) failures.push(`Platform fit report is missing marker: ${marker}`);
   }
 }
 

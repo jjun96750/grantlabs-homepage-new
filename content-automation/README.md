@@ -79,13 +79,19 @@ npm run content:ready-index
 npm run content:quality
 ```
 
-15. Regenerate the daily operator brief when needed:
+15. Regenerate the platform fit report when needed:
+
+```bash
+npm run content:platform-fit
+```
+
+16. Regenerate the daily operator brief when needed:
 
 ```bash
 npm run content:brief
 ```
 
-15. Run quality checks:
+17. Run quality checks:
 
 ```bash
 npm run check:content
@@ -172,6 +178,12 @@ This file turns `platform-rules.json` into a collaborator-facing posting guide w
 - `content-automation/PLATFORM_POSTING_QA.md`
 
 This file combines platform rules, tracked CTA URLs, and ready-copy files into a pre-publish QA sheet for each site. Use it to confirm editor paste behavior, link handling, and platform-specific readability before posting. `npm run content:run:all` refreshes it automatically, and `npm run content:posting-qa` refreshes only the posting QA sheet.
+
+## Platform Fit Report
+
+- `content-automation/PLATFORM_FIT_REPORT.md`
+
+This file checks whether each copy-and-paste file fits the destination site's posting behavior, including Naver raw URL handling, Instagram/TikTok link limits, YouTube pinned-comment routing, and business-social URL visibility. `npm run content:run:all` refreshes it automatically, and `npm run content:platform-fit` refreshes only the fit report.
 
 ## Copy Quality Report
 

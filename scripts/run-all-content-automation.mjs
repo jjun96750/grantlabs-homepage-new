@@ -98,6 +98,16 @@ if (qualityResult.status !== 0) {
   process.exit(qualityResult.status || 1);
 }
 
+const platformFitResult = spawnSync(process.execPath, ["scripts/generate-platform-fit-report.mjs"], {
+  stdio: "inherit",
+  shell: false
+});
+
+if (platformFitResult.status !== 0) {
+  console.error("Platform fit report generation failed.");
+  process.exit(platformFitResult.status || 1);
+}
+
 const postingQaResult = spawnSync(process.execPath, ["scripts/generate-platform-posting-qa.mjs"], {
   stdio: "inherit",
   shell: false

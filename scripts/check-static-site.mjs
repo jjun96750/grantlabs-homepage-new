@@ -50,6 +50,7 @@ const requiredFiles = [
   "scripts/generate-tracked-links.mjs",
   "scripts/generate-platform-playbook.mjs",
   "scripts/generate-platform-posting-qa.mjs",
+  "scripts/generate-platform-fit-report.mjs",
   "scripts/generate-ready-copy-index.mjs",
   "scripts/generate-copy-quality-report.mjs",
   "scripts/generate-daily-brief.mjs",
@@ -75,6 +76,7 @@ const requiredFiles = [
   "content-automation/TRACKED_LINKS.csv",
   "content-automation/PLATFORM_PLAYBOOK.md",
   "content-automation/PLATFORM_POSTING_QA.md",
+  "content-automation/PLATFORM_FIT_REPORT.md",
   "content-automation/READY_COPY_INDEX.md",
   "content-automation/COPY_QUALITY_REPORT.md",
   "content-automation/DAILY_BRIEF.md",
@@ -432,6 +434,7 @@ if (existsSync("package.json")) {
     if (pkg.scripts?.["content:links"] !== "node scripts/generate-tracked-links.mjs") failures.push("package.json is missing the content tracked links script.");
     if (pkg.scripts?.["content:playbook"] !== "node scripts/generate-platform-playbook.mjs") failures.push("package.json is missing the platform playbook script.");
     if (pkg.scripts?.["content:posting-qa"] !== "node scripts/generate-platform-posting-qa.mjs") failures.push("package.json is missing the platform posting QA script.");
+    if (pkg.scripts?.["content:platform-fit"] !== "node scripts/generate-platform-fit-report.mjs") failures.push("package.json is missing the platform fit report script.");
     if (pkg.scripts?.["content:ready-index"] !== "node scripts/generate-ready-copy-index.mjs") failures.push("package.json is missing the ready-copy index script.");
     if (pkg.scripts?.["content:quality"] !== "node scripts/generate-copy-quality-report.mjs") failures.push("package.json is missing the copy quality report script.");
     if (pkg.scripts?.["content:brief"] !== "node scripts/generate-daily-brief.mjs") failures.push("package.json is missing the content daily brief script.");
@@ -634,6 +637,13 @@ if (existsSync("scripts/generate-platform-posting-qa.mjs")) {
   }
 }
 
+if (existsSync("scripts/generate-platform-fit-report.mjs")) {
+  const platformFitGenerator = read("scripts/generate-platform-fit-report.mjs");
+  for (const marker of ["content-automation/PLATFORM_FIT_REPORT.md", "Platform Fit Matrix", "Channel Standards", "Operator Rule", "Generated platform fit report"]) {
+    if (!platformFitGenerator.includes(marker)) failures.push(`scripts/generate-platform-fit-report.mjs is missing marker: ${marker}`);
+  }
+}
+
 if (existsSync("scripts/generate-ready-copy-index.mjs")) {
   const readyIndexGenerator = read("scripts/generate-ready-copy-index.mjs");
   for (const marker of ["content-automation/READY_COPY_INDEX.md", "Campaign Ready Copy", "Naver Plain Text", "Generated ready copy index"]) {
@@ -722,6 +732,13 @@ if (existsSync("content-automation/PLATFORM_POSTING_QA.md")) {
   const postingQa = read("content-automation/PLATFORM_POSTING_QA.md");
   for (const marker of ["Grant Labs Platform Posting QA", "Campaign Posting Matrix", "Platform Editor QA", "Tracked CTA URL", "Link handling", "Editor Paste QA", "npm run content:posting-qa", "Naver Blog", "Instagram Reels", "YouTube Shorts"]) {
     if (!postingQa.includes(marker)) failures.push(`content-automation/PLATFORM_POSTING_QA.md is missing marker: ${marker}`);
+  }
+}
+
+if (existsSync("content-automation/PLATFORM_FIT_REPORT.md")) {
+  const platformFit = read("content-automation/PLATFORM_FIT_REPORT.md");
+  for (const marker of ["Grant Labs Platform Fit Report", "Platform Fit Matrix", "Channel Standards", "Operator Rule", "npm run content:platform-fit", "Naver Blog", "Instagram Reels", "YouTube Shorts"]) {
+    if (!platformFit.includes(marker)) failures.push(`content-automation/PLATFORM_FIT_REPORT.md is missing marker: ${marker}`);
   }
 }
 
@@ -1015,14 +1032,14 @@ if (existsSync("DEVELOPMENT_STATUS.md")) {
 
 if (existsSync("README.md")) {
   const readme = read("README.md");
-  for (const marker of ["scripts/", "check-static-site.mjs", "check-content-automation.mjs", "generate-asset-briefs.mjs", "generate-caption-pack.mjs", "generate-content-plan.mjs", "generate-content-status.mjs", "generate-deployment-readiness.mjs", "generate-sitemap.mjs", "generate-development-journal.mjs", "generate-status-index.mjs", "run-daily-ops-refresh.mjs", "generate-publishing-queue.mjs", "generate-publishing-calendar.mjs", "generate-today-actions.mjs", "generate-upcoming-actions.mjs", "generate-performance-log.mjs", "generate-tracked-links.mjs", "generate-platform-playbook.mjs", "generate-platform-posting-qa.mjs", "generate-ready-copy-index.mjs", "generate-copy-quality-report.mjs", "generate-daily-brief.mjs", "run-all-content-automation.mjs", "run-content-automation.mjs", "serve-static.mjs", "check-local-preview.mjs", "check-deployed-site.mjs", "content-automation/", "PUBLISHING_CALENDAR.md", "TODAY_ACTIONS.md", "UPCOMING_ACTIONS.md", "PERFORMANCE_LOG.md", "TRACKED_LINKS.md", "PLATFORM_PLAYBOOK.md", "PLATFORM_POSTING_QA.md", "READY_COPY_INDEX.md", "COPY_QUALITY_REPORT.md", "DAILY_BRIEF.md", "OPS_REFRESH_REPORT.md", "assets/brand/", "DEVELOPMENT_JOURNAL.md", "social-card.svg", "npm run check:content", "npm run content:assets", "npm run content:captions", "npm run content:plan", "npm run content:queue", "npm run content:calendar", "npm run content:today", "npm run content:upcoming", "npm run content:performance", "npm run content:links", "npm run content:playbook", "npm run content:posting-qa", "npm run content:ready-index", "npm run content:quality", "npm run content:brief", "npm run content:run", "npm run content:run:all", "npm run content:status", "npm run deployment:readiness", "npm run sitemap:refresh", "npm run status:journal", "npm run status:index", "npm run ops:refresh", "npm run serve", "npm run preview:check"]) {
+  for (const marker of ["scripts/", "check-static-site.mjs", "check-content-automation.mjs", "generate-asset-briefs.mjs", "generate-caption-pack.mjs", "generate-content-plan.mjs", "generate-content-status.mjs", "generate-deployment-readiness.mjs", "generate-sitemap.mjs", "generate-development-journal.mjs", "generate-status-index.mjs", "run-daily-ops-refresh.mjs", "generate-publishing-queue.mjs", "generate-publishing-calendar.mjs", "generate-today-actions.mjs", "generate-upcoming-actions.mjs", "generate-performance-log.mjs", "generate-tracked-links.mjs", "generate-platform-playbook.mjs", "generate-platform-posting-qa.mjs", "generate-platform-fit-report.mjs", "generate-ready-copy-index.mjs", "generate-copy-quality-report.mjs", "generate-daily-brief.mjs", "run-all-content-automation.mjs", "run-content-automation.mjs", "serve-static.mjs", "check-local-preview.mjs", "check-deployed-site.mjs", "content-automation/", "PUBLISHING_CALENDAR.md", "TODAY_ACTIONS.md", "UPCOMING_ACTIONS.md", "PERFORMANCE_LOG.md", "TRACKED_LINKS.md", "PLATFORM_PLAYBOOK.md", "PLATFORM_POSTING_QA.md", "PLATFORM_FIT_REPORT.md", "READY_COPY_INDEX.md", "COPY_QUALITY_REPORT.md", "DAILY_BRIEF.md", "OPS_REFRESH_REPORT.md", "assets/brand/", "DEVELOPMENT_JOURNAL.md", "social-card.svg", "npm run check:content", "npm run content:assets", "npm run content:captions", "npm run content:plan", "npm run content:queue", "npm run content:calendar", "npm run content:today", "npm run content:upcoming", "npm run content:performance", "npm run content:links", "npm run content:playbook", "npm run content:posting-qa", "npm run content:platform-fit", "npm run content:ready-index", "npm run content:quality", "npm run content:brief", "npm run content:run", "npm run content:run:all", "npm run content:status", "npm run deployment:readiness", "npm run sitemap:refresh", "npm run status:journal", "npm run status:index", "npm run ops:refresh", "npm run serve", "npm run preview:check"]) {
     if (!readme.includes(marker)) failures.push(`README.md is missing marker: ${marker}`);
   }
 }
 
 if (existsSync("COMMANDS.md")) {
   const commands = read("COMMANDS.md");
-  for (const marker of ["npm run check", "npm run check:content", "npm run content:assets", "npm run content:captions", "npm run content:plan", "npm run content:queue", "npm run content:calendar", "npm run content:today", "npm run content:upcoming", "npm run content:performance", "npm run content:links", "npm run content:playbook", "npm run content:posting-qa", "npm run content:ready-index", "npm run content:quality", "npm run content:brief", "npm run content:run", "npm run content:run:all", "npm run content:status", "npm run deployment:readiness", "npm run sitemap:refresh", "npm run status:journal", "npm run status:index", "npm run ops:refresh", "npm run serve", "npm run preview:check", "npm run smoke", "static-site validation", "content automation quality", "asset briefs", "caption pack", "platform-specific posting guidance", "publishing queue", "publishing calendar", "today actions", "upcoming actions", "performance log", "tracked links", "platform playbook", "platform posting QA", "ready-copy index", "copy quality report", "daily brief", "full content automation", "all campaigns", "campaign status", "deployment readiness", "sitemap refresh", "development journal", "status index", "daily ops refresh"]) {
+  for (const marker of ["npm run check", "npm run check:content", "npm run content:assets", "npm run content:captions", "npm run content:plan", "npm run content:queue", "npm run content:calendar", "npm run content:today", "npm run content:upcoming", "npm run content:performance", "npm run content:links", "npm run content:playbook", "npm run content:posting-qa", "npm run content:platform-fit", "npm run content:ready-index", "npm run content:quality", "npm run content:brief", "npm run content:run", "npm run content:run:all", "npm run content:status", "npm run deployment:readiness", "npm run sitemap:refresh", "npm run status:journal", "npm run status:index", "npm run ops:refresh", "npm run serve", "npm run preview:check", "npm run smoke", "static-site validation", "content automation quality", "asset briefs", "caption pack", "platform-specific posting guidance", "publishing queue", "publishing calendar", "today actions", "upcoming actions", "performance log", "tracked links", "platform playbook", "platform posting QA", "platform fit report", "ready-copy index", "copy quality report", "daily brief", "full content automation", "all campaigns", "campaign status", "deployment readiness", "sitemap refresh", "development journal", "status index", "daily ops refresh"]) {
     if (!commands.includes(marker)) failures.push(`COMMANDS.md is missing marker: ${marker}`);
   }
 }
@@ -1077,7 +1094,7 @@ if (existsSync("CLOUDFLARE_PAGES_SETUP.md")) {
 
 if (existsSync(".github/workflows/static-site-check.yml")) {
   const workflow = read(".github/workflows/static-site-check.yml");
-  for (const marker of ["actions/setup-node@v4", "fetch-depth: 0", "node-version: 20", "timeout-minutes: 5", "concurrency:", "cancel-in-progress: true", "npm run content:run:all", "git diff --exit-code -- content-automation", "npm run sitemap:refresh", "git diff --exit-code -- sitemap.xml", "npm run deployment:readiness", "git diff --exit-code -- DEPLOYMENT_READINESS.md", "npm run status:journal", "git diff --exit-code -- DEVELOPMENT_JOURNAL.md", "npm run status:index", "git diff --exit-code -- STATUS_INDEX.md", "npm run check:content", "npm run check", "npm run serve", "npm run preview:check", "127.0.0.1:4173"]) {
+  for (const marker of ["actions/setup-node@v4", "fetch-depth: 0", "node-version: 20", "timeout-minutes: 5", "concurrency:", "cancel-in-progress: true", "npm run ops:refresh", "git diff --exit-code -- content-automation", "git diff --exit-code -- sitemap.xml", "git diff --exit-code -- DEPLOYMENT_READINESS.md", "git diff --exit-code -- DEVELOPMENT_JOURNAL.md", "git diff --exit-code -- STATUS_INDEX.md", "git diff --exit-code -- OPS_REFRESH_REPORT.md", "npm run serve", "npm run preview:check", "127.0.0.1:4173"]) {
     if (!workflow.includes(marker)) failures.push(`static-site-check workflow is missing marker: ${marker}`);
   }
 }

@@ -75,6 +75,7 @@ ${rows}
 - \`content-automation/PLATFORM_POSTING_QA.md\`
 - \`content-automation/READY_COPY_INDEX.md\`
 - \`content-automation/COPY_QUALITY_REPORT.md\`
+- \`content-automation/PLATFORM_FIT_REPORT.md\`
 - \`sitemap.xml\`
 - \`DEPLOYMENT_READINESS.md\`
 - \`DEVELOPMENT_JOURNAL.md\`
