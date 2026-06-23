@@ -15,6 +15,7 @@
     "content:today": "node scripts/generate-today-actions.mjs",
     "content:upcoming": "node scripts/generate-upcoming-actions.mjs",
     "content:performance": "node scripts/generate-performance-log.mjs",
+    "content:review": "node scripts/generate-post-publication-review.mjs",
     "content:links": "node scripts/generate-tracked-links.mjs",
     "content:playbook": "node scripts/generate-platform-playbook.mjs",
     "content:posting-qa": "node scripts/generate-platform-posting-qa.mjs",

@@ -8,6 +8,7 @@ const calendarMd = "content-automation/PUBLISHING_CALENDAR.md";
 const todayActions = "content-automation/TODAY_ACTIONS.md";
 const upcomingActions = "content-automation/UPCOMING_ACTIONS.md";
 const performanceLog = "content-automation/PERFORMANCE_LOG.md";
+const postPublicationReview = "content-automation/POST_PUBLICATION_REVIEW.md";
 const dailyBrief = "content-automation/DAILY_BRIEF.md";
 const copyQualityReport = "content-automation/COPY_QUALITY_REPORT.md";
 const platformFitReport = "content-automation/PLATFORM_FIT_REPORT.md";
@@ -68,6 +69,7 @@ if (!existsSync(calendarMd)) failures.push("Missing generated publishing calenda
 if (!existsSync(todayActions)) failures.push("Missing generated today actions markdown.");
 if (!existsSync(upcomingActions)) failures.push("Missing generated upcoming actions markdown.");
 if (!existsSync(performanceLog)) failures.push("Missing generated performance log markdown.");
+if (!existsSync(postPublicationReview)) failures.push("Missing generated post-publication review markdown.");
 if (!existsSync(dailyBrief)) failures.push("Missing generated daily brief markdown.");
 if (!existsSync(copyQualityReport)) failures.push("Missing generated copy quality report markdown.");
 if (!existsSync(platformFitReport)) failures.push("Missing generated platform fit report markdown.");
@@ -233,6 +235,13 @@ if (existsSync(performanceLog)) {
   }
 }
 
+if (existsSync(postPublicationReview)) {
+  const review = read(postPublicationReview);
+  for (const marker of ["Grant Labs Post-publication Review", "Missing Published URL", "Missing First Result", "Missing Learning", "Completed Reviews", "npm run content:review"]) {
+    if (!review.includes(marker)) failures.push(`Post-publication review is missing marker: ${marker}`);
+  }
+}
+
 if (existsSync(dailyBrief)) {
   const brief = read(dailyBrief);
   for (const marker of ["Grant Labs Daily Brief", "Snapshot", "Today Focus", "Tomorrow Prep", "Update These Records", "platform-ready copy", "npm run content:brief"]) {
@@ -256,7 +265,7 @@ if (existsSync(platformFitReport)) {
 
 if (existsSync(koreanReadabilityReport)) {
   const readability = read(koreanReadabilityReport);
-  for (const marker of ["Grant Labs Korean Readability Report", "Ready: 32", "Needs readability review or missing: 0", "Readability Matrix", "Hangul chars", "Raw URL", "suspected mojibake", "npm run content:readability"]) {
+  for (const marker of ["Grant Labs Korean Readability Report", "Ready: 32", "Needs readability review or missing: 0", "Readability Matrix", "Hangul chars", "Longest paragraph", "Raw URL", "suspected mojibake", "npm run content:readability"]) {
     if (!readability.includes(marker)) failures.push(`Korean readability report is missing marker: ${marker}`);
   }
 }

@@ -70,6 +70,7 @@ ${rows}
 - \`content-automation/UPCOMING_ACTIONS.md\`
 - \`content-automation/DAILY_BRIEF.md\`
 - \`content-automation/PERFORMANCE_LOG.md\`
+- \`content-automation/POST_PUBLICATION_REVIEW.md\`
 - \`content-automation/TRACKED_LINKS.md\`
 - \`content-automation/PLATFORM_PLAYBOOK.md\`
 - \`content-automation/PLATFORM_POSTING_QA.md\`

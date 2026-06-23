@@ -49,55 +49,61 @@ npm run content:upcoming
 npm run content:performance
 ```
 
-10. Regenerate tracked campaign/platform checklist links when needed:
+10. Regenerate the post-publication review queue when needed:
+
+```bash
+npm run content:review
+```
+
+11. Regenerate tracked campaign/platform checklist links when needed:
 
 ```bash
 npm run content:links
 ```
 
-11. Regenerate the platform playbook when needed:
+12. Regenerate the platform playbook when needed:
 
 ```bash
 npm run content:playbook
 ```
 
-12. Regenerate the platform posting QA sheet when needed:
+13. Regenerate the platform posting QA sheet when needed:
 
 ```bash
 npm run content:posting-qa
 ```
 
-13. Regenerate the ready-copy index when needed:
+14. Regenerate the ready-copy index when needed:
 
 ```bash
 npm run content:ready-index
 ```
 
-14. Regenerate the copy quality report when needed:
+15. Regenerate the copy quality report when needed:
 
 ```bash
 npm run content:quality
 ```
 
-15. Regenerate the platform fit report when needed:
+16. Regenerate the platform fit report when needed:
 
 ```bash
 npm run content:platform-fit
 ```
 
-16. Regenerate the Korean readability report when needed:
+17. Regenerate the Korean readability report when needed:
 
 ```bash
 npm run content:readability
 ```
 
-17. Regenerate the daily operator brief when needed:
+18. Regenerate the daily operator brief when needed:
 
 ```bash
 npm run content:brief
 ```
 
-18. Run quality checks:
+19. Run quality checks:
 
 ```bash
 npm run check:content
@@ -165,6 +171,12 @@ It includes a date summary, campaign source links, and a preparation log for ass
 
 This file turns the cross-campaign calendar into a performance tracking sheet. `npm run content:run:all` refreshes it automatically, and `npm run content:performance` refreshes only the performance log.
 Use it after posts go live to record publishing status, tracked CTA URLs, published URLs, first-check dates, primary metrics, learnings, repurpose decisions, and follow-up owners. It also includes a daily review queue for post-publication follow-up.
+
+## Post-publication Review
+
+- `content-automation/POST_PUBLICATION_REVIEW.md`
+
+This file converts the performance log into a follow-up queue for missing live URLs, first results, learnings, and completed reviews. Use it after posting so operators know exactly what still needs measurement. `npm run content:run:all` refreshes it automatically, and `npm run content:review` refreshes only the review queue.
 
 ## Tracked Links
 

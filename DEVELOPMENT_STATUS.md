@@ -13,7 +13,7 @@ Last updated: 2026-06-23
 ## Current Status
 
 - Content automation now generates platform-ready copy-only files for every campaign under `content-automation/output/platform-ready-copy/`.
-- Date-sensitive automation outputs were refreshed for 2026-06-23, including `TODAY_ACTIONS.md`, `UPCOMING_ACTIONS.md`, `DAILY_BRIEF.md`, `PLATFORM_POSTING_QA.md`, `PLATFORM_FIT_REPORT.md`, `KOREAN_READABILITY_REPORT.md`, `READY_COPY_INDEX.md`, and `sitemap.xml`.
+- Date-sensitive automation outputs were refreshed for 2026-06-23, including `TODAY_ACTIONS.md`, `UPCOMING_ACTIONS.md`, `DAILY_BRIEF.md`, `PERFORMANCE_LOG.md`, `POST_PUBLICATION_REVIEW.md`, `PLATFORM_POSTING_QA.md`, `PLATFORM_FIT_REPORT.md`, `KOREAN_READABILITY_REPORT.md`, `READY_COPY_INDEX.md`, and `sitemap.xml`.
 - `content-automation/TODAY_ACTIONS.md` now includes `Overdue Carryover` so missed prior slots remain visible with ready-copy links, tracked CTA URLs, and final channel checks.
 - `npm run ops:refresh` now runs the daily content automation, sitemap refresh, deployment/status document refresh, `npm run check:content`, and `npm run check` sequence, then records results in `OPS_REFRESH_REPORT.md`.
 - GitHub Actions now runs `npm run ops:refresh` as the canonical regeneration and validation sequence, then rejects drift in content automation, sitemap, deployment/status documents, and `OPS_REFRESH_REPORT.md`.
@@ -30,6 +30,7 @@ Last updated: 2026-06-23
 - Content automation now generates `content-automation/COPY_QUALITY_REPORT.md`; all 32 campaign/platform copy checks currently report Ready.
 - Content automation now generates `content-automation/PLATFORM_FIT_REPORT.md`; all 32 campaign/platform channel-fit checks currently report Ready.
 - Content automation now generates `content-automation/KOREAN_READABILITY_REPORT.md`; all 32 campaign/platform Korean-readability checks currently report Ready.
+- Content automation now generates `content-automation/POST_PUBLICATION_REVIEW.md` so collaborators can see which published URLs, first results, and learnings still need follow-up.
 - `content-automation/PERFORMANCE_LOG.md` now preserves manually entered published URLs, results, learnings, repurpose decisions, and owners across regeneration.
 - `content-automation/TODAY_ACTIONS.md` now hides overdue rows that already have a published URL or completed status in `PERFORMANCE_LOG.md`.
 - `content-automation/PERFORMANCE_LOG.md` now includes publishing status, tracked CTA URLs, first-check dates, and a daily review queue for follow-up ownership.
@@ -227,6 +228,7 @@ Last updated: 2026-06-23
 - `content-automation/TODAY_ACTIONS.md` now carries overdue publishing slots forward into the daily operator handoff.
 - Added `npm run content:upcoming` and `content-automation/UPCOMING_ACTIONS.md` for future publishing preparation, ownership, and blocker tracking.
 - Added `npm run content:performance` and `content-automation/PERFORMANCE_LOG.md` for post URL, metric, learning, and repurpose tracking.
+- Added `npm run content:review` and `content-automation/POST_PUBLICATION_REVIEW.md` for post-publication URL, result, learning, and completed-review follow-up.
 - `content-automation/PERFORMANCE_LOG.md` now carries publishing status, tracked CTA URLs, first-check dates, and a daily review queue.
 - Added `npm run content:links` and `content-automation/TRACKED_LINKS.md` / `.csv` for campaign/platform UTM checklist URLs.
 - Added `npm run content:playbook` and `content-automation/PLATFORM_PLAYBOOK.md` for channel roles, CTAs, ready-copy files, and publishing QA.
@@ -283,6 +285,7 @@ scripts/generate-publishing-calendar.mjs
 scripts/generate-today-actions.mjs
 scripts/generate-upcoming-actions.mjs
 scripts/generate-performance-log.mjs
+scripts/generate-post-publication-review.mjs
 scripts/generate-tracked-links.mjs
 scripts/generate-platform-playbook.mjs
 scripts/generate-ready-copy-index.mjs
@@ -303,6 +306,7 @@ content-automation/PUBLISHING_CALENDAR.csv
 content-automation/TODAY_ACTIONS.md
 content-automation/UPCOMING_ACTIONS.md
 content-automation/PERFORMANCE_LOG.md
+content-automation/POST_PUBLICATION_REVIEW.md
 content-automation/TRACKED_LINKS.md
 content-automation/TRACKED_LINKS.csv
 content-automation/PLATFORM_PLAYBOOK.md
@@ -519,6 +523,7 @@ CHANGELOG.md
 - Strengthened `scripts/check-content-automation.mjs` to enforce raw checklist URLs in Naver Blog caption sections.
 - Added `scripts/generate-performance-log.mjs`, `npm run content:performance`, and `content-automation/PERFORMANCE_LOG.md`.
 - Extended `scripts/generate-performance-log.mjs` to include tracked CTA URLs, publishing status, first-check dates, and a daily review queue.
+- Added `scripts/generate-post-publication-review.mjs`, `npm run content:review`, and `content-automation/POST_PUBLICATION_REVIEW.md`.
 - Added `scripts/generate-tracked-links.mjs`, `npm run content:links`, and `content-automation/TRACKED_LINKS.md` / `.csv`.
 - Added `scripts/generate-platform-playbook.mjs`, `npm run content:playbook`, and `content-automation/PLATFORM_PLAYBOOK.md`.
 - Added `scripts/generate-platform-posting-qa.mjs`, `npm run content:posting-qa`, and `content-automation/PLATFORM_POSTING_QA.md`.

@@ -68,6 +68,16 @@ if (performanceResult.status !== 0) {
   process.exit(performanceResult.status || 1);
 }
 
+const reviewResult = spawnSync(process.execPath, ["scripts/generate-post-publication-review.mjs"], {
+  stdio: "inherit",
+  shell: false
+});
+
+if (reviewResult.status !== 0) {
+  console.error("Post-publication review generation failed.");
+  process.exit(reviewResult.status || 1);
+}
+
 const playbookResult = spawnSync(process.execPath, ["scripts/generate-platform-playbook.mjs"], {
   stdio: "inherit",
   shell: false

@@ -13,6 +13,7 @@ npm run content:calendar
 npm run content:today
 npm run content:upcoming
 npm run content:performance
+npm run content:review
 npm run content:links
 npm run content:playbook
 npm run content:posting-qa
@@ -44,6 +45,7 @@ npm run smoke -- https://your-pages-preview.pages.dev
 - `npm run content:today` regenerates today's publishing action list for today actions handoff.
 - `npm run content:upcoming` regenerates upcoming actions for future publishing preparation and blocker tracking.
 - `npm run content:performance` regenerates the performance log for post URLs, metrics, learnings, and repurpose decisions.
+- `npm run content:review` regenerates the post-publication review queue for missing published URLs, first results, and learnings.
 - `npm run content:links` regenerates tracked links with UTM checklist URLs for every campaign and platform.
 - `npm run content:playbook` regenerates the platform playbook for channel roles, formats, CTAs, and publishing QA.
 - `npm run content:posting-qa` regenerates the platform posting QA sheet for editor paste checks, tracked URLs, and channel-specific link handling.

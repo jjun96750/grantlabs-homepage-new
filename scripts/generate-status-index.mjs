@@ -21,6 +21,7 @@ const docs = [
   ["Deployment Environments", "DEPLOYMENT_ENVIRONMENTS.md", "Preview, production, domain, EmailJS, and smoke-test records"],
   ["Command Guide", "COMMANDS.md", "Standard local, content, deployment, preview, and smoke commands"],
   ["Ops Refresh Report", "OPS_REFRESH_REPORT.md", "Latest daily refresh result across content, sitemap, status documents, and validation"],
+  ["Post-publication Review", "content-automation/POST_PUBLICATION_REVIEW.md", "Daily follow-up queue for missing published URLs, first results, learnings, and completed reviews"],
   ["Platform Fit Report", "content-automation/PLATFORM_FIT_REPORT.md", "Channel-specific posting fit checks for Naver, Instagram, YouTube, TikTok, Facebook, and LinkedIn"],
   ["Korean Readability Report", "content-automation/KOREAN_READABILITY_REPORT.md", "Readable Korean, paragraph structure, visible URL, and mojibake checks for platform-ready copy"],
   ["Cloudflare Setup", "CLOUDFLARE_PAGES_SETUP.md", "Cloudflare Pages project settings and first deployment flow"],
@@ -41,6 +42,7 @@ const guardrails = [
   ["Development journal drift checked in CI", contains(".github/workflows/static-site-check.yml", "git diff --exit-code -- DEVELOPMENT_JOURNAL.md")],
   ["Local preview checked in CI", contains(".github/workflows/static-site-check.yml", "npm run preview:check")],
   ["Content quality command documented", contains("COMMANDS.md", "npm run check:content")],
+  ["Post-publication review command documented", contains("COMMANDS.md", "npm run content:review")],
   ["Platform fit command documented", contains("COMMANDS.md", "npm run content:platform-fit")],
   ["Korean readability command documented", contains("COMMANDS.md", "npm run content:readability")],
   ["Deployment readiness command documented", contains("COMMANDS.md", "npm run deployment:readiness")],
@@ -73,6 +75,7 @@ ${guardrailRows}
 
 \`\`\`bash
 npm run content:status
+npm run content:review
 npm run content:platform-fit
 npm run content:readability
 npm run sitemap:refresh

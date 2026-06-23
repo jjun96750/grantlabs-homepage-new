@@ -42,6 +42,7 @@ scripts/
   generate-today-actions.mjs
   generate-upcoming-actions.mjs
   generate-performance-log.mjs
+  generate-post-publication-review.mjs
   generate-tracked-links.mjs
   generate-platform-playbook.mjs
   generate-platform-posting-qa.mjs
@@ -68,6 +69,7 @@ content-automation/
   TODAY_ACTIONS.md
   UPCOMING_ACTIONS.md
   PERFORMANCE_LOG.md
+  POST_PUBLICATION_REVIEW.md
   TRACKED_LINKS.md
   TRACKED_LINKS.csv
   PLATFORM_PLAYBOOK.md
@@ -175,6 +177,10 @@ npm run content:upcoming
 
 ```bash
 npm run content:performance
+```
+
+```bash
+npm run content:review
 ```
 
 ```bash
