@@ -31,6 +31,7 @@
 - Ready-copy index can be regenerated with `npm run content:ready-index`.
 - Copy quality report can be regenerated with `npm run content:quality`.
 - Platform fit report can be regenerated with `npm run content:platform-fit`.
+- Korean readability report can be regenerated with `npm run content:readability`.
 - Daily operator brief can be regenerated with `npm run content:brief`.
 - The full content automation pipeline can be regenerated with `npm run content:run`.
 - All content automation campaigns can be regenerated with `npm run content:run:all`.
@@ -109,6 +110,7 @@ scripts/generate-platform-posting-qa.mjs
 scripts/generate-ready-copy-index.mjs
 scripts/generate-copy-quality-report.mjs
 scripts/generate-platform-fit-report.mjs
+scripts/generate-korean-readability-report.mjs
 scripts/generate-daily-brief.mjs
 scripts/generate-deployment-readiness.mjs
 scripts/generate-sitemap.mjs
@@ -135,6 +137,7 @@ content-automation/PLATFORM_POSTING_QA.md
 content-automation/READY_COPY_INDEX.md
 content-automation/COPY_QUALITY_REPORT.md
 content-automation/PLATFORM_FIT_REPORT.md
+content-automation/KOREAN_READABILITY_REPORT.md
 content-automation/DAILY_BRIEF.md
 content-automation/platform-rules.json
 content-automation/publishing-defaults.json
@@ -225,6 +228,7 @@ content-automation/output/2026-06-21-consultation-checklist-conversion-publishin
 - `scripts/generate-ready-copy-index.mjs` creates `content-automation/READY_COPY_INDEX.md` as a quick access map to campaign ready-copy summaries and Naver plain-text files.
 - `scripts/generate-copy-quality-report.mjs` creates `content-automation/COPY_QUALITY_REPORT.md` and reports readiness for every campaign/platform copy file.
 - `scripts/generate-platform-fit-report.mjs` creates `content-automation/PLATFORM_FIT_REPORT.md` for channel-specific posting behavior, including Naver URL handling, Instagram/TikTok link limits, YouTube pinned comments, and Facebook/LinkedIn visible URLs.
+- `scripts/generate-korean-readability-report.mjs` creates `content-automation/KOREAN_READABILITY_REPORT.md` for Hangul volume, paragraph structure, raw URL visibility, and suspected mojibake checks before posting.
 - `scripts/generate-daily-brief.mjs` creates `content-automation/DAILY_BRIEF.md` as the daily operator summary across today's focus, tomorrow prep, and records to update.
 - `scripts/generate-content-status.mjs` writes `content-automation/CAMPAIGN_STATUS.md` for handoff visibility.
 - `scripts/generate-deployment-readiness.mjs` writes `DEPLOYMENT_READINESS.md` for deployment handoff visibility.

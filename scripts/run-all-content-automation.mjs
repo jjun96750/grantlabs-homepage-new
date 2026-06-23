@@ -108,6 +108,16 @@ if (platformFitResult.status !== 0) {
   process.exit(platformFitResult.status || 1);
 }
 
+const readabilityResult = spawnSync(process.execPath, ["scripts/generate-korean-readability-report.mjs"], {
+  stdio: "inherit",
+  shell: false
+});
+
+if (readabilityResult.status !== 0) {
+  console.error("Korean readability report generation failed.");
+  process.exit(readabilityResult.status || 1);
+}
+
 const postingQaResult = spawnSync(process.execPath, ["scripts/generate-platform-posting-qa.mjs"], {
   stdio: "inherit",
   shell: false

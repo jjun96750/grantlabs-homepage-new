@@ -85,13 +85,19 @@ npm run content:quality
 npm run content:platform-fit
 ```
 
-16. Regenerate the daily operator brief when needed:
+16. Regenerate the Korean readability report when needed:
+
+```bash
+npm run content:readability
+```
+
+17. Regenerate the daily operator brief when needed:
 
 ```bash
 npm run content:brief
 ```
 
-17. Run quality checks:
+18. Run quality checks:
 
 ```bash
 npm run check:content
@@ -184,6 +190,12 @@ This file combines platform rules, tracked CTA URLs, and ready-copy files into a
 - `content-automation/PLATFORM_FIT_REPORT.md`
 
 This file checks whether each copy-and-paste file fits the destination site's posting behavior, including Naver raw URL handling, Instagram/TikTok link limits, YouTube pinned-comment routing, and business-social URL visibility. `npm run content:run:all` refreshes it automatically, and `npm run content:platform-fit` refreshes only the fit report.
+
+## Korean Readability Report
+
+- `content-automation/KOREAN_READABILITY_REPORT.md`
+
+This file checks every platform-ready copy file for Hangul volume, paragraph structure, raw checklist URL visibility, and suspected mojibake before posting. `npm run content:run:all` refreshes it automatically, and `npm run content:readability` refreshes only the readability report.
 
 ## Copy Quality Report
 

@@ -4,6 +4,7 @@ import { join } from "node:path";
 const calendarCsv = "content-automation/PUBLISHING_CALENDAR.csv";
 const trackedLinksCsv = "content-automation/TRACKED_LINKS.csv";
 const copyQualityReportPath = "content-automation/COPY_QUALITY_REPORT.md";
+const performanceLogPath = "content-automation/PERFORMANCE_LOG.md";
 const campaignsDir = "content-automation/campaigns";
 const platformRulesPath = "content-automation/platform-rules.json";
 const outputPath = "content-automation/TODAY_ACTIONS.md";
@@ -53,8 +54,14 @@ const allRows = existsSync(calendarCsv)
   ? parseCsv(readFileSync(calendarCsv, "utf8"))
   : [];
 
+const publishedKeys = existsSync(performanceLogPath)
+  ? parsePublishedPerformanceKeys(readFileSync(performanceLogPath, "utf8"))
+  : new Set();
+
+const isPublished = (row) => publishedKeys.has(`${row.publishDate} ${row.publishTime}::${row.platform}::${row.campaign}`);
+
 const rows = allRows.filter((row) => row.publishDate === today);
-const overdueRows = allRows.filter((row) => row.publishDate < today);
+const overdueRows = allRows.filter((row) => row.publishDate < today && !isPublished(row));
 const handoffRows = [...overdueRows, ...rows];
 
 const trackedRows = existsSync(trackedLinksCsv)
@@ -105,6 +112,26 @@ function parseQualityRows(markdown) {
       status,
       notes
     }));
+}
+
+function parsePublishedPerformanceKeys(markdown) {
+  const keys = new Set();
+  const publishedStatus = /^(published|posted|done|complete|completed)$/i;
+
+  for (const line of markdown.split(/\r?\n/)) {
+    if (!line.startsWith("| ") || line.includes("| ---") || line.includes("| Slot |")) continue;
+    const cells = line.split("|").slice(1, -1).map((cell) => cell.trim());
+    if (cells.length < 6 || cells[0] === "n/a") continue;
+
+    const campaign = cells[2].replace(/`/g, "");
+    const status = cells[3];
+    const publishedUrl = cells[5];
+    if (publishedUrl || publishedStatus.test(status)) {
+      keys.add(`${cells[0]}::${cells[1]}::${campaign}`);
+    }
+  }
+
+  return keys;
 }
 
 const qualityRows = existsSync(copyQualityReportPath)
@@ -201,7 +228,7 @@ ${actionRows}
 
 ## Overdue Carryover
 
-Review these first. If an item already shipped, add the published URL to \`content-automation/PERFORMANCE_LOG.md\`; otherwise publish or reschedule it before adding new variants.
+Review these first. Items with a Published URL or completed status in \`content-automation/PERFORMANCE_LOG.md\` are hidden automatically; otherwise publish or reschedule them before adding new variants.
 
 | Original slot | Platform | Campaign | Ready-copy file | Tracked URL | Final check |
 | --- | --- | --- | --- | --- | --- |

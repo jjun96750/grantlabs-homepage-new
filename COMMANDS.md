@@ -19,6 +19,7 @@ npm run content:posting-qa
 npm run content:ready-index
 npm run content:quality
 npm run content:platform-fit
+npm run content:readability
 npm run content:brief
 npm run content:run
 npm run content:run:all
@@ -49,6 +50,7 @@ npm run smoke -- https://your-pages-preview.pages.dev
 - `npm run content:ready-index` regenerates the ready-copy index for quick access to campaign summaries and Naver plain-text files.
 - `npm run content:quality` regenerates the copy quality report for readability, URL handling, and platform-specific publishing blockers.
 - `npm run content:platform-fit` regenerates the platform fit report for channel-specific posting behavior, including Naver URL handling, Instagram/TikTok link limits, and YouTube pinned-comment guidance.
+- `npm run content:readability` regenerates the Korean readability report for Hangul volume, paragraph structure, raw URL visibility, and suspected mojibake markers.
 - `npm run content:brief` regenerates the daily brief for today's focus, tomorrow preparation, and required record updates.
 - `npm run content:run` runs the full content automation pipeline.
 - `npm run content:run:all` runs the full content automation pipeline for all campaigns.

@@ -13,7 +13,7 @@ Last updated: 2026-06-23
 ## Current Status
 
 - Content automation now generates platform-ready copy-only files for every campaign under `content-automation/output/platform-ready-copy/`.
-- Date-sensitive automation outputs were refreshed for 2026-06-23, including `TODAY_ACTIONS.md`, `UPCOMING_ACTIONS.md`, `DAILY_BRIEF.md`, `PLATFORM_POSTING_QA.md`, `PLATFORM_FIT_REPORT.md`, `READY_COPY_INDEX.md`, and `sitemap.xml`.
+- Date-sensitive automation outputs were refreshed for 2026-06-23, including `TODAY_ACTIONS.md`, `UPCOMING_ACTIONS.md`, `DAILY_BRIEF.md`, `PLATFORM_POSTING_QA.md`, `PLATFORM_FIT_REPORT.md`, `KOREAN_READABILITY_REPORT.md`, `READY_COPY_INDEX.md`, and `sitemap.xml`.
 - `content-automation/TODAY_ACTIONS.md` now includes `Overdue Carryover` so missed prior slots remain visible with ready-copy links, tracked CTA URLs, and final channel checks.
 - `npm run ops:refresh` now runs the daily content automation, sitemap refresh, deployment/status document refresh, `npm run check:content`, and `npm run check` sequence, then records results in `OPS_REFRESH_REPORT.md`.
 - GitHub Actions now runs `npm run ops:refresh` as the canonical regeneration and validation sequence, then rejects drift in content automation, sitemap, deployment/status documents, and `OPS_REFRESH_REPORT.md`.
@@ -29,6 +29,9 @@ Last updated: 2026-06-23
 - Content automation now generates `content-automation/PLATFORM_POSTING_QA.md` for per-site editor paste checks, tracked CTA URLs, and link-handling QA.
 - Content automation now generates `content-automation/COPY_QUALITY_REPORT.md`; all 32 campaign/platform copy checks currently report Ready.
 - Content automation now generates `content-automation/PLATFORM_FIT_REPORT.md`; all 32 campaign/platform channel-fit checks currently report Ready.
+- Content automation now generates `content-automation/KOREAN_READABILITY_REPORT.md`; all 32 campaign/platform Korean-readability checks currently report Ready.
+- `content-automation/PERFORMANCE_LOG.md` now preserves manually entered published URLs, results, learnings, repurpose decisions, and owners across regeneration.
+- `content-automation/TODAY_ACTIONS.md` now hides overdue rows that already have a published URL or completed status in `PERFORMANCE_LOG.md`.
 - `content-automation/PERFORMANCE_LOG.md` now includes publishing status, tracked CTA URLs, first-check dates, and a daily review queue for follow-up ownership.
 - `content-automation/PLATFORM_PLAYBOOK.md` now includes universal readability rules, Naver raw URL guidance, Markdown-link warnings, and channel-specific pre-publish QA.
 - Latest validation after the 2026-06-23 refresh: `Content automation check passed.` and `Static site check passed.`
@@ -231,6 +234,7 @@ Last updated: 2026-06-23
 - Added `npm run content:ready-index` and `content-automation/READY_COPY_INDEX.md` for quick access to campaign ready-copy summaries and Naver plain-text files.
 - Added `npm run content:quality` and `content-automation/COPY_QUALITY_REPORT.md` for readability, URL handling, and platform-specific publishing blocker checks.
 - Added `npm run content:platform-fit` and `content-automation/PLATFORM_FIT_REPORT.md` for channel-specific posting fit checks across Naver, Instagram, YouTube, TikTok, Facebook, and LinkedIn.
+- Added `npm run content:readability` and `content-automation/KOREAN_READABILITY_REPORT.md` for Hangul volume, paragraph structure, raw URL visibility, and suspected mojibake checks.
 - Added `npm run content:brief` and `content-automation/DAILY_BRIEF.md` for a single daily operator summary.
 - No build step is required.
 

@@ -21,6 +21,7 @@
     "content:ready-index": "node scripts/generate-ready-copy-index.mjs",
     "content:quality": "node scripts/generate-copy-quality-report.mjs",
     "content:platform-fit": "node scripts/generate-platform-fit-report.mjs",
+    "content:readability": "node scripts/generate-korean-readability-report.mjs",
     "content:brief": "node scripts/generate-daily-brief.mjs",
     "content:run": "node scripts/run-content-automation.mjs",
     "content:run:all": "node scripts/run-all-content-automation.mjs",

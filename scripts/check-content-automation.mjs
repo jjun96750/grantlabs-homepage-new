@@ -11,6 +11,7 @@ const performanceLog = "content-automation/PERFORMANCE_LOG.md";
 const dailyBrief = "content-automation/DAILY_BRIEF.md";
 const copyQualityReport = "content-automation/COPY_QUALITY_REPORT.md";
 const platformFitReport = "content-automation/PLATFORM_FIT_REPORT.md";
+const koreanReadabilityReport = "content-automation/KOREAN_READABILITY_REPORT.md";
 const readyCopyIndex = "content-automation/READY_COPY_INDEX.md";
 const platformPostingQa = "content-automation/PLATFORM_POSTING_QA.md";
 
@@ -70,6 +71,7 @@ if (!existsSync(performanceLog)) failures.push("Missing generated performance lo
 if (!existsSync(dailyBrief)) failures.push("Missing generated daily brief markdown.");
 if (!existsSync(copyQualityReport)) failures.push("Missing generated copy quality report markdown.");
 if (!existsSync(platformFitReport)) failures.push("Missing generated platform fit report markdown.");
+if (!existsSync(koreanReadabilityReport)) failures.push("Missing generated Korean readability report markdown.");
 if (!existsSync(platformPostingQa)) failures.push("Missing generated platform posting QA markdown.");
 
 for (const campaignFile of campaignFiles) {
@@ -249,6 +251,13 @@ if (existsSync(platformFitReport)) {
   const fit = read(platformFitReport);
   for (const marker of ["Grant Labs Platform Fit Report", "Ready: 32", "Needs platform edit or missing: 0", "Naver Blog", "Instagram Carousel", "YouTube Long-form", "Operator Rule", "SmartEditor", "caption URLs may not be clickable", "npm run content:platform-fit"]) {
     if (!fit.includes(marker)) failures.push(`Platform fit report is missing marker: ${marker}`);
+  }
+}
+
+if (existsSync(koreanReadabilityReport)) {
+  const readability = read(koreanReadabilityReport);
+  for (const marker of ["Grant Labs Korean Readability Report", "Ready: 32", "Needs readability review or missing: 0", "Readability Matrix", "Hangul chars", "Raw URL", "suspected mojibake", "npm run content:readability"]) {
+    if (!readability.includes(marker)) failures.push(`Korean readability report is missing marker: ${marker}`);
   }
 }
 

@@ -56,6 +56,10 @@ const trackedRows = existsSync(trackedLinksCsv)
 
 const trackedLinkByKey = new Map(trackedRows.map((row) => [`${row.campaign}::${row.platform}`, row.trackedUrl]));
 
+const existingPerformanceByKey = existsSync(outputPath)
+  ? parsePerformanceRows(readFileSync(outputPath, "utf8"))
+  : new Map();
+
 const metricHintFor = (platform) => {
   if (platform === "Naver Blog") return "Search impressions, clicks, inquiry clicks";
   if (platform === "LinkedIn Page") return "Profile visits, saves, qualified comments";
@@ -74,7 +78,17 @@ const performanceRows = rows.length
     const status = row.publishDate < today ? "Past - fill URL/results" : row.publishDate === today ? "Today - publish/check" : "Upcoming - prepare";
     const firstCheckDate = row.publishDate < today ? today : row.publishDate;
     const trackedUrl = trackedLinkByKey.get(`${row.campaign}::${row.platform}`) || row.landingPage || "";
-    return `| ${slot} | ${row.platform} | \`${row.campaign}\` | ${status} | ${trackedUrl} |  | ${metricHintFor(row.platform)} | ${firstCheckDate} |  |  |  |  |`;
+    const existing = existingPerformanceByKey.get(`${slot}::${row.platform}::${row.campaign}`);
+    const merged = {
+      status: existing?.status || status,
+      publishedUrl: existing?.publishedUrl || "",
+      firstCheckDate: existing?.firstCheckDate || firstCheckDate,
+      result: existing?.result || "",
+      learnings: existing?.learnings || "",
+      repurposeDecision: existing?.repurposeDecision || "",
+      followUpOwner: existing?.followUpOwner || ""
+    };
+    return `| ${slot} | ${row.platform} | \`${row.campaign}\` | ${merged.status} | ${trackedUrl} | ${merged.publishedUrl} | ${metricHintFor(row.platform)} | ${merged.firstCheckDate} | ${merged.result} | ${merged.learnings} | ${merged.repurposeDecision} | ${merged.followUpOwner} |`;
   }).join("\n")
   : "| n/a | n/a | n/a | n/a |  |  | n/a | n/a |  |  |  |  |";
 
@@ -146,3 +160,27 @@ npm run content:performance
 
 writeFileSync(outputPath, content, "utf8");
 console.log(`Generated performance log: ${outputPath}`);
+
+function parsePerformanceRows(markdown) {
+  const rowsByKey = new Map();
+  const lines = markdown.split(/\r?\n/);
+
+  for (const line of lines) {
+    if (!line.startsWith("| ") || line.includes("| ---") || line.includes("| Slot |")) continue;
+    const cells = line.split("|").slice(1, -1).map((cell) => cell.trim());
+    if (cells.length < 12 || cells[0] === "n/a") continue;
+
+    const campaign = cells[2].replace(/`/g, "");
+    rowsByKey.set(`${cells[0]}::${cells[1]}::${campaign}`, {
+      status: cells[3],
+      publishedUrl: cells[5],
+      firstCheckDate: cells[7],
+      result: cells[8],
+      learnings: cells[9],
+      repurposeDecision: cells[10],
+      followUpOwner: cells[11]
+    });
+  }
+
+  return rowsByKey;
+}

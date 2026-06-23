@@ -76,6 +76,7 @@ ${rows}
 - \`content-automation/READY_COPY_INDEX.md\`
 - \`content-automation/COPY_QUALITY_REPORT.md\`
 - \`content-automation/PLATFORM_FIT_REPORT.md\`
+- \`content-automation/KOREAN_READABILITY_REPORT.md\`
 - \`sitemap.xml\`
 - \`DEPLOYMENT_READINESS.md\`
 - \`DEVELOPMENT_JOURNAL.md\`
