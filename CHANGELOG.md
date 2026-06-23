@@ -11,6 +11,7 @@ All notable changes to the Grant Labs new homepage are documented here.
 - Added `npm run content:platform-fit` and `content-automation/PLATFORM_FIT_REPORT.md` to check site-specific posting fit, including Naver URL handling, Instagram/TikTok link limits, YouTube pinned comments, and Facebook/LinkedIn visible URLs.
 - Added `npm run content:readability` and `content-automation/KOREAN_READABILITY_REPORT.md` to check Hangul volume, paragraph structure, raw URL visibility, and suspected mojibake before publishing.
 - Added `npm run content:review` and `content-automation/POST_PUBLICATION_REVIEW.md` to surface missing published URLs, first results, learnings, and completed post-publication reviews.
+- Added priority follow-up and missing-URL summaries to `content-automation/POST_PUBLICATION_REVIEW.md` so collaborators can act before scanning the full review table.
 - Updated `content-automation/PERFORMANCE_LOG.md` generation to preserve manually entered published URLs, results, learnings, repurpose decisions, and owners across refreshes.
 - Updated `content-automation/TODAY_ACTIONS.md` so `Overdue Carryover` hides rows that already have a published URL or completed status in `PERFORMANCE_LOG.md`.
 - Regenerated `sitemap.xml` so all public page `lastmod` values match the current Asia/Seoul date.

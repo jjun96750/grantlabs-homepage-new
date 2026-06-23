@@ -624,7 +624,7 @@ if (existsSync("scripts/generate-performance-log.mjs")) {
 
 if (existsSync("scripts/generate-post-publication-review.mjs")) {
   const reviewGenerator = read("scripts/generate-post-publication-review.mjs");
-  for (const marker of ["content-automation/POST_PUBLICATION_REVIEW.md", "Missing Published URL", "Missing First Result", "Missing Learning", "Generated post-publication review"]) {
+  for (const marker of ["content-automation/POST_PUBLICATION_REVIEW.md", "Priority Follow-up", "Missing URL Summary", "Missing Published URL", "Missing First Result", "Missing Learning", "Generated post-publication review"]) {
     if (!reviewGenerator.includes(marker)) failures.push(`scripts/generate-post-publication-review.mjs is missing marker: ${marker}`);
   }
 }
@@ -736,7 +736,7 @@ if (existsSync("content-automation/PERFORMANCE_LOG.md")) {
 
 if (existsSync("content-automation/POST_PUBLICATION_REVIEW.md")) {
   const review = read("content-automation/POST_PUBLICATION_REVIEW.md");
-  for (const marker of ["Grant Labs Post-publication Review", "Missing Published URL", "Missing First Result", "Missing Learning", "Completed Reviews", "npm run content:review"]) {
+  for (const marker of ["Grant Labs Post-publication Review", "Priority Follow-up", "Missing URL Summary", "Missing Published URL", "Missing First Result", "Missing Learning", "Completed Reviews", "npm run content:review"]) {
     if (!review.includes(marker)) failures.push(`content-automation/POST_PUBLICATION_REVIEW.md is missing marker: ${marker}`);
   }
 }

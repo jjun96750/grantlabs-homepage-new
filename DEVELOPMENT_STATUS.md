@@ -31,6 +31,7 @@ Last updated: 2026-06-23
 - Content automation now generates `content-automation/PLATFORM_FIT_REPORT.md`; all 32 campaign/platform channel-fit checks currently report Ready.
 - Content automation now generates `content-automation/KOREAN_READABILITY_REPORT.md`; all 32 campaign/platform Korean-readability checks currently report Ready.
 - Content automation now generates `content-automation/POST_PUBLICATION_REVIEW.md` so collaborators can see which published URLs, first results, and learnings still need follow-up.
+- `content-automation/POST_PUBLICATION_REVIEW.md` now includes a priority follow-up table and missing-URL summaries by platform and campaign.
 - `content-automation/PERFORMANCE_LOG.md` now preserves manually entered published URLs, results, learnings, repurpose decisions, and owners across regeneration.
 - `content-automation/TODAY_ACTIONS.md` now hides overdue rows that already have a published URL or completed status in `PERFORMANCE_LOG.md`.
 - `content-automation/PERFORMANCE_LOG.md` now includes publishing status, tracked CTA URLs, first-check dates, and a daily review queue for follow-up ownership.

@@ -237,7 +237,7 @@ if (existsSync(performanceLog)) {
 
 if (existsSync(postPublicationReview)) {
   const review = read(postPublicationReview);
-  for (const marker of ["Grant Labs Post-publication Review", "Missing Published URL", "Missing First Result", "Missing Learning", "Completed Reviews", "npm run content:review"]) {
+  for (const marker of ["Grant Labs Post-publication Review", "Priority Follow-up", "Missing URL Summary", "Missing Published URL", "Missing First Result", "Missing Learning", "Completed Reviews", "npm run content:review"]) {
     if (!review.includes(marker)) failures.push(`Post-publication review is missing marker: ${marker}`);
   }
 }
