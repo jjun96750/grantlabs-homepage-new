@@ -20,6 +20,7 @@ const docs = [
   ["Deployment Readiness", "DEPLOYMENT_READINESS.md", "Cloudflare Pages readiness checks and open deployment placeholders"],
   ["Deployment Environments", "DEPLOYMENT_ENVIRONMENTS.md", "Preview, production, domain, EmailJS, and smoke-test records"],
   ["Command Guide", "COMMANDS.md", "Standard local, content, deployment, preview, and smoke commands"],
+  ["Ops Refresh Report", "OPS_REFRESH_REPORT.md", "Latest daily refresh result across content, sitemap, status documents, and validation"],
   ["Cloudflare Setup", "CLOUDFLARE_PAGES_SETUP.md", "Cloudflare Pages project settings and first deployment flow"],
   ["QA Checklist", "QA_CHECKLIST.md", "Manual deployment QA and visual checks"],
   ["Rollback Plan", "ROLLBACK_PLAN.md", "Rollback notes for deployment changes"],
@@ -38,7 +39,8 @@ const guardrails = [
   ["Development journal drift checked in CI", contains(".github/workflows/static-site-check.yml", "git diff --exit-code -- DEVELOPMENT_JOURNAL.md")],
   ["Local preview checked in CI", contains(".github/workflows/static-site-check.yml", "npm run preview:check")],
   ["Content quality command documented", contains("COMMANDS.md", "npm run check:content")],
-  ["Deployment readiness command documented", contains("COMMANDS.md", "npm run deployment:readiness")]
+  ["Deployment readiness command documented", contains("COMMANDS.md", "npm run deployment:readiness")],
+  ["Daily ops refresh command documented", contains("COMMANDS.md", "npm run ops:refresh")]
 ];
 
 const guardrailRows = guardrails
@@ -71,6 +73,7 @@ npm run sitemap:refresh
 npm run deployment:readiness
 npm run status:journal
 npm run status:index
+npm run ops:refresh
 npm run check:content
 npm run check
 \`\`\`

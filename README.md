@@ -30,6 +30,7 @@ social-card.svg
 robots.txt
 sitemap.xml
 site.webmanifest
+OPS_REFRESH_REPORT.md
 scripts/
   check-static-site.mjs
   check-content-automation.mjs
@@ -51,6 +52,7 @@ scripts/
   generate-sitemap.mjs
   generate-development-journal.mjs
   generate-status-index.mjs
+  run-daily-ops-refresh.mjs
   generate-publishing-queue.mjs
   run-all-content-automation.mjs
   run-content-automation.mjs
@@ -221,6 +223,10 @@ npm run status:journal
 
 ```bash
 npm run status:index
+```
+
+```bash
+npm run ops:refresh
 ```
 
 ```bash

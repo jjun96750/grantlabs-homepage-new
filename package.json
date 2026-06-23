@@ -28,6 +28,7 @@
     "sitemap:refresh": "node scripts/generate-sitemap.mjs",
     "status:journal": "node scripts/generate-development-journal.mjs",
     "status:index": "node scripts/generate-status-index.mjs",
+    "ops:refresh": "node scripts/run-daily-ops-refresh.mjs",
     "serve": "node scripts/serve-static.mjs",
     "preview:check": "node scripts/check-local-preview.mjs",
     "smoke": "node scripts/check-deployed-site.mjs"

@@ -574,6 +574,14 @@
             if (note) note.textContent = "상담 요청을 확인하는 중입니다.";
             return;
           }
+          var searchParams = new URLSearchParams(window.location.search);
+          var tracking = {
+            utm_source: searchParams.get("utm_source") || "",
+            utm_medium: searchParams.get("utm_medium") || "",
+            utm_campaign: searchParams.get("utm_campaign") || "",
+            utm_content: searchParams.get("utm_content") || "",
+            referrer: document.referrer || ""
+          };
           var payload = {
             company: data.get("company") || "",
             name: data.get("name") || "",
@@ -582,7 +590,12 @@
             interest: data.get("interest") || "",
             message: data.get("message") || "",
             page_url: window.location.href,
-            submitted_at: new Date().toISOString()
+            submitted_at: new Date().toISOString(),
+            utm_source: tracking.utm_source,
+            utm_medium: tracking.utm_medium,
+            utm_campaign: tracking.utm_campaign,
+            utm_content: tracking.utm_content,
+            referrer: tracking.referrer
           };
           var subject = "[Grant Labs 상담 문의] " + (data.get("company") || "신규 문의");
           var body = [
@@ -591,6 +604,12 @@
             "연락처: " + payload.phone,
             "이메일: " + payload.email,
             "관심 분야: " + payload.interest,
+            "Page URL: " + payload.page_url,
+            "Referrer: " + payload.referrer,
+            "UTM source: " + payload.utm_source,
+            "UTM medium: " + payload.utm_medium,
+            "UTM campaign: " + payload.utm_campaign,
+            "UTM content: " + payload.utm_content,
             "",
             "문의 내용:",
             payload.message

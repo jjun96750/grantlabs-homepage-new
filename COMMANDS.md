@@ -26,6 +26,7 @@ npm run deployment:readiness
 npm run sitemap:refresh
 npm run status:journal
 npm run status:index
+npm run ops:refresh
 npm run serve
 npm run preview:check
 npm run smoke -- https://your-pages-preview.pages.dev
@@ -54,6 +55,7 @@ npm run smoke -- https://your-pages-preview.pages.dev
 - `npm run sitemap:refresh` runs the sitemap refresh and regenerates `sitemap.xml` with current Asia/Seoul lastmod values.
 - `npm run status:journal` regenerates the commit-based development journal for collaborators.
 - `npm run status:index` regenerates the collaborator-facing status index document.
+- `npm run ops:refresh` runs the daily ops refresh: it regenerates daily content outputs, sitemap, deployment/status documents, and then runs both validation checks.
 - `npm run serve` starts a dependency-free local preview server at `http://127.0.0.1:4173/`.
 - `npm run preview:check` verifies the running local preview server.
 - `npm run smoke -- <preview-url>` runs deployed Cloudflare Pages smoke checks.

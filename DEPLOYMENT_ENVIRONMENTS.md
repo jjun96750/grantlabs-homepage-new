@@ -66,7 +66,7 @@ Fallback phone: 010-5963-7624
 Before approving a preview, submit one test inquiry and confirm:
 
 - EmailJS delivery arrives at the expected inbox.
-- EmailJS message includes `page_url` and `submitted_at`.
+- EmailJS message includes `page_url`, `submitted_at`, `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, and `referrer`.
 - The form resets and shows the success message after EmailJS delivery.
 - If EmailJS is blocked or fails, the pre-filled email draft opens.
 - With JavaScript disabled, the phone/email fallback guidance is visible.

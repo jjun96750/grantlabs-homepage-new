@@ -15,6 +15,7 @@ Last updated: 2026-06-23
 - Content automation now generates platform-ready copy-only files for every campaign under `content-automation/output/platform-ready-copy/`.
 - Date-sensitive automation outputs were refreshed for 2026-06-23, including `TODAY_ACTIONS.md`, `UPCOMING_ACTIONS.md`, `DAILY_BRIEF.md`, `PLATFORM_POSTING_QA.md`, `READY_COPY_INDEX.md`, and `sitemap.xml`.
 - `content-automation/TODAY_ACTIONS.md` now includes `Overdue Carryover` so missed prior slots remain visible with ready-copy links, tracked CTA URLs, and final channel checks.
+- `npm run ops:refresh` now runs the daily content automation, sitemap refresh, deployment/status document refresh, `npm run check:content`, and `npm run check` sequence, then records results in `OPS_REFRESH_REPORT.md`.
 - Platform-ready copy now uses channel-specific publishing behavior: Naver gets readable sections and a visible raw URL CTA, Instagram/TikTok avoid assuming clickable captions, and YouTube/Facebook/LinkedIn keep URL-forward post formats.
 - Naver Blog now has a plain-text `01-naver-blog-copy.txt` per campaign with raw checklist URL, readable paragraph breaks, and no Markdown link syntax.
 - Content automation now generates `content-automation/READY_COPY_INDEX.md` as a collaborator-facing map to each campaign's platform-ready summary and Naver plain-text file.
@@ -40,6 +41,7 @@ Last updated: 2026-06-23
 - Development status document created and actively maintained.
 - Static deployment support files added.
 - Contact form now attempts EmailJS submission and falls back to a pre-filled email draft.
+- Contact form attribution now captures UTM source, medium, campaign, content, referrer, page URL, and submission time in EmailJS and mailto fallback payloads.
 - FAQ section and FAQPage structured data added.
 - Readiness-check section added to help visitors prepare for consultation.
 - Privacy notice page added and linked from the consultation form and footer.
@@ -72,6 +74,7 @@ Last updated: 2026-06-23
 - Static validation now checks README and Cloudflare setup guidance markers.
 - Deployment environment tracker now records EmailJS and fallback contact configuration.
 - Contact form submission payload now includes page URL and ISO submission timestamp.
+- Contact form submission payload now includes UTM campaign fields and referrer for campaign-level consultation attribution.
 - Sitemap now excludes the noindex privacy page for cleaner SEO signals.
 - Deployed smoke test now verifies sitemap excludes the noindex privacy URL.
 - Static validation now checks language, title, description, and replacement characters across all HTML pages.
